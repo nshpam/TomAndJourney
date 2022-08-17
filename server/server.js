@@ -24,7 +24,13 @@ app.use(cors()) //
 app.use(morgan("dev")) //
 
 // route
+app.get('/api',(req,res)=>{
+    res.json({
+        data:"Hello my name is suzy"
+    })
+})
 app.use('/api',blogRoute)
+
 
 
 //Setting Port
