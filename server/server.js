@@ -6,7 +6,7 @@ const mongoose = require("mongoose")  // mongoose ไว้เชื่อม mo
 require("dotenv").config()
 // ใช้ตั้งค่าไฟล์นามสกุล .env
 
-const blogRoute = require('./route/blog.js')
+const blogRoute = require('./routes/blog.js')
 // สร้าง func BlogRoute โดยดึง blog.js มากจากfloder route
 
 const app = express()
