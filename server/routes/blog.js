@@ -1,9 +1,9 @@
 const express = require("express")
 const router = express.Router()
 
-const {create} = require("../controller/blogController")
+const {create} = require("../controllers/blogController")
 
-router.get('/blog',create)
+router.post('/create',create)
 
 // router.get('/blog',(req,res)=>{
 //     res.json({
