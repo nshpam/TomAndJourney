@@ -21,11 +21,9 @@ function App() {
         
       </header>
       
-      <div id="background">
-        <video>
-          <source src=""></source>
-        </video>
-      </div>
+      
+      
+      
     </div>
     
     
