@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
-.nav {
+
+    
+
+
+.nao {
             
-    background-color: rgba(0, 0, 0, 0.329);
+    
     height: 100%;
     width: 100%;
     position: absolute;
@@ -13,6 +17,7 @@
     
     align-items: center;
     font-family: "Montserrat", sans-serif;
+    background-color: rgba(0, 0, 0, 0.329);
     
     
 
@@ -28,4 +33,20 @@
 #clickbait:hover{
     transition: all 0.4s ease 0s;
     color: #a64343;
+}
+
+.bg_video{
+        
+    left: 0;
+    right: 0;
+    
+    
+    
+    bottom: 01;
+    height: 125%;
+    width: 110%;
+    position: fixed;
+    z-index: -1;
+    
+
 }
