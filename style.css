@@ -36,15 +36,12 @@
 }
 
 .bg_video{
-        
+    
     left: 0;
     right: 0;
-    
-    
-    
-    bottom: 01;
-    height: 125%;
-    width: 110%;
+    bottom: 0;
+    height: 115%;
+    width: auto;
     position: fixed;
     z-index: -1;
     
