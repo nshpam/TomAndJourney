@@ -18,7 +18,7 @@ function App() {
           </ul>
         </nav>
         <a class="sgn" href="#" > <button id="signin"> Sign in </button> </a>
-        <a class="sgn" href="#" > <button id="Sign Up"> Sign in </button> </a>
+        
         
       </header>
       
