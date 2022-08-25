@@ -89,8 +89,8 @@
 #submit {
     
 
-    margin-top: 3em;
-    margin-bottom: 0em;
+    margin-top: 2em;
+    margin-bottom: 2em;
 
     font-size: 1em;
     padding: 11px 24px;
@@ -108,4 +108,13 @@
     background-color:#edf0f1;
     font-weight: bold;
     color: #A64343;
+  }
+
+  .signup-text {
+    font-size: 11px;
+    margin: 4.5em;
+    text-align: center;
+    
+    
+
   }

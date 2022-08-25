@@ -31,6 +31,12 @@ const LoginComponent=()=>{
                 <input type="submit" id="submit" value="Login"></input>
             </div>
 
+            <div>
+            <span class="signup-text"> 
+            Dont’t have an account? <a href="#" id="Signup-click">Sign Up</a> Now
+                 </span> 
+            </div>
+
             
 
                 
