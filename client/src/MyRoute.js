@@ -6,13 +6,11 @@ function MyRoute(){
 
     return(
         <BrowserRouter>
-        
-            <Routes>
-                <Route path="/" exact component={App} />
-                <Route path="/Login" exact component={LoginComponent} />
-            </Routes>
-        
-        </BrowserRouter>
+        <Routes>
+            <Route path="/" exact element={<App/>} />
+            <Route path="/login" exact element={<LoginComponent/>} />
+        </Routes>
+</BrowserRouter>
     )
 }
 export default MyRoute;
