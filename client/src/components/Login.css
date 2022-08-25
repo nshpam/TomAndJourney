@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+.loginNav{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;  /* ใช้เปลี่ยนทางซ้ายขวา */
+    align-items: center;
+    padding: 40px 10%;
+    background-color: #A64343;
+}
 
 .form-login{
     margin: 1em;
@@ -11,13 +21,14 @@
 
 #email ,#password{
   
-    padding: 0.5rem 3em;
+    padding: 12px 10px;
     /* padding: 9px 15px;  */
-    margin: 1em;
+    margin:1em;
+    width: 90%;
     border: none;
-    border-radius: 50px;
+    border-radius: 30px;
     cursor: pointer;
-    font-weight: bolder;
+    font-weight: bold;
     outline: none;
     
     
@@ -41,7 +52,14 @@
     text-transform: uppercase;
     font-size: 2em;
     text-align: center;
-    margin-bottom: 2em;
+    
+    
+}
+#subtitle-login{
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    text-align: center;
+    margin-bottom: 3em;
 }
 
 #forgetpass {
