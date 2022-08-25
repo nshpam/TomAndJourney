@@ -7,14 +7,14 @@ function App() {
     <div className="App">
       
       <header className="Nav-header">
-        <a class="title" >Tom And Journey</a>
+        <a class="title" id="Nav_" >Tom And Journey</a>
         
         <nav>
 
           <ul class="nav__links">
-            <li> <a href="#">Home</a> </li>
-            <li> <a href="#">About us</a> </li>
-            <li> <a href="#">Trip Planer</a> </li>
+            <li> <a href="#" id="Nav_">Home</a> </li>
+            <li> <a href="#" id="Nav_">About us</a> </li>
+            <li> <a href="#" id="Nav_">Trip Planer</a> </li>
 
           </ul>
         </nav>
