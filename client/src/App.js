@@ -5,9 +5,10 @@ function App() {
   return (
     
     <div className="App">
+      
       <header className="Nav-header">
         <a class="title" >Tom And Journey</a>
-         {/* <img src={logo} className="App-logo" alt="logo" /> */}
+        
         <nav>
 
           <ul class="nav__links">
@@ -21,7 +22,6 @@ function App() {
         
         
       </header>
-      
     </div>
     
     
