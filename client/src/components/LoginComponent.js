@@ -33,7 +33,7 @@ const LoginComponent=()=>{
 
             <div>
             <span class="signup-text"> 
-            Dont’t have an account? <a href="#" id="Signup-click">Sign Up</a> Now
+            Dont’t have an account? <a href="/register" id="Signup-click">Sign Up</a> Now
                  </span> 
             </div>
 
