@@ -1,13 +1,13 @@
-import './Login.css';
+import './Register.css';
 
-const LoginComponent=()=>{
+const RegisterComponent=()=>{
     return (
         <div>
             <div class="loginNav">
             </div>
         <div class="form-login">
-            <h1 id="title-login">LOGIN</h1>
-            <h3 id="subtitle-login">sign in to your account</h3>
+            <h1 id="title-login">Register</h1>
+            <h3 id="subtitle-login">sign up your account</h3>
 
             <div>
                 <label for="email">Email : </label>
@@ -18,24 +18,31 @@ const LoginComponent=()=>{
                 <label for="password">Password :</label>
                 <input type="password" id="password"></input>
             </div>
-            
+
+            <div>
+                <label for="password"> Comfirmed Password :</label>
+                <input type="password" id="comfirm-password"></input>
+            </div>
+
+            <div>
+                <label for="password">Password :</label>
+                <input type="password" id="password"></input>
+            </div>
+
+            {/* w
             <a href="#" id="forgetpass">Forget password</a>
             <span id="remem-check"> 
                 <input type="checkbox" id="checkbox-remember">
                     </input> 
                     Remember me.  
                  </span> 
+             */}
+
+            <div>
+                <input type="submit" id="regis-submit" value="Register"></input>
+            </div>
+
             
-
-            <div>
-                <input type="submit" id="submit" value="Login"></input>
-            </div>
-
-            <div>
-            <span class="signup-text"> 
-            Dont’t have an account? <a href="/register" id="Signup-click">Sign Up</a> Now
-                 </span> 
-            </div>
 
             
 
@@ -47,4 +54,4 @@ const LoginComponent=()=>{
 
     );
 }
-export default LoginComponent;
+export default RegisterComponent;
