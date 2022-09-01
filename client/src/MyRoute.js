@@ -9,6 +9,7 @@ function MyRoute(){
         <Routes>
             <Route path="/" exact element={<App/>} />
             <Route path="/login" exact element={<LoginComponent/>} />
+            <Route path="/logi" exact element={<LoginComponent/>} />
         </Routes>
 </BrowserRouter>
     )
