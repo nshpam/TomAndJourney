@@ -20,9 +20,11 @@ function App() {
         </nav>
         <a class="sgn" href="/login" > <button id="signin"> Sign in </button></a>
         
-        
+        <footer></footer>
       </header>
     </div>
+
+    
     
     
   );
