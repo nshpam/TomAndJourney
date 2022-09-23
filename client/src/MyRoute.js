@@ -12,6 +12,8 @@ function MyRoute(){
             <Route path="/login" exact element={<LoginComponent/>} />
             <Route path="/logi" exact element={<LoginComponent/>} />
             <Route path="/register" exact element={<RegisterComponent/>} />
+            <Route path="/contact" exact element={<RegisterComponent/>} />
+            <Route path="/tripplanners" exact element={<RegisterComponent/>} />
         </Routes>
 </BrowserRouter>
     )
