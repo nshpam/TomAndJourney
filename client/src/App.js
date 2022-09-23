@@ -12,8 +12,8 @@ function App() {
         <nav>
 
           <ul class="nav__links">
-            <li> <a href="#" id="Nav_">Home</a> </li>
-            <li> <a href="#" id="Nav_">About us</a> </li>
+            <li> <a href="/" id="Nav_">Home</a> </li>
+            <li> <a href="/abouts" id="Nav_">About us</a> </li>
             <li> <a href="#" id="Nav_">Trip Planer</a> </li>
 
           </ul>
