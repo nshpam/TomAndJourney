@@ -3,6 +3,7 @@ import App from "./App"
 import LoginComponent from "./components/LoginComponent"
 import RegisterComponent from "./components/RegisterComponent"
 import AboutComponent from "./components/AboutComponent"
+import FormComponent from "./components/FormComponent"
 
 function MyRoute(){
 
@@ -14,7 +15,7 @@ function MyRoute(){
             <Route path="/logi" exact element={<LoginComponent/>} />
             <Route path="/register" exact element={<RegisterComponent/>} />
             <Route path="/abouts" exact element={<AboutComponent/>} />
-            
+            <Route path="/form" exact element={<FormComponent/>} />
         </Routes>
 </BrowserRouter>
     )
