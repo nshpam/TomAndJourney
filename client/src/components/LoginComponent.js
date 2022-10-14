@@ -1,6 +1,7 @@
 import './Login.css';
 
 const LoginComponent=()=>{
+
     return (
         <div>
             <div class="loginNav">
@@ -11,7 +12,7 @@ const LoginComponent=()=>{
 
             <div>
                 <label for="email">Email : </label>
-                <input type="email" id="email"></input>
+                <input type="email" id="email" ></input>
             </div>
 
             <div>
