@@ -43,8 +43,9 @@ include('header.php');
 
                 <p class="text-center text-danger" id='warning_text'></p>
 
-                <div class="row">
+                <div class="row" id="href-text-1">
                     <a href="#" id="top-buffer-1">Forgot password?</a>
+                    <div class="blank-buffer"></div>
                     <div id="remember-group">
                         <input type="checkbox" id="Remember">
                         <label for="Remember">Remember me</label>
@@ -82,3 +83,106 @@ include('header.php');
     home = document.getElementById("login-link");
     home.classList.add("active");
 </script>
+
+<style>
+    /* responsive */
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+
+        /* nav bar */
+        #custom-nav-bar {
+            height: 10%;
+        }
+
+        #ul-custom-nav-bar {
+            flex-direction: row !important;
+        }
+
+        /* login page */
+
+        .content-header {
+            padding: 0px;
+        }
+
+        .text-1 {
+            font-size: 2.0rem;
+        }
+
+        #form-frame {
+            margin: 0px 10%;
+        }
+    }
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+
+        /* nav bar */
+        /* #custom-nav-bar {
+            height: 10%;
+        } */
+
+        #ul-custom-nav-bar {
+            flex-direction: row !important;
+        }
+
+        /* login page */
+
+        .content-header {
+            padding: 0px;
+        }
+
+        .text-1 {
+            font-size: 2.0rem;
+        }
+
+        #form-frame {
+            margin: 0px 10%;
+        }
+
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+
+        /* login page */
+        .blank-buffer {
+            width: auto;
+        }
+
+        #form-frame {
+            margin: 0px 30%;
+            padding: 5px 10% 10px;
+        }
+
+        .login-box-msg-group {
+            padding-top: 10%;
+            padding-bottom: 2%;
+        }
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+        .blank-buffer {
+            width: auto;
+        }
+
+        #form-frame {
+
+            margin: 0px 30%;
+            padding: 5px 10% 10px;
+        }
+
+        .login-box-msg-group {
+            padding-top: 5%;
+            padding-bottom: 2%;
+        }
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {}
+
+    /* responsive */
+    /* @media screen and (max-width: 789px) {
+        
+    } */
+</style>

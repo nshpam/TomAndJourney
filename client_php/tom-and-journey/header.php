@@ -31,12 +31,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <span class="align-middle text-light">Tom & Journey</span>
 
                 <!-- Left navbar links -->
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto" id="ul-custom-nav-bar">
                     <li class="nav-item">
                         <a class="nav-link" href="/tom-and-journey/home.php" id="home-link" onclick="Home_Link()" ara>Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/tom-and-journey/register.php" class="nav-link" id="trip-planner-link">Trip Planner</a>
+                        <a href="/tom-and-journey/trip.php" class="nav-link" id="trip-planner-link">Trip Planner</a>
                     </li>
                     <li class="nav-item">
                         <a href="/tom-and-journey/index.php" class="nav-link" id="login-link">Login</a>

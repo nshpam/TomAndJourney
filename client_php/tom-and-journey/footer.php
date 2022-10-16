@@ -11,7 +11,7 @@
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 
-<footer class="main-footer text-sm bg-dark">
+<footer class="main-footer fixed-bottom text-sm bg-dark">
     <div class="float-right d-none d-sm-block">
         Version 1.0.0
     </div>
@@ -41,11 +41,11 @@
     /* --- navbar --- */
     #custom-nav-bar {
         background-color: #A64343 !important;
+        border-color: #A64343;
     }
 
     .nav-link {
         color: white !important;
-
     }
 
     .nav-item {
@@ -73,6 +73,9 @@
         vertical-align: middle;
     }
 
+    /* footer */
+
+
     /* --- login form ---*/
 
     /* content-header */
@@ -86,22 +89,18 @@
     }
 
     .login-box-msg-group {
-        padding-top: 40px;
-        padding-bottom: 40px;
+        padding-top: 5%;
+        padding-bottom: 2%;
     }
 
     /* content form */
-
-    .form-frame {
-        border-color: black;
-    }
 
     #form-frame {
         background-color: white;
         outline: 1px solid black;
         border-radius: 20px;
         margin: 0px 30%;
-        padding: 5px 120px 10px;
+        padding: 5px 10% 10px;
     }
 
     .content-wrapper {
@@ -157,10 +156,14 @@
     /* remember me and forgot password */
 
     #remember-group {
-        margin-left: auto;
-        margin-top: 20px;
-        margin-bottom: 20px;
         color: grey;
+        margin: 20px auto 20px auto;
+    }
+
+
+
+    .blank-buffer {
+        width: auto;
     }
 
     #remember-group label {
@@ -174,8 +177,7 @@
 
     #top-buffer-1 {
         color: #A64343;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin: 20px auto 20px auto;
     }
 
     /* login button */
@@ -256,27 +258,6 @@
         font-weight: 400;
     }
 
-    /* advertise banner */
-    #ad-banner {
-        width: 60%;
-        height: 40vh;
-        background-color: #A64343;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #ad-banner img {
-        height: 100%;
-        width: 100%;
-    }
-
-    .content-header {
-        padding: 0px;
-    }
-
-    .top-buffer-2 {
-        margin-top: 10vh;
-    }
 
     /* trip planner form */
 
@@ -292,6 +273,7 @@
         border-bottom: 1px solid black;
         outline: none;
         border-radius: 0px;
+        /* width: 50%; */
     }
 
     .card-body-1 {
@@ -302,20 +284,36 @@
         border-radius: 0px;
     }
 
+    .card-body-1-2 {
+        border-radius: 0px;
+    }
+
+    .form-row {
+        margin-top: 5%;
+    }
+
+
+
     #plan-button {
         background-color: #A64343;
         color: white;
-        width: 50%;
+        width: auto;
         height: 100%;
+    }
+
+    .plan-button-div {
+        padding-left: 0px !important;
+    }
+
+    .card-group {
+        padding-right: 0px !important;
     }
 
     .card-body-2 {
         margin-left: 50px;
     }
 
-    .card-group {
-        margin: 0px 10%;
-    }
+
 
     #plan-button {
         width: 100%;

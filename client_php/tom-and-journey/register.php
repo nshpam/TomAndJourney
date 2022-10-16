@@ -81,8 +81,3 @@
 
 <?php include('footer.php');
 ?>
-
-<script>
-    home = document.getElementById("trip-planner-link");
-    home.classList.add("active");
-</script>
