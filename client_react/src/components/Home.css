@@ -15,7 +15,7 @@ body{
 
 #row{
     position: absolute;
-    top: 15%;
+    top: 20%;
     left: 8%;
     transform: translateY(50%);
 }
@@ -38,12 +38,14 @@ body{
     background: #FAFF03;
     height: 3px;
     width: 375px;
+    margin-bottom: 10px;
 }
 
 #detail-text{
     color: white;
     font-size: 15.2px;
     font-weight: 500;
+    
 }
 
 #button-1{
