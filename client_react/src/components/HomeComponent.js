@@ -1,35 +1,29 @@
 
 import NavbarComponent from './NavbarComponent';
+import './Home.css';
+
 
 const HomeComponent=() => {
     return (
 
         <div id='bg-image'>
-            
-        <div>
+
             <NavbarComponent/>
-            <div id="buffer-top"></div>
+          
+            <div id='row'>
+                <h2 id="topic-text">The Wonderful Trip Planner</h2>
             
-            
-                <h2 md={5} id="topic-text">The Wonderful Trip Planner</h2>
-            
-            
-                <h1 md={5} id="highlight-text">Adventure</h1>
-            
-            
-        
-        <h1 md={5} id ='line-text'></h1>
-        
-        
-            <p md={5} id="detail-text">With Tom & Journey, you can plan your trip anywhere<br />
-            at anytime. We help you save budget by showing you<br />the best deal.</p>
-        
-        <div id="space-buffer"></div>
+                <h1 id="Advtext">Adventure</h1>
+                <p id ='line-text'></p>
+                <p id="detail-text">With Tom & Journey, you can plan your trip anywhere<br />
+                at anytime. We help you save budget by showing you<br />the best deal.</p>
         
         {/* <Col md={2}><Button  id="button-1">Get Started</Button></Col>
         <Col md={2}><Button  id="button-2">See more</Button></Col> */}
         
             </div>
+
+
         </div>
     );
 }

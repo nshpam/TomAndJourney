@@ -2,35 +2,41 @@
 
 body{
     font-family: 'Roboto', sans-serif;
-    overflow: hidden;
+    
 }
 
 #bg-image{
     background-image: url("../assets/home_bg_img.png");
     height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-position: center;
+    background-size: cover;
   
+}
+
+#row{
+    position: absolute;
+    top: 15%;
+    left: 8%;
+    transform: translateY(50%);
 }
 
 #topic-text{
     color: #FAFF03;
     font-size: 30px;
     font-weight: 500;
+    margin : auto;
 }
 
-#highlight-text{
+#Advtext{
     color: white;
     font-size: 80px;
     font-weight: 500;
+    margin : auto;
 }
 
 #line-text{
     background: #FAFF03;
     height: 3px;
-    margin-top: 20px;
-    margin-bottom: 20px;
     width: 375px;
 }
 
@@ -38,11 +44,6 @@ body{
     color: white;
     font-size: 15.2px;
     font-weight: 500;
-}
-
-#buffer-top{
-    height: 150px;
-    border-radius: 10px;
 }
 
 #button-1{
@@ -71,16 +72,4 @@ body{
     border-radius: 50px;
     font-size: 18px;
     font-weight:500;
-}
-
-#center-buffer{
-    width: 50px;
-}
-
-#space-buffer{
-    height: 50px;
-}
-
-#highlight-text-row{
-    line-height: 400%;
 }
