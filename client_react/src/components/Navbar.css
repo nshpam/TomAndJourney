@@ -43,12 +43,15 @@ body{
 .Nav-header .nav li a {
     text-decoration: none;
     padding: 6px 15px;
+    font-size: 1em;
+    font-weight: 500;
     color: #fff;
     border-radius: 20px;
 }
 
 .Nav-header .nav li a:hover{
     background: #fff;
+    font-weight: 500;
     color: #A64343;
 }
 
@@ -65,9 +68,7 @@ body{
         width: 30px;
         height: 30px;
         cursor: pointer;
-        background: url();
-        background-size: 30px;
-        background-position: center;
-        background-repeat: no-repeat;
+        size: 30px;
+        
     }
 }

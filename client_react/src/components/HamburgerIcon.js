@@ -1,32 +1,16 @@
-import hamBtn from './hamanimate';
-import './BurgerStyle.css';
 
+import './BurgerStyle.css';
+import { Squash as Hamburger } from 'hamburger-react';
 
 const HamburgerIcon=()=>{
 
-
-  // const menuBtn = document.querySelector('.menu-btn');
-  // let menuOpen = false;
-  // menuBtn.addEventListener('click', () => {
-  //   if(!menuOpen) {
-  //     menuBtn.classList.add('open');
-  //     menuOpen = true;
-  //   } else {
-  //     menuBtn.classList.remove('open');
-  //     menuOpen = false;
-  //   }
-  // })
-
   return(
-    <div class="menu-btn">
-      <div class="menu-btn__burger"></div>
+    <div class="burger">
+      
+      <Hamburger />
 
-      
-      
     </div>
-    
   )
-  
   
 
 };

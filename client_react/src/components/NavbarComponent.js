@@ -1,10 +1,15 @@
 import './Navbar.css';
+import HamburgerIcon from './HamburgerIcon';
 const NavbarComponents=()=>{
 
     return(
         <header class="Nav-header">
         <a class="title" id="logo" >Tom And Journey</a>
-        <div class="toggle"></div>
+        <div class="toggle">
+        <HamburgerIcon/>
+        </div>
+        
+
         <nav>
 
           <ul class="nav">
