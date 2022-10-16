@@ -1,5 +1,5 @@
 .App {
-  /* text-align: center; */
+  text-align: center;
 }
 
 .App-logo {
@@ -7,106 +7,14 @@
   pointer-events: none;
 }
 
-
-
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
-.title {
-  font-family: "Montserrat";
-  font-size: 20px;
-  font-weight: bolder;
-  cursor: pointer;
-  margin-right: auto;
-  
-}
-
-li, #Nav_, button {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  color: #edf0f1;
-  
-  text-decoration: none;
-  
-}
-
-.Nav-header {
-  display: flex;
-  justify-content: flex-end;  /* ใช้เปลี่ยนทางซ้ายขวา */
-  align-items: center;
-  padding: 20px 10%;
-  background-color: #49484879;
-  
-}
-
-/* ตรงกลาง */
-.nav__links {
-  list-style: none;
-}
-.nav__links li{
-  display: inline-block;
-  padding: 0px 20px;
-}
-.nav__links li #Nav_{
-  transition: all 0.3s ease 0s;
-}
-.nav__links li #Nav_:hover{
-  color: #A64343;
-  font-weight: bolder;
-}
-
-#signin:hover { 
-  font-weight: bolder;
-  color: #a64343;
-  
-}
-
-button {
-  
-  margin-left: 20px;
-  padding: 9px 25px;
-  background-color: #A64343;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-  
-}
-button:hover {
-  background-color:#edf0f1;
-  font-weight: bolder;
-}
-
-
-
-/* background */
-
-/* .back-video{
-  position: absolute;
-   
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  
-} */
-
-
-
-
-
-
-
-
-
-
-
-/* .Nav-header {
-  
+.App-header {
+  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -114,7 +22,7 @@ button:hover {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-} */
+}
 
 .App-link {
   color: #61dafb;
