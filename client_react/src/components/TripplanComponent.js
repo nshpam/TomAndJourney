@@ -1,12 +1,18 @@
-import './Tripplanner.css';
+// import './Tripplanner.css';
+import NavbarComponent from './NavbarComponent';
+
+
 const TripplanComponents=()=>{
 
     return(
-        <header class="Plan_header">
+        <div id="Trip">
+
+        <NavbarComponent/>
+      
         
-        
-        
-      </header>
+
+
+    </div>
     )
 
 }

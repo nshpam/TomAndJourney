@@ -1,10 +1,13 @@
 import './Login.css';
+import NavbarComponent from './NavbarComponent';
+
 
 const LoginComponent=()=>{
 
     return (
         <div>
             <div class="loginNav">
+            <NavbarComponent/>
             </div>
         <div class="form-login">
             <h1 id="title-login">LOGIN</h1>

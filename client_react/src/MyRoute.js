@@ -3,11 +3,11 @@ import App from "./App"
 import Home from "./components/HomeComponent"
 import LoginComponent from "./components/LoginComponent"
 import RegisterComponent from "./components/RegisterComponent"
-import AboutComponent from "./components/AboutComponent"
+import TripplanComponent from "./components/TripplanComponent"
 
 
 import FormComponent from "./components/FormComponent"
-
+import HamburgerIcon from "./components/HamburgerIcon"
 
 function MyRoute(){
 
@@ -18,9 +18,9 @@ function MyRoute(){
             <Route path="/login" exact element={<LoginComponent/>} />
             <Route path="/logi" exact element={<LoginComponent/>} />
             <Route path="/register" exact element={<RegisterComponent/>} />
-            <Route path="/abouts" exact element={<AboutComponent/>} />
-
-
+            <Route path="/Tripplanner" exact element={<TripplanComponent/>} />
+            
+            <Route path="/ham" exact element={<HamburgerIcon/>} />
             <Route path="/form" exact element={<FormComponent/>} />
 
         </Routes>

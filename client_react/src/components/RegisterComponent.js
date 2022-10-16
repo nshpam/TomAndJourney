@@ -1,9 +1,12 @@
 import './Register.css';
+import NavbarComponent from './NavbarComponent';
 
 const RegisterComponent=()=>{
     return (
         <div>
+
             <div class="loginNav">
+            <NavbarComponent/>
             </div>
         <div class="form-login">
             <h1 id="title-login">Register</h1>
