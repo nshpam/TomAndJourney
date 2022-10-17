@@ -1,10 +1,10 @@
 import './Navbar.css';
 import { Component } from 'react';
-import HamburgerIcon from './HamburgerIcon';
 import { Squash as Hamburger } from 'hamburger-react';
 
 
-class NavbarComponents extends Component {  
+class NavbarComponents extends Component { 
+  
 
   render() {
     return(

@@ -8,6 +8,7 @@ import TripplanComponent from "./components/TripplanComponent"
 
 import FormComponent from "./components/FormComponent"
 import HamburgerIcon from "./components/HamburgerIcon"
+import Footer from "./components/Footer"
 
 function MyRoute(){
 
@@ -20,6 +21,7 @@ function MyRoute(){
             <Route path="/register" exact element={<RegisterComponent/>} />
             <Route path="/Tripplanner" exact element={<TripplanComponent/>} />
             
+            <Route path="/footer" exact element={<Footer/>} />
             <Route path="/ham" exact element={<HamburgerIcon/>} />
             <Route path="/form" exact element={<FormComponent/>} />
 

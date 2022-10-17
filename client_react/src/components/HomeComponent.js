@@ -18,8 +18,10 @@ const HomeComponent=() => {
                 <p id="detail-text">With Tom & Journey, you can plan your trip anywhere<br />
                 at anytime. We help you save budget by showing you<br />the best deal.</p>
         
-        {/* <Col md={2}><Button  id="button-1">Get Started</Button></Col>
-        <Col md={2}><Button  id="button-2">See more</Button></Col> */}
+
+                <button id="button-1">Get Started</button>
+
+                <button id="button-2">See more</button>
         
             </div>
 
