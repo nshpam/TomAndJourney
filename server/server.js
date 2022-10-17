@@ -9,8 +9,15 @@ require("dotenv").config()
 const blogRoute = require('./routes/blog.js')
 // สร้าง func BlogRoute โดยดึง blog.js มากจากfloder route
 
+
 const app = express()
 // connect cloud database
+// var url = 'mongodb://localhost:27017/nshpam'
+
+// mongoose.connect(url,{
+//     useNewUrlParser:true,
+//     useUnifiedTopology:false
+// })
 mongoose.connect(process.env.DATABASE,{
     useNewUrlParser:true,
     useUnifiedTopology:false
