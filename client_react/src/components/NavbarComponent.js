@@ -1,15 +1,17 @@
 import './Navbar.css';
+import { Component } from 'react';
 import HamburgerIcon from './HamburgerIcon';
-const NavbarComponents=()=>{
+import { Squash as Hamburger } from 'hamburger-react';
 
+
+class NavbarComponents extends Component {  
+
+  render() {
     return(
+      <div>
         <header class="Nav-header">
         <a class="title" id="logo" >Tom And Journey</a>
-        <div class="toggle">
-        <HamburgerIcon/>
-        </div>
         
-
         <nav>
 
           <ul class="nav">
@@ -19,10 +21,17 @@ const NavbarComponents=()=>{
 
           </ul>
         </nav>
-        
+        <div class="toggle">
+        <Hamburger size={25}/>
+        </div>
         
       </header>
+      
+      
+      </div>
+      
     )
-
+    
+  }
 };
 export default NavbarComponents;

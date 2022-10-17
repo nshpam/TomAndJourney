@@ -55,20 +55,28 @@ body{
     color: #A64343;
 }
 
+.toggle {
+    display: none;
+}
+
 @media (max-width: 992px) {
 
     .Nav-header{
-        padding: 20px;
+        padding: 10px;
     }
-    .Nav-header.nav {
+    .Nav-header .nav {
         display: none;
     }
     .toggle {
+        display:contents;
+        
+
         position: relative;
-        width: 30px;
-        height: 30px;
+        height: 20px; 
+        width: 20px;
         cursor: pointer;
-        size: 30px;
+        size: 20px;
+        color: #fff;
         
     }
 }
