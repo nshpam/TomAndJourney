@@ -45,7 +45,7 @@
 
     /* --- navbar --- */
     #custom-nav-bar {
-        background-color: #A64343 !important;
+        background-color: #A64343 ;
         border-color: #A64343;
     }
 

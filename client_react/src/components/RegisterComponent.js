@@ -1,9 +1,13 @@
 import './Register.css';
+import NavbarComponent from './NavbarComponent';
+import Footer from './Footer';
 
 const RegisterComponent=()=>{
     return (
         <div>
+
             <div class="loginNav">
+            <NavbarComponent/>
             </div>
         <div class="form-login">
             <h1 id="title-login">Register</h1>
@@ -48,8 +52,7 @@ const RegisterComponent=()=>{
 
                 
         </div>
-        {/* FOOTER WIP */}
-        {/* <footer>WIP</footer> */}
+        <Footer/>
         </div>
 
     );
