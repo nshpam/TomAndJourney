@@ -1,5 +1,6 @@
 import './Login.css';
 import NavbarComponent from './NavbarComponent';
+import Footer from './Footer';
 
 
 const LoginComponent=()=>{
@@ -39,14 +40,17 @@ const LoginComponent=()=>{
             <span class="signup-text"> 
             Dont’t have an account? <a href="/register" id="Signup-click">Sign Up</a> Now
                  </span> 
+            
+                 
             </div>
+            
 
             
 
                 
         </div>
-        {/* FOOTER WIP */}
-        {/* <footer>WIP</footer> */}
+        <Footer />
+        
         </div>
 
     );

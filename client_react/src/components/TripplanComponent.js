@@ -1,5 +1,6 @@
 // import './Tripplanner.css';
 import NavbarComponent from './NavbarComponent';
+import Footer from './Footer';
 
 
 const TripplanComponents=()=>{
@@ -10,7 +11,9 @@ const TripplanComponents=()=>{
         <NavbarComponent/>
       
         
+        
 
+        <Footer/>
 
     </div>
     )
