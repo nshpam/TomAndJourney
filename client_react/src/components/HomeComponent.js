@@ -1,12 +1,15 @@
 
 import NavbarComponent from './NavbarComponent';
+import Footer from './Footer';
+
 import './Home.css';
 
 
 const HomeComponent=() => {
     return (
 
-        <div id='bg-image'>
+        <div >
+            <div id='bg-image'></div>
 
             <NavbarComponent/>
           
@@ -22,11 +25,14 @@ const HomeComponent=() => {
                 <button id="button-1">Get Started</button>
 
                 <button id="button-2">See more</button>
-        
+                
             </div>
-
+            
+            
+            <Footer/>
 
         </div>
+        
     );
 }
 

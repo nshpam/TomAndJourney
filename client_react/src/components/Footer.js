@@ -16,7 +16,7 @@ import { solid, regular, brands, icon } from '@fortawesome/fontawesome-svg-core/
 const Footer =() => {
 
     return(
-        <footer>
+        <footer class="footer">
             <div class="Footer-container">
                 <div class="section-about">
                     <h2>About Us</h2>
