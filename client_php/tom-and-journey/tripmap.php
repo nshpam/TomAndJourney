@@ -36,6 +36,7 @@ include('header.php');
                 </div>
             </div> -->
 
+            <!-- filter and info design -->
             <div class="card d-flex info-block">
                 <div class="card-header info-block-body">
                     <div class="row">
@@ -89,6 +90,11 @@ include('header.php');
                     </div>
                 </div>
             </div>
+
+            <!-- filter, info, route design -->
+            <!-- <div class="card route-main-block">
+                <div class="location-img"><img src="" alt=""></div>
+            </div> -->
         </div>
 
     </div>
@@ -410,22 +416,6 @@ include('header.php');
 </style>
 
 <script>
-    //find cordinates
-
-    // map.on(("click"),
-    //     function(e) {
-    //         geocodeService.reverse().latlng(e.latlng).run(function(error, result) {
-    //             if (error) {
-    //                 layer.bindPopup('no place match');
-    //             }
-
-    //             layer.bindPopup(result.address.Match_addr);
-    //         });
-    //     });
-
-
-
-
     center_map = [13.7528, 100.5173];
 
     //camera
@@ -470,6 +460,35 @@ include('header.php');
     mark_photo_29 = [13.751014817334124, 100.49015947336244];
     mark_photo_30 = [13.751401002738078, 100.49993721790884];
 
+    // market
+    mark_photo_31 = [13.757928665468967, 100.49916360709642];
+    mark_photo_32 = [13.758891599969672, 100.49708653954536];
+    mark_photo_33 = [13.75248125466527, 100.50439773412478];
+    mark_photo_34 = [13.750620000000026, 100.51273000000003];
+    mark_photo_35 = [13.757023402177936, 100.51685891942668];
+
+    // anchor
+    mark_photo_36 = [13.756509478309624, 100.48867444496369];
+    mark_photo_37 = [13.754715008785922, 100.4885122633741];
+    mark_photo_38 = [13.752480000000048, 100.48828000000003];
+    mark_photo_39 = [13.755532005756095, 100.50649057873318];
+    mark_photo_40 = [13.762721117891658, 100.49861658710779];
+
+    // cafe
+    mark_photo_41 = [13.763508463754022, 100.49500696398519];
+    mark_photo_42 = [13.765792844058751, 100.49792327258729];
+    mark_photo_43 = [13.761700000000076, 100.50386000000003];
+    mark_photo_44 = [13.76320000000004, 100.50473000000005];
+    mark_photo_45 = [13.750070789902168, 100.51460174322085];
+
+    // bar
+    mark_photo_46 = [13.755541027788865, 100.50354997804283];
+    mark_photo_47 = [13.752240000000029, 100.49826000000007];
+    mark_photo_48 = [13.75636929579997, 100.49855979290129];
+    mark_photo_49 = [13.759015587420436, 100.4977388159167];
+    mark_photo_50 = [13.759416750878813, 100.49704443239227];
+
+    // photo
     icon_photo = L.AwesomeMarkers.icon({
         icon: "fa-camera",
         prefix: "fa",
@@ -485,8 +504,8 @@ include('header.php');
         iconColor: "white"
     });
 
-    //gas pump
-    icon_mountain = L.AwesomeMarkers.icon({
+    //gas station
+    icon_gas_station = L.AwesomeMarkers.icon({
         icon: "fa-gas-pump",
         prefix: "fa",
         markerColor: "green",
@@ -550,7 +569,6 @@ include('header.php');
     });
 
 
-
     //render map
     let mapOptions = {
         layer: MQ.mapLayer(),
@@ -573,15 +591,17 @@ include('header.php');
         icon: icon_photo,
     })
 
-    map.on('click', function(e) {
-        geocodeService.reverse().latlng(e.latlng).run(function(error, result) {
-            if (error) {
-                L.marker(e.latlng).addTo(map).bindPopup('no place match').openPopup();
-            }
-            console.log(result);
-            L.marker(e.latlng).addTo(map).bindPopup(result.address.Match_addr).openPopup();
-        });
-    });
+    //query map
+
+    // map.on('click', function(e) {
+    //     geocodeService.reverse().latlng(e.latlng).run(function(error, result) {
+    //         if (error) {
+    //             L.marker(e.latlng).addTo(map).bindPopup('no place match').openPopup();
+    //         }
+    //         console.log(result);
+    //         L.marker(e.latlng).addTo(map).bindPopup(result.address.Match_addr).openPopup();
+    //     });
+    // });
 
 
     function GoToLogin() {
@@ -719,21 +739,21 @@ include('header.php');
         })
 
         camera_markers = [marker1, marker2, marker3, marker4, marker5];
-        camera_lat_long = [mark_photo_1, mark_photo_2, mark_photo_3, mark_photo_4, mark_photo_5]
-        // bed
+        camera_lat_long = [mark_photo_1, mark_photo_2, mark_photo_3, mark_photo_4, mark_photo_5];
+
         // camera
         if (filter_name == 'camera' && action == 'add') {
-            markers_id = [];
+            camera_dinner_markers_id = [];
             var layerGroup = L.layerGroup(camera_markers);
             layerGroup.addTo(map);
 
             for (let i = 0; i < camera_markers.length; i++) {
-                markers_id.push(camera_markers[i]._leaflet_id);
+                camera_dinner_markers_id.push(camera_markers[i]._leaflet_id);
             }
 
             map.eachLayer(function(layer) {
                 for (let i = 0; i < camera_markers.length; i++) {
-                    id = markers_id[i];
+                    id = camera_dinner_markers_id[i];
                     lat = camera_lat_long[i][0];
                     lng = camera_lat_long[i][1];
 
@@ -759,13 +779,600 @@ include('header.php');
         } else if (filter_name == 'camera' && action == 'remove') {
             map.eachLayer(function(layer) {
                 for (let i = 0; i < camera_markers.length; i++) {
-                    id = markers_id[i];
+                    id = camera_dinner_markers_id[i];
                     if (layer._leaflet_id == id) {
                         map.removeLayer(layer);
                     }
                 }
             });
 
+        }
+
+        // bed
+        let marker6 = new L.marker(mark_photo_6, {
+            icon: icon_bed,
+        })
+        let marker7 = new L.marker(mark_photo_7, {
+            icon: icon_bed,
+        })
+        let marker8 = new L.marker(mark_photo_8, {
+            icon: icon_bed,
+        })
+        let marker9 = new L.marker(mark_photo_9, {
+            icon: icon_bed,
+        })
+        let marker10 = new L.marker(mark_photo_10, {
+            icon: icon_bed,
+        })
+
+        hotel_markers = [marker6, marker7, marker8, marker9, marker10];
+        hotel_lat_long = [mark_photo_6, mark_photo_7, mark_photo_8, mark_photo_9, mark_photo_10];
+
+        if (filter_name == 'bed' && action == 'add') {
+            hotel_dinner_markers_id = [];
+            var layerGroup = L.layerGroup(hotel_markers);
+            layerGroup.addTo(map);
+
+            for (let i = 0; i < hotel_markers.length; i++) {
+                hotel_dinner_markers_id.push(hotel_markers[i]._leaflet_id);
+            }
+
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < hotel_markers.length; i++) {
+                    id = hotel_dinner_markers_id[i];
+                    lat = hotel_lat_long[i][0];
+                    lng = hotel_lat_long[i][1];
+
+                    if (layer._leaflet_id == id) {
+                        geocodeService.reverse().latlng({
+                            "lat": lat,
+                            "lng": lng,
+                        }).run(function(error, result) {
+                            if (error) {
+                                layer.bindPopup('no place match');
+                            }
+                            if (result.address.PlaceName != '') {
+                                layer.bindPopup(result.address.PlaceName);
+                            } else {
+                                layer.bindPopup(result.address.LongLabel);
+                            }
+                        })
+                    }
+                }
+            });
+
+
+        } else if (filter_name == 'bed' && action == 'remove') {
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < hotel_markers.length; i++) {
+                    id = hotel_dinner_markers_id[i];
+                    if (layer._leaflet_id == id) {
+                        map.removeLayer(layer);
+                    }
+                }
+            });
+
+        }
+
+        // gas station
+        let marker11 = new L.marker(mark_photo_11, {
+            icon: icon_gas_station,
+        })
+        let marker12 = new L.marker(mark_photo_12, {
+            icon: icon_gas_station,
+        })
+        let marker13 = new L.marker(mark_photo_13, {
+            icon: icon_gas_station,
+        })
+        let marker14 = new L.marker(mark_photo_14, {
+            icon: icon_gas_station,
+        })
+        let marker15 = new L.marker(mark_photo_15, {
+            icon: icon_gas_station,
+        })
+
+        gas_station_markers = [marker11, marker12, marker13, marker14, marker15];
+        gas_station_lat_long = [mark_photo_11, mark_photo_12, mark_photo_13, mark_photo_14, mark_photo_15];
+
+        if (filter_name == 'gaspump' && action == 'add') {
+            gas_station_dinner_markers_id = [];
+            var layerGroup = L.layerGroup(gas_station_markers);
+            layerGroup.addTo(map);
+
+            for (let i = 0; i < gas_station_markers.length; i++) {
+                gas_station_dinner_markers_id.push(gas_station_markers[i]._leaflet_id);
+            }
+
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < gas_station_markers.length; i++) {
+                    id = gas_station_dinner_markers_id[i];
+                    lat = gas_station_lat_long[i][0];
+                    lng = gas_station_lat_long[i][1];
+
+                    if (layer._leaflet_id == id) {
+                        geocodeService.reverse().latlng({
+                            "lat": lat,
+                            "lng": lng,
+                        }).run(function(error, result) {
+                            if (error) {
+                                layer.bindPopup('no place match');
+                            }
+                            if (result.address.PlaceName != '') {
+                                layer.bindPopup(result.address.PlaceName);
+                            } else {
+                                layer.bindPopup(result.address.LongLabel);
+                            }
+                        })
+                    }
+                }
+            });
+
+
+        } else if (filter_name == 'gaspump' && action == 'remove') {
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < gas_station_markers.length; i++) {
+                    id = gas_station_dinner_markers_id[i];
+                    if (layer._leaflet_id == id) {
+                        map.removeLayer(layer);
+                    }
+                }
+            });
+
+        }
+
+        // dinner
+        let marker16 = new L.marker(mark_photo_16, {
+            icon: icon_dinner,
+        })
+        let marker17 = new L.marker(mark_photo_17, {
+            icon: icon_dinner,
+        })
+        let marker18 = new L.marker(mark_photo_18, {
+            icon: icon_dinner,
+        })
+        let marker19 = new L.marker(mark_photo_19, {
+            icon: icon_dinner,
+        })
+        let marker20 = new L.marker(mark_photo_20, {
+            icon: icon_dinner,
+        })
+
+        dinner_markers = [marker16, marker17, marker18, marker19, marker20];
+        dinner_lat_long = [mark_photo_16, mark_photo_17, mark_photo_18, mark_photo_19, mark_photo_20];
+
+        if (filter_name == 'dinner' && action == 'add') {
+            dinner_markers_id = [];
+            var layerGroup = L.layerGroup(dinner_markers);
+            layerGroup.addTo(map);
+
+            for (let i = 0; i < dinner_markers.length; i++) {
+                dinner_markers_id.push(dinner_markers[i]._leaflet_id);
+            }
+
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < dinner_markers.length; i++) {
+                    id = dinner_markers_id[i];
+                    lat = dinner_lat_long[i][0];
+                    lng = dinner_lat_long[i][1];
+
+                    if (layer._leaflet_id == id) {
+                        geocodeService.reverse().latlng({
+                            "lat": lat,
+                            "lng": lng,
+                        }).run(function(error, result) {
+                            if (error) {
+                                layer.bindPopup('no place match');
+                            }
+                            if (result.address.PlaceName != '') {
+                                layer.bindPopup(result.address.PlaceName);
+                            } else {
+                                layer.bindPopup(result.address.LongLabel);
+                            }
+                        })
+                    }
+                }
+            });
+
+
+        } else if (filter_name == 'dinner' && action == 'remove') {
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < dinner_markers.length; i++) {
+                    id = dinner_markers_id[i];
+                    if (layer._leaflet_id == id) {
+                        map.removeLayer(layer);
+                    }
+                }
+            });
+        }
+
+        // train
+        let marker21 = new L.marker(mark_photo_21, {
+            icon: icon_train,
+        })
+        let marker22 = new L.marker(mark_photo_22, {
+            icon: icon_train,
+        })
+        let marker23 = new L.marker(mark_photo_23, {
+            icon: icon_train,
+        })
+        let marker24 = new L.marker(mark_photo_24, {
+            icon: icon_train,
+        })
+        let marker25 = new L.marker(mark_photo_25, {
+            icon: icon_train,
+        })
+
+        train_markers = [marker21, marker22, marker23, marker24, marker25];
+        train_lat_long = [mark_photo_21, mark_photo_22, mark_photo_23, mark_photo_24, mark_photo_25];
+
+        if (filter_name == 'train' && action == 'add') {
+            train_markers_id = [];
+            var layerGroup = L.layerGroup(train_markers);
+            layerGroup.addTo(map);
+
+            for (let i = 0; i < train_markers.length; i++) {
+                train_markers_id.push(train_markers[i]._leaflet_id);
+            }
+
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < train_markers.length; i++) {
+                    id = train_markers_id[i];
+                    lat = train_lat_long[i][0];
+                    lng = train_lat_long[i][1];
+
+                    if (layer._leaflet_id == id) {
+                        geocodeService.reverse().latlng({
+                            "lat": lat,
+                            "lng": lng,
+                        }).run(function(error, result) {
+                            if (error) {
+                                layer.bindPopup('no place match');
+                            }
+                            if (result.address.PlaceName != '') {
+                                layer.bindPopup(result.address.PlaceName);
+                            } else {
+                                layer.bindPopup(result.address.LongLabel);
+                            }
+                        })
+                    }
+                }
+            });
+
+
+        } else if (filter_name == 'train' && action == 'remove') {
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < train_markers.length; i++) {
+                    id = train_markers_id[i];
+                    if (layer._leaflet_id == id) {
+                        map.removeLayer(layer);
+                    }
+                }
+            });
+        }
+
+        // museum
+        let marker26 = new L.marker(mark_photo_26, {
+            icon: icon_museum,
+        })
+        let marker27 = new L.marker(mark_photo_27, {
+            icon: icon_museum,
+        })
+        let marker28 = new L.marker(mark_photo_28, {
+            icon: icon_museum,
+        })
+        let marker29 = new L.marker(mark_photo_29, {
+            icon: icon_museum,
+        })
+        let marker30 = new L.marker(mark_photo_30, {
+            icon: icon_museum,
+        })
+
+        museum_markers = [marker26, marker27, marker28, marker29, marker30];
+        museum_lat_long = [mark_photo_26, mark_photo_27, mark_photo_28, mark_photo_29, mark_photo_30];
+
+        if (filter_name == 'museum' && action == 'add') {
+            museum_markers_id = [];
+            var layerGroup = L.layerGroup(museum_markers);
+            layerGroup.addTo(map);
+
+            for (let i = 0; i < museum_markers.length; i++) {
+                museum_markers_id.push(museum_markers[i]._leaflet_id);
+            }
+
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < train_markers.length; i++) {
+                    id = museum_markers_id[i];
+                    lat = museum_lat_long[i][0];
+                    lng = museum_lat_long[i][1];
+
+                    if (layer._leaflet_id == id) {
+                        geocodeService.reverse().latlng({
+                            "lat": lat,
+                            "lng": lng,
+                        }).run(function(error, result) {
+                            if (error) {
+                                layer.bindPopup('no place match');
+                            }
+                            if (result.address.PlaceName != '') {
+                                layer.bindPopup(result.address.PlaceName);
+                            } else {
+                                layer.bindPopup(result.address.LongLabel);
+                            }
+                        })
+                    }
+                }
+            });
+
+
+        } else if (filter_name == 'museum' && action == 'remove') {
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < museum_markers.length; i++) {
+                    id = museum_markers_id[i];
+                    if (layer._leaflet_id == id) {
+                        map.removeLayer(layer);
+                    }
+                }
+            });
+        }
+
+        // market
+        let marker31 = new L.marker(mark_photo_31, {
+            icon: icon_market,
+        })
+        let marker32 = new L.marker(mark_photo_32, {
+            icon: icon_market,
+        })
+        let marker33 = new L.marker(mark_photo_33, {
+            icon: icon_market,
+        })
+        let marker34 = new L.marker(mark_photo_34, {
+            icon: icon_market,
+        })
+        let marker35 = new L.marker(mark_photo_35, {
+            icon: icon_market,
+        })
+
+        market_markers = [marker31, marker32, marker33, marker34, marker35];
+        market_lat_long = [mark_photo_31, mark_photo_32, mark_photo_33, mark_photo_34, mark_photo_35];
+
+        if (filter_name == 'market' && action == 'add') {
+            market_markers_id = [];
+            var layerGroup = L.layerGroup(market_markers);
+            layerGroup.addTo(map);
+
+            for (let i = 0; i < market_markers.length; i++) {
+                market_markers_id.push(market_markers[i]._leaflet_id);
+            }
+
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < train_markers.length; i++) {
+                    id = market_markers_id[i];
+                    lat = market_lat_long[i][0];
+                    lng = market_lat_long[i][1];
+
+                    if (layer._leaflet_id == id) {
+                        geocodeService.reverse().latlng({
+                            "lat": lat,
+                            "lng": lng,
+                        }).run(function(error, result) {
+                            if (error) {
+                                layer.bindPopup('no place match');
+                            }
+                            if (result.address.PlaceName != '') {
+                                layer.bindPopup(result.address.PlaceName);
+                            } else {
+                                layer.bindPopup(result.address.LongLabel);
+                            }
+                        })
+                    }
+                }
+            });
+
+
+        } else if (filter_name == 'market' && action == 'remove') {
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < museum_markers.length; i++) {
+                    id = market_markers_id[i];
+                    if (layer._leaflet_id == id) {
+                        map.removeLayer(layer);
+                    }
+                }
+            });
+        }
+
+        // anchor
+        let marker36 = new L.marker(mark_photo_36, {
+            icon: icon_anchor,
+        })
+        let marker37 = new L.marker(mark_photo_37, {
+            icon: icon_anchor,
+        })
+        let marker38 = new L.marker(mark_photo_38, {
+            icon: icon_anchor,
+        })
+        let marker39 = new L.marker(mark_photo_39, {
+            icon: icon_anchor,
+        })
+        let marker40 = new L.marker(mark_photo_40, {
+            icon: icon_anchor,
+        })
+
+        anchor_markers = [marker36, marker37, marker38, marker39, marker40];
+        anchor_lat_long = [mark_photo_36, mark_photo_37, mark_photo_38, mark_photo_39, mark_photo_40];
+
+        if (filter_name == 'anchor' && action == 'add') {
+            anchor_markers_id = [];
+            var layerGroup = L.layerGroup(anchor_markers);
+            layerGroup.addTo(map);
+
+            for (let i = 0; i < anchor_markers.length; i++) {
+                anchor_markers_id.push(anchor_markers[i]._leaflet_id);
+            }
+
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < train_markers.length; i++) {
+                    id = anchor_markers_id[i];
+                    lat = anchor_lat_long[i][0];
+                    lng = anchor_lat_long[i][1];
+
+                    if (layer._leaflet_id == id) {
+                        geocodeService.reverse().latlng({
+                            "lat": lat,
+                            "lng": lng,
+                        }).run(function(error, result) {
+                            if (error) {
+                                layer.bindPopup('no place match');
+                            }
+                            if (result.address.PlaceName != '') {
+                                layer.bindPopup(result.address.PlaceName);
+                            } else {
+                                layer.bindPopup(result.address.LongLabel);
+                            }
+                        })
+                    }
+                }
+            });
+
+
+        } else if (filter_name == 'anchor' && action == 'remove') {
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < anchor_markers.length; i++) {
+                    id = anchor_markers_id[i];
+                    if (layer._leaflet_id == id) {
+                        map.removeLayer(layer);
+                    }
+                }
+            });
+        }
+
+        // cafe
+        let marker41 = new L.marker(mark_photo_41, {
+            icon: icon_cafe,
+        })
+        let marker42 = new L.marker(mark_photo_42, {
+            icon: icon_cafe,
+        })
+        let marker43 = new L.marker(mark_photo_43, {
+            icon: icon_cafe,
+        })
+        let marker44 = new L.marker(mark_photo_44, {
+            icon: icon_cafe,
+        })
+        let marker45 = new L.marker(mark_photo_45, {
+            icon: icon_cafe,
+        })
+
+        cafe_markers = [marker41, marker42, marker43, marker44, marker45];
+        cafe_lat_long = [mark_photo_41, mark_photo_42, mark_photo_43, mark_photo_44, mark_photo_45];
+
+        if (filter_name == 'cafe' && action == 'add') {
+            cafe_markers_id = [];
+            var layerGroup = L.layerGroup(cafe_markers);
+            layerGroup.addTo(map);
+
+            for (let i = 0; i < cafe_markers.length; i++) {
+                cafe_markers_id.push(cafe_markers[i]._leaflet_id);
+            }
+
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < train_markers.length; i++) {
+                    id = cafe_markers_id[i];
+                    lat = cafe_lat_long[i][0];
+                    lng = cafe_lat_long[i][1];
+
+                    if (layer._leaflet_id == id) {
+                        geocodeService.reverse().latlng({
+                            "lat": lat,
+                            "lng": lng,
+                        }).run(function(error, result) {
+                            if (error) {
+                                layer.bindPopup('no place match');
+                            }
+                            if (result.address.PlaceName != '') {
+                                layer.bindPopup(result.address.PlaceName);
+                            } else {
+                                layer.bindPopup(result.address.LongLabel);
+                            }
+                        })
+                    }
+                }
+            });
+
+
+        } else if (filter_name == 'cafe' && action == 'remove') {
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < cafe_markers.length; i++) {
+                    id = cafe_markers_id[i];
+                    if (layer._leaflet_id == id) {
+                        map.removeLayer(layer);
+                    }
+                }
+            });
+        }
+
+        // bar
+        let marker46 = new L.marker(mark_photo_46, {
+            icon: icon_bar,
+        })
+        let marker47 = new L.marker(mark_photo_47, {
+            icon: icon_bar,
+        })
+        let marker48 = new L.marker(mark_photo_48, {
+            icon: icon_bar,
+        })
+        let marker49 = new L.marker(mark_photo_49, {
+            icon: icon_bar,
+        })
+        let marker50 = new L.marker(mark_photo_50, {
+            icon: icon_bar,
+        })
+
+        bar_markers = [marker46, marker47, marker48, marker49, marker50];
+        bar_lat_long = [mark_photo_46, mark_photo_47, mark_photo_48, mark_photo_49, mark_photo_50];
+
+        if (filter_name == 'bar' && action == 'add') {
+            bar_markers_id = [];
+            var layerGroup = L.layerGroup(bar_markers);
+            layerGroup.addTo(map);
+
+            for (let i = 0; i < bar_markers.length; i++) {
+                bar_markers_id.push(bar_markers[i]._leaflet_id);
+            }
+
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < bar_markers.length; i++) {
+                    id = bar_markers_id[i];
+                    lat = bar_lat_long[i][0];
+                    lng = bar_lat_long[i][1];
+
+                    if (layer._leaflet_id == id) {
+                        geocodeService.reverse().latlng({
+                            "lat": lat,
+                            "lng": lng,
+                        }).run(function(error, result) {
+                            if (error) {
+                                layer.bindPopup('no place match');
+                            }
+                            if (result.address.PlaceName != '') {
+                                layer.bindPopup(result.address.PlaceName);
+                            } else {
+                                layer.bindPopup(result.address.LongLabel);
+                            }
+                        })
+                    }
+                }
+            });
+
+
+        } else if (filter_name == 'bar' && action == 'remove') {
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < bar_markers.length; i++) {
+                    id = bar_markers_id[i];
+                    if (layer._leaflet_id == id) {
+                        map.removeLayer(layer);
+                    }
+                }
+            });
         }
     }
 </script>
