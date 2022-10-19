@@ -15,9 +15,9 @@ class NavbarComponents extends Component {
         <nav>
 
           <ul class="nav">
-            <li> <a href="/" id="Nav_">Home</a> </li>
-            <li> <a href="/Tripplanner" id="Nav_">Trip Planer</a> </li>
-            <li> <a href="/login" id="Nav_">Login</a> </li>
+            <li> <a href="/" class="active">Home</a> </li>
+            <li> <a href="/Tripplanner" class="active">Trip Planer</a> </li>
+            <li> <a href="/login" class="active">Login</a> </li>
 
           </ul>
         </nav>
