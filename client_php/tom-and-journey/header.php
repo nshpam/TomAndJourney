@@ -33,7 +33,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Left navbar links -->
                 <ul class="navbar-nav ml-auto" id="ul-custom-nav-bar">
                     <li class="nav-item">
-                        <a class="nav-link" href="/tom-and-journey/home.php" id="home-link" onclick="Home_Link()" ara>Home</a>
+                        <a class="nav-link" href="/tom-and-journey/home.php" id="home-link">Home</a>
                     </li>
                     <li class="nav-item">
                         <a href="/tom-and-journey/trip.php" class="nav-link" id="trip-planner-link">Trip Planner</a>

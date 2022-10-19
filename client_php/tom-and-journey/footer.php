@@ -12,9 +12,14 @@
 <script src="dist/js/adminlte.min.js"></script>
 
 <footer class="main-footer fixed-bottom text-sm bg-dark">
-    <div class="float-right d-none d-sm-block">
-        Version 1.0.0
+    <?php
+    echo "
+    <div class='float-right d-none d-sm-block'>
+        Version $VERSION
     </div>
+    ";
+    ?>
+
     ©KMUTNB Trademarks and brands are the property of their respective owners.
 </footer>
 
