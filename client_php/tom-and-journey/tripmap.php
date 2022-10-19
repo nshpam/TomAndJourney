@@ -37,7 +37,7 @@ include('header.php');
             </div> -->
 
             <!-- filter and info design -->
-            <div class="card d-flex info-block">
+            <!-- <div class="card d-flex info-block">
                 <div class="card-header info-block-body">
                     <div class="row">
                         <div class="icon-text d-flex justify-content-center align-items-center">
@@ -89,12 +89,124 @@ include('header.php');
                         <div class="" id="icon-box-10"><i class="fas fa-wine-glass-alt d-flex active-10" id="map-icons" onclick="ActiveIcon('active_10')"></i></div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- filter, info, route design -->
-            <!-- <div class="card route-main-block">
-                <div class="location-img"><img src="" alt=""></div>
-            </div> -->
+
+            <div class="card route-main-block ">
+
+                <div class="card-header location-img">
+                    <div class="location-img-div">
+                        <img src="/tom-and-journey/dist/img/bangkok-thailand.jpg" alt="">
+                        <!-- <div class="centered" style="color: black; z-index:999;">Text</div> -->
+                        <div class="row location-text d-flex justify-content-center align-items-center centered">
+                            <i class="fas fa-map-marker-alt d-flex justify-content-center align-items-center"></i>
+                            <p class="d-flex justify-content-center align-items-center">Bangkok, Thailand</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card-body col-md-12 card-context-1">
+                    <div class="container">
+                        <div class="row">
+                            <div class="container route-1 col-md-7">
+                                <h5>สวนลุมพินี</h5>
+                                <p>ปทุมวัน, กรุงเทพ</p>
+                            </div>
+                            <i class="fas fa-map-marker-alt fa-lg col-md-4 d-flex justify-content-end align-items-center" style="color: black;"></i>
+                            <p class="sequence">1</p>
+                        </div>
+                        <div class="row col-md-12 route-detail-1 ">
+                            <hr class="col-md-4 line-place">
+                            <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
+                                <i class="fas fa-car"></i>
+                                <p>5km</p>
+                            </div>
+                            <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
+                                <i class="fas fa-clock "></i>
+                                <p>10m</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blank-between-container"></div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="container route-1 col-md-7">
+                                <h5>วัดไตรมิตรวิทยารามวรวิหาร</h5>
+                                <p>สัมพันธวงศ์, กรุงเทพ</p>
+                            </div>
+                            <i class="fas fa-map-marker-alt fa-lg col-md-4 d-flex justify-content-end align-items-center" style="color: black;"></i>
+                            <p class="sequence">2</p>
+                        </div>
+                        <div class="row col-md-12 route-detail-1 ">
+                            <hr class="col-md-4 line-place">
+                            <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
+                                <i class="fas fa-car"></i>
+                                <p>1km</p>
+                            </div>
+                            <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
+                                <i class="fas fa-clock "></i>
+                                <p>4m</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blank-between-container"></div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="container route-1 col-md-7">
+                                <h5>วัดสระเกศราชวรมหาวิหาร (ภูเขาทอง)</h5>
+                                <p>ป้อมปราบศัตรูพ่าย, กรุงเทพ</p>
+                            </div>
+                            <i class="fas fa-map-marker-alt fa-lg col-md-4 d-flex justify-content-end align-items-center" style="color: black;"></i>
+                            <p class="sequence">3</p>
+                        </div>
+                        <div class="row col-md-12 route-detail-1 ">
+                            <hr class="col-md-4 line-place">
+                            <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
+                                <i class="fas fa-car"></i>
+                                <p>2km</p>
+                            </div>
+                            <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
+                                <i class="fas fa-clock "></i>
+                                <p>5m</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blank-between-container"></div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="container route-1 col-md-7">
+                                <h5>วัดเบญจมบพิตรดุสิตวนาราม</h5>
+                                <p>ดุสิต, กรุงเทพ</p>
+                            </div>
+                            <i class="fas fa-map-marker-alt fa-lg col-md-4 d-flex justify-content-end align-items-center" style="color: black;"></i>
+                            <p class="sequence">4</p>
+                        </div>
+                        <div class="row col-md-12 route-detail-1 ">
+                            <hr class="col-md-4 line-place">
+                            <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
+                                <i class="fas fa-car"></i>
+                                <p>2km</p>
+                            </div>
+                            <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
+                                <i class="fas fa-clock "></i>
+                                <p>5m</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-footer">
+                    <p style="color: black;">this is card footer</p>
+                </div>
+
+            </div>
         </div>
 
     </div>
@@ -296,81 +408,79 @@ include('header.php');
     /* camera */
     .icon-block-1 {
         background-color: #36A5D7;
-        /* padding: 10px 1px; */
         border-radius: 5px;
-        /* margin-right: 3px; */
     }
 
     /* bed */
     .icon-block-2 {
         background-color: black;
-        /* padding: 10px 1px; */
+
         border-radius: 5px;
-        /* margin-right: 3px; */
+
     }
 
     /* gas station */
     .icon-block-3 {
         background-color: #6EAA25;
-        /* padding: 10px 1px; */
+
         border-radius: 5px;
-        /* margin-right: 3px; */
+
     }
 
     /* dinner */
     .icon-block-4 {
         background-color: #A3A3A3;
-        /* padding: 10px 1px; */
+
         border-radius: 5px;
-        /* margin-right: 3px; */
+
     }
 
     /* train */
     .icon-block-5 {
         background-color: #00659F;
-        /* padding: 10px 1px; */
+
         border-radius: 5px;
-        /* margin-right: 3px; */
+
     }
 
     /* museum */
     .icon-block-6 {
         background-color: #D33D2A;
-        /* padding: 10px 1px; */
+
         border-radius: 5px;
-        /* margin-right: 3px; */
+
     }
 
     /* market */
     .icon-block-7 {
         background-color: #EB7D7F;
-        /* padding: 10px 1px; */
+
         border-radius: 5px;
-        /* margin-right: 3px; */
+
     }
 
     /* anchor */
     .icon-block-8 {
         background-color: #436978;
-        /* padding: 10px 1px; */
+
         border-radius: 5px;
-        /* margin-right: 3px; */
+
     }
 
     /* cafe */
     .icon-block-9 {
         background-color: #F2952F;
-        /* padding: 10px 1px; */
+
         border-radius: 5px;
-        /* margin-right: 3px; */
+
     }
 
     /* bar */
     .icon-block-10 {
         background-color: #CB4FB3;
-        /* padding: 10px 1px; */
+
         border-radius: 5px;
-        /* margin-right: 3px; */
+
     }
 
     #icon-box-1 .fa-camera {
@@ -412,6 +522,103 @@ include('header.php');
 
     #icon-box-10 .fa-wine-glass-alt {
         color: #CB4FB3
+    }
+
+    .route-main-block {
+        background-color: white;
+        border-radius: 5px;
+        position: absolute;
+        top: 0%;
+        left: 70%;
+        z-index: 998;
+        color: white;
+    }
+
+    .location-img-div>img {
+        width: 100%;
+        height: 20vh;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+        filter: blur(1px);
+    }
+
+    .location-img {
+        /* width: 25vw; */
+
+        padding: 0px;
+    }
+
+    .route-1 {
+        margin-left: 0px;
+    }
+
+    .route-1 p {
+        color: black;
+        font-family: 'Kanit';
+        margin-bottom: 0px;
+    }
+
+    .route-1 h5 {
+        color: black;
+        font-family: 'Kanit';
+        margin-bottom: 0px;
+    }
+
+    .sequence {
+        margin-top: auto;
+        margin-bottom: auto;
+        color: black;
+    }
+
+    .location-text p {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .centered {
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: auto;
+        margin-bottom: auto;
+        transform: translate(-50%, -50%);
+    }
+
+    .line-place {
+        border: 1px solid #B2B2B2;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .route-detail-1 .fa-car {
+        margin-right: 5px;
+        color: black;
+    }
+
+    .route-detail-1 .fa-clock {
+        color: black;
+    }
+
+    .route-detail-1 p {
+        color: black;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .travel-distance {
+        margin-left: 10px;
+        margin-right: 0px;
+    }
+
+    .blank-between-container {
+        height: 20px;
+    }
+
+    .card-context-1 {
+        overflow: scroll;
+        overflow-y: scroll;
     }
 </style>
 
