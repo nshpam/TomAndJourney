@@ -35,6 +35,12 @@
         background-color: white;
     }
 
+    /* footer */
+    .main-footer {
+        border-top: 1px solid #343a40 !important;
+
+    }
+
     /* form control */
 
     .form-control:focus {
@@ -45,7 +51,7 @@
 
     /* --- navbar --- */
     #custom-nav-bar {
-        background-color: #A64343 ;
+        background-color: #A64343 !important;
         border-color: #A64343;
     }
 
@@ -66,7 +72,7 @@
         font-weight: 500;
     }
 
-    .active {
+    .nav-item .active {
         color: #A64343 !important;
         background-color: white;
         padding: 10px 5px;
@@ -104,8 +110,13 @@
         background-color: white;
         outline: 1px solid black;
         border-radius: 20px;
-        margin: 0px 30%;
-        padding: 5px 10% 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* padding-top: auto;
+        padding-bottom: auto; */
+        /* margin: 0px 30%;
+        padding: 5px 10% 10px; */
     }
 
     .content-wrapper {
@@ -162,9 +173,19 @@
 
     #remember-group {
         color: grey;
-        margin: 20px auto 20px auto;
+
+        margin-left: auto;
+        margin-right: auto;
+        /* margin: 0px auto 0px auto; */
     }
 
+    #remember-group label {
+        margin: 20px 0px 20px 0px;
+    }
+
+    #remember-group input {
+        margin-right: 5px;
+    }
 
 
     .blank-buffer {
@@ -176,7 +197,7 @@
     }
 
     #remember-group input:hover {
-        margin-left: auto;
+
         color: grey;
     }
 
