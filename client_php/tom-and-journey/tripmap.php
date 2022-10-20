@@ -13,9 +13,9 @@ include('header.php');
     <link rel="stylesheet" href="/tom-and-journey/plugins/leaftlet-openstreetmap/leaflet.css">
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
     <link rel="stylesheet" href="/tom-and-journey/plugins/Leaflet.awesome-markers-2.0-develop/dist/leaflet.awesome-markers.css">
-    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css" /> -->
     <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@3.1.3/dist/esri-leaflet-geocoder.css" integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g==" crossorigin="">
-
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="/tom-and-journey/plugins/Leaflet.ExtraMarkers-master/dist/css/leaflet.extra-markers.min.css">
     <title>Trip Planner Map</title>
 </head>
 
@@ -95,7 +95,7 @@ include('header.php');
 
             <div class="card route-main-block ">
 
-                <div class="card-header location-img">
+                <div class="card-header location-img" data-spy="scroll">
                     <div class="location-img-div">
                         <img src="/tom-and-journey/dist/img/bangkok-thailand.jpg" alt="">
                         <!-- <div class="centered" style="color: black; z-index:999;">Text</div> -->
@@ -201,9 +201,31 @@ include('header.php');
                         </div>
                     </div>
 
+                    <!-- <div class="row" style="background-color: black;">
+                    
+                    </div> -->
+
                 </div>
-                <div class="card-footer">
-                    <p style="color: black;">this is card footer</p>
+                <div class="card-footer info-block-body-2 d-flex justify-content-center align-items-center">
+                    <div class="row">
+                        <div class="icon-text d-flex justify-content-center align-items-center">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>4</p>
+                        </div>
+                        <div class="icon-text d-flex justify-content-center align-items-center">
+                            <i class="fas fa-clock"></i>
+                            <p>27m</p>
+                        </div>
+                        <div class="icon-text d-flex justify-content-center align-items-center">
+                            <i class="fas fa-truck"></i>
+                            <p>10km</p>
+                        </div>
+                        <div class="icon-text d-flex justify-content-center align-items-center">
+                            <i class="fab fa-bitcoin"></i>
+                            <p>100B</p>
+                        </div>
+
+                    </div>
                 </div>
 
             </div>
@@ -219,10 +241,13 @@ include('header.php');
 
     <!-- leaflet marker -->
     <script src="/tom-and-journey/plugins/Leaflet.awesome-markers-2.0-develop/dist/leaflet.awesome-markers.js"></script>
+    <script src="/tom-and-journey/plugins/Leaflet.ExtraMarkers-master/dist/js/leaflet.extra-markers.min.js"></script>
 
     <script src="https://unpkg.com/esri-leaflet@3.0.8/dist/esri-leaflet.js" integrity="sha512-E0DKVahIg0p1UHR2Kf9NX7x7TUewJb30mxkxEm2qOYTVJObgsAGpEol9F6iK6oefCbkJiA4/i6fnTHzM6H1kEA==" crossorigin=""></script>
 
     <script src="https://unpkg.com/esri-leaflet-geocoder@3.1.3/dist/esri-leaflet-geocoder.js" integrity="sha512-mwRt9Y/qhSlNH3VWCNNHrCwquLLU+dTbmMxVud/GcnbXfOKJ35sznUmt3yM39cMlHR2sHbV9ymIpIMDpKg4kKw==" crossorigin=""></script>
+
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
     <!-- mapquest -->
     <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=1yxyC7dPYmAcaQ9PNHnLZTDE3pV1dkkE"></script>
     <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=1yxyC7dPYmAcaQ9PNHnLZTDE3pV1dkkE"></script>
@@ -253,9 +278,17 @@ include('header.php');
 
     /* leaflet zoom control position */
 
-    .leaflet-control-container {
+    /* for login page and filter page */
+    /* .leaflet-control-container {
         position: absolute;
         right: 5%;
+        top: 40%;
+    } */
+
+    /* for tripplanner page */
+    .leaflet-control-container {
+        position: absolute;
+        right: 35%;
         top: 40%;
     }
 
@@ -315,6 +348,10 @@ include('header.php');
     .info-block-body {
         padding: 0.5rem;
         margin: 0 auto;
+    }
+
+    .info-block-body-2 {
+        background-color: black;
     }
 
     .icon-text p {
@@ -528,10 +565,11 @@ include('header.php');
         background-color: white;
         border-radius: 5px;
         position: absolute;
-        top: 0%;
+        top: 1%;
         left: 70%;
         z-index: 998;
         color: white;
+        max-height: 85vh;
     }
 
     .location-img-div>img {
@@ -617,8 +655,17 @@ include('header.php');
     }
 
     .card-context-1 {
-        overflow: scroll;
+
         overflow-y: scroll;
+    }
+
+    .main-footer {
+        border-color: #869099;
+    }
+
+    /* hide leaflet routing */
+    .leaflet-routing-container {
+        display: none;
     }
 </style>
 
@@ -694,6 +741,12 @@ include('header.php');
     mark_photo_48 = [13.75636929579997, 100.49855979290129];
     mark_photo_49 = [13.759015587420436, 100.4977388159167];
     mark_photo_50 = [13.759416750878813, 100.49704443239227];
+
+    // start point and end point for route page
+    pin_1 = [13.754850589446578, 100.49297332763673]; //start
+    pin_2 = [13.758921064889215, 100.50036002672189];
+    pin_3 = [13.753859775676801, 100.50663402825472];
+    pin_4 = [13.760644679289063, 100.51898002624513]; //end
 
     // photo
     icon_photo = L.AwesomeMarkers.icon({
@@ -798,7 +851,107 @@ include('header.php');
         icon: icon_photo,
     })
 
-    //query map
+    // icon start
+
+    icon_start = L.AwesomeMarkers.icon({
+        icon: "fa-flag",
+        prefix: "fa",
+        markerColor: "blue",
+        iconColor: "white"
+    });
+
+    // icon pin2
+    icon_pin_2 = L.AwesomeMarkers.icon({
+        // icon: "fa-flag",
+        // prefix: "fas",
+        html: 1,
+        markerColor: "black",
+        iconColor: "white"
+    });
+    // icon pin3
+    icon_pin_3 = L.AwesomeMarkers.icon({
+        // icon: "fa-flag",
+        // prefix: "fas",
+        html: 2,
+        markerColor: "black",
+        iconColor: "white"
+    });
+
+    // icon end
+    icon_end = L.AwesomeMarkers.icon({
+        icon: "fa-flag",
+        prefix: "fa",
+        markerColor: "black",
+        iconColor: "white"
+    });
+
+    // routing system
+    L.Routing.control({
+        waypoints: [
+            pin_1,
+            pin_2,
+            pin_3,
+            pin_4,
+        ],
+        createMarker: function(i, start, n) {
+            var marker_icon = null;
+            var others_marker = [pin_2, pin_3];
+
+            // start icon
+            if (i == 0) {
+                // marker_icon = icon_start;
+                marker = L.marker(pin_1, {
+                    draggable: true,
+                    bounceOnAdd: false,
+                    bounceOnAddOptions: {
+                        duration: 1000,
+                        height: 800,
+                    },
+                    icon: icon_start,
+                }, )
+            }
+            // end icon
+            else if (i == n - 1) {
+                // marker_icon = icon_end;
+                marker = L.marker(pin_4, {
+                    draggable: true,
+                    bounceOnAdd: false,
+                    bounceOnAddOptions: {
+                        duration: 1000,
+                        height: 800,
+                    },
+                    icon: icon_end,
+                }, )
+            } else {
+                // marker = L.marker(others_marker[i - 1], {
+                //     icon: L.divIcon({
+                //         html: (i),
+                //     })
+                // })
+                marker_icon = L.ExtraMarkers.icon({
+                    icon: 'fa-number',
+                    number: i,
+                    markerColor: "black",
+                    iconColor: "white"
+                });
+
+                marker = L.marker(others_marker[i - 1], {
+                    draggable: true,
+                    bounceOnAdd: false,
+                    bounceOnAddOptions: {
+                        duration: 1000,
+                        height: 800,
+                    },
+                    icon: marker_icon,
+                }, )
+            }
+
+
+            return marker;
+        }
+    }).addTo(map);
+
+    //check lat and long on map
 
     // map.on('click', function(e) {
     //     geocodeService.reverse().latlng(e.latlng).run(function(error, result) {
