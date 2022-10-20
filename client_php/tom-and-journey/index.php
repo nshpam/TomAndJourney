@@ -117,7 +117,7 @@ include('header.php');
         .navbar .container-md,
         .navbar .container-sm,
         .navbar .container-xl {
-            display: block;
+            display: contents;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
