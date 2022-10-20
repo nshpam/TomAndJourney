@@ -4,18 +4,16 @@ include('header.php');
 <!-- /.navbar -->
 
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper ">
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="login-box-msg-group col-xs-12 col-md-12 col-lg-12">
-            <h1 class=" login-box-msg text-dark text-1">SIGN IN</h1>
-            <p class="login-box-msg text-dark text-2">Sign in to your account</p>
-        </div>
-    </div>
     <!-- /.content-header -->
 
     <!-- Main content -->
     <div class="content">
+        <div class="login-box-msg-group col-xs-12 col-md-12 col-lg-12">
+            <h1 class=" login-box-msg text-dark text-1">SIGN IN</h1>
+            <p class="login-box-msg text-dark text-2">Sign in to your account</p>
+        </div>
         <div class="row">
             <div class="col-md-3 col-sm-2 col-lg-4 col-2"></div>
             <div class="col-md-6 col-sm-8 col-lg-4 col-8" id="form-frame">

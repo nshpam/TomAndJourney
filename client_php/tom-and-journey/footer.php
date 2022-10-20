@@ -110,10 +110,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        /* padding-top: auto;
-        padding-bottom: auto; */
-        /* margin: 0px 30%;
-        padding: 5px 10% 10px; */
     }
 
     .content-wrapper {
@@ -250,11 +246,13 @@
 
     /* email-adress-field */
     #email-field input {
+
         border-color: #A64343;
         border-radius: 10px;
     }
 
     #email-field label {
+        margin-top: 10px;
         color: grey;
         font-weight: 400;
     }
@@ -266,6 +264,7 @@
     }
 
     #password-field label {
+        margin-top: 10px;
         color: grey;
         font-weight: 400;
     }
@@ -274,9 +273,11 @@
     #comfirm-password-field input {
         border-color: #A64343;
         border-radius: 10px;
+        margin-bottom: 20px;
     }
 
     #comfirm-password-field label {
+        margin-top: 10px;
         color: grey;
         font-weight: 400;
     }
