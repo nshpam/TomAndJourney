@@ -40,7 +40,7 @@
 
     /* --- navbar --- */
     #custom-nav-bar {
-        background-color: #A64343 ;
+        background-color: #A64343 !important;
         border-color: #A64343;
     }
 
@@ -109,8 +109,14 @@
 
     /* input username */
 
+    .text-foruser {
+        margin-top: 20px ;
+        color: grey;
+        font-weight: 400;
+    }
+
     .input-group-1 {
-        margin-top: 30px;
+        margin-top: auto;
         outline: 1px solid #A64343;
         border-color: black;
         border-radius: 10px;
@@ -131,9 +137,14 @@
     }
 
     /* input password */
+    .text-forpass {
+        margin-top: 20px ;
+        color: grey;
+        font-weight: 400;
+    }
 
     .input-group-2 {
-        margin-top: 30px;
+        margin-top: auto;
         outline: 1px solid #A64343;
         border-color: black;
         border-radius: 10px;
@@ -324,4 +335,25 @@
         outline: 1px solid black;
         z-index: 2;
     } */
+
+
+
+    /* Login Register Error Succ Check */
+    .error {
+    width: 92%;
+    margin: 0px auto;
+    padding: 10px;
+    border: 1px solid #a94442;
+    color: #a94442;
+    background: #f2dede;
+    border-radius: 5px;
+    text-align: left;
+    }
+    .success {
+    color: #3c763d;
+    background: #dff9d8;
+    border: 1px solid #3c763d;
+    margin-bottom: 20px;
+    }
+
 </style>
