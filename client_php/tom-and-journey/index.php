@@ -95,13 +95,38 @@ include('header.php');
         }
 
         #ul-custom-nav-bar {
+            flex-wrap: wrap;
             flex-direction: row !important;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar-expand-md>.container,
+        .navbar-expand-md>.container-fluid,
+        .navbar-expand-md>.container-lg,
+        .navbar-expand-md>.container-md,
+        .navbar-expand-md>.container-sm,
+        .navbar-expand-md>.container-xl {
+            text-align: center;
+        }
+
+        .navbar .container,
+        .navbar .container-fluid,
+        .navbar .container-lg,
+        .navbar .container-md,
+        .navbar .container-sm,
+        .navbar .container-xl {
+            display: block;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
         }
 
         /* login page */
 
         .content-header {
-            padding: 0px;
+            padding: 20px 0px;
         }
 
         .text-1 {
@@ -115,11 +140,6 @@ include('header.php');
 
     /* Small devices (portrait tablets and large phones, 600px and up) */
     @media only screen and (min-width: 600px) {
-
-        /* nav bar */
-        /* #custom-nav-bar {
-            height: 10%;
-        } */
 
         #ul-custom-nav-bar {
             flex-direction: row !important;
@@ -150,7 +170,7 @@ include('header.php');
         }
 
         #form-frame {
-            margin: 0px 30%;
+            margin: 0px 20%;
             padding: 5px 10% 10px;
         }
 
@@ -158,16 +178,37 @@ include('header.php');
             padding-top: 10%;
             padding-bottom: 2%;
         }
+
     }
 
     /* Large devices (laptops/desktops, 992px and up) */
     @media only screen and (min-width: 992px) {
+
+        /* login page */
         .blank-buffer {
             width: auto;
         }
 
         #form-frame {
+            margin: 0px 25%;
+            padding: 5px 10% 10px;
+        }
 
+        .login-box-msg-group {
+            padding-top: 5%;
+            padding-bottom: 2%;
+        }
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {
+
+        /* login page */
+        .blank-buffer {
+            width: auto;
+        }
+
+        #form-frame {
             margin: 0px 30%;
             padding: 5px 10% 10px;
         }
@@ -179,10 +220,21 @@ include('header.php');
     }
 
     /* Extra large devices (large laptops and desktops, 1200px and up) */
-    @media only screen and (min-width: 1200px) {}
+    @media only screen and (min-width: 2560px) {
 
-    /* responsive */
-    /* @media screen and (max-width: 789px) {
-        
-    } */
+        /* login page */
+        .blank-buffer {
+            width: auto;
+        }
+
+        #form-frame {
+            margin: 0px 40%;
+            padding: 5px 5% 10px;
+        }
+
+        .login-box-msg-group {
+            padding-top: 5%;
+            padding-bottom: 2%;
+        }
+    }
 </style>
