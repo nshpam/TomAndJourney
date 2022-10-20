@@ -77,6 +77,185 @@
     </div>
     <!-- /.content -->
 </div>
+
+<script>
+    home = document.getElementById("login-link");
+    home.classList.add("active");
+</script>
+
+<style>
+    /* responsive */
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+
+        /* nav bar */
+        #custom-nav-bar {
+            height: 10%;
+        }
+
+        #ul-custom-nav-bar {
+            flex-wrap: wrap;
+            flex-direction: row !important;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar-expand-md>.container,
+        .navbar-expand-md>.container-fluid,
+        .navbar-expand-md>.container-lg,
+        .navbar-expand-md>.container-md,
+        .navbar-expand-md>.container-sm,
+        .navbar-expand-md>.container-xl {
+            text-align: center;
+        }
+
+        .navbar .container,
+        .navbar .container-fluid,
+        .navbar .container-lg,
+        .navbar .container-md,
+        .navbar .container-sm,
+        .navbar .container-xl {
+            display: contents;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* register page */
+        #form-frame {
+            margin: 0px 10% !important;
+            padding: 0px 5% 10px !important;
+        }
+
+        .login-box-msg-group {
+            padding-top: 2% !important;
+        }
+
+    }
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+
+        #ul-custom-nav-bar {
+            flex-direction: row !important;
+        }
+
+        .login-box-msg-group {
+            padding-top: 2% !important;
+        }
+
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) and (min-height: 769px) {
+
+        /* register page */
+        #form-frame {
+            margin: 0px 20% !important;
+            padding: 10px 10% 10px !important;
+        }
+
+        .login-box-msg-group {
+            padding-top: 2% !important;
+        }
+    }
+
+    @media only screen and (min-width: 768px) and (max-height: 626px) {
+
+        /* register page */
+        #form-frame {
+            margin: 0px 20% !important;
+            padding: 10px 10% 10px !important;
+        }
+
+        .login-box-msg-group {
+            padding-top: 0px !important;
+        }
+
+        .content-header {
+            padding: 0px .5rem !important;
+        }
+
+
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) and (min-height: 769px) {
+
+        /* register page */
+        #form-frame {
+            margin: 0px 30% !important;
+            padding: 10px 10% 10px !important;
+        }
+
+        .login-box-msg-group {
+            padding-top: 3% !important;
+            padding-bottom: 1%;
+        }
+
+        .content-header {
+            padding: 0px .5rem !important;
+        }
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) and (max-height: 693px) {
+
+        /* register page */
+        #form-frame {
+            margin: 0px 30% !important;
+            padding: 10px 10% 10px !important;
+        }
+
+        .login-box-msg-group {
+            padding-top: 1% !important;
+            padding-bottom: 1% !important;
+        }
+
+        .content-header {
+            padding: 0px .5rem !important;
+        }
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) and (max-height: 693px) {
+
+        /* register page */
+        /* #form-frame {
+            margin: 0px 30% !important;
+            padding: 10px 10% 10px !important;
+        }
+
+        .login-box-msg-group {
+            padding-top: 0px !important;
+            padding-bottom: 1% !important;
+        }
+
+        .content-header {
+            padding: 0px .5rem !important;
+        } */
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 2560px) {
+
+        /* register page */
+        #form-frame {
+            margin: 0px 35% !important;
+            padding: 10px 5% 10px !important;
+        }
+
+        .login-box-msg-group {
+            padding-top: 1% !important;
+            padding-bottom: 1% !important;
+        }
+
+        .content-header {
+            padding: 0px .5rem !important;
+        }
+    }
+</style>
 <!-- /.content-wrapper -->
 
 <?php include('footer.php');

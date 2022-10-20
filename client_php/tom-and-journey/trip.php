@@ -11,17 +11,13 @@ include('header.php');
         <div class="carousel" data-carousel>
             <div data-slides>
                 <div class="slide" data-active>
-                    <img class="img-display" src="./dist/img/banner-2.jpg">
+                    <img class="img-display img-fluid" src="/tom-and-journey/dist/img/banner1.png">
                 </div>
                 <div class="slide" data-active>
-                    <img class="img-display" src="./dist/img/banner-3.jpg">
+                    <img class="img-display img-fluid" src="/tom-and-journey/dist/img/banner2.png">
                 </div>
                 <div class="slide" data-active>
-                    <img class="img-display" src="./dist/img/banner-4.jpg">
-                </div>
-                <div class="slide" data-active>
-                    <img class="img-display" src="./dist/img/banner-5.jpg">
-
+                    <img class="img-display img-fluid" src="/tom-and-journey/dist/img/banner3.png">
                 </div>
             </div>
         </div>
@@ -52,7 +48,7 @@ include('header.php');
                     </div>
                 </div>
                 <div class="plan-button-div col-md-2">
-                    <button type="button" class="btn btn-default btn-block " id="plan-button">PLAN</button>
+                    <button type="button" class="btn btn-default btn-block " id="plan-button" onclick="GoToMap()">PLAN</button>
                 </div>
             </div>
 
@@ -68,6 +64,121 @@ include('header.php');
 ?>
 
 <style>
+    /* responsive */
+
+    @media only screen and (max-width: 600px) {
+
+        /* nav bar */
+        #custom-nav-bar {
+            height: 10%;
+        }
+
+        #ul-custom-nav-bar {
+            flex-wrap: wrap;
+            flex-direction: row !important;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar-expand-md>.container,
+        .navbar-expand-md>.container-fluid,
+        .navbar-expand-md>.container-lg,
+        .navbar-expand-md>.container-md,
+        .navbar-expand-md>.container-sm,
+        .navbar-expand-md>.container-xl {
+            text-align: center;
+        }
+
+        .navbar .container,
+        .navbar .container-fluid,
+        .navbar .container-lg,
+        .navbar .container-md,
+        .navbar .container-sm,
+        .navbar .container-xl {
+            display: contents;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .carousel {
+            /* width: 100vw !important; */
+            height: 33vh !important;
+        }
+
+    }
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) and (max-height: 769px) {
+
+        #ul-custom-nav-bar {
+            flex-direction: row !important;
+        }
+
+        .carousel {
+            /* width: 100% !important; */
+            height: 27vh !important;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) and (max-height: 693px) {
+
+        #ul-custom-nav-bar {
+            flex-direction: row !important;
+        }
+
+        /* .carousel {
+            width: 82vw !important;
+            height: 49vh !important;
+            margin-left: auto;
+            margin-right: auto;
+        } */
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) and (min-height: 769px) {}
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) and (max-height: 693px) {}
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) and (min-height: 769px) {
+        /* .carousel {
+            width: 75% !important;
+            height: 49vh !important;
+            margin-left: auto;
+            margin-right: auto;
+        } */
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) and (max-height: 693px) {
+        /* .carousel {
+            width: 66% !important;
+            height: 49vh !important;
+            margin-left: auto;
+            margin-right: auto;
+        } */
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) and (min-height: 769px) {
+        /* .carousel {
+            width: 57% !important;
+            height: 49vh !important;
+            margin-left: auto;
+            margin-right: auto;
+        } */
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 2560px) {}
+
+
     .content-header {
         padding: 0px;
     }
@@ -137,6 +248,10 @@ include('header.php');
 </style>
 
 <script>
+    function GoToMap() {
+        document.location.href = 'http://localhost:8080/tom-and-journey/tripmap.php';
+    }
+
     let slideIndex = 0;
     carousel();
 
@@ -153,7 +268,7 @@ include('header.php');
         }
         x[slideIndex - 1].style.display = "block";
 
-        setTimeout(carousel, 5000); // Change image every 2 seconds
+        setTimeout(carousel, 3000); // Change image every 2 seconds
     }
 
     home = document.getElementById("trip-planner-link");

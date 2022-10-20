@@ -99,15 +99,12 @@ include('header.php');
             flex-direction: row !important;
         }
 
+
+
     }
 
     /* Small devices (portrait tablets and large phones, 600px and up) */
     @media only screen and (min-width: 600px) {
-
-        /* nav bar */
-        /* #custom-nav-bar {
-            height: 10%;
-        } */
 
         #ul-custom-nav-bar {
             flex-direction: row !important;
