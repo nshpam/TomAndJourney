@@ -8,16 +8,18 @@ include('header.php');
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-        <div class="carousel" data-carousel>
-            <div data-slides>
-                <div class="slide" data-active>
-                    <img class="img-display img-fluid" src="/tom-and-journey/dist/img/banner1.png">
-                </div>
-                <div class="slide" data-active>
-                    <img class="img-display img-fluid" src="/tom-and-journey/dist/img/banner2.png">
-                </div>
-                <div class="slide" data-active>
-                    <img class="img-display img-fluid" src="/tom-and-journey/dist/img/banner3.png">
+        <div class="row">
+            <div class="carousel" id="custom-carousel" data-carousel>
+                <div data-slides>
+                    <div class="slide" data-active>
+                        <img class="img-display img-fluid" src="/tom-and-journey/dist/img/banner1.png">
+                    </div>
+                    <div class="slide" data-active>
+                        <img class="img-display img-fluid" src="/tom-and-journey/dist/img/banner2.png">
+                    </div>
+                    <div class="slide" data-active>
+                        <img class="img-display img-fluid" src="/tom-and-journey/dist/img/banner3.png">
+                    </div>
                 </div>
             </div>
         </div>
@@ -64,8 +66,13 @@ include('header.php');
 ?>
 
 <style>
-    /* responsive */
+    /* fix horizontal overflow */
+    .row {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
 
+    /* responsive */
     @media only screen and (max-width: 600px) {
 
         /* nav bar */
@@ -102,27 +109,54 @@ include('header.php');
             justify-content: space-between;
         }
 
-        .carousel {
-            /* width: 100vw !important; */
-            height: 33vh !important;
+        /* .content-header {
+            width: 100vw;
+            height: 20vh;
+            position: relative;
         }
+
+        #custom-carousel {
+            width: 100%;
+            height: 20vh;
+        } */
 
     }
 
     /* Small devices (portrait tablets and large phones, 600px and up) */
-    @media only screen and (min-width: 600px) and (max-height: 769px) {
+    @media only screen and (min-width: 600px) {
 
         #ul-custom-nav-bar {
             flex-direction: row !important;
         }
 
-        .carousel {
-            /* width: 100% !important; */
-            height: 27vh !important;
-            margin-left: auto;
-            margin-right: auto;
+        /* .content-header {
+            width: 100vw;
+            height: 50vh;
+            position: relative;
         }
+
+        #custom-carousel {
+            width: 100%;
+            height: 38vh;
+        } */
+
     }
+
+    @media only screen and (max-width: 992px) {
+        /* .content-header {
+            width: 100%;
+            height: 50vh;
+            position: relative;
+        }
+
+        #custom-carousel {
+            width: 100%;
+            height: 38vh;
+        } */
+    }
+
+
+
 
     /* Small devices (portrait tablets and large phones, 600px and up) */
     @media only screen and (min-width: 600px) and (max-height: 693px) {
@@ -184,7 +218,9 @@ include('header.php');
     }
 
     .carousel {
-        width: 100vw;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
         height: 50vh;
         position: relative;
     }

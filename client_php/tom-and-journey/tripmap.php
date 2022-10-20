@@ -64,68 +64,68 @@ include('config.php');
                 <div id="map"></div>
 
                 <!-- login-block design -->
-                <!-- <div class="card login-block">
-                <div class="row">
-                    <p>Already a member? sign in for better experience</p>
+                <div class="card login-block">
+                    <div class="row">
+                        <p>Already a member? sign in for better experience</p>
 
-                    <button class="btn btn-default" onclick="GoToLogin()">LOGIN</button>
+                        <button class="btn btn-default" onclick="DisplayPlanner()">LOGIN</button>
+                    </div>
                 </div>
-            </div> -->
 
                 <!-- filter and info design -->
-                <!-- <div class="card d-flex info-block">
-                <div class="card-header info-block-body">
-                    <div class="row">
-                        <div class="icon-text d-flex justify-content-center align-items-center">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <p>4</p>
-                        </div>
-                        <div class="icon-text d-flex justify-content-center align-items-center">
-                            <i class="fas fa-clock"></i>
-                            <p>27m</p>
-                        </div>
-                        <div class="icon-text d-flex justify-content-center align-items-center">
-                            <i class="fas fa-truck"></i>
-                            <p>10km</p>
-                        </div>
-                        <div class="icon-text d-flex justify-content-center align-items-center">
-                            <i class="fab fa-bitcoin"></i>
-                            <p>100B</p>
-                        </div>
+                <div class="card d-flex info-block">
+                    <div class="card-header info-block-body">
+                        <div class="row">
+                            <div class="icon-text d-flex justify-content-center align-items-center">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>4</p>
+                            </div>
+                            <div class="icon-text d-flex justify-content-center align-items-center">
+                                <i class="fas fa-clock"></i>
+                                <p>27m</p>
+                            </div>
+                            <div class="icon-text d-flex justify-content-center align-items-center">
+                                <i class="fas fa-truck"></i>
+                                <p>10km</p>
+                            </div>
+                            <div class="icon-text d-flex justify-content-center align-items-center">
+                                <i class="fab fa-bitcoin"></i>
+                                <p>100B</p>
+                            </div>
 
+                        </div>
+                    </div>
+                    <div class="card-body d-flex filter-block justify-content-center align-items-center">
+                        <div class="row filter-block-body d-flex justify-content-center align-items-center">
+                            <div class="" id="icon-box-1">
+                                <i class="fas fa-camera d-flex active-1" id="map-icons" onclick="ActiveIcon('active_1')"></i>
+                            </div>
+
+                            <div class="blank_div"></div>
+
+                            <div class="" id="icon-box-2">
+                                <i class="fas fa-bed d-flex active-2" id="map-icons" onclick="ActiveIcon('active_2')"></i>
+                            </div>
+                            <div class="blank_div"></div>
+
+                            <div class="" id="icon-box-3"><i class="fas fa-gas-pump d-flex active-3" id="map-icons" onclick="ActiveIcon('active_3')"></i></div>
+                            <div class="blank_div"></div>
+                            <div class="" id="icon-box-4"><i class="fas fa-utensils d-flex active-4" id="map-icons" onclick="ActiveIcon('active_4')"></i></div>
+                            <div class="blank_div"></div>
+                            <div class="" id="icon-box-5"><i class="fas fa-train d-flex active-5" id="map-icons" onclick="ActiveIcon('active_5')"></i></div>
+                            <div class="blank_div"></div>
+                            <div class="" id="icon-box-6"><i class="fas fa-landmark d-flex active-6" id="map-icons" onclick="ActiveIcon('active_6')"></i></div>
+                            <div class="blank_div"></div>
+                            <div class="" id="icon-box-7"><i class="fas fa-store d-flex active-7" id="map-icons" onclick="ActiveIcon('active_7')"></i></div>
+                            <div class="blank_div"></div>
+                            <div class="" id="icon-box-8"><i class="fas fa-anchor d-flex active-8" id="map-icons" onclick="ActiveIcon('active_8')"></i></div>
+                            <div class="blank_div"></div>
+                            <div class="" id="icon-box-9"><i class="fas fa-coffee d-flex active-9" id="map-icons" onclick="ActiveIcon('active_9')"></i></div>
+                            <div class="blank_div"></div>
+                            <div class="" id="icon-box-10"><i class="fas fa-wine-glass-alt d-flex active-10" id="map-icons" onclick="ActiveIcon('active_10')"></i></div>
+                        </div>
                     </div>
                 </div>
-                <div class="card-body d-flex filter-block justify-content-center align-items-center">
-                    <div class="row filter-block-body d-flex justify-content-center align-items-center">
-                        <div class="" id="icon-box-1">
-                            <i class="fas fa-camera d-flex active-1" id="map-icons" onclick="ActiveIcon('active_1')"></i>
-                        </div>
-
-                        <div class="blank_div"></div>
-
-                        <div class="" id="icon-box-2">
-                            <i class="fas fa-bed d-flex active-2" id="map-icons" onclick="ActiveIcon('active_2')"></i>
-                        </div>
-                        <div class="blank_div"></div>
-
-                        <div class="" id="icon-box-3"><i class="fas fa-gas-pump d-flex active-3" id="map-icons" onclick="ActiveIcon('active_3')"></i></div>
-                        <div class="blank_div"></div>
-                        <div class="" id="icon-box-4"><i class="fas fa-utensils d-flex active-4" id="map-icons" onclick="ActiveIcon('active_4')"></i></div>
-                        <div class="blank_div"></div>
-                        <div class="" id="icon-box-5"><i class="fas fa-train d-flex active-5" id="map-icons" onclick="ActiveIcon('active_5')"></i></div>
-                        <div class="blank_div"></div>
-                        <div class="" id="icon-box-6"><i class="fas fa-landmark d-flex active-6" id="map-icons" onclick="ActiveIcon('active_6')"></i></div>
-                        <div class="blank_div"></div>
-                        <div class="" id="icon-box-7"><i class="fas fa-store d-flex active-7" id="map-icons" onclick="ActiveIcon('active_7')"></i></div>
-                        <div class="blank_div"></div>
-                        <div class="" id="icon-box-8"><i class="fas fa-anchor d-flex active-8" id="map-icons" onclick="ActiveIcon('active_8')"></i></div>
-                        <div class="blank_div"></div>
-                        <div class="" id="icon-box-9"><i class="fas fa-coffee d-flex active-9" id="map-icons" onclick="ActiveIcon('active_9')"></i></div>
-                        <div class="blank_div"></div>
-                        <div class="" id="icon-box-10"><i class="fas fa-wine-glass-alt d-flex active-10" id="map-icons" onclick="ActiveIcon('active_10')"></i></div>
-                    </div>
-                </div>
-            </div> -->
 
                 <!-- filter, info, route design -->
 
@@ -134,7 +134,7 @@ include('config.php');
                     <div class="card-header location-img" data-spy="scroll">
                         <div class="location-img-div">
                             <img src="/tom-and-journey/dist/img/bangkok-thailand.jpg" alt="">
-                            <!-- <div class="centered" style="color: black; z-index:999;">Text</div> -->
+
                             <div class="row location-text d-flex justify-content-center align-items-center centered">
                                 <i class="fas fa-map-marker-alt d-flex justify-content-center align-items-center"></i>
                                 <p class="d-flex justify-content-center align-items-center">Bangkok, Thailand</p>
@@ -237,13 +237,11 @@ include('config.php');
                             </div>
                         </div>
 
-                        <!-- <div class="row" style="background-color: black;">
-                    
-                    </div> -->
-
                     </div>
                     <div class="card-footer info-block-body-2 d-flex justify-content-center align-items-center">
+
                         <div class="row">
+
                             <div class="icon-text d-flex justify-content-center align-items-center">
                                 <i class="fas fa-map-marker-alt"></i>
                                 <p>4</p>
@@ -261,7 +259,9 @@ include('config.php');
                                 <p>100B</p>
                             </div>
 
+
                         </div>
+                        </a>
                     </div>
 
                 </div>
@@ -301,6 +301,20 @@ include('config.php');
         <style>
             body {
                 overflow: hidden;
+            }
+
+            a #fill-div {
+                display: block;
+                height: 100%;
+                width: 100%;
+                text-decoration: none;
+            }
+
+            .content-wrapper {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                vertical-align: middle;
             }
 
             /* responsive */
@@ -350,18 +364,18 @@ include('config.php');
             /* leaflet zoom control position */
 
             /* for login page and filter page */
-            /* .leaflet-control-container {
-        position: absolute;
-        right: 5%;
-        top: 40%;
-    } */
+            .leaflet-control-container {
+                position: absolute;
+                right: 5%;
+                top: 40%;
+            }
 
             /* for tripplanner page */
-            .leaflet-control-container {
+            /* .leaflet-control-container {
                 position: absolute;
                 right: 35%;
                 top: 40%;
-            }
+            } */
 
             .leaflet-bottom {
                 display: none;
@@ -636,11 +650,12 @@ include('config.php');
                 background-color: white;
                 border-radius: 5px;
                 position: absolute;
-                top: 1%;
+                top: 0%;
                 left: 70%;
                 z-index: 998;
                 color: white;
                 max-height: 85vh;
+                visibility: hidden;
             }
 
             .location-img-div>img {
@@ -967,71 +982,7 @@ include('config.php');
                 iconColor: "white"
             });
 
-            // routing system
-            L.Routing.control({
-                waypoints: [
-                    pin_1,
-                    pin_2,
-                    pin_3,
-                    pin_4,
-                ],
-                createMarker: function(i, start, n) {
-                    var marker_icon = null;
-                    var others_marker = [pin_2, pin_3];
 
-                    // start icon
-                    if (i == 0) {
-                        // marker_icon = icon_start;
-                        marker = L.marker(pin_1, {
-                            draggable: true,
-                            bounceOnAdd: false,
-                            bounceOnAddOptions: {
-                                duration: 1000,
-                                height: 800,
-                            },
-                            icon: icon_start,
-                        }, )
-                    }
-                    // end icon
-                    else if (i == n - 1) {
-                        // marker_icon = icon_end;
-                        marker = L.marker(pin_4, {
-                            draggable: true,
-                            bounceOnAdd: false,
-                            bounceOnAddOptions: {
-                                duration: 1000,
-                                height: 800,
-                            },
-                            icon: icon_end,
-                        }, )
-                    } else {
-                        // marker = L.marker(others_marker[i - 1], {
-                        //     icon: L.divIcon({
-                        //         html: (i),
-                        //     })
-                        // })
-                        marker_icon = L.ExtraMarkers.icon({
-                            icon: 'fa-number',
-                            number: i,
-                            markerColor: "black",
-                            iconColor: "white"
-                        });
-
-                        marker = L.marker(others_marker[i - 1], {
-                            draggable: true,
-                            bounceOnAdd: false,
-                            bounceOnAddOptions: {
-                                duration: 1000,
-                                height: 800,
-                            },
-                            icon: marker_icon,
-                        }, )
-                    }
-
-
-                    return marker;
-                }
-            }).addTo(map);
 
             //check lat and long on map
 
@@ -1816,5 +1767,93 @@ include('config.php');
                         }
                     });
                 }
+            }
+
+            function DisplayPlanner() {
+                route_main_block = document.querySelectorAll('.route-main-block');
+                route_main_block.forEach(e => {
+                    e.style.visibility = 'visible';
+                });
+
+                login_block = document.querySelectorAll('.login-block');
+                login_block.forEach(e => {
+                    e.style.visibility = 'hidden';
+                });
+
+                info_block = document.querySelectorAll('.info-block');
+                info_block.forEach(e => {
+                    e.style.visibility = 'hidden';
+                });
+
+                leaflet_zoom_block = document.querySelectorAll('.leaflet-control-container');
+                leaflet_zoom_block.forEach(e => {
+                    e.style.right = '35%';
+                });
+
+                // routing system
+                L.Routing.control({
+                    waypoints: [
+                        pin_1,
+                        pin_2,
+                        pin_3,
+                        pin_4,
+                    ],
+                    createMarker: function(i, start, n) {
+                        var marker_icon = null;
+                        var others_marker = [pin_2, pin_3];
+
+                        // start icon
+                        if (i == 0) {
+                            // marker_icon = icon_start;
+                            marker = L.marker(pin_1, {
+                                draggable: true,
+                                bounceOnAdd: false,
+                                bounceOnAddOptions: {
+                                    duration: 1000,
+                                    height: 800,
+                                },
+                                icon: icon_start,
+                            }, )
+                        }
+                        // end icon
+                        else if (i == n - 1) {
+                            // marker_icon = icon_end;
+                            marker = L.marker(pin_4, {
+                                draggable: true,
+                                bounceOnAdd: false,
+                                bounceOnAddOptions: {
+                                    duration: 1000,
+                                    height: 800,
+                                },
+                                icon: icon_end,
+                            }, )
+                        } else {
+                            // marker = L.marker(others_marker[i - 1], {
+                            //     icon: L.divIcon({
+                            //         html: (i),
+                            //     })
+                            // })
+                            marker_icon = L.ExtraMarkers.icon({
+                                icon: 'fa-number',
+                                number: i,
+                                markerColor: "black",
+                                iconColor: "white"
+                            });
+
+                            marker = L.marker(others_marker[i - 1], {
+                                draggable: true,
+                                bounceOnAdd: false,
+                                bounceOnAddOptions: {
+                                    duration: 1000,
+                                    height: 800,
+                                },
+                                icon: marker_icon,
+                            }, )
+                        }
+
+
+                        return marker;
+                    }
+                }).addTo(map);
             }
         </script>
