@@ -1,7 +1,5 @@
 <?php
-session_start();
 include('header.php');
-include('server.php');
 ?>
 <!-- /.navbar -->
 
@@ -23,79 +21,48 @@ include('server.php');
         </div>
 
         <div id="form-frame">
-        <form action="login_db.php" method="post">
-        
-        <div class="text-foruser">
-            <label for="username">Username</label>
-            
-        </div>
-
-        <div class="input-group mb-3 input-group-1">
+            <form method="POST" id="login_form">
+                <div class="input-group mb-3 input-group-1">
 
                     <div id="username-logo">
                         <i class="fas fa-user"></i>
                     </div>
 
-                    <input type="text" name="username" class="form-control" placeholder="Username" id="username">
+                    <input type="text" class="form-control" placeholder="Username" id="username">
 
-        </div>
-        
-        <div class="text-forpass">
-            <label for="password">Password</label>
-        </div>
-        <div class="input-group mb-3 input-group-2">
-            <div id="password-logo">
-                <i class="fas fa-lock"></i>
-            </div>
+                </div>
+                <div class="input-group mb-3 input-group-2">
 
-            <input type="password" name="password" class="form-control" placeholder="Password" id="password">
-        </div>
 
-        <?php if (isset($_SESSION['error'])) : ?>
-            <div class="error text-danger">
-                <h3 >
-                    <?php 
-                        echo $_SESSION['error'];
-                        unset($_SESSION['error']);
-                    ?>
-                </h3>
-            </div>
-        <?php endif ?>
+                    <div id="password-logo">
+                        <i class="fas fa-lock"></i>
+                    </div>
 
-        <?php if (isset($_SESSION['success'])) : ?>
-            <div class="success">
-                <h3>
-                    <?php 
-                        echo $_SESSION['success'];
-                        unset($_SESSION['success']);
-                    ?>
-                </h3>
-            </div>
-        <?php endif ?>
-        <div class="text-danger">Hi</div>
+                    <input type="password" class="form-control" placeholder="Password" id="password">
+                </div>
 
-        <div class="row" id="href-text-1">
-            <a href="#" id="top-buffer-1">Forgot password?</a>
-            <div class="blank-buffer"></div>
+                <p class="text-center text-danger" id='warning_text'></p>
 
-            <div id="remember-group">
-                <input type="checkbox" id="Remember">
-                <label for="Remember">Remember me</label>
-             </div>
-                    
-        </div>
-        <div class="input-group">
-            <button type="submit" name="login_user" class="btn btn-default btn-block" id="login-button">Login</button>
-        </div>
-        
-    </form>
+                <div class="row" id="href-text-1">
+                    <a href="#" id="top-buffer-1">Forgot password?</a>
+                    <div class="blank-buffer"></div>
+                    <div id="remember-group">
+                        <input type="checkbox" id="Remember">
+                        <label for="Remember">Remember me</label>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-default btn-block " id="login-button" onclick="Login()">LOGIN</button>
+                </div>
+
+            </form>
 
 
 
         </div>
         <div class="row justify-content-center" id="outside-text">
             <p>Don't have an account?</p>
-            <a href="register.php" id="resgister-text">Sign Up Now</a>
+            <a href="#" id="resgister-text">Sign Up Now</a>
         </div>
 
 
