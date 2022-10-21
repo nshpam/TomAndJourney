@@ -1,19 +1,32 @@
+<!-- navbar -->
 <?php include('header.php');
 ?>
+<!-- end navbar -->
 
-<!-- Content Wrapper. Contains page content -->
+<!-- content-wrapper -->
 <div class="content-wrapper">
 
-    <!-- Main content -->
+    <!-- content -->
     <div class="content">
+
+        <!-- register header text (*** do not change the class because it related to AdminLTE3 code ***) -->
         <div class="login-box-msg-group">
             <h2 class=" login-box-msg text-dark text-1">Register</h2>
             <p class="login-box-msg text-dark text-2">Register your account</p>
         </div>
+        <!-- end register header -->
+
+        <!-- register form frame -->
         <div class="row">
+
+            <!-- blank div (for reponsive purpose) -->
             <div class="col-md-3 col-sm-2 col-lg-4 col-2"></div>
+            <!-- end blank div -->
+
+            <!-- register form -->
             <div class="col-md-6 col-sm-8 col-lg-4 col-8" id="form-frame">
                 <form method="POST" id="register_form">
+
                     <!-- username field -->
                     <div class="row" id="username-field">
                         <label for="username-field-input">Username</label>
@@ -21,6 +34,7 @@
                             <input type="text" class="form-control" placeholder="Enter your Username" id="username-field-input">
                         </div>
                     </div>
+                    <!-- end username field -->
 
                     <!-- email field -->
                     <div class="row" id="email-field">
@@ -29,6 +43,7 @@
                             <input type="email" class="form-control" placeholder="Enter your Email" id="email-field-input">
                         </div>
                     </div>
+                    <!-- end email field -->
 
                     <!-- password field -->
                     <div class="row" id="password-field">
@@ -37,6 +52,7 @@
                             <input type="password" class="form-control" placeholder="Enter your password" id="password-field-input">
                         </div>
                     </div>
+                    <!-- end password field -->
 
                     <!-- comfirm password field -->
                     <div class="row" id="comfirm-password-field">
@@ -45,106 +61,46 @@
                             <input type="password" class="form-control" placeholder="Confirm your password" id="comfirm-password-field-input">
                         </div>
                     </div>
+                    <!-- end confirm password field -->
 
+                    <!-- warning text (link with js) -->
                     <p class="text-center text-danger" id='warning_text'></p>
 
-
+                    <!-- register button -->
                     <div class="row d-flex justify-content-center">
-                        <button type="button" class="btn btn-default btn-block " id="register-button" onclick="Login()">REGISTER</button>
+                        <button type="button" class="btn btn-default btn-block " id="register-button" onclick="GoTo('index.php')">REGISTER</button>
                     </div>
+                    <!-- end register button -->
 
                 </form>
-
-
-
             </div>
+            <!-- end register form -->
+
+            <!-- blank div (for reponsive purpose) -->
             <div class="col-md-3 col-sm-2 col-lg-4 col-2"></div>
+            <!-- end blank div -->
+
         </div>
-        <!-- /.social-auth-links -->
-
-
+        <!-- end register form frame -->
 
     </div>
-    <!-- /.content -->
+    <!-- end content -->
+
 </div>
+<!-- end content-wrapper -->
 
-<script>
-    home = document.getElementById("login-link");
-    home.classList.add("active");
-</script>
+<!-- register.css -->
+<link rel="stylesheet" href="./dist/css/tomandjourney/registerpage.css">
 
-<style>
-    .login-box-msg-group {
-        margin-bottom: 0% !important;
-        padding-bottom: 1% !important;
-    }
+<!-- control.js -->
+<script src="./dist/js/tomandjourney/control.js"></script>
 
-    #register-button {
-        background-color: #A64343;
-        border-radius: 10px;
-        color: white;
-        font-weight: 700;
-        margin-bottom: 20px;
-    }
-
-    /* center content-warpper */
-    .content-wrapper {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        vertical-align: middle;
-    }
-
-    /* responsive */
-    /* Extra small devices (phones, 600px and down) */
-    @media only screen and (max-width: 600px) {
-
-        /* nav bar */
-        #custom-nav-bar {
-            height: 10%;
-        }
-
-        #ul-custom-nav-bar {
-            flex-wrap: wrap;
-            flex-direction: row !important;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .navbar-expand-md>.container,
-        .navbar-expand-md>.container-fluid,
-        .navbar-expand-md>.container-lg,
-        .navbar-expand-md>.container-md,
-        .navbar-expand-md>.container-sm,
-        .navbar-expand-md>.container-xl {
-            text-align: center;
-        }
-
-        .navbar .container,
-        .navbar .container-fluid,
-        .navbar .container-lg,
-        .navbar .container-md,
-        .navbar .container-sm,
-        .navbar .container-xl {
-            display: contents;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-    }
-
-    /* Small devices (portrait tablets and large phones, 600px and up) */
-    @media only screen and (min-width: 600px) {
-
-        #ul-custom-nav-bar {
-            flex-direction: row !important;
-        }
-
-    }
-</style>
-<!-- /.content-wrapper -->
-
+<!-- footer -->
 <?php include('footer.php');
 ?>
+<!-- end footer -->
+
+<script>
+    // hightlight the selected page in navbar
+    SelectedNavItem("login-link");
+</script>

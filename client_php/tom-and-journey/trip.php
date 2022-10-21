@@ -50,7 +50,7 @@ include('header.php');
 
                     <!-- card 1 -->
                     <div class="card card-body-1-1">
-                        <div class="card-body card-body-1 ">
+                        <div class="card-body card-body-1">
 
                             <!-- Start input -->
                             <div class="input-group">
@@ -99,8 +99,10 @@ include('header.php');
 <!-- control.js -->
 <script src="./dist/js/tomandjourney/control.js"></script>
 
+<!-- footer -->
 <?php include('footer.php');
 ?>
+<!-- end footer -->
 
 <script>
     // hightlight the selected page in navbar

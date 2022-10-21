@@ -4,6 +4,64 @@
     margin-right: 0px;
 }
 
+/* custom form row */
+.form-row {
+    margin-top: 5%;
+}
+
+/* custom all card body (effect all card body) */
+.card-body-1 {
+    padding: 10px 50px 10px 20px;
+}
+
+.card-body-2 {
+    margin-left: 50px;
+}
+
+.card-group {
+    padding-right: 0px !important;
+}
+
+/* input card 1 */
+.card-input-1 {
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    border-radius: 0px;
+}
+
+.card-body-1-1 {
+    border-radius: 0px;
+}
+
+/* input card 2 */
+.card-input-2 {
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    border-radius: 0px;
+}
+
+.card-body-1-2 {
+    border-radius: 0px;
+}
+
+/* custom plan button */
+#plan-button {
+    background-color: #A64343;
+    color: white;
+    width: auto;
+    height: 100%;
+}
+
+.plan-button-div {
+    padding-left: 0px !important;
+}
+
+#plan-button {
+    width: 100%;
+}
+
 /* responsive */
 @media only screen and (max-width: 600px) {
 

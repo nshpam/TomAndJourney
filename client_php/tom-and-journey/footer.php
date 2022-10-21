@@ -1,6 +1,9 @@
+<!-- import config.php -->
 <?php include("config.php") ?>
+<!-- end import config.php -->
+
 </div>
-<!-- ./wrapper -->
+<!-- end wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
 
@@ -11,7 +14,11 @@
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 
+<!-- footer -->
 <footer class="main-footer fixed-bottom text-sm bg-dark">
+
+    <!-- import version from config.php -->
+    <!-- footer right text -->
     <?php
     echo "
     <div class='float-right d-none d-sm-block'>
@@ -20,12 +27,16 @@
     ";
     ?>
 
+    <!-- footer left text -->
     ©KMUTNB Trademarks and brands are the property of their respective owners.
 </footer>
+<!-- end footer -->
 
 </body>
+<!-- end body -->
 
 </html>
+<!-- end html -->
 
 
 <style>
@@ -282,71 +293,4 @@
         color: grey;
         font-weight: 400;
     }
-
-
-    /* trip planner form */
-
-    .card-input-1 {
-        border: none;
-        border-bottom: 1px solid black;
-        outline: none;
-        border-radius: 0px;
-    }
-
-    .card-input-2 {
-        border: none;
-        border-bottom: 1px solid black;
-        outline: none;
-        border-radius: 0px;
-        /* width: 50%; */
-    }
-
-    .card-body-1 {
-        padding: 10px 50px 10px 20px;
-    }
-
-    .card-body-1-1 {
-        border-radius: 0px;
-    }
-
-    .card-body-1-2 {
-        border-radius: 0px;
-    }
-
-    .form-row {
-        margin-top: 5%;
-    }
-
-
-
-    #plan-button {
-        background-color: #A64343;
-        color: white;
-        width: auto;
-        height: 100%;
-    }
-
-    .plan-button-div {
-        padding-left: 0px !important;
-    }
-
-    .card-group {
-        padding-right: 0px !important;
-    }
-
-    .card-body-2 {
-        margin-left: 50px;
-    }
-
-
-
-    #plan-button {
-        width: 100%;
-
-    }
-
-    /* .underline-input-1 {
-        outline: 1px solid black;
-        z-index: 2;
-    } */
 </style>
