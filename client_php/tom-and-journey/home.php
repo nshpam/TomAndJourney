@@ -44,9 +44,9 @@ include('header.php');
 
                 <div class="row md-5">
                     <div class="col-md-2"></div>
-                    <button type="button" class="btn btn-default col-md-1" id="get-started-button" onclick="Login()">Get Started</button>
+                    <button type="button" class="btn btn-default col-md-1" id="get-started-button" onclick="GoToLogin()">Get Started</button>
                     <!-- <div class="col-md-1"></div> -->
-                    <button type="button" class="btn btn-default col-md-1" id="see-more-button" onclick="Login()">See more</button>
+                    <button type="button" class="btn btn-default col-md-1" id="see-more-button" onclick="GoToTrip()">See more</button>
                 </div>
 
             </div>
@@ -76,6 +76,15 @@ include('header.php');
 </body>
 
 <script>
+    function GoToLogin() {
+        window.location.href = "http://localhost:8080/tom-and-journey/index.php";
+    }
+
+    function GoToTrip() {
+        window.location.href = "http://localhost:8080/tom-and-journey/trip.php";
+    }
+
+
     home = document.getElementById("home-link");
     home.classList.add("active");
 </script>
