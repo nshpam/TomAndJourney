@@ -6,11 +6,10 @@
     }
 
     /* reponsive */
-
     /* Extra small devices (phones, 600px and down) */
     @media only screen and (max-width: 600px) {
 
-        /* nav bar */
+        /* navbar */
         #custom-nav-bar {
             height: 10%;
         }
@@ -24,6 +23,7 @@
     /* Small devices (portrait tablets and large phones, 600px and up) */
     @media only screen and (min-width: 600px) {
 
+        /* navbar */
         #ul-custom-nav-bar {
             flex-direction: row !important;
         }
@@ -79,6 +79,7 @@
         background-color: transparent;
     }
 
+    /* layer 1 */
     .bg-image {
         background-color: #A64343 !important;
         background-image: url('../../img/bg-image.png') !important;
@@ -88,6 +89,16 @@
         background-size: cover;
     }
 
+    /* layer 2 */
+    .person-image-div {
+        background-image: url('../../img/bg-image-2.png') !important;
+        height: 100%;
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    /* introduction text */
     .intro-group {
         margin-top: 15%;
     }
@@ -133,12 +144,4 @@
         border-radius: 20px;
         color: white;
         width: 10%;
-    }
-
-    .person-image-div {
-        background-image: url('../../img/bg-image-2.png') !important;
-        height: 100%;
-        background-position: right;
-        background-repeat: no-repeat;
-        background-size: contain;
     }

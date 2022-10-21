@@ -59,8 +59,8 @@ include('header.php');
                 <!-- buttons -->
                 <div class="row md-5">
                     <div class="col-md-2"></div>
-                    <button type="button" class="btn btn-default col-md-1" id="get-started-button" onclick="GoToLogin()">Get Started</button>
-                    <button type="button" class="btn btn-default col-md-1" id="see-more-button" onclick="GoToTrip()">See more</button>
+                    <button type="button" class="btn btn-default col-md-1" id="get-started-button" onclick="GoTo('index.php')">Get Started</button>
+                    <button type="button" class="btn btn-default col-md-1" id="see-more-button" onclick="GoTo('trip.php')">See more</button>
                 </div>
                 <!-- end buttons -->
 
@@ -97,24 +97,13 @@ include('header.php');
 <!-- homepage.css -->
 <link rel="stylesheet" href="dist/css/tomandjourney/homepage.css">
 
+<!-- control.js -->
+<script src="./dist/js/tomandjourney/control.js"></script>
 
 </body>
 <!-- end body -->
 
 <script>
-    // use this function in Get Started button
-    // redirect to login page
-    function GoToLogin() {
-        window.location.href = "http://localhost:8080/tom-and-journey/index.php";
-    }
-
-    // use this function in See more
-    // redirect to trip page
-    function GoToTrip() {
-        window.location.href = "http://localhost:8080/tom-and-journey/trip.php";
-    }
-
     // hightlight the selected page in navbar
-    home = document.getElementById("home-link");
-    home.classList.add("active");
+    SelectedNavItem("home-link");
 </script>
