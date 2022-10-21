@@ -128,7 +128,8 @@
     #username {
         border-radius: 10px;
         border-color: transparent;
-
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     .input-group-1 #username-logo {

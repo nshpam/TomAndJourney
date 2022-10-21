@@ -49,7 +49,7 @@ include('header.php');
 
                     <div class="row" id="href-text-1">
 
-                        <a class=" col-xs-6 col-md-6 col-sm-6 col-lg-6 col-12 d-flex justify-content-center " href="#" id="top-buffer-1">Forgot password?</a>
+                        <a class=" col-xs-6 col-md-6 col-sm-6 col-lg-6 col-12 d-flex justify-content-center " href="forgetpassword.php" id="top-buffer-1">Forgot password?</a>
 
                         <div class=" col-xs-6 col-md-6 col-sm-6 col-lg-6 col-12 d-flex justify-content-center" id="remember-group">
                             <input type="checkbox" id="Remember">
