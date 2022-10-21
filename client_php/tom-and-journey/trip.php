@@ -1,7 +1,8 @@
+<!-- navbar -->
 <?php
 include('header.php');
 ?>
-<!-- /.navbar -->
+<!-- end navbar -->
 
 
 <!-- Content Wrapper. Contains page content -->

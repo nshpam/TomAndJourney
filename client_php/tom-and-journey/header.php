@@ -12,11 +12,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
 
+    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
