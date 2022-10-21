@@ -12,9 +12,14 @@
 <script src="dist/js/adminlte.min.js"></script>
 
 <footer class="main-footer fixed-bottom text-sm bg-dark">
-    <div class="float-right d-none d-sm-block">
-        Version 1.0.0
+    <?php
+    echo "
+    <div class='float-right d-none d-sm-block'>
+        Version $VERSION
     </div>
+    ";
+    ?>
+
     ©KMUTNB Trademarks and brands are the property of their respective owners.
 </footer>
 
@@ -28,6 +33,12 @@
     body {
         font-family: 'Roboto', sans-serif;
         background-color: white;
+    }
+
+    /* footer */
+    .main-footer {
+        border-top: 1px solid #343a40 !important;
+
     }
 
     /* form control */
@@ -61,7 +72,7 @@
         font-weight: 500;
     }
 
-    .active {
+    .nav-item .active {
         color: #A64343 !important;
         background-color: white;
         padding: 10px 5px;
@@ -72,8 +83,6 @@
     #brand-logo {
         vertical-align: middle;
     }
-
-    /* footer */
 
 
     /* --- login form ---*/
@@ -89,7 +98,6 @@
     }
 
     .login-box-msg-group {
-        padding-top: 5%;
         padding-bottom: 2%;
     }
 
@@ -99,8 +107,9 @@
         background-color: white;
         outline: 1px solid black;
         border-radius: 20px;
-        margin: 0px 30%;
-        padding: 5px 10% 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .content-wrapper {
@@ -157,9 +166,19 @@
 
     #remember-group {
         color: grey;
-        margin: 20px auto 20px auto;
+
+        margin-left: auto;
+        margin-right: auto;
+        /* margin: 0px auto 0px auto; */
     }
 
+    #remember-group label {
+        margin: 20px 0px 20px 0px;
+    }
+
+    #remember-group input {
+        margin-right: 5px;
+    }
 
 
     .blank-buffer {
@@ -171,7 +190,7 @@
     }
 
     #remember-group input:hover {
-        margin-left: auto;
+
         color: grey;
     }
 
@@ -227,11 +246,13 @@
 
     /* email-adress-field */
     #email-field input {
+
         border-color: #A64343;
         border-radius: 10px;
     }
 
     #email-field label {
+        margin-top: 10px;
         color: grey;
         font-weight: 400;
     }
@@ -243,6 +264,7 @@
     }
 
     #password-field label {
+        margin-top: 10px;
         color: grey;
         font-weight: 400;
     }
@@ -251,9 +273,11 @@
     #comfirm-password-field input {
         border-color: #A64343;
         border-radius: 10px;
+        margin-bottom: 20px;
     }
 
     #comfirm-password-field label {
+        margin-top: 10px;
         color: grey;
         font-weight: 400;
     }
