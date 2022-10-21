@@ -11,8 +11,8 @@
 
         <!-- register header text (*** do not change the class because it related to AdminLTE3 code ***) -->
         <div class="login-box-msg-group">
-            <h2 class=" login-box-msg text-dark text-1">Register</h2>
-            <p class="login-box-msg text-dark text-2">Register your account</p>
+            <h2 class=" login-box-msg text-dark text-1">SIGN UP</h2>
+            <p class="login-box-msg text-dark text-2">Sign up your account</p>
         </div>
         <!-- end register header -->
 
@@ -65,10 +65,11 @@
 
                     <!-- warning text (link with js) -->
                     <p class="text-center text-danger" id='warning_text'></p>
+                    <!-- end warning text -->
 
                     <!-- register button -->
                     <div class="row d-flex justify-content-center">
-                        <button type="button" class="btn btn-default btn-block " id="register-button" onclick="GoTo('index.php')">REGISTER</button>
+                        <button type="button" class="btn btn-default btn-block " id="register-button" onclick="GoTo('index.php')">SIGN UP</button>
                     </div>
                     <!-- end register button -->
 

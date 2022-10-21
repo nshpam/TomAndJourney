@@ -59,7 +59,7 @@ include('header.php');
                     </div>
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-1 col-sm-2 col-1"></div>
-                        <button type="button" class=" col-md-10 col-sm-8 col-10 btn btn-default btn-block " id="login-button" onclick="GoToTrip()">LOGIN</button>
+                        <button type="button" class=" col-md-10 col-sm-8 col-10 btn btn-default btn-block " id="login-button" onclick="GoToTrip()">SIGN IN</button>
                         <div class="col-md-1 col-sm-2 col-1"></div>
                     </div>
 
