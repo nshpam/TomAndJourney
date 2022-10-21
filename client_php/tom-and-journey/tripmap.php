@@ -68,33 +68,40 @@ include('config.php');
                     <div class="row">
                         <p>Already a member? sign in for better experience</p>
 
-                        <button class="btn btn-default" onclick="DisplayPlanner()">LOGIN</button>
+                        <button class="btn btn-default" onclick="GoToLogin()">LOGIN</button>
                     </div>
                 </div>
 
                 <!-- filter and info design -->
                 <div class="card d-flex info-block">
                     <div class="card-header info-block-body">
-                        <div class="row">
-                            <div class="icon-text d-flex justify-content-center align-items-center">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <p>4</p>
-                            </div>
-                            <div class="icon-text d-flex justify-content-center align-items-center">
-                                <i class="fas fa-clock"></i>
-                                <p>27m</p>
-                            </div>
-                            <div class="icon-text d-flex justify-content-center align-items-center">
-                                <i class="fas fa-truck"></i>
-                                <p>10km</p>
-                            </div>
-                            <div class="icon-text d-flex justify-content-center align-items-center">
-                                <i class="fab fa-bitcoin"></i>
-                                <p>100B</p>
-                            </div>
+                        <div class="d-flex">
+                            <div class="row">
+                                <div class="icon-text d-flex justify-content-center align-items-center">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <p>4</p>
+                                </div>
+                                <div class="icon-text d-flex justify-content-center align-items-center">
+                                    <i class="fas fa-clock"></i>
+                                    <p>27m</p>
+                                </div>
+                                <div class="icon-text d-flex justify-content-center align-items-center">
+                                    <i class="fas fa-truck"></i>
+                                    <p>10km</p>
+                                </div>
+                                <div class="icon-text d-flex justify-content-center align-items-center">
+                                    <i class="fab fa-bitcoin"></i>
+                                    <p>100B</p>
+                                </div>
 
+                                <div class="icon-text d-flex justify-content-center align-items-center">
+                                    <i class="fas fa-chevron-down" onclick="ExpandTab()"></i>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
+
                     <div class="card-body d-flex filter-block justify-content-center align-items-center">
                         <div class="row filter-block-body d-flex justify-content-center align-items-center">
                             <div class="" id="icon-box-1">
@@ -257,6 +264,9 @@ include('config.php');
                             <div class="icon-text d-flex justify-content-center align-items-center">
                                 <i class="fab fa-bitcoin"></i>
                                 <p>100B</p>
+                            </div>
+                            <div class="icon-text d-flex justify-content-center align-items-center">
+                                <i class="fas fa-chevron-up" onclick="MinimizeTab()"></i>
                             </div>
 
 
@@ -422,7 +432,7 @@ include('config.php');
                 position: absolute;
                 justify-content: flex-end;
                 top: 2%;
-                left: 70%;
+                left: 65%;
                 flex-wrap: wrap;
                 display: flex;
                 z-index: 999;
@@ -464,6 +474,14 @@ include('config.php');
 
             .fa-bitcoin {
                 margin-right: 3px;
+            }
+
+            .fa-chevron-down {
+                cursor: pointer;
+            }
+
+            .fa-chevron-up {
+                cursor: pointer;
             }
 
             /* filter block */
@@ -844,6 +862,8 @@ include('config.php');
             pin_2 = [13.758921064889215, 100.50036002672189];
             pin_3 = [13.753859775676801, 100.50663402825472];
             pin_4 = [13.760644679289063, 100.51898002624513]; //end
+
+            routing_markers = [pin_1, pin_2, pin_3, pin_4];
 
             // photo
             icon_photo = L.AwesomeMarkers.icon({
@@ -1769,7 +1789,57 @@ include('config.php');
                 }
             }
 
-            function DisplayPlanner() {
+            function MinimizeTab() {
+
+
+                route_main_block = document.querySelectorAll('.route-main-block');
+                route_main_block.forEach(e => {
+                    e.style.visibility = 'hidden';
+                });
+
+                login_block = document.querySelectorAll('.login-block');
+                login_block.forEach(e => {
+                    e.style.visibility = 'visible';
+                });
+
+                info_block = document.querySelectorAll('.info-block');
+                info_block.forEach(e => {
+                    e.style.visibility = 'visible';
+                });
+
+                leaflet_zoom_block = document.querySelectorAll('.leaflet-control-container');
+                leaflet_zoom_block.forEach(e => {
+                    e.style.right = '5%';
+                });
+
+                routing_markers_id = [];
+
+                // clear layers system
+                map.eachLayer(function(layer) {
+                    for (let i = 0; i < routing_markers_list.length; i++) {
+                        routing_markers_id.push(routing_markers_list[i]._leaflet_id);
+
+                    }
+                })
+
+
+
+                map.eachLayer(function(layer) {
+                    for (let i = 0; i < routing_markers.length; i++) {
+                        id = routing_markers_id[i];
+                        if (layer._leaflet_id == id) {
+                            map.removeLayer(layer);
+                        }
+                    }
+                });
+
+
+                map.removeControl(routing);
+
+
+            }
+
+            function ExpandTab() {
                 route_main_block = document.querySelectorAll('.route-main-block');
                 route_main_block.forEach(e => {
                     e.style.visibility = 'visible';
@@ -1788,10 +1858,13 @@ include('config.php');
                 leaflet_zoom_block = document.querySelectorAll('.leaflet-control-container');
                 leaflet_zoom_block.forEach(e => {
                     e.style.right = '35%';
-                });
+                })
+
+                routing_markers_list = [];
+
 
                 // routing system
-                L.Routing.control({
+                routing = L.Routing.control({
                     waypoints: [
                         pin_1,
                         pin_2,
@@ -1804,7 +1877,6 @@ include('config.php');
 
                         // start icon
                         if (i == 0) {
-                            // marker_icon = icon_start;
                             marker = L.marker(pin_1, {
                                 draggable: true,
                                 bounceOnAdd: false,
@@ -1814,6 +1886,9 @@ include('config.php');
                                 },
                                 icon: icon_start,
                             }, )
+
+                            routing_markers_list.push(marker);
+
                         }
                         // end icon
                         else if (i == n - 1) {
@@ -1827,12 +1902,10 @@ include('config.php');
                                 },
                                 icon: icon_end,
                             }, )
+                            routing_markers_list.push(marker);
+
                         } else {
-                            // marker = L.marker(others_marker[i - 1], {
-                            //     icon: L.divIcon({
-                            //         html: (i),
-                            //     })
-                            // })
+
                             marker_icon = L.ExtraMarkers.icon({
                                 icon: 'fa-number',
                                 number: i,
@@ -1849,11 +1922,16 @@ include('config.php');
                                 },
                                 icon: marker_icon,
                             }, )
+                            routing_markers_list.push(marker);
                         }
+
+
 
 
                         return marker;
                     }
                 }).addTo(map);
+
+
             }
         </script>

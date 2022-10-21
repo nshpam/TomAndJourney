@@ -59,7 +59,7 @@ include('header.php');
                     </div>
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-1 col-sm-2 col-1"></div>
-                        <button type="button" class=" col-md-10 col-sm-8 col-10 btn btn-default btn-block " id="login-button" onclick="Login()">LOGIN</button>
+                        <button type="button" class=" col-md-10 col-sm-8 col-10 btn btn-default btn-block " id="login-button" onclick="GoToTrip()">LOGIN</button>
                         <div class="col-md-1 col-sm-2 col-1"></div>
                     </div>
 
@@ -81,6 +81,10 @@ include('header.php');
 ?>
 
 <script>
+    function GoToTrip() {
+        window.location.href = "http://localhost:8080/tom-and-journey/trip.php";
+    }
+
     home = document.getElementById("login-link");
     home.classList.add("active");
 </script>
