@@ -24,16 +24,30 @@
             if (mysqli_num_rows($result) == 1) {
                 $_SESSION['username'] = $username;
                 $_SESSION['success'] = "Your are now logged in";
-                header("location: index.php");
+
+                $_SESSION['status'] = "Successfully!";
+                $_SESSION['status_detail'] = "Your are now logged in";
+                $_SESSION['status_code'] = "success";
+                header("location: home.php");
             } else {
                 array_push($errors, "Wrong Username or Password");
                 $_SESSION['error'] = "Wrong Username or Password!";
-                header("location: login.php");
+
+                $_SESSION['status'] = "Login not Successfully!";
+                $_SESSION['status_detail'] = "Wrong Username or Password!";
+                $_SESSION['status_code'] = "error";
+
+                header("location: index.php");
             }
         } else {
             array_push($errors, "Username & Password is required");
             $_SESSION['error'] = "Username & Password is required";
-            header("location: login.php");
+
+            $_SESSION['status'] = "Login not Successfully!";
+            $_SESSION['status_detail'] = "Username & Password is required";
+            $_SESSION['status_code'] = "error";
+
+            header("location: index.php");
         }
     }
 

@@ -1,5 +1,8 @@
 <?php
+session_start();
 include('header.php');
+include('server.php');
+include('alert_box.php');
 ?>
 <!-- /.navbar -->
 
@@ -17,7 +20,7 @@ include('header.php');
         <div class="row">
             <div class="col-md-3 col-sm-2 col-lg-4 col-2"></div>
             <div class="col-md-6 col-sm-8 col-lg-4 col-8" id="form-frame">
-                <form method="POST" id="login_form">
+                <form method="post" action="login_db.php" id="login_form">
                     <div class="row">
                         <div class="col-md-21 col-sm-2 col-lg-1 col-1"></div>
                         <div class="input-group input-group-1 col-md-8 col-sm-8 col-lg-10 col-10">
@@ -26,7 +29,7 @@ include('header.php');
                                 <i class="fas fa-user"></i>
                             </div>
 
-                            <input type="text" class="form-control" placeholder="Username" id="username">
+                            <input type="text" name="username" class="form-control" placeholder="Username" id="username">
 
                         </div>
                         <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
@@ -40,10 +43,33 @@ include('header.php');
                                 <i class="fas fa-lock"></i>
                             </div>
 
-                            <input type="password" class="form-control" placeholder="Password" id="password">
+                            <input type="password" name="password" class="form-control" placeholder="Password" id="password">
                         </div>
                         <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
                     </div>
+
+                    <!-- <?php if (isset($_SESSION['error'])) : ?>
+            <div class="error text-danger">
+                <h3 >
+                    <?php 
+                        echo $_SESSION['error'];
+                        unset($_SESSION['error']);
+                    ?>
+                </h3>
+            </div>
+        <?php endif ?>
+
+                    <?php if (isset($_SESSION['success'])) : ?>
+                        <div class="success">
+                <h3>
+                    <?php 
+                        echo $_SESSION['success'];
+                        unset($_SESSION['success']);
+                    ?>
+                </h3>
+            </div>
+        <?php endif ?> -->
+        <div class="text-danger"></div>
 
                     <p class="text-center text-danger" id='warning_text'></p>
 
@@ -59,7 +85,7 @@ include('header.php');
                     </div>
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-1 col-sm-2 col-1"></div>
-                        <button type="button" class=" col-md-10 col-sm-8 col-10 btn btn-default btn-block " id="login-button" onclick="GoToTrip()">SIGN IN</button>
+                        <button type="submit" name="login_user" class=" col-md-10 col-sm-8 col-10 btn btn-default btn-block " id="login-button" >SIGN IN</button>
                         <div class="col-md-1 col-sm-2 col-1"></div>
                     </div>
 

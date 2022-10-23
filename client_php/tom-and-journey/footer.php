@@ -14,6 +14,9 @@
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
 
+<!-- Sweet alert -->
+<script src="dist/js/tomandjourney/sweetalert.js"></script>
+
 <!-- footer -->
 <footer class="main-footer fixed-bottom text-sm bg-dark">
 

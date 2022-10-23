@@ -48,8 +48,16 @@
 
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "You are now logged in";
-            header('location: home.php');
+            $_SESSION['status'] = "Congratulations!";
+            $_SESSION['status_detail'] = "Your account has been Registerd Successfully!";
+            $_SESSION['status_code'] = "success";
+            
+            header('location: index.php');
         } else {
+
+            $_SESSION['status'] = "Data Not Registerd";
+            $_SESSION['status_detail'] = "Your account has data not registerd/Inserted !";
+            $_SESSION['status_code'] = "error";
             header("location: register.php");
         }
     }

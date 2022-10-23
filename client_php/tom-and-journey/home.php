@@ -1,6 +1,8 @@
 <!-- navbar -->
 <?php
+session_start();
 include('header.php');
+include('alert_box.php');
 ?>
 <!-- end navbar -->
 

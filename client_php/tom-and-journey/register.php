@@ -1,5 +1,9 @@
 <!-- navbar -->
-<?php include('header.php');
+<?php 
+session_start();
+include('header.php');
+include('server.php'); 
+include('alert_box.php');
 ?>
 <!-- end navbar -->
 
@@ -25,13 +29,25 @@
 
             <!-- register form -->
             <div class="col-md-6 col-sm-8 col-lg-4 col-8" id="form-frame">
-                <form method="POST" id="register_form">
+                <form method="post" action="register_db.php" id="register_form">
+
+                <!-- <?php include('errors.php'); ?>
+        <?php if (isset($_SESSION['error'])) : ?>
+            <div class="error">
+                <h3>
+                    <?php 
+                        echo $_SESSION['error'];
+                        unset($_SESSION['error']);
+                    ?>
+                </h3>
+            </div>
+        <?php endif ?> -->
 
                     <!-- username field -->
                     <div class="row" id="username-field">
                         <label for="username-field-input">Username</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Enter your Username" id="username-field-input">
+                            <input type="text" name="username" class="form-control" placeholder="Enter your Username" id="username-field-input">
                         </div>
                     </div>
                     <!-- end username field -->
@@ -40,7 +56,7 @@
                     <div class="row" id="email-field">
                         <label for="email-field-input">Email Address</label>
                         <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Enter your Email" id="email-field-input">
+                            <input type="email" name="email" class="form-control" placeholder="Enter your Email" id="email-field-input">
                         </div>
                     </div>
                     <!-- end email field -->
@@ -49,16 +65,17 @@
                     <div class="row" id="password-field">
                         <label for="password-field-input">Password</label>
                         <div class="input-group">
-                            <input type="password" class="form-control" placeholder="Enter your password" id="password-field-input">
+                            <input type="password" name="password_1" class="form-control" placeholder="Enter your password" id="password-field-input">
                         </div>
                     </div>
+                    
                     <!-- end password field -->
 
                     <!-- comfirm password field -->
                     <div class="row" id="comfirm-password-field">
                         <label for="comfirm-password-field-input">Comfirm Password</label>
                         <div class="input-group">
-                            <input type="password" class="form-control" placeholder="Confirm your password" id="comfirm-password-field-input">
+                            <input type="password" name="password_2" class="form-control" placeholder="Confirm your password" id="comfirm-password-field-input">
                         </div>
                     </div>
                     <!-- end confirm password field -->
@@ -69,7 +86,7 @@
 
                     <!-- register button -->
                     <div class="row d-flex justify-content-center">
-                        <button type="button" class="btn btn-default btn-block " id="register-button" onclick="GoTo('index.php')">SIGN UP</button>
+                        <button type="submit" name="reg_user" class="btn btn-default btn-block " id="register-button" onclick="GoTo('index.php')">SIGN UP</button>
                     </div>
                     <!-- end register button -->
 
