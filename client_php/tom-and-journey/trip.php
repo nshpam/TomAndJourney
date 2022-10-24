@@ -1,6 +1,8 @@
 <!-- navbar -->
 <?php
+session_start();
 include('header.php');
+include('server.php');
 ?>
 <!-- end navbar -->
 

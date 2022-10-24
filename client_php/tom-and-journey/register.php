@@ -4,6 +4,8 @@ session_start();
 include('header.php');
 include('server.php'); 
 include('alert_box.php');
+
+include('footer.php');
 ?>
 <!-- end navbar -->
 
@@ -14,7 +16,7 @@ include('alert_box.php');
     <div class="content">
 
         <!-- register header text (*** do not change the class because it related to AdminLTE3 code ***) -->
-        <div class="login-box-msg-group">
+        <div class="login-box-msg-group col-xs-12 col-md-12 col-lg-12">
             <h2 class=" login-box-msg text-dark text-1">SIGN UP</h2>
             <p class="login-box-msg text-dark text-2">Sign up your account</p>
         </div>
@@ -45,38 +47,73 @@ include('alert_box.php');
 
                     <!-- username field -->
                     <div class="row" id="username-field">
+                    <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
                         <label for="username-field-input">Username</label>
-                        <div class="input-group">
+                    <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                    </div>
+                    <div class="row" id="username-field">
+                        
+
+                        <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        <div class="input-group col-md-8 col-sm-8 col-lg-10 col-10">
+                            
                             <input type="text" name="username" class="form-control" placeholder="Enter your Username" id="username-field-input">
                         </div>
+                        <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
                     </div>
                     <!-- end username field -->
+                    <div class="row" id="email-field">
+                    <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        <label for="email-field-input">Email Address</label>
+                    <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                    </div>
 
                     <!-- email field -->
                     <div class="row" id="email-field">
-                        <label for="email-field-input">Email Address</label>
-                        <div class="input-group">
+                        <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        <div class="input-group col-md-8 col-sm-8 col-lg-10 col-10">
                             <input type="email" name="email" class="form-control" placeholder="Enter your Email" id="email-field-input">
                         </div>
+                        <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
                     </div>
                     <!-- end email field -->
-
+                    <div class="row" id="password-field">
+                    <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        <label for="password-field-input">Password</label>
+                    <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                    </div>
                     <!-- password field -->
                     <div class="row" id="password-field">
-                        <label for="password-field-input">Password</label>
-                        <div class="input-group">
+                        
+
+                        <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        <div class="input-group col-md-8 col-sm-8 col-lg-10 col-10">
                             <input type="password" name="password_1" class="form-control" placeholder="Enter your password" id="password-field-input">
                         </div>
+                        <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
                     </div>
                     
                     <!-- end password field -->
 
                     <!-- comfirm password field -->
-                    <div class="row" id="comfirm-password-field">
+                    
+                    <div class="row " id="comfirm-password-field">
+                    <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
                         <label for="comfirm-password-field-input">Comfirm Password</label>
-                        <div class="input-group">
+                    <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                    </div>
+
+                    <div class="row " id="comfirm-password-field">
+                        
+
+                        <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        <div class="input-group col-md-8 col-sm-8 col-lg-10 col-10">
+
+                        
                             <input type="password" name="password_2" class="form-control" placeholder="Confirm your password" id="comfirm-password-field-input">
                         </div>
+                        <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        
                     </div>
                     <!-- end confirm password field -->
 
@@ -86,8 +123,12 @@ include('alert_box.php');
 
                     <!-- register button -->
                     <div class="row d-flex justify-content-center">
-                        <button type="submit" name="reg_user" class="btn btn-default btn-block " id="register-button" onclick="GoTo('index.php')">SIGN UP</button>
+                        <div class="col-md-1 col-sm-2 col-1"></div>
+                        <button type="submit" name="reg_user" class="col-md-10 col-sm-8 col-10 btn btn-default btn-block " id="register-button">SIGN UP</button>
+                        <div class="col-md-1 col-sm-2 col-1"></div>
+
                     </div>
+                    
                     <!-- end register button -->
 
                 </form>
