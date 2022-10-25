@@ -1,5 +1,5 @@
 <?php 
-
+    // bdcon
     $servername = "localhost";
     $username = "root";
     $password = "";

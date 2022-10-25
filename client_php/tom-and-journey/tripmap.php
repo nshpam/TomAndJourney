@@ -1,5 +1,7 @@
 <?php
+session_start();
 include('config.php');
+include('server.php');
 // include('header.php');
 ?>
 
@@ -49,9 +51,18 @@ include('config.php');
                     <li class="nav-item">
                         <a href="/tom-and-journey/trip.php" class="nav-link trip-planner-class" id="trip-planner-link">Trip Planner</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="/tom-and-journey/index.php" class="nav-link" id="login-link">Login</a>
-                    </li>
+                    <?php if (isset($_SESSION['auth_user'])) : ?>
+                    <div>
+                        <li class="nav-item">
+                        <a href="/tom-and-journey/Profile.php" class="nav-link" id="login-link">Profile</a>
+                        </li>
+                    </div>
+                    <?php else : ?>
+                        <li class="nav-item">
+                            <a href="/tom-and-journey/index.php" class="nav-link" id="login-link">Login</a>
+                        </li>
+                    
+                    <?php endif ?>
                 </ul>
             </div>
         </nav>

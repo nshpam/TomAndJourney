@@ -1,4 +1,5 @@
 <?php 
+// regiscode
     session_start();
     include('server.php');
     
@@ -41,13 +42,17 @@
         }
 
         if (count($errors) == 0) {
-            $password = md5($password_1);
+            $password = ($password_1);
 
             $sql = "INSERT INTO user (username, email, password) VALUES ('$username', '$email', '$password')";
             mysqli_query($conn, $sql);
 
             $_SESSION['username'] = $username;
+            $_SESSION['password'] = $password;
+            $_SESSION['email'] = $email;
+
             $_SESSION['success'] = "You are now logged in";
+
             $_SESSION['status'] = "Congratulations!";
             $_SESSION['status_detail'] = "Your account has been Registerd Successfully!";
             $_SESSION['status_code'] = "success";

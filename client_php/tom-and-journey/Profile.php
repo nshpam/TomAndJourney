@@ -10,12 +10,6 @@ include('server.php');
 // nav css
 include('footer.php');
 
-if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION['username']);
-    header('location: login.php');
-    
-}
 
 
 
@@ -35,66 +29,117 @@ if (isset($_GET['logout'])) {
 
     <!-- Main content -->
     <div class="content ">
-        <div class="form_text_msg_group">
+        <div class="form_text_msg_group ">
             <h1 class=" form_text_msg gray_color ">Profile</h1>
-            <p class=" gray_color text-2">Sign in to your account</p>
+            <p class=" gray_color text-2">Welcome to your profile</p>
         </div>
         <div class="row">
             <div class="col-md-3 col-sm-2 col-lg-4 col-2"></div>
             <div class="col-md-6 col-sm-8 col-lg-4 col-8" id="form-frame">
                 <form method="post" action="logout_db.php" id="login_form">
-                    <div>
+                <div class="row" id="username-field">
+                    <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        <label for="username-field-input">Username :</label>
+                    <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                    </div>
+                    <div class="row" id="username-field">
+                        
+
+                        <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        
+                        <?php if (isset($_SESSION['auth_user'])) : ?>
+                        <div class="input-group col-md-8 col-sm-8 col-lg-10 col-10">
+                        <p><strong><?php echo $_SESSION['auth_user']['user_name']; ?></strong></p>
+                        </div>
+                        <?php endif?>
+
+                        <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                    </div>
+                    <!-- end username field -->
+                    <div class="row" id="email-field">
+                    <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        <label for="email-field-input">Email :</label>
+                    <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                    </div>
+
+                    <!-- email field -->
+                    <div class="row" id="email-field">
+                        
+                        <!-- <p><strong><?php echo $_SESSION['user_email']; ?></strong></p> -->
+                        
+                         <?php if (isset($_SESSION['auth_user'])) : ?>
+                        
+                        <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        <div class="input-group col-md-8 col-sm-8 col-lg-10 col-10">
+                        <p class=""><strong><?php echo $_SESSION['auth_user']['user_email']; ?></strong></p>
+                        <div class="col-md-1 col-sm-2 col-1"></div>
+                        <button type="edit" name="edit_pass" class=" btn pass_edit " >Edit</button>
+                        <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                            
+                        </div>
+                        
+                        
+                        
+                        <div class="col-md-1 col-sm-2 col-1"></div>
+                        <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        <?php endif?> 
+                        
+                    </div>
+                    <!-- end email field -->
+                    <div class="row" id="password-field">
+                    <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        <label for="password-field-input">Password :</label>
+                    <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                    </div>
+                    <!-- password field -->
+                    <div class="row" id="password-field">
+                        
                     
-                    </div>
-                    <div class="row">
+                    <?php if (isset($_SESSION['auth_user'])) : ?>
                         
-                        <label >Password</label>
-                        
-                        
-                        <div class="input-group input-group-1 ">
+                        <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        <div class="input-group col-md-8 col-sm-8 col-lg-10 col-10">
+                        <p class=""><strong><?php echo $_SESSION['auth_user']['user_password']; ?></strong></p>
+                        <div class="col-md-1 col-sm-2 col-1"></div>
+                        <button type="edit" name="edit_pass" class=" btn pass_edit " >Edit</button>
+                        <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
                             
-                            
-                            <input type="text" name="username" class="form-control" id="username">
-
                         </div>
                         
                         
                         
-                        
+                        <div class="col-md-1 col-sm-2 col-1"></div>
+                        <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        <?php endif?> 
                     </div>
+                    
+                    <!-- end password field -->
+
+                    <!-- comfirm password field -->
+                    
+                    
+                    <!-- end confirm password field -->
+
+                    <!-- warning text (link with js) -->
+                    <p class="text-center text-danger" id='warning_text'></p>
+                    <!-- end warning text -->
+
+                    <!-- register button -->
+                    <!-- <div class="row d-flex justify-content-center">
+                        <div class="col-md-1 col-sm-2 col-1"></div>
+                        <button type="edit" " class="col-md-10 col-sm-8 col-10 btn btn-default btn-block " id="edit-button">Edit</button>
+                        <div class="col-md-1 col-sm-2 col-1"></div>
+
+                    </div> -->
                     <div class="row">
-                        <label >New Password</label>
-                       
-                        <div class="input-group input-group-2">
-
-                            <input type="password" name="password" class="form-control" id="password">
-
-                        </div>
-                        
+                        <div class="col-md-1 col-sm-2 col-1"></div>
+                        <button type="submit" name="logout_btn" class="col-md-10 col-sm-8 col-10 btn btn-default btn-block " id="logout-button" >Logout</button>
+                        <div class="col-md-1 col-sm-2 col-1"></div>
                     </div>
-                    <div class="row">
-                        <label >Comfirm New Password</label>
-                       
-                        <div class="input-group input-group-2">
-
-                            <input type="password" name="password" class="form-control" id="password">
-
-                        </div>
-                        
-                    </div>
-                    <div class="row">
-                        
-                        <button type="submit" class="btn btn-default btn-block " id="login-button" >Change</button>
-                        
-                    </div>
-                     <div class="row">
-                        
-                        <button type="submit" name="logout_btn" class="btn btn-default btn-block " id="login-button" >Close</button>
-                        
-                    </div> 
-                    <?php if (isset($_SESSION['username'])) : ?>
+                    
+                    <!-- <?php if (isset($_SESSION['username'])) : ?>
                      <p><a href="home.php?logout='1'" style="color: red;">Logout</a></p>
-                    <?php endif ?>
+                    <?php endif ?> -->
 
                     
                     
@@ -113,6 +158,11 @@ if (isset($_GET['logout'])) {
 
 <!-- control.js -->
 <script src="./dist/js/tomandjourney/control.js"></script>
+<script>
+    
+    home = document.getElementById("login-link");
+    home.classList.add("active");
+</script
     
     
 </body>

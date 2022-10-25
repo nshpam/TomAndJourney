@@ -33,17 +33,6 @@ include('footer.php');
             <div class="col-md-6 col-sm-8 col-lg-4 col-8" id="form-frame">
                 <form method="post" action="register_db.php" id="register_form">
 
-                <!-- <?php include('errors.php'); ?>
-        <?php if (isset($_SESSION['error'])) : ?>
-            <div class="error">
-                <h3>
-                    <?php 
-                        echo $_SESSION['error'];
-                        unset($_SESSION['error']);
-                    ?>
-                </h3>
-            </div>
-        <?php endif ?> -->
 
                     <!-- username field -->
                     <div class="row" id="username-field">
