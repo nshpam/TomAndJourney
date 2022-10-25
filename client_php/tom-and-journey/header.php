@@ -42,16 +42,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a href="/tom-and-journey/trip.php" class="nav-link" id="trip-planner-link">Trip Planner</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="/tom-and-journey/index.php" class="nav-link" id="login-link">Login</a>
-                    </li>
                     
-                    <?php if (isset($_SESSION['success'])) : ?>
+                    <?php if (isset($_SESSION['username'])) : ?>
                     <div>
                         <li class="nav-item">
                         <a href="/tom-and-journey/Profile.php" class="nav-link" id="login-link">Profile</a>
                         </li>
                     </div>
+                    <?php else : ?>
+                        <li class="nav-item">
+                            <a href="/tom-and-journey/index.php" class="nav-link" id="login-link">Login</a>
+                        </li>
+                    
                     <?php endif ?>
                 </ul>
             </div>

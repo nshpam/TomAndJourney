@@ -10,6 +10,16 @@ include('server.php');
 // nav css
 include('footer.php');
 
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['username']);
+    header('location: login.php');
+    
+}
+
+
+
+
 ?>
 <html lang="en">
 <head>
@@ -32,7 +42,7 @@ include('footer.php');
         <div class="row">
             <div class="col-md-3 col-sm-2 col-lg-4 col-2"></div>
             <div class="col-md-6 col-sm-8 col-lg-4 col-8" id="form-frame">
-                <form method="post" action="login_db.php" id="login_form">
+                <form method="post" action="logout_db.php" id="login_form">
                     <div>
                     
                     </div>
@@ -72,19 +82,25 @@ include('footer.php');
                         </div>
                         
                     </div>
+                    <div class="row">
+                        
+                        <button type="submit" class="btn btn-default btn-block " id="login-button" >Change</button>
+                        
+                    </div>
+                     <div class="row">
+                        
+                        <button type="submit" name="logout_btn" class="btn btn-default btn-block " id="login-button" >Close</button>
+                        
+                    </div> 
+                    <?php if (isset($_SESSION['username'])) : ?>
+                     <p><a href="home.php?logout='1'" style="color: red;">Logout</a></p>
+                    <?php endif ?>
 
-                    <div class="row">
-                        
-                        <button type="submit" name="login_user" class="btn btn-default btn-block " id="login-button" >Change</button>
-                        
-                    </div>
-                    <div class="row">
-                        
-                        <button type="submit" name="login_user" class="btn btn-default btn-block " id="login-button" >Close</button>
-                        
-                    </div>
+                    
+                    
 
                 </form>
+                
             </div>
         </div>
     </div>

@@ -8,6 +8,7 @@
         $username = mysqli_real_escape_string($conn, $_POST['username']);
         $password = mysqli_real_escape_string($conn, $_POST['password']);
 
+        
         if (empty($username)) {
             array_push($errors, "Username is required");
         }
@@ -49,6 +50,10 @@
 
             header("location: index.php");
         }
+
+        
+        
     }
+    
 
 ?>
