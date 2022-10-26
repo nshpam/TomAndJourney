@@ -1,4 +1,6 @@
-ขั้นตอนการเชื่อม phpmyadmin ให้ดึงข้อมูลที่เขียนไว้มาใช้ได้
+ขั้นตอนการเชื่อม phpmyadmin ให้ดึงข้อมูลที่เขียนไว้ตามรูปใน phpMyadmin เพื่อให้ค่าที่ตั้งใน server.php ตรงไปตามที่เชื่อมไว้
+
+
 ![image](https://user-images.githubusercontent.com/109753614/198036368-dc9aeb9a-1661-454d-abdd-9477426a012f.png)
 
 สร้าง register_db
