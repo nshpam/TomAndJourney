@@ -5,7 +5,7 @@ include('header.php');
 
 
 // my php
-include('server.php');
+include('admin/config/server.php');
 
 // nav css
 include('footer.php');

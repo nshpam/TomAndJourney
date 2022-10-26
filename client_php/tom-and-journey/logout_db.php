@@ -1,11 +1,12 @@
 <?php 
     session_start();
-    include('server.php');
+    include('admin/config/server.php');
 
     if(isset($_POST['logout_btn']))
     {
        // session_destroy();
-        unset($_SESSION['auth_user']);
+        unset($_SESSION['auth']);
+        
         
 
         $_SESSION['status'] = "Logout Successfully!";

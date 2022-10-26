@@ -1,6 +1,10 @@
 <?php 
+include('authentication.php');
+
 include('includes/header.php');
-include('../alert_box.php');
+
+include('config/alert_box.php')
+// include('tom-and-journey/alert_box.php');
 
 ?>
 

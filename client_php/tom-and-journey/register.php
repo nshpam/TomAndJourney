@@ -2,8 +2,8 @@
 <?php 
 session_start();
 include('header.php');
-include('server.php'); 
-include('alert_box.php');
+include('admin/config/server.php'); 
+include('admin/config/alert_box.php');
 
 include('footer.php');
 ?>

@@ -43,7 +43,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a href="/tom-and-journey/trip.php" class="nav-link" id="trip-planner-link">Trip Planner</a>
                     </li>
                     
-                    <?php if (isset($_SESSION['auth_user'])) : ?>
+                    <?php if (isset($_SESSION['auth'])) : ?>
                     <div>
                         <li class="nav-item">
                         <a href="/tom-and-journey/Profile.php" class="nav-link" id="login-link">Profile</a>

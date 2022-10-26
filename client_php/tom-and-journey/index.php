@@ -1,14 +1,10 @@
 <?php
 session_start();
 include('header.php');
-include('server.php');
-include('alert_box.php');
+include('admin/config/server.php');
+include('admin/config/alert_box.php');
 
-if (isset($_GET['login'])) {
-    session_start();
-    
-    header('location: home.php');
-}
+
 ?>
 <!-- /.navbar -->
 

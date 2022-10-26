@@ -2,7 +2,7 @@
 <?php
 session_start();
 include('header.php');
-include('server.php');
+include('admin/config/server.php');
 ?>
 <!-- end navbar -->
 
