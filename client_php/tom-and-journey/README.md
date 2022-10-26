@@ -1,3 +1,66 @@
+ขั้นตอนการเชื่อม phpmyadmin ให้ดึงข้อมูลที่เขียนไว้มาใช้ได้
+![image](https://user-images.githubusercontent.com/109753614/198036368-dc9aeb9a-1661-454d-abdd-9477426a012f.png)
+
+สร้าง register_db
+
+สร้าง map_location และตัวแปรตามนี้
+![image](https://user-images.githubusercontent.com/109753614/198036521-7aef7dc6-9287-4530-8af9-6cb1ecf2612f.png)
+
+สร้าง user และตัวแปรตามนี้
+![image](https://user-images.githubusercontent.com/109753614/198036787-8623e0da-54c0-4acf-a466-0fd51c71ee51.png)
+
+โดย condition ของ user ที่จะไป admin dashboard ได้ต้องทำการตั้ง role_as ตัวผู้ใช้ค่าใดค่าหนึ่งให้ เป็น '1' ก่อนและทำการ login ด้วย username นั้น
+![image](https://user-images.githubusercontent.com/109753614/198037083-9227642e-f23e-4360-aa9f-5eaeb6758170.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # [AdminLTE - Bootstrap 4 Admin Dashboard](https://adminlte.io)
 
 [![npm version](https://img.shields.io/npm/v/admin-lte/latest.svg)](https://www.npmjs.com/package/admin-lte)
