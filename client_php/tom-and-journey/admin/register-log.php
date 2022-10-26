@@ -1,5 +1,5 @@
 <?php 
-include('authentication.php');
+include('config/authentication.php');
 
 include('includes/header.php');
 
@@ -18,7 +18,9 @@ include('config/alert_box.php')
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4> Registered User</h4>
+                    <h4> Registered User
+                        <a href="register-add.php" class="btn btn-primary float-end">Add</a>
+                    </h4>
             
                 </div>
                 <div class="card-body">
@@ -46,9 +48,9 @@ include('config/alert_box.php')
                                     {
                                         ?>
                                             <tr>
-                                                <td> <?= $row['id'] ?> </td>
-                                                <td> <?= $row['username'] ?>  </td>
-                                                <td> <?= $row['email'] ?>  </td>
+                                                <td> <?= $row['id']; ?> </td>
+                                                <td> <?= $row['username']; ?>  </td>
+                                                <td> <?= $row['email']; ?>  </td>
                                                 <td>
                                                     <?php
                                                     if($row['role_as'] == '1')
@@ -61,8 +63,13 @@ include('config/alert_box.php')
                                                     }
                                                     ?>
                                                 </td>
-                                                <td><a href="edit-register.php" class="btn btn-success">Edit</a></td>
-                                                <td><button type="button" class="btn btn-success">Delete</button></td>
+                                                <td><a href="register-edit.php?id=<?= $row['id'];?>" class="btn btn-success">Edit</a></td>
+                                                <td>
+                                                    <form action="user-add-update.php" method="post">
+                                                        <button type="sumbit" name="user_delete" value="<?=$row['id'];?>" class="btn btn-danger">Delete</button>
+                                                    </form>
+
+                                                </td>
                                             </tr>
                                         <?php
                                         

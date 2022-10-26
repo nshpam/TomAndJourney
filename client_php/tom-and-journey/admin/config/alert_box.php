@@ -1,6 +1,6 @@
 <html lang="en">
 <body>
-    <script src="dist/js/tomandjourney/sweetalert.js"></script>
+    <script src="admin/js/sweetalert.js"></script>
     <!-- <script>
         swal("Good job!", "You clicked the button!", "success");
     </script> -->

@@ -804,6 +804,7 @@ include('admin/config/server.php');
             mark_photo_3 = [13.7498524, 100.4915753];
             mark_photo_4 = [13.7538724, 100.5067137];
             mark_photo_5 = [13.7565088, 100.5028196];
+            mark_photo_6 = [13.8, 100.5028196];
 
             //hotel
             mark_photo_6 = [13.745714785066127, 100.50327803605421];
@@ -1228,6 +1229,7 @@ include('admin/config/server.php');
                 let marker10 = new L.marker(mark_photo_10, {
                     icon: icon_bed,
                 })
+                
 
                 hotel_markers = [marker6, marker7, marker8, marker9, marker10];
                 hotel_lat_long = [mark_photo_6, mark_photo_7, mark_photo_8, mark_photo_9, mark_photo_10];
