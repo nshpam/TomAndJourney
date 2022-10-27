@@ -5,7 +5,7 @@ include('header.php');
 include('admin/config/server.php'); 
 include('admin/config/alert_box.php');
 
-include('footer.php');
+
 ?>
 <!-- end navbar -->
 

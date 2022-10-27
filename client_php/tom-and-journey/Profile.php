@@ -13,7 +13,6 @@ include('footer.php');
 
 
 
-
 ?>
 <html lang="en">
 <head>
@@ -73,7 +72,7 @@ include('footer.php');
                         <div class="input-group col-md-8 col-sm-8 col-lg-10 col-10">
                         <p class=""><strong><?php echo $_SESSION['auth_user']['user_email']; ?></strong></p>
                         <div class="col-md-1 col-sm-2 col-1"></div>
-                        <button type="edit" name="edit_pass" class=" btn pass_edit " >Edit</button>
+                        <button type="edit" name="edit_email" class=" btn pass_edit " >Edit</button>
                         <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
                             
                         </div>
@@ -162,7 +161,7 @@ include('footer.php');
     
     home = document.getElementById("login-link");
     home.classList.add("active");
-</script
+</script>
     
     
 </body>

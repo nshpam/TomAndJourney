@@ -17,11 +17,20 @@
 
     }
 
+    if(isset($_POST['edit_email']))
+    {
+       
+        
+        header("location: edit_profile_email.php");
+        
+
+    }
+
     if(isset($_POST['edit_pass']))
     {
        
         
-        header("location: edit_profile.php");
+        header("location: edit_profile_pass.php");
         
 
     }

@@ -75,13 +75,18 @@ include('admin/config/server.php');
                 <div id="map"></div>
 
                 <!-- login-block design -->
-                <div class="card login-block">
+                
+                <?php if (!isset($_SESSION['auth'])) : ?>
+                    <div class="card login-block">
                     <div class="row">
                         <p>Already a member? sign in for better experience</p>
 
                         <button class="btn btn-default" onclick="GoToLogin()">LOGIN</button>
                     </div>
-                </div>
+                    </div>
+      
+                    
+                <?php endif ?>
 
                 <!-- filter and info design -->
                 <div class="card d-flex info-block">

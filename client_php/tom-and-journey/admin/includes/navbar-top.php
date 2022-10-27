@@ -1,3 +1,4 @@
+
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
     <a class="navbar-brand ps-3" href="index.php">Tom and Dashboard</a>
@@ -14,7 +15,7 @@
 
         </form>
         <!-- Navbar-->
-        <form method="post" action="admin/admin_logout.php">
+        <form method="post" action="admin_logout.php">
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
