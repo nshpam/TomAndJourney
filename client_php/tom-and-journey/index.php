@@ -24,7 +24,7 @@ include('admin/config/alert_box.php');
             <div class="col-md-6 col-sm-8 col-lg-4 col-8" id="form-frame">
                 <form method="post" action="login_db.php" id="login_form">
                     <div class="row">
-                        <div class="col-md-21 col-sm-2 col-lg-1 col-1"></div>
+                        <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
                         <div class="input-group input-group-1 col-md-8 col-sm-8 col-lg-10 col-10">
 
                             <div id="username-logo">
@@ -53,9 +53,9 @@ include('admin/config/alert_box.php');
                     <!-- <?php if (isset($_SESSION['error'])) : ?>
             <div class="error text-danger">
                 <h3 >
-                    <?php 
-                        echo $_SESSION['error'];
-                        unset($_SESSION['error']);
+                    <?php
+                                echo $_SESSION['error'];
+                                unset($_SESSION['error']);
                     ?>
                 </h3>
             </div>
@@ -64,14 +64,14 @@ include('admin/config/alert_box.php');
                     <?php if (isset($_SESSION['success'])) : ?>
                         <div class="success">
                 <h3>
-                    <?php 
+                    <?php
                         echo $_SESSION['success'];
                         unset($_SESSION['success']);
                     ?>
                 </h3>
             </div>
         <?php endif ?> -->
-        <div class="text-danger"></div>
+                    <div class="text-danger"></div>
 
                     <p class="text-center text-danger" id='warning_text'></p>
 
@@ -87,7 +87,7 @@ include('admin/config/alert_box.php');
                     </div>
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-1 col-sm-2 col-1"></div>
-                        <button type="submit" href="home.php?login='1'" name="login_user" class=" col-md-10 col-sm-8 col-10 btn btn-default btn-block " id="login-button" >SIGN IN</button>
+                        <button type="submit" href="home.php?login='1'" name="login_user" class=" col-md-10 col-sm-8 col-10 btn btn-default btn-block " id="login-button">SIGN IN</button>
                         <div class="col-md-1 col-sm-2 col-1"></div>
                     </div>
 

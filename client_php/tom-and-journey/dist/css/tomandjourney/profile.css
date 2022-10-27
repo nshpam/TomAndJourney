@@ -23,15 +23,6 @@ body{
     
 }
 
-.form_text_msg {
-    
-    
-}
-
-.form_change_group{
-    
-}
-
 .content-wrapper {
     display: flex;
     justify-content: center;
@@ -82,15 +73,17 @@ body{
     font-weight: 400;
 }
 .pass_edit {
-    margin-left: 10px;
     background-color: #A64343;
     border-radius: 10px;
     color: white;
     font-weight: 700;
     margin-bottom: 20px;
-    
-
 }
+
+.pass_edit:hover{
+    color: white !important;
+}
+
 
 
 /* custom register button */

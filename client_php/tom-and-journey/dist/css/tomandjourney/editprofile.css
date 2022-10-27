@@ -12,6 +12,11 @@ body{
     
 }
 
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
 .gray_color {
     color: #343a40;
 }
@@ -22,7 +27,6 @@ body{
     
     
 }
-
 
 
 .form_change_group{
