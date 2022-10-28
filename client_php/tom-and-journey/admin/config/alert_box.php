@@ -1,29 +1,30 @@
 <html lang="en">
+
 <body>
+
+    <!-- import sweetalert.js -->
     <script src="admin/js/sweetalert.js"></script>
-    <!-- <script>
-        swal("Good job!", "You clicked the button!", "success");
-    </script> -->
+
+    <!-- get data from another file -->
     <?php
-    if(isset($_SESSION['status']) && $_SESSION['status'] !='')
-    {
-        ?>
-            <script>
-                swal({
-                    title: "<?php echo $_SESSION['status'] ?>",
-                    text: "<?php echo $_SESSION['status_detail'] ?>!",
-                    icon: "<?php echo $_SESSION['status_code'] ?>",
-                    button: "OK",
-                    
-                });
-            </script>
-    
-        <?php
+    if (isset($_SESSION['status']) && $_SESSION['status'] != '') {
+    ?>
+
+        <!-- sweet alert -->
+        <script>
+            swal({
+                title: "<?php echo $_SESSION['status'] ?>",
+                text: "<?php echo $_SESSION['status_detail'] ?>!",
+                icon: "<?php echo $_SESSION['status_code'] ?>",
+                button: "OK",
+            });
+        </script>
+
+    <?php
+        // delete this variable from session storage
         unset($_SESSION['status']);
     }
     ?>
-    
-    
-    
 </body>
+
 </html>

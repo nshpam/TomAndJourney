@@ -1,120 +1,144 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 include('header.php');
-include('admin/config/server.php');
+// include('admin/config/server.php');
+
+// sweet alert
 include('admin/config/alert_box.php');
-
-
+include('config.php');
 ?>
-<!-- /.navbar -->
 
-<!-- Content Wrapper. Contains page content -->
+<!-- content-wrapper -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <!-- /.content-header -->
 
-    <!-- Main content -->
+    <!-- content -->
     <div class="content">
+
+        <!-- SIGN IN header -->
         <div class="login-box-msg-group col-xs-12 col-md-12 col-lg-12">
             <h1 class=" login-box-msg text-dark text-1">SIGN IN</h1>
             <p class="login-box-msg text-dark text-2">Sign in to your account</p>
         </div>
+        <!-- SIGN IN header -->
+
+        <!-- form row -->
         <div class="row">
+
+            <!-- blank space for layout -->
             <div class="col-md-3 col-sm-2 col-lg-4 col-2"></div>
+            <!-- blank space for layout -->
+
+            <!-- form frame -->
             <div class="col-md-6 col-sm-8 col-lg-4 col-8" id="form-frame">
-                <form method="post" action="login_db.php" id="login_form">
+                <form method="post" action="./admin/config/server.php" id="login_form">
+
+                    <!-- username field -->
                     <div class="row">
+
+                        <!-- blank space for layout -->
                         <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        <!-- blank space for layout -->
+
+                        <!-- username input group -->
                         <div class="input-group input-group-1 col-md-8 col-sm-8 col-lg-10 col-10">
 
+                            <!-- username logo -->
                             <div id="username-logo">
                                 <i class="fas fa-user"></i>
                             </div>
+                            <!-- username logo -->
 
+                            <!-- username input -->
                             <input type="text" name="username" class="form-control" placeholder="Username" id="username">
+                            <!-- username input -->
 
                         </div>
+                        <!-- username input group -->
                         <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
                     </div>
+
+                    <!-- password field -->
                     <div class="row">
+
+                        <!-- blank space for layout -->
                         <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        <!-- blank space for layout -->
+
+                        <!-- password input group -->
                         <div class="input-group input-group-2 col-md-8 col-sm-8 col-lg-10 col-10">
 
-
+                            <!-- password logo -->
                             <div id="password-logo">
                                 <i class="fas fa-lock"></i>
                             </div>
+                            <!-- password logo -->
 
+                            <!-- password input -->
                             <input type="password" name="password" class="form-control" placeholder="Password" id="password">
+                            <!-- password input -->
+
                         </div>
+                        <!-- password input group -->
+
+                        <!-- blank space for layout -->
                         <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
+                        <!-- blank space for layout -->
                     </div>
 
-                    <!-- <?php if (isset($_SESSION['error'])) : ?>
-            <div class="error text-danger">
-                <h3 >
-                    <?php
-                                echo $_SESSION['error'];
-                                unset($_SESSION['error']);
-                    ?>
-                </h3>
-            </div>
-        <?php endif ?>
-
-                    <?php if (isset($_SESSION['success'])) : ?>
-                        <div class="success">
-                <h3>
-                    <?php
-                        echo $_SESSION['success'];
-                        unset($_SESSION['success']);
-                    ?>
-                </h3>
-            </div>
-        <?php endif ?> -->
-                    <div class="text-danger"></div>
-
-                    <p class="text-center text-danger" id='warning_text'></p>
-
-                    <div class="row" id="href-text-1">
-
-                        <a class=" col-xs-6 col-md-6 col-sm-6 col-lg-6 col-12 d-flex justify-content-center " href="forgetpassword.php" id="top-buffer-1">Forgot password?</a>
-
-                        <div class=" col-xs-6 col-md-6 col-sm-6 col-lg-6 col-12 d-flex justify-content-center" id="remember-group">
-                            <input type="checkbox" id="Remember">
-                            <label for="Remember">Remember me</label>
-                        </div>
-
+                    <!-- forget password and remember me group -->
+                    <div class="row d-flex align-items-center justify-content-center" id="href-text-1">
+                        <!-- forget password href -->
+                        <p id="top-buffer-2">Can't remember your password?&nbsp;&nbsp;</p>
+                        <a class="" href="forgetpassword.php" id="top-buffer-1">Change Password</a>
+                        <!-- forget password href -->
                     </div>
+                    <!-- forget password and remember me group -->
+
+                    <!-- register text group -->
+                    <div class="row justify-content-center" id="outside-text">
+                        <p>Don't have an account?</p>
+                        <a href="/tom-and-journey/register.php" id="resgister-text">Sign Up Now</a>
+                    </div>
+                    <!-- register text group -->
+
+                    <!-- login button -->
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-1 col-sm-2 col-1"></div>
-                        <button type="submit" href="home.php?login='1'" name="login_user" class=" col-md-10 col-sm-8 col-10 btn btn-default btn-block " id="login-button">SIGN IN</button>
+                        <button type="submit" name="login_user" class=" col-md-10 col-sm-8 col-10 btn btn-default btn-block " id="login-button">SIGN IN</button>
                         <div class="col-md-1 col-sm-2 col-1"></div>
                     </div>
-
+                    <!-- login button -->
                 </form>
             </div>
+            <!-- form frame -->
+
+            <!-- blank space for layout -->
             <div class="col-md-3 col-sm-2 col-lg-4 col-2"></div>
-        </div>
-        <div class="row justify-content-center" id="outside-text">
-            <p>Don't have an account?</p>
-            <a href="/tom-and-journey/register.php" id="resgister-text">Sign Up Now</a>
+            <!-- blank space for layout -->
+
         </div>
 
+
+
     </div>
-    <!-- /.content -->
+    <!-- content -->
 </div>
-<!-- /.content-wrapper -->
+
+<!-- loginpage.css -->
+<link rel="stylesheet" href="./dist/css/tomandjourney/loginpage.css">
+
+<!-- control.js -->
+<script src="./dist/js/tomandjourney/control.js"></script>
+<!-- content-wrapper -->
 
 <?php include('footer.php');
 ?>
 
 <script>
-    function GoToTrip() {
-        window.location.href = "http://localhost:8080/tom-and-journey/trip.php";
-    }
-
-    home = document.getElementById("login-link");
-    home.classList.add("active");
+    // hightlight the selected page in navbar
+    SelectedNavItem("login-link");
 </script>
 
 <style>

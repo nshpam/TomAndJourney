@@ -2,7 +2,6 @@
 session_start();
 include('config.php');
 include('admin/config/server.php');
-// include('header.php');
 ?>
 
 <!DOCTYPE html>
@@ -52,16 +51,16 @@ include('admin/config/server.php');
                         <a href="/tom-and-journey/trip.php" class="nav-link trip-planner-class" id="trip-planner-link">Trip Planner</a>
                     </li>
                     <?php if (isset($_SESSION['auth_user'])) : ?>
-                    <div>
-                        <li class="nav-item">
-                        <a href="/tom-and-journey/Profile.php" class="nav-link" id="login-link">Profile</a>
-                        </li>
-                    </div>
+                        <div>
+                            <li class="nav-item">
+                                <a href="/tom-and-journey/Profile.php" class="nav-link" id="login-link">Profile</a>
+                            </li>
+                        </div>
                     <?php else : ?>
                         <li class="nav-item">
                             <a href="/tom-and-journey/index.php" class="nav-link" id="login-link">Login</a>
                         </li>
-                    
+
                     <?php endif ?>
                 </ul>
             </div>
@@ -75,17 +74,17 @@ include('admin/config/server.php');
                 <div id="map"></div>
 
                 <!-- login-block design -->
-                
+
                 <?php if (!isset($_SESSION['auth'])) : ?>
                     <div class="card login-block">
-                    <div class="row">
-                        <p>Already a member? sign in for better experience</p>
+                        <div class="row">
+                            <p>Already a member? sign in for better experience</p>
 
-                        <button class="btn btn-default" onclick="GoToLogin()">LOGIN</button>
+                            <button class="btn btn-default" onclick="GoToLogin()">LOGIN</button>
+                        </div>
                     </div>
-                    </div>
-      
-                    
+
+
                 <?php endif ?>
 
                 <!-- filter and info design -->
@@ -1234,7 +1233,7 @@ include('admin/config/server.php');
                 let marker10 = new L.marker(mark_photo_10, {
                     icon: icon_bed,
                 })
-                
+
 
                 hotel_markers = [marker6, marker7, marker8, marker9, marker10];
                 hotel_lat_long = [mark_photo_6, mark_photo_7, mark_photo_8, mark_photo_9, mark_photo_10];

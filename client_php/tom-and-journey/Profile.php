@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 include('header.php');
 include('footer.php');
 ?>
@@ -26,7 +28,7 @@ include('footer.php');
             <div class="row">
                 <div class="col-md-3 col-sm-2 col-lg-4 col-2"></div>
                 <div class="col-md-6 col-sm-8 col-lg-4 col-8" id="form-frame">
-                    <form method="post" action="logout_db.php" id="login_form">
+                    <form method="post" action="./admin/config/server.php" id="login_form">
                         <div class="row" id="username-field">
                             <label for="username-field-input">Username :</label>
                         </div>

@@ -1,4 +1,9 @@
 /* center content-wrapper */
+
+a{
+    color: #A64343 !important;
+}
+
 .content-wrapper {
     display: flex;
     justify-content: center;
@@ -7,10 +12,10 @@
 }
 
 /* custom register header */
-.login-box-msg-group {
+/* .login-box-msg-group {
     margin-bottom: 0% !important;
     padding-bottom: 1% !important;
-}
+} */
 
 /* username field */
 #username-field input {
@@ -61,6 +66,9 @@
     color: grey;
     font-weight: 400;
 }
+
+
+
 
 /* custom register button */
 #register-button {

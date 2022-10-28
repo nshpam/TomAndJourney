@@ -20,7 +20,6 @@
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="map-log.php">Location Create</a>
-
                     </nav>
                 </div>
 

@@ -98,23 +98,6 @@
         vertical-align: middle;
     }
 
-
-    /* --- login form ---*/
-
-    /* content-header */
-
-    .login-box-msg-group {
-        line-height: 1%;
-    }
-
-    .text-1 {
-        padding-bottom: 10px;
-    }
-
-    .login-box-msg-group {
-        padding-bottom: 2%;
-    }
-
     /* content form */
 
     #form-frame {
@@ -130,118 +113,17 @@
         background-color: white;
     }
 
-    /* input username */
+    /* content-header */
 
-    .input-group-1 {
-        margin-top: 30px;
-        outline: 1px solid #A64343;
-        border-color: black;
-        border-radius: 10px;
+    .login-box-msg-group {
+        line-height: 1%;
     }
 
-    #username {
-        border-radius: 10px;
-        border-color: transparent;
-        padding-left: 10px;
-        padding-right: 10px;
+    .text-1 {
+        padding-bottom: 10px;
     }
 
-    .input-group-1 #username-logo {
-        margin-top: auto;
-        margin-bottom: auto;
-        padding-left: 15px;
-        padding-right: 15px;
-        color: grey;
-    }
-
-    /* input password */
-
-    .input-group-2 {
-        margin-top: 30px;
-        outline: 1px solid #A64343;
-        border-color: black;
-        border-radius: 10px;
-
-    }
-
-    .input-group-2 #password-logo {
-        margin-top: auto;
-        margin-bottom: auto;
-        padding-left: 15px;
-        padding-right: 15px;
-        color: grey;
-    }
-
-    #password {
-        border-radius: 10px;
-        border-color: transparent;
-    }
-
-    /* remember me and forgot password */
-
-    #remember-group {
-        color: grey;
-
-        margin-left: auto;
-        margin-right: auto;
-        /* margin: 0px auto 0px auto; */
-    }
-
-    #remember-group label {
-        margin: 20px 0px 20px 0px;
-    }
-
-    #remember-group input {
-        margin-right: 5px;
-    }
-
-
-    .blank-buffer {
-        width: auto;
-    }
-
-    #remember-group label {
-        font-weight: 400;
-    }
-
-    #remember-group input:hover {
-
-        color: grey;
-    }
-
-    #top-buffer-1 {
-        color: #A64343;
-        margin: 20px auto 20px auto;
-    }
-
-    /* login button */
-    #login-button {
-        background-color: #A64343;
-        border-radius: 10px;
-        color: white;
-        font-weight: 700;
-        margin-bottom: 10px;
-    }
-
-    #text-1 {
-        color: grey;
-    }
-
-    #register-text {
-        color: #A64343 !important;
-    }
-
-    /* register text */
-
-    #outside-text {
-        padding-top: 10px;
-    }
-
-    #outside-text a {
-        color: #A64343;
-    }
-
-    #outside-text p {
-        padding-right: 10px;
+    .login-box-msg-group {
+        padding-bottom: 2%;
     }
 </style>
