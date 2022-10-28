@@ -1,5 +1,7 @@
 <?php
+session_start();
 include('config.php');
+include('admin/config/server.php');
 // include('header.php');
 ?>
 
@@ -49,9 +51,18 @@ include('config.php');
                     <li class="nav-item">
                         <a href="/tom-and-journey/trip.php" class="nav-link trip-planner-class" id="trip-planner-link">Trip Planner</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="/tom-and-journey/index.php" class="nav-link" id="login-link">Login</a>
-                    </li>
+                    <?php if (isset($_SESSION['auth_user'])) : ?>
+                    <div>
+                        <li class="nav-item">
+                        <a href="/tom-and-journey/Profile.php" class="nav-link" id="login-link">Profile</a>
+                        </li>
+                    </div>
+                    <?php else : ?>
+                        <li class="nav-item">
+                            <a href="/tom-and-journey/index.php" class="nav-link" id="login-link">Login</a>
+                        </li>
+                    
+                    <?php endif ?>
                 </ul>
             </div>
         </nav>
@@ -64,13 +75,18 @@ include('config.php');
                 <div id="map"></div>
 
                 <!-- login-block design -->
-                <div class="card login-block">
+                
+                <?php if (!isset($_SESSION['auth'])) : ?>
+                    <div class="card login-block">
                     <div class="row">
                         <p>Already a member? sign in for better experience</p>
 
                         <button class="btn btn-default" onclick="GoToLogin()">LOGIN</button>
                     </div>
-                </div>
+                    </div>
+      
+                    
+                <?php endif ?>
 
                 <!-- filter and info design -->
                 <div class="card d-flex info-block">
@@ -793,6 +809,7 @@ include('config.php');
             mark_photo_3 = [13.7498524, 100.4915753];
             mark_photo_4 = [13.7538724, 100.5067137];
             mark_photo_5 = [13.7565088, 100.5028196];
+            mark_photo_6 = [13.8, 100.5028196];
 
             //hotel
             mark_photo_6 = [13.745714785066127, 100.50327803605421];
@@ -1217,6 +1234,7 @@ include('config.php');
                 let marker10 = new L.marker(mark_photo_10, {
                     icon: icon_bed,
                 })
+                
 
                 hotel_markers = [marker6, marker7, marker8, marker9, marker10];
                 hotel_lat_long = [mark_photo_6, mark_photo_7, mark_photo_8, mark_photo_9, mark_photo_10];

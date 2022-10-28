@@ -71,6 +71,10 @@
             padding-top: 10%;
             padding-bottom: 2%;
         }
+
+        .form_text_msg_group {
+        padding-top: 30%;
+}
     }
 
     /* Large devices (laptops/desktops, 992px and up) */

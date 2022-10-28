@@ -1,6 +1,7 @@
 <?php 
+// regiscode
     session_start();
-    include('server.php');
+    include('admin/config/server.php');
     
     $errors = array();
 
@@ -41,15 +42,27 @@
         }
 
         if (count($errors) == 0) {
-            $password = md5($password_1);
+            $password = ($password_1);
 
             $sql = "INSERT INTO user (username, email, password) VALUES ('$username', '$email', '$password')";
             mysqli_query($conn, $sql);
 
             $_SESSION['username'] = $username;
+            $_SESSION['password'] = $password;
+            $_SESSION['email'] = $email;
+
             $_SESSION['success'] = "You are now logged in";
-            header('location: home.php');
+
+            $_SESSION['status'] = "Congratulations!";
+            $_SESSION['status_detail'] = "Your account has been Registerd Successfully!";
+            $_SESSION['status_code'] = "success";
+            
+            header('location: index.php');
         } else {
+
+            $_SESSION['status'] = "Data Not Registerd";
+            $_SESSION['status_detail'] = "Your account has data not registerd/Inserted !";
+            $_SESSION['status_code'] = "error";
             header("location: register.php");
         }
     }
