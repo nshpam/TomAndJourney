@@ -1,6 +1,7 @@
 <?php
 include('config/authentication.php');
 include('../config.php');
+include('config/alert_box.php');
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -238,13 +239,6 @@ if (isset($_POST['add_map'])) {
 
     $query = mysqli_query($conn, $user_check_query);
     $id = 1;
-    // $result = mysqli_fetch_assoc($query);
-
-    // if ($result) { // if user exists
-    //     if ($result['name'] === $name) {
-    //         array_push($errors, "Name already exists");
-    //     }
-    // }
 
     while ($row = mysqli_fetch_row($query)) {
         if ($row[1] === $name) {
