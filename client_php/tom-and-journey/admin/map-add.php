@@ -3,9 +3,44 @@ include('config/authentication.php');
 
 include('includes/header.php');
 
-include('config/alert_box.php')
-// include('tom-and-journey/alert_box.php');
+include('config/alert_box.php');
 
+
+if (isset($_GET['location'])) {
+    if ($_GET['location'] == 'photo') {
+
+        $action = "map-add-update.php?location=photo";
+    } elseif ($_GET['location'] == 'hotel') {
+
+        $action = "map-add-update.php?location=hotel";
+    } elseif ($_GET['location'] == 'pump') {
+
+        $action = "map-add-update.php?location=pump";
+    } elseif ($_GET['location'] == 'food') {
+
+        $action = "map-add-update.php?location=food";
+    } elseif ($_GET['location'] == 'train') {
+
+        $action = "map-add-update.php?location=train";
+    } elseif ($_GET['location'] == 'museum') {
+
+        $action = "map-add-update.php?location=museum";
+    } elseif ($_GET['location'] == 'market') {
+
+        $action = "map-add-update.php?location=market";
+    } elseif ($_GET['location'] == 'anchor') {
+
+        $action = "map-add-update.php?location=anchor";
+    } elseif ($_GET['location'] == 'cafe') {
+
+        $action = "map-add-update.php?location=cafe";
+    } elseif ($_GET['location'] == 'bar') {
+
+        $action = "map-add-update.php?location=bar";
+    }
+} else {
+    $action = "map-add-update.php";
+}
 ?>
 
 <div class="container-fluid px-4">
@@ -23,8 +58,7 @@ include('config/alert_box.php')
                 </div>
                 <div class="card-body">
 
-                    <form action="map-add-update.php" method="post">
-                        <input type="hidden" name="user_id" value=" <?= $user['id']; ?> ">
+                    <form action=<?= $action ?> method="post">
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="">Location Name</label>
@@ -47,16 +81,16 @@ include('config/alert_box.php')
                                 <label for="">TYPE</label>
                                 <select name="type" require class="form-control">
                                     <option value="">--Select TYPE--</option>
-                                    <option value="Photo">Photo</option>
-                                    <option value="Hotel">Hotel</option>
-                                    <option value="Pump">Gas Station</option>
-                                    <option value="Food">Restaurant</option>
-                                    <option value="Train">Train</option>
-                                    <option value="Museum">Museum</option>
-                                    <option value="Market">Market</option>
-                                    <option value="Anchor">Anchor</option>
-                                    <option value="Cafe">Cafe</option>
-                                    <option value="Bar">Bar</option>
+                                    <option value="photo">Photo</option>
+                                    <option value="hotel">Hotel</option>
+                                    <option value="pump">Gas Station</option>
+                                    <option value="food">Food</option>
+                                    <option value="train">Train</option>
+                                    <option value="museum">Museum</option>
+                                    <option value="market">Market</option>
+                                    <option value="anchor">Anchor</option>
+                                    <option value="cafe">Cafe</option>
+                                    <option value="bar">Bar</option>
 
                                 </select>
                             </div>
