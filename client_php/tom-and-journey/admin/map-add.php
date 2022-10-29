@@ -47,14 +47,14 @@ include('config/alert_box.php')
                                 <label for="">TYPE</label>
                                 <select name="type" require class="form-control">
                                     <option value="">--Select TYPE--</option>
-                                    <option value="Landmark">Landmark</option>
+                                    <option value="Photo">Photo</option>
                                     <option value="Hotel">Hotel</option>
-                                    <option value="Pump">Filling station</option>
+                                    <option value="Pump">Gas Station</option>
                                     <option value="Food">Restaurant</option>
                                     <option value="Train">Train</option>
-                                    <option value="Bank">Bank</option>
-                                    <option value="Shop">Shop</option>
-                                    <option value="Ship">Ship</option>
+                                    <option value="Museum">Museum</option>
+                                    <option value="Market">Market</option>
+                                    <option value="Anchor">Anchor</option>
                                     <option value="Cafe">Cafe</option>
                                     <option value="Bar">Bar</option>
 

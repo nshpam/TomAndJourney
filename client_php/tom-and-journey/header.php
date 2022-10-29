@@ -40,20 +40,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a class="nav-link" href="/tom-and-journey/home.php" id="home-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/tom-and-journey/trip.php" class="nav-link" id="trip-planner-link">Trip Planner</a>
+                        <a href="/tom-and-journey/tripmap.php" class="nav-link" id="trip-planner-link">Trip Planner</a>
                     </li>
-                    
+
                     <?php if (isset($_SESSION['auth'])) : ?>
-                    <div>
-                        <li class="nav-item">
-                        <a href="/tom-and-journey/Profile.php" class="nav-link" id="login-link">Profile</a>
-                        </li>
-                    </div>
+                        <div>
+                            <li class="nav-item">
+                                <a href="/tom-and-journey/Profile.php" class="nav-link" id="login-link">Profile</a>
+                            </li>
+                        </div>
                     <?php else : ?>
                         <li class="nav-item">
                             <a href="/tom-and-journey/index.php" class="nav-link" id="login-link">Login</a>
                         </li>
-                    
+
                     <?php endif ?>
                 </ul>
             </div>
