@@ -28,7 +28,36 @@ $database_table_2 = "map_location";
 $database_table_2_id_field = "id";
 $database_table_2_name_field = "name";
 $database_table_2_address_field = "address";
-$database_table_2_image_field = "image";
 $database_table_2_lat_field = "lat";
 $database_table_2_lng_field = "lng";
 $database_table_2_type_field = "type";
+
+//photo table
+$database_table_3 = "photo_location";
+
+//hotel table
+$database_table_4 = "hotel_location";
+
+//pump table
+$database_table_5 = "pump_location";
+
+//food table
+$database_table_6 = "food_location";
+
+//train table
+$database_table_7 = "train_location";
+
+//museum table
+$database_table_8 = "museum_location";
+
+//market table
+$database_table_9 = "market_location";
+
+//anchor table
+$database_table_10 = "anchor_location";
+
+//cafe table
+$database_table_11 = "cafe_location";
+
+//bar table
+$database_table_12 = "bar_location";

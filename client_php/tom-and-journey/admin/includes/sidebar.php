@@ -22,31 +22,34 @@
                         <a class="nav-link" href="map-log.php">All Location</a>
                     </nav>
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Photo Location</a>
+                        <a class="nav-link" href="location-table.php?location=photo">Photo Location</a>
                     </nav>
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Hotel Location</a>
+                        <a class="nav-link" href="location-table.php?location=hotel">Hotel Location</a>
                     </nav>
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Gas Stations Location</a>
+                        <a class="nav-link" href="location-table.php?location=pump">Gas Stations Location</a>
                     </nav>
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Food Location</a>
+                        <a class="nav-link" href="location-table.php?location=food">Food Location</a>
                     </nav>
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Train Location</a>
+                        <a class="nav-link" href="location-table.php?location=train">Train Location</a>
                     </nav>
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Museum Location</a>
+                        <a class="nav-link" href="location-table.php?location=museum">Museum Location</a>
                     </nav>
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Market Location</a>
+                        <a class="nav-link" href="location-table.php?location=market">Market Location</a>
                     </nav>
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Anchor Location</a>
+                        <a class="nav-link" href="location-table.php?location=anchor">Anchor Location</a>
                     </nav>
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Cafe Location</a>
+                        <a class="nav-link" href="location-table.php?location=cafe">Cafe Location</a>
+                    </nav>
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="location-table.php?location=bar">Bar Location</a>
                     </nav>
                 </div>
 
