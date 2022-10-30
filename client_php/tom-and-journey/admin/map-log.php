@@ -4,7 +4,6 @@ include('config/authentication.php');
 include('includes/header.php');
 
 include('config/alert_box.php');
-// include('tom-and-journey/alert_box.php');
 
 if (!isset($_SESSION)) {
     session_start();
