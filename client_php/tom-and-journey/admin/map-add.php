@@ -77,23 +77,25 @@ if (isset($_GET['location'])) {
                                 <input type="text" name="lng" class="form-control">
                             </div>
 
-                            <div class="col-md-6 mb-3">
-                                <label for="">TYPE</label>
-                                <select name="type" require class="form-control">
-                                    <option value="">--Select TYPE--</option>
-                                    <option value="photo">Photo</option>
-                                    <option value="hotel">Hotel</option>
-                                    <option value="pump">Gas Station</option>
-                                    <option value="food">Food</option>
-                                    <option value="train">Train</option>
-                                    <option value="museum">Museum</option>
-                                    <option value="market">Market</option>
-                                    <option value="anchor">Anchor</option>
-                                    <option value="cafe">Cafe</option>
-                                    <option value="bar">Bar</option>
-
+                            <?php if (!isset($_GET['location'])) {
+                                echo "<div class='col-md-6 mb-3'>
+                                <label>TYPE</label>
+                                <select name='type' require class='form-control'>
+                                    <option value=''>--Select TYPE--</option>
+                                    <option value='photo'>Photo</option>
+                                    <option value='hotel'>Hotel</option>
+                                    <option value='pump'>Gas Station</option>
+                                    <option value='food'>Food</option>
+                                    <option value='train'>Train</option>
+                                    <option value='museum'>Museum</option>
+                                    <option value='market'>Market</option>
+                                    <option value='anchor'>Anchor</option>
+                                    <option value='cafe'>Cafe</option>
+                                    <option value='bar'>Bar</option>
                                 </select>
-                            </div>
+                            </div>";
+                            } ?>
+
 
                             <div class="col-md-12 mb-3">
                                 <button type="submit" name="add_map" class="btn btn-primary">Add Map</button>

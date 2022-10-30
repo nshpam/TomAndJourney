@@ -68,14 +68,12 @@ function sql_command($database_name, $database_field, $database_data, $database_
             WHERE $database_field[0]='$database_data[0]' ";
         } else if ($database_action == 'add') {
             return "INSERT INTO $database_name 
-            ($database_field[0],
-            $database_field[1],
+            ($database_field[1],
             $database_field[2],
             $database_field[3],
             $database_field[4],
             $database_field[5]) 
-            VALUES ('$database_data[0]',
-            '$database_data[1]',
+            VALUES ('$database_data[1]',
             '$database_data[2]',
             '$database_data[3]',
             '$database_data[4]',
@@ -245,7 +243,6 @@ if (isset($_POST['add_map'])) {
     $address = $_POST['address'];
     $lat = $_POST['lat'];
     $lng = $_POST['lng'];
-    $type = $_POST['type'];
 
 
     if (empty($name)) {
@@ -264,6 +261,9 @@ if (isset($_POST['add_map'])) {
     //check database
     if (isset($_GET['location'])) {
 
+        //type
+        $type = $_GET['location'];
+
         //database name
         $database_name = $_GET['location'] . "_location";
 
@@ -278,6 +278,9 @@ if (isset($_POST['add_map'])) {
 
         $sql = sql_command($database_name, $db_field_array, $data_array, $database_action);
     } else {
+
+        //type
+        $type = $_POST['type'];
         //database name
         $database_name = $database_table_2;
 
@@ -342,6 +345,10 @@ if (isset($_POST['add_map'])) {
 
         $query = sql_command($database_name, $db_field_array, $data_array, $database_action);
     } else {
+
+        //reset array
+        $db_field_array = array();
+        $data_array = array();
         //database name
         $database_name = $database_table_2;
 
@@ -359,7 +366,7 @@ if (isset($_POST['add_map'])) {
         //push data
         array_push(
             $data_array,
-            $location_id,
+            $id,
             $name,
             $address,
             $lat,

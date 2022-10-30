@@ -7,33 +7,43 @@ include('../config.php');
 if ($_GET['location'] == 'photo') {
     $location_query = "SELECT * FROM $database_table_3";
     $map_add = "map-add.php?location=photo";
+    $map_delete = "map-add-update.php?location=photo";
 } elseif ($_GET['location'] == 'hotel') {
     $location_query = "SELECT * FROM $database_table_4";
     $map_add = "map-add.php?location=hotel";
+    $map_delete = "map-add-update.php?location=hotel";
 } elseif ($_GET['location'] == 'pump') {
     $location_query = "SELECT * FROM $database_table_5";
     $map_add = "map-add.php?location=pump";
+    $map_delete = "map-add-update.php?location=pump";
 } elseif ($_GET['location'] == 'food') {
     $location_query = "SELECT * FROM $database_table_6";
     $map_add = "map-add.php?location=food";
+    $map_delete = "map-add-update.php?location=food";
 } elseif ($_GET['location'] == 'train') {
     $location_query = "SELECT * FROM $database_table_7";
     $map_add = "map-add.php?location=train";
+    $map_delete = "map-add-update.php?location=train";
 } elseif ($_GET['location'] == 'museum') {
     $location_query = "SELECT * FROM $database_table_8";
     $map_add = "map-add.php?location=museum";
+    $map_delete = "map-add-update.php?location=museum";
 } elseif ($_GET['location'] == 'market') {
     $location_query = "SELECT * FROM $database_table_9";
     $map_add = "map-add.php?location=market";
+    $map_delete = "map-add-update.php?location=market";
 } elseif ($_GET['location'] == 'anchor') {
     $location_query = "SELECT * FROM $database_table_10";
     $map_add = "map-add.php?location=anchor";
+    $map_delete = "map-add-update.php?location=anchor";
 } elseif ($_GET['location'] == 'cafe') {
     $location_query = "SELECT * FROM $database_table_11";
     $map_add = "map-add.php?location=cafe";
+    $map_delete = "map-add-update.php?location=cafe";
 } elseif ($_GET['location'] == 'bar') {
     $location_query = "SELECT * FROM $database_table_12";
     $map_add = "map-add.php?location=bar";
+    $map_delete = "map-add-update.php?location=bar";
 }
 
 ?>
@@ -82,8 +92,8 @@ if ($_GET['location'] == 'photo') {
                                         <td> <?= $row[$database_table_2_type_field]; ?> </td>
                                         <td><a href="map-edit.php?id=<?= $row[$database_table_2_id_field]; ?>&location=<?= $row[$database_table_2_type_field]; ?>" class="btn btn-success">Edit</a></td>
                                         <td>
-                                            <form action="map-add-update.php" method="post">
-                                                <button type="sumbit" name="map_delete" value="<?= $row[$database_table_2_id_field]; ?>" class="btn btn-danger">Delete</button>
+                                            <form action=<?= $map_delete ?> method="post">
+                                                <button type="submit" name="map_delete" value="<?= $row[$database_table_2_id_field]; ?>" class="btn btn-danger">Delete</button>
                                             </form>
                                         </td>
                                     </tr>
