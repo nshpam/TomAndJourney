@@ -205,43 +205,43 @@ if (isset($_POST['add_map'])) {
     //check database
     if (isset($_GET['location'])) {
         if ($_GET['location'] == 'photo') {
-            $user_check_query = "SELECT * FROM $database_table_3 WHERE $database_table_2_name_field = '$name' LIMIT 1";
+            $user_check_query = "SELECT * FROM $database_table_3";
         } elseif ($_GET['location'] == 'hotel') {
 
-            $user_check_query = "SELECT * FROM $database_table_4 WHERE $database_table_2_name_field = '$name' LIMIT 1";
+            $user_check_query = "SELECT * FROM $database_table_4";
         } elseif ($_GET['location'] == 'pump') {
 
-            $user_check_query = "SELECT * FROM $database_table_5 WHERE $database_table_2_name_field = '$name' LIMIT 1";
+            $user_check_query = "SELECT * FROM $database_table_5";
         } elseif ($_GET['location'] == 'food') {
 
-            $user_check_query = "SELECT * FROM $database_table_6 WHERE $database_table_2_name_field = '$name' LIMIT 1";
+            $user_check_query = "SELECT * FROM $database_table_6";
         } elseif ($_GET['location'] == 'train') {
 
-            $user_check_query = "SELECT * FROM $database_table_7 WHERE $database_table_2_name_field = '$name' LIMIT 1";
+            $user_check_query = "SELECT * FROM $database_table_7";
         } elseif ($_GET['location'] == 'museum') {
 
-            $user_check_query = "SELECT * FROM $database_table_8 WHERE $database_table_2_name_field = '$name' LIMIT 1";
+            $user_check_query = "SELECT * FROM $database_table_8";
         } elseif ($_GET['location'] == 'market') {
 
-            $user_check_query = "SELECT * FROM $database_table_9 WHERE $database_table_2_name_field = '$name' LIMIT 1";
+            $user_check_query = "SELECT * FROM $database_table_9";
         } elseif ($_GET['location'] == 'anchor') {
 
-            $user_check_query = "SELECT * FROM $database_table_10 WHERE $database_table_2_name_field = '$name' LIMIT 1";
+            $user_check_query = "SELECT * FROM $database_table_10";
         } elseif ($_GET['location'] == 'cafe') {
 
-            $user_check_query = "SELECT * FROM $database_table_11 WHERE $database_table_2_name_field = '$name' LIMIT 1";
+            $user_check_query = "SELECT * FROM $database_table_11";
         } elseif ($_GET['location'] == 'bar') {
-            $user_check_query = "SELECT * FROM $database_table_12 WHERE $database_table_2_name_field = '$name' LIMIT 1";
+            $user_check_query = "SELECT * FROM $database_table_12";
         }
     } else {
-        $user_check_query = "SELECT * FROM $database_table_2 WHERE $database_table_2_name_field = '$name' LIMIT 1";
+        $user_check_query = "SELECT * FROM $database_table_2";
     }
 
     $query = mysqli_query($conn, $user_check_query);
     $id = 1;
 
     while ($row = mysqli_fetch_row($query)) {
-        if ($row[1] === $name) {
+        if ($row[1] == $name) {
             array_push($errors, "Name already exists");
         }
         $id++;
