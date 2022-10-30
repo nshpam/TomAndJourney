@@ -3,7 +3,6 @@ session_start();
 include('config/server.php');
 
 
-
 if(!isset($_SESSION['auth']))
 {
     $_SESSION['status'] = "Cannot Go Admin Dashboard";
