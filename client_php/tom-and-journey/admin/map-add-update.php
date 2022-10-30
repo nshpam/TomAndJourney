@@ -1,11 +1,88 @@
 <?php
 include('config/authentication.php');
 include('../config.php');
-include('config/alert_box.php');
+// include('config/alert_box.php');
+
 if (!isset($_SESSION)) {
     session_start();
 }
 
+//[id, name, address, lat, lng, type]
+$data_array = array();
+$db_field_array = array();
+
+//error array
+$errors = array();
+
+//location delete, update, add sql command
+function sql_command($database_name, $database_field, $database_data, $database_action)
+{
+    //check action
+    if ($database_action == 'check') {
+        return "SELECT * FROM $database_name";
+    }
+
+    if ($database_name != 'map_location') {
+        //delete action
+        if ($database_action == 'delete') {
+            return "DELETE FROM $database_name WHERE $database_field[0]=$database_data[0]";
+
+            //update action
+        } else if ($database_action == 'update') {
+            return "UPDATE $database_name 
+            SET $database_field[1]='$database_data[1]' , 
+            $database_field[2]='$database_data[2]' , 
+            $database_field[3]='$database_data[3]' , 
+            $database_field[4]='$database_data[4]' , 
+            $database_field[5]='$database_data[5]' 
+            WHERE $database_field[0]=$database_data[0] ";
+
+            //add action
+        } else if ($database_action == 'add') {
+            return "INSERT INTO $database_name 
+            ($database_field[0],
+            $database_field[1],
+            $database_field[2],
+            $database_field[3],
+            $database_field[4],
+            $database_field[5]) 
+            VALUES ('$database_data[0]',
+            '$database_data[1]',
+            '$database_data[2]',
+            '$database_data[3]',
+            '$database_data[4]',
+            '$database_data[5]')";
+        }
+    }
+    //all database
+    else {
+        if ($database_action == 'delete') {
+            return "DELETE FROM $database_name WHERE $database_field[0]='$database_data[0]' ";
+        } else if ($database_action == 'update') {
+            return "UPDATE $database_name 
+            SET $database_field[1]='$database_data[1]' , 
+            $database_field[2]='$database_data[2]' , 
+            $database_field[3]='$database_data[3]' , 
+            $database_field[4]='$database_data[4]' , 
+            $database_field[5]='$database_data[5]' 
+            WHERE $database_field[0]='$database_data[0]' ";
+        } else if ($database_action == 'add') {
+            return "INSERT INTO $database_name 
+            ($database_field[0],
+            $database_field[1],
+            $database_field[2],
+            $database_field[3],
+            $database_field[4],
+            $database_field[5]) 
+            VALUES ('$database_data[0]',
+            '$database_data[1]',
+            '$database_data[2]',
+            '$database_data[3]',
+            '$database_data[4]',
+            '$database_data[5]')";
+        }
+    }
+}
 
 // cancel
 if (isset($_POST['cancel'])) {
@@ -15,8 +92,41 @@ if (isset($_POST['cancel'])) {
 
 // user delete
 if (isset($_POST['map_delete'])) {
+
+    //collect location id
     $location_id = $_POST['map_delete'];
-    $query = "DELETE FROM map_location WHERE id='$location_id' ";
+
+    if (isset($_GET['location'])) {
+
+        //database name
+        $database_name = $_GET['location'] . '_location';
+
+        //push field
+        array_push($db_field_array, $database_table_2_id_field);
+
+        //push data
+        array_push($data_array, $location_id);
+
+        //action
+        $database_action = 'delete';
+
+        $query = sql_command($database_name, $db_field_array, $data_array, $database_action);
+    } else {
+
+        //database name
+        $database_name = $database_table_2;
+
+        //push field
+        array_push($db_field_array, $database_table_2_id_field);
+
+        //push data
+        array_push($data_array, $location_id);
+
+        //action
+        $database_action = 'delete';
+
+        $query = sql_command($database_name, $db_field_array, $data_array, $database_action);
+    }
     $query_run = mysqli_query($conn, $query);
 
 
@@ -47,116 +157,67 @@ if (isset($_POST['update_map'])) {
     $type = $_POST['type'];
 
     if (isset($_GET['location'])) {
-        if ($_GET['location'] == 'photo') {
-            //update photo_location
-            $query = "UPDATE $database_table_3 
-        SET $database_table_2_name_field='$name' , 
-        $database_table_2_address_field='$address' , 
-        $database_table_2_lat_field='$lat' , 
-        $database_table_2_lng_field='$lng' , 
-        $database_table_2_type_field='$type' 
-        WHERE $database_table_2_id_field=$location_id ";
-        } else if ($_GET['location'] == 'hotel') {
-            //update hotel_location
+        //database name
+        $database_name = $_GET['location'] . '_location';
 
-            $query = "UPDATE $database_table_4 
-        SET $database_table_2_name_field='$name' , 
-        $database_table_2_address_field='$address' , 
-        $database_table_2_lat_field='$lat' , 
-        $database_table_2_lng_field='$lng' , 
-        type='$type' 
-        WHERE $database_table_2_id_field=$location_id ";
-        } else if ($_GET['location'] == 'pump') {
-            //update pump_location
+        //push field
+        array_push(
+            $db_field_array,
+            $database_table_2_id_field,
+            $database_table_2_name_field,
+            $database_table_2_address_field,
+            $database_table_2_lat_field,
+            $database_table_2_lng_field,
+            $database_table_2_type_field
+        );
 
-            $query = "UPDATE $database_table_5 
-        SET $database_table_2_name_field='$name' , 
-        $database_table_2_address_field='$address' , 
-        $database_table_2_lat_field='$lat' , 
-        $database_table_2_lng_field='$lng' , 
-        type='$type' 
-        WHERE $database_table_2_id_field=$location_id ";
-        } else if ($_GET['location'] == 'food') {
-            //update food_location
+        //push data
+        array_push(
+            $data_array,
+            $location_id,
+            $name,
+            $address,
+            $lat,
+            $lng,
+            $type
+        );
 
-            $query = "UPDATE $database_table_6 
-        SET $database_table_2_name_field='$name' , 
-        $database_table_2_address_field='$address' , 
-        $database_table_2_lat_field='$lat' , 
-        $database_table_2_lng_field='$lng' , 
-        type='$type' 
-        WHERE $database_table_2_id_field=$location_id ";
-        } else if ($_GET['location'] == 'train') {
-            //update train_location
+        //action
+        $database_action = 'update';
 
-            $query = "UPDATE $database_table_7 
-        SET $database_table_2_name_field='$name' , 
-        $database_table_2_address_field='$address' , 
-        $database_table_2_lat_field='$lat' , 
-        $database_table_2_lng_field='$lng' , 
-        type='$type' 
-        WHERE $database_table_2_id_field=$location_id ";
-        } else if ($_GET['location'] == 'museum') {
-            //update museum_location
-
-            $query = "UPDATE $database_table_8 
-        SET $database_table_2_name_field='$name' , 
-        $database_table_2_address_field='$address' , 
-        $database_table_2_lat_field='$lat' , 
-        $database_table_2_lng_field='$lng' , 
-        type='$type' 
-        WHERE $database_table_2_id_field=$location_id ";
-        } else if ($_GET['location'] == 'market') {
-            //update market_location
-
-            $query = "UPDATE $database_table_9 
-        SET $database_table_2_name_field='$name' , 
-        $database_table_2_address_field='$address' , 
-        $database_table_2_lat_field='$lat' , 
-        $database_table_2_lng_field='$lng' , 
-        type='$type' 
-        WHERE $database_table_2_id_field=$location_id ";
-        } else if ($_GET['location'] == 'anchor') {
-            //update anchor_location
-
-            $query = "UPDATE $database_table_10 
-        SET $database_table_2_name_field='$name' , 
-        $database_table_2_address_field='$address' , 
-        $database_table_2_lat_field='$lat' , 
-        $database_table_2_lng_field='$lng' , 
-        type='$type' 
-        WHERE $database_table_2_id_field=$location_id ";
-        } else if ($_GET['location'] == 'cafe') {
-            //update cafe_location
-
-            $query = "UPDATE $database_table_11 
-        SET $database_table_2_name_field='$name' , 
-        $database_table_2_address_field='$address' , 
-        $database_table_2_lat_field='$lat' , 
-        $database_table_2_lng_field='$lng' , 
-        type='$type' 
-        WHERE $database_table_2_id_field=$location_id ";
-        } else if ($_GET['location'] == 'bar') {
-            //update bar_location
-
-            $query = "UPDATE $database_table_12 
-        SET $database_table_2_name_field='$name' , 
-        $database_table_2_address_field='$address' , 
-        $database_table_2_lat_field='$lat' , 
-        $database_table_2_lng_field='$lng' , 
-        type='$type' 
-        WHERE $database_table_2_id_field=$location_id ";
-        }
+        $query = sql_command($database_name, $db_field_array, $data_array, $database_action);
     } else {
-        //update map_location
-        $query = "UPDATE $database_table_2 
-        SET $database_table_2_name_field='$name' , 
-        $database_table_2_address_field='$address' , 
-        $database_table_2_lat_field='$lat' , 
-        $database_table_2_lng_field='$lng' , 
-        $database_table_2_type_field='$type' 
-        WHERE $database_table_2_id_field='$location_id' ";
+        //database name
+        $database_name = $database_table_2;
+
+        //push field
+        array_push(
+            $db_field_array,
+            $database_table_2_id_field,
+            $database_table_2_name_field,
+            $database_table_2_address_field,
+            $database_table_2_lat_field,
+            $database_table_2_lng_field,
+            $database_table_2_type_field
+        );
+
+        //push data
+        array_push(
+            $data_array,
+            $location_id,
+            $name,
+            $address,
+            $lat,
+            $lng,
+            $type
+        );
+
+        //action
+        $database_action = 'update';
+
+        $query = sql_command($database_name, $db_field_array, $data_array, $database_action);
     }
+
     $query_run = mysqli_query($conn, $query);
 
     if ($query_run) {
@@ -177,9 +238,7 @@ if (isset($_POST['update_map'])) {
 }
 
 
-// adding
-$errors = array();
-
+//adding
 if (isset($_POST['add_map'])) {
     // $location_id = $_POST['location_id'];
     $name = $_POST['name'];
@@ -204,40 +263,38 @@ if (isset($_POST['add_map'])) {
 
     //check database
     if (isset($_GET['location'])) {
-        if ($_GET['location'] == 'photo') {
-            $user_check_query = "SELECT * FROM $database_table_3";
-        } elseif ($_GET['location'] == 'hotel') {
 
-            $user_check_query = "SELECT * FROM $database_table_4";
-        } elseif ($_GET['location'] == 'pump') {
+        //database name
+        $database_name = $_GET['location'] . "_location";
 
-            $user_check_query = "SELECT * FROM $database_table_5";
-        } elseif ($_GET['location'] == 'food') {
+        //push field
+        array_push($db_field_array, 'NONE');
 
-            $user_check_query = "SELECT * FROM $database_table_6";
-        } elseif ($_GET['location'] == 'train') {
+        //push data
+        array_push($data_array, 'NONE');
 
-            $user_check_query = "SELECT * FROM $database_table_7";
-        } elseif ($_GET['location'] == 'museum') {
+        //action
+        $database_action = 'check';
 
-            $user_check_query = "SELECT * FROM $database_table_8";
-        } elseif ($_GET['location'] == 'market') {
-
-            $user_check_query = "SELECT * FROM $database_table_9";
-        } elseif ($_GET['location'] == 'anchor') {
-
-            $user_check_query = "SELECT * FROM $database_table_10";
-        } elseif ($_GET['location'] == 'cafe') {
-
-            $user_check_query = "SELECT * FROM $database_table_11";
-        } elseif ($_GET['location'] == 'bar') {
-            $user_check_query = "SELECT * FROM $database_table_12";
-        }
+        $sql = sql_command($database_name, $db_field_array, $data_array, $database_action);
     } else {
-        $user_check_query = "SELECT * FROM $database_table_2";
+        //database name
+        $database_name = $database_table_2;
+
+        //push field
+        array_push($db_field_array, 'NONE');
+
+        //push data
+        array_push($data_array, 'NONE');
+
+        //action
+        $database_action = 'check';
+
+        $sql = sql_command($database_name, $db_field_array, $data_array, $database_action);
     }
 
-    $query = mysqli_query($conn, $user_check_query);
+    //run command
+    $query = mysqli_query($conn, $sql);
     $id = 1;
 
     while ($row = mysqli_fetch_row($query)) {
@@ -248,44 +305,77 @@ if (isset($_POST['add_map'])) {
     }
 
     //insert to database
+
     if (isset($_GET['location'])) {
-        if ($_GET['location'] == 'photo') {
 
-            $sql = "INSERT INTO $database_table_3 ($database_table_2_id_field,$database_table_2_name_field,$database_table_2_address_field,$database_table_2_lat_field,$database_table_2_lng_field,$database_table_2_type_field) VALUES ('$id','$name','$address','$lat','$lng','$type')";
-        } elseif ($_GET['location'] == 'hotel') {
+        //database name
+        $database_name = $_GET['location'] . "_location";
 
-            $sql = "INSERT INTO $database_table_4 ($database_table_2_id_field,$database_table_2_name_field,$database_table_2_address_field,$database_table_2_lat_field,$database_table_2_lng_field,$database_table_2_type_field) VALUES ('$id','$name','$address','$lat','$lng','$type')";
-        } elseif ($_GET['location'] == 'pump') {
+        //reset array
+        $db_field_array = array();
+        $data_array = array();
 
-            $sql = "INSERT INTO $database_table_5 ($database_table_2_id_field,$database_table_2_name_field,$database_table_2_address_field,$database_table_2_lat_field,$database_table_2_lng_field,$database_table_2_type_field) VALUES ('$id','$name','$address','$lat','$lng','$type')";
-        } elseif ($_GET['location'] == 'food') {
+        //push field
+        array_push(
+            $db_field_array,
+            $database_table_2_id_field,
+            $database_table_2_name_field,
+            $database_table_2_address_field,
+            $database_table_2_lat_field,
+            $database_table_2_lng_field,
+            $database_table_2_type_field
+        );
 
-            $sql = "INSERT INTO $database_table_6 ($database_table_2_id_field,$database_table_2_name_field,$database_table_2_address_field,$database_table_2_lat_field,$database_table_2_lng_field,$database_table_2_type_field) VALUES ('$id','$name','$address','$lat','$lng','$type')";
-        } elseif ($_GET['location'] == 'train') {
+        //push data
+        array_push(
+            $data_array,
+            $id,
+            $name,
+            $address,
+            $lat,
+            $lng,
+            $type
+        );
 
-            $sql = "INSERT INTO $database_table_7 ($database_table_2_id_field,$database_table_2_name_field,$database_table_2_address_field,$database_table_2_lat_field,$database_table_2_lng_field,$database_table_2_type_field) VALUES ('$id','$name','$address','$lat','$lng','$type')";
-        } elseif ($_GET['location'] == 'museum') {
+        //action
+        $database_action = 'add';
 
-            $sql = "INSERT INTO $database_table_8 ($database_table_2_id_field,$database_table_2_name_field,$database_table_2_address_field,$database_table_2_lat_field,$database_table_2_lng_field,$database_table_2_type_field) VALUES ('$id','$name','$address','$lat','$lng','$type')";
-        } elseif ($_GET['location'] == 'market') {
-
-            $sql = "INSERT INTO $database_table_9 ($database_table_2_id_field,$database_table_2_name_field,$database_table_2_address_field,$database_table_2_lat_field,$database_table_2_lng_field,$database_table_2_type_field) VALUES ('$id','$name','$address','$lat','$lng','$type')";
-        } elseif ($_GET['location'] == 'anchor') {
-
-            $sql = "INSERT INTO $database_table_10 ($database_table_2_id_field,$database_table_2_name_field,$database_table_2_address_field,$database_table_2_lat_field,$database_table_2_lng_field,$database_table_2_type_field) VALUES ('$id','$name','$address','$lat','$lng','$type')";
-        } elseif ($_GET['location'] == 'cafe') {
-
-            $sql = "INSERT INTO $database_table_11 ($database_table_2_id_field,$database_table_2_name_field,$database_table_2_address_field,$database_table_2_lat_field,$database_table_2_lng_field,$database_table_2_type_field) VALUES ('$id','$name','$address','$lat','$lng','$type')";
-        } elseif ($_GET['location'] == 'bar') {
-
-            $sql = "INSERT INTO $database_table_12 ($database_table_2_id_field,$database_table_2_name_field,$database_table_2_address_field,$database_table_2_lat_field,$database_table_2_lng_field,$database_table_2_type_field) VALUES ('$id','$name','$address','$lat','$lng','$type')";
-        }
+        $query = sql_command($database_name, $db_field_array, $data_array, $database_action);
     } else {
+        //database name
+        $database_name = $database_table_2;
 
-        $sql = "INSERT INTO $database_table_2 ($database_table_2_name_field,$database_table_2_address_field,$database_table_2_lat_field,$database_table_2_lng_field,$database_table_2_type_field) VALUES ('$name','$address','$lat','$lng','$type')";
+        //push field
+        array_push(
+            $db_field_array,
+            $database_table_2_id_field,
+            $database_table_2_name_field,
+            $database_table_2_address_field,
+            $database_table_2_lat_field,
+            $database_table_2_lng_field,
+            $database_table_2_type_field
+        );
+
+        //push data
+        array_push(
+            $data_array,
+            $location_id,
+            $name,
+            $address,
+            $lat,
+            $lng,
+            $type
+        );
+
+        //action
+        $database_action = 'add';
+
+
+        $query = sql_command($database_name, $db_field_array, $data_array, $database_action);
     }
+
     if (count($errors) == 0) {
-        mysqli_query($conn, $sql);
+        mysqli_query($conn, $query);
 
         $_SESSION['status'] = "Congratulations!";
         $_SESSION['status_detail'] = "Successfully add Map!";

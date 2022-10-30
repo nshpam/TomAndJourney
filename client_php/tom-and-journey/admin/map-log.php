@@ -1,10 +1,14 @@
-<?php 
+<?php
 include('config/authentication.php');
 
 include('includes/header.php');
 
-include('config/alert_box.php')
+include('config/alert_box.php');
 // include('tom-and-journey/alert_box.php');
+
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 ?>
 
@@ -21,11 +25,11 @@ include('config/alert_box.php')
                     <h4> Edit Geocoding LAT/LON
                         <a href="map-add.php" class="btn btn-primary float-end">Add</a>
                     </h4>
-            
+
                 </div>
                 <div class="card-body">
-                    
-                    <table class="table table-bordered"> 
+
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -35,58 +39,53 @@ include('config/alert_box.php')
                                 <th>TYPE</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
-                            
+
                             </tr>
-                            <tbody>
-                                <?php
-                                
-                                $user_check_query = "SELECT * FROM map_location";
-                                $query_run = mysqli_query($conn, $user_check_query);
+                        <tbody>
+                            <?php
 
-                                if(mysqli_num_rows($query_run) > 0)
-                                {
-                                    foreach($query_run as $row)
-                                    {
-                                        ?>
-                                            <tr>
-                                                <td> <?= $row['id']; ?> </td>
-                                                <td> <?= $row['name']; ?>  </td>
-                                                <td> <?= $row['lat']; ?>  </td>
-                                                <td> <?= $row['lng']; ?>  </td>
-                                                <td> <?= $row['type']; ?>  </td>
-                                                <td><a href="map-edit.php?id=<?= $row['id'];?>" class="btn btn-success">Edit</a></td>
-                                                <td>
-                                                    <form action="map-add-update.php" method="post">
-                                                        <button type="sumbit" name="map_delete" value="<?=$row['id'];?>" class="btn btn-danger">Delete</button>
-                                                    </form>
+                            $user_check_query = "SELECT * FROM map_location";
+                            $query_run = mysqli_query($conn, $user_check_query);
 
-                                                </td>
-                                            </tr>
-                                        <?php
-                                        
-                                    }
-
-                                }
-                                else
-                                {
-                                ?>
+                            if (mysqli_num_rows($query_run) > 0) {
+                                foreach ($query_run as $row) {
+                            ?>
                                     <tr>
-                                        <td colspan="6">No Record Found</td>
+                                        <td> <?= $row['id']; ?> </td>
+                                        <td> <?= $row['name']; ?> </td>
+                                        <td> <?= $row['lat']; ?> </td>
+                                        <td> <?= $row['lng']; ?> </td>
+                                        <td> <?= $row['type']; ?> </td>
+                                        <td><a href="map-edit.php?id=<?= $row['id']; ?>" class="btn btn-success">Edit</a></td>
+                                        <td>
+                                            <form action="map-add-update.php" method="post">
+                                                <button type="sumbit" name="map_delete" value="<?= $row['id']; ?>" class="btn btn-danger">Delete</button>
+                                            </form>
+
+                                        </td>
                                     </tr>
                                 <?php
-                                    
-                                }
 
+                                }
+                            } else {
                                 ?>
-                                
-                            </tbody>
+                                <tr>
+                                    <td colspan="6">No Record Found</td>
+                                </tr>
+                            <?php
+
+                            }
+
+                            ?>
+
+                        </tbody>
 
                         </thead>
                     </table>
-            
+
                 </div>
 
-            
+
 
             </div>
 

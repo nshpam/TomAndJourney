@@ -322,6 +322,12 @@ include('admin/config/server.php');
         include('footer.php');
         ?>
 
+        <style>
+            .active-nav {
+                color: #A64343 !important;
+            }
+        </style>
+
         <script>
             a = document.getElementById('trip-planner-link');
             a.classList.add('active-nav');
