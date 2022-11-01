@@ -329,6 +329,23 @@ include('config.php');
             a = document.getElementById('trip-planner-link');
             a.classList.add('active-nav');
 
+            $(document).ready(function() {
+                $.ajax({
+                    url: 'map_connection.php',
+                    type: 'get',
+                    success: function(response) {
+                        console.log(response);
+
+                        if (response.indexOf('success') != -1) {
+                            // $('#modal-default').modal('toggle');
+                        }
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        console.log('error');
+                    }
+                });
+            });
+
             center_map = [13.7528, 100.5173];
 
             //camera
@@ -923,9 +940,9 @@ include('config.php');
                                         layer.bindPopup('no place match');
                                     }
                                     if (result.address.PlaceName != '') {
-                                        layer.bindPopup(result.address.PlaceName);
+                                        layer.bindPopup(result.address.PlaceName + i.toString());
                                     } else {
-                                        layer.bindPopup(result.address.LongLabel);
+                                        layer.bindPopup(result.address.LongLabel + i.toString());
                                     }
                                 })
                             }
@@ -988,9 +1005,9 @@ include('config.php');
                                         layer.bindPopup('no place match');
                                     }
                                     if (result.address.PlaceName != '') {
-                                        layer.bindPopup(result.address.PlaceName);
+                                        layer.bindPopup(result.address.PlaceName + i.toString());
                                     } else {
-                                        layer.bindPopup(result.address.LongLabel);
+                                        layer.bindPopup(result.address.LongLabel + i.toString());
                                     }
                                 })
                             }
@@ -1053,9 +1070,9 @@ include('config.php');
                                         layer.bindPopup('no place match');
                                     }
                                     if (result.address.PlaceName != '') {
-                                        layer.bindPopup(result.address.PlaceName);
+                                        layer.bindPopup(result.address.PlaceName + i.toString());
                                     } else {
-                                        layer.bindPopup(result.address.LongLabel);
+                                        layer.bindPopup(result.address.LongLabel + i.toString());
                                     }
                                 })
                             }
@@ -1118,9 +1135,9 @@ include('config.php');
                                         layer.bindPopup('no place match');
                                     }
                                     if (result.address.PlaceName != '') {
-                                        layer.bindPopup(result.address.PlaceName);
+                                        layer.bindPopup(result.address.PlaceName + i.toString());
                                     } else {
-                                        layer.bindPopup(result.address.LongLabel);
+                                        layer.bindPopup(result.address.LongLabel + i.toString());
                                     }
                                 })
                             }
@@ -1248,9 +1265,9 @@ include('config.php');
                                         layer.bindPopup('no place match');
                                     }
                                     if (result.address.PlaceName != '') {
-                                        layer.bindPopup(result.address.PlaceName);
+                                        layer.bindPopup(result.address.PlaceName + i.toString());
                                     } else {
-                                        layer.bindPopup(result.address.LongLabel);
+                                        layer.bindPopup(result.address.LongLabel + i.toString());
                                     }
                                 })
                             }
@@ -1313,9 +1330,9 @@ include('config.php');
                                         layer.bindPopup('no place match');
                                     }
                                     if (result.address.PlaceName != '') {
-                                        layer.bindPopup(result.address.PlaceName);
+                                        layer.bindPopup(result.address.PlaceName + i.toString());
                                     } else {
-                                        layer.bindPopup(result.address.LongLabel);
+                                        layer.bindPopup(result.address.LongLabel + i.toString());
                                     }
                                 })
                             }
