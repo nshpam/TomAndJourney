@@ -84,7 +84,11 @@ function sql_command($database_name, $database_field, $database_data, $database_
 
 // cancel
 if (isset($_POST['cancel'])) {
-    header('Location: map-log.php');
+    if (isset($_GET['location'])) {
+        header('location: location-table.php?location=' . $_GET['location']);
+    } else {
+        header('location: map-log.php');
+    }
     exit(0);
 }
 
@@ -133,14 +137,22 @@ if (isset($_POST['map_delete'])) {
         $_SESSION['status_detail'] = "Successfully delete data";
         $_SESSION['status_code'] = "success";
 
-        header('Location: map-log.php');
+        if (isset($_GET['location'])) {
+            header('location: location-table.php?location=' . $_GET['location']);
+        } else {
+            header('location: map-log.php');
+        }
         exit(0);
     } else {
         $_SESSION['status'] = "Error!";
         $_SESSION['status_detail'] = "Can not delete data";
         $_SESSION['status_code'] = "error";
 
-        header('Location: map-log.php');
+        if (isset($_GET['location'])) {
+            header('location: location-table.php?location=' . $_GET['location']);
+        } else {
+            header('location: map-log.php');
+        }
         exit(0);
     }
 }
@@ -223,14 +235,22 @@ if (isset($_POST['update_map'])) {
         $_SESSION['status_detail'] = "Successfully changing data";
         $_SESSION['status_code'] = "success";
 
-        header('Location: map-log.php');
+        if (isset($_GET['location'])) {
+            header('location: location-table.php?location=' . $_GET['location']);
+        } else {
+            header('location: map-log.php');
+        }
         exit(0);
     } else {
         $_SESSION['status'] = "Cannot update the data";
         $_SESSION['status_detail'] = "Please try again later";
         $_SESSION['status_code'] = "error";
 
-        header('Location: map-log.php');
+        if (isset($_GET['location'])) {
+            header('location: location-table.php?location=' . $_GET['location']);
+        } else {
+            header('location: map-log.php');
+        }
         exit(0);
     }
 }
@@ -388,12 +408,20 @@ if (isset($_POST['add_map'])) {
         $_SESSION['status_detail'] = "Successfully add Map!";
         $_SESSION['status_code'] = "success";
 
-        header('location: map-log.php');
+        if (isset($_GET['location'])) {
+            header('location: location-table.php?location=' . $_GET['location']);
+        } else {
+            header('location: map-log.php');
+        }
     } else {
 
         $_SESSION['status'] = "Data Not Registerd";
         $_SESSION['status_detail'] = "Please Insert Map";
         $_SESSION['status_code'] = "error";
-        header("location: map-log.php");
+        if (isset($_GET['location'])) {
+            header('location: location-table.php?location=' . $_GET['location']);
+        } else {
+            header('location: map-log.php');
+        }
     }
 }

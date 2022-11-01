@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('config.php');
-include('admin/config/server.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -309,10 +309,6 @@ include('admin/config/server.php');
         <script src="https://unpkg.com/esri-leaflet-geocoder@3.1.3/dist/esri-leaflet-geocoder.js" integrity="sha512-mwRt9Y/qhSlNH3VWCNNHrCwquLLU+dTbmMxVud/GcnbXfOKJ35sznUmt3yM39cMlHR2sHbV9ymIpIMDpKg4kKw==" crossorigin=""></script>
 
         <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
-        <!-- mapquest -->
-        <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=1yxyC7dPYmAcaQ9PNHnLZTDE3pV1dkkE"></script>
-        <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=1yxyC7dPYmAcaQ9PNHnLZTDE3pV1dkkE"></script>
-        <!-- </div> -->
 
         <!-- control.js -->
         <script src="/tom-and-journey/dist/js/tomandjourney/control.js"></script>
@@ -329,6 +325,7 @@ include('admin/config/server.php');
         </style>
 
         <script>
+            //navigation bar
             a = document.getElementById('trip-planner-link');
             a.classList.add('active-nav');
 
@@ -339,7 +336,7 @@ include('admin/config/server.php');
             mark_photo_2 = [13.7551568, 100.4930706];
             mark_photo_3 = [13.7498524, 100.4915753];
             mark_photo_4 = [13.7538724, 100.5067137];
-            mark_photo_5 = [13.7565088, 100.5028196];
+            mark_photo_5 = [13.75670304901331, 100.5018442868419];
             mark_photo_6 = [13.8, 100.5028196];
 
             //hotel
@@ -389,7 +386,7 @@ include('admin/config/server.php');
             mark_photo_37 = [13.754715008785922, 100.4885122633741];
             mark_photo_38 = [13.752480000000048, 100.48828000000003];
             mark_photo_39 = [13.755532005756095, 100.50649057873318];
-            mark_photo_40 = [13.762721117891658, 100.49861658710779];
+            mark_photo_40 = [13.74615048765014, 100.48990600644095];
 
             // cafe
             mark_photo_41 = [13.763508463754022, 100.49500696398519];
@@ -496,7 +493,7 @@ include('admin/config/server.php');
 
             //render map
             let mapOptions = {
-                layer: MQ.mapLayer(),
+                // layer: MQ.mapLayer(),
                 center: center_map,
                 zoom: 15,
             }
@@ -727,9 +724,9 @@ include('admin/config/server.php');
                                         layer.bindPopup('no place match');
                                     }
                                     if (result.address.PlaceName != '') {
-                                        layer.bindPopup(result.address.PlaceName);
+                                        layer.bindPopup(result.address.PlaceName + i.toString());
                                     } else {
-                                        layer.bindPopup(result.address.LongLabel);
+                                        layer.bindPopup(result.address.LongLabel + i.toString());
                                     }
                                 })
                             }
@@ -794,9 +791,9 @@ include('admin/config/server.php');
                                         layer.bindPopup('no place match');
                                     }
                                     if (result.address.PlaceName != '') {
-                                        layer.bindPopup(result.address.PlaceName);
+                                        layer.bindPopup(result.address.PlaceName + i.toString());
                                     } else {
-                                        layer.bindPopup(result.address.LongLabel);
+                                        layer.bindPopup(result.address.LongLabel + i.toString());
                                     }
                                 })
                             }
@@ -860,9 +857,9 @@ include('admin/config/server.php');
                                         layer.bindPopup('no place match');
                                     }
                                     if (result.address.PlaceName != '') {
-                                        layer.bindPopup(result.address.PlaceName);
+                                        layer.bindPopup(result.address.PlaceName + i.toString());
                                     } else {
-                                        layer.bindPopup(result.address.LongLabel);
+                                        layer.bindPopup(result.address.LongLabel + i.toString());
                                     }
                                 })
                             }
@@ -1186,9 +1183,9 @@ include('admin/config/server.php');
                                         layer.bindPopup('no place match');
                                     }
                                     if (result.address.PlaceName != '') {
-                                        layer.bindPopup(result.address.PlaceName);
+                                        layer.bindPopup(result.address.PlaceName + i.toString());
                                     } else {
-                                        layer.bindPopup(result.address.LongLabel);
+                                        layer.bindPopup(result.address.LongLabel + i.toString());
                                     }
                                 })
                             }

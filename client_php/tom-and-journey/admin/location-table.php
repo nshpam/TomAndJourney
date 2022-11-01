@@ -49,7 +49,7 @@ if ($_GET['location'] == 'photo') {
 ?>
 
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Create Photo Locations</h1>
+    <h1 class="mt-4">Create <?= $_GET['location'] ?> locations</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Edit Your Location by LAT LON using geocoding</li>
     </ol>
@@ -70,6 +70,7 @@ if ($_GET['location'] == 'photo') {
                             <tr>
                                 <th>ID</th>
                                 <th>NAME</th>
+                                <th>ADDRESS</th>
                                 <th>LAT</th>
                                 <th>LON</th>
                                 <th>TYPE</th>
@@ -87,6 +88,7 @@ if ($_GET['location'] == 'photo') {
                                     <tr>
                                         <td> <?= $row[$database_table_2_id_field]; ?> </td>
                                         <td> <?= $row[$database_table_2_name_field]; ?> </td>
+                                        <td> <?= $row[$database_table_2_address_field]; ?> </td>
                                         <td> <?= $row[$database_table_2_lat_field]; ?> </td>
                                         <td> <?= $row[$database_table_2_lng_field]; ?> </td>
                                         <td> <?= $row[$database_table_2_type_field]; ?> </td>

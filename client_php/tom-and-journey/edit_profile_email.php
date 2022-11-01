@@ -80,11 +80,11 @@ include('footer.php');
 
                         <!-- register button -->
                         <div class="row">
-                            <button type="submit" class="btn btn-default btn-block " id="change-text">Change</button>
+                            <button type="submit" class="btn btn-default btn-block " id="login-button">Change</button>
                         </div>
 
                         <div class="row">
-                            <button type="submit" href="Profile.php" class="btn btn-default btn-block " id="close-text">Close</button>
+                            <button type="submit" href="Profile.php" class="btn btn-default btn-block " id="login-button">Close</button>
                         </div>
                     </form>
 
@@ -111,14 +111,3 @@ include('footer.php');
 <style>
     <?php include './dist/css/tomandjourney/editprofile.css'; ?>
 </style>
-
-<style>
-    #login-text {
-        color: #A64343 !important;
-    }
-</style>
-
-<script>
-    // hightlight the selected page in navbar
-    SelectedNavItem("login-link");
-</script>

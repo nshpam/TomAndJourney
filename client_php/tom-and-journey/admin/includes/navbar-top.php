@@ -23,12 +23,7 @@
                     <!-- <li><a class="dropdown-item" href="#!">Settings</a></li> -->
                     <!-- <li><a class="dropdown-item" href="#!">Activity Log</a></li> -->
                     <li><hr class="dropdown-divider" /></li>
-                    <li>
-                        <form action="server.php">
-                            
-                            <button type="submit" name="adminlogout_btn" class="dropdown-item">Logout</button>
-                        </form>
-                    </li>
+                    <li><a class="dropdown-item" name="logout_btn">Logout</a></li>
                 </ul>
             </li>
         </ul>
