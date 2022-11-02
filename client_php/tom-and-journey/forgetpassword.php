@@ -31,7 +31,8 @@
                     <div class="row" id="email-field">
                         <label for="email-field-input">E-mail</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Enter your e-mail" id="email-field-input">
+                            <input type="text" class="form-control" placeholder="Enter your e-mail"
+                                id="email-field-input">
                         </div>
                     </div>
                     <!-- end email form -->
@@ -40,7 +41,8 @@
                     <div class="row" id="comfirm-email-field">
                         <label for="comfirm-email-field-input">Comfirm E-mail</label>
                         <div class="input-group">
-                            <input type="password" class="form-control" placeholder="Confirm your e-mail" id="comfirm-email-field-input">
+                            <input type="password" class="form-control" placeholder="Confirm your e-mail"
+                                id="comfirm-email-field-input">
                         </div>
                     </div>
                     <!-- end comfirm email field-->
@@ -51,7 +53,8 @@
 
                     <!-- comfirm button -->
                     <div class="row d-flex justify-content-center">
-                        <button type="button" class="btn btn-default btn-block " id="confirm-button" onclick="GoTo('index.php')">CONFIRM</button>
+                        <button type="button" class="btn btn-default btn-block " id="confirm-button"
+                            onclick="GoTo('index.php')">CONFIRM</button>
                     </div>
                     <!-- end confirm button -->
 
@@ -79,8 +82,8 @@
 <script src="./dist/js/tomandjourney/control.js"></script>
 
 <script>
-    // hightlight the selected page in navbar
-    SelectedNavItem("login-link");
+// hightlight the selected page in navbar
+SelectedNavItem("login-link");
 </script>
 
 <!-- footer -->

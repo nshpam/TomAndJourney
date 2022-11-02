@@ -49,28 +49,29 @@ if (!isset($_SESSION)) {
                             if (mysqli_num_rows($query_run) > 0) {
                                 foreach ($query_run as $row) {
                             ?>
-                                    <tr>
-                                        <td> <?= $row['id']; ?> </td>
-                                        <td> <?= $row['name']; ?> </td>
-                                        <td> <?= $row['lat']; ?> </td>
-                                        <td> <?= $row['lng']; ?> </td>
-                                        <td> <?= $row['type']; ?> </td>
-                                        <td><a href="map-edit.php?id=<?= $row['id']; ?>" class="btn btn-success">Edit</a></td>
-                                        <td>
-                                            <form action="map-add-update.php" method="post">
-                                                <button type="sumbit" name="map_delete" value="<?= $row['id']; ?>" class="btn btn-danger">Delete</button>
-                                            </form>
+                            <tr>
+                                <td> <?= $row['id']; ?> </td>
+                                <td> <?= $row['name']; ?> </td>
+                                <td> <?= $row['lat']; ?> </td>
+                                <td> <?= $row['lng']; ?> </td>
+                                <td> <?= $row['type']; ?> </td>
+                                <td><a href="map-edit.php?id=<?= $row['id']; ?>" class="btn btn-success">Edit</a></td>
+                                <td>
+                                    <form action="map-add-update.php" method="post">
+                                        <button type="sumbit" name="map_delete" value="<?= $row['id']; ?>"
+                                            class="btn btn-danger">Delete</button>
+                                    </form>
 
-                                        </td>
-                                    </tr>
-                                <?php
+                                </td>
+                            </tr>
+                            <?php
 
                                 }
                             } else {
                                 ?>
-                                <tr>
-                                    <td colspan="6">No Record Found</td>
-                                </tr>
+                            <tr>
+                                <td colspan="6">No Record Found</td>
+                            </tr>
                             <?php
 
                             }

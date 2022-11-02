@@ -11,7 +11,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>AdminLTE 3 | Top Navigation</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
@@ -22,8 +23,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="hold-transition layout-top-nav layout-footer-fixed layout-navbar-fixed">
@@ -44,15 +47,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </li>
 
                     <?php if (isset($_SESSION['auth'])) : ?>
-                        <div>
-                            <li class="nav-item">
-                                <a href="/tom-and-journey/Profile.php" class="nav-link" id="login-link">Profile</a>
-                            </li>
-                        </div>
-                    <?php else : ?>
+                    <div>
                         <li class="nav-item">
-                            <a href="/tom-and-journey/index.php" class="nav-link" id="login-link">Login</a>
+                            <a href="/tom-and-journey/Profile.php" class="nav-link" id="login-link">Profile</a>
                         </li>
+                    </div>
+                    <?php else : ?>
+                    <li class="nav-item">
+                        <a href="/tom-and-journey/index.php" class="nav-link" id="login-link">Login</a>
+                    </li>
 
                     <?php endif ?>
                 </ul>

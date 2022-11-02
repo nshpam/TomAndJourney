@@ -85,29 +85,32 @@ if ($_GET['location'] == 'photo') {
                             if (mysqli_num_rows($query_run) > 0) {
                                 foreach ($query_run as $row) {
                             ?>
-                                    <tr>
-                                        <td> <?= $row[$database_table_2_id_field]; ?> </td>
-                                        <td> <?= $row[$database_table_2_name_field]; ?> </td>
-                                        <td> <?= $row[$database_table_2_address_field]; ?> </td>
-                                        <td> <?= $row[$database_table_2_lat_field]; ?> </td>
-                                        <td> <?= $row[$database_table_2_lng_field]; ?> </td>
-                                        <td> <?= $row[$database_table_2_type_field]; ?> </td>
-                                        <td><a href="map-edit.php?id=<?= $row[$database_table_2_id_field]; ?>&location=<?= $row[$database_table_2_type_field]; ?>" class="btn btn-success">Edit</a></td>
-                                        <td>
-                                            <form action=<?= $map_delete ?> method="post">
-                                                <button type="submit" name="map_delete" value="<?= $row[$database_table_2_id_field]; ?>" class="btn btn-danger">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                <?php
+                            <tr>
+                                <td> <?= $row[$database_table_2_id_field]; ?> </td>
+                                <td> <?= $row[$database_table_2_name_field]; ?> </td>
+                                <td> <?= $row[$database_table_2_address_field]; ?> </td>
+                                <td> <?= $row[$database_table_2_lat_field]; ?> </td>
+                                <td> <?= $row[$database_table_2_lng_field]; ?> </td>
+                                <td> <?= $row[$database_table_2_type_field]; ?> </td>
+                                <td><a href="map-edit.php?id=<?= $row[$database_table_2_id_field]; ?>&location=<?= $row[$database_table_2_type_field]; ?>"
+                                        class="btn btn-success">Edit</a></td>
+                                <td>
+                                    <form action=<?= $map_delete ?> method="post">
+                                        <button type="submit" name="map_delete"
+                                            value="<?= $row[$database_table_2_id_field]; ?>"
+                                            class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <?php
 
                                 }
                             } else {
                                 ?>
 
-                                <tr>
-                                    <td colspan="6">No Record Found</td>
-                                </tr>
+                            <tr>
+                                <td colspan="6">No Record Found</td>
+                            </tr>
                             <?php
 
                             }

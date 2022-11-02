@@ -34,9 +34,9 @@ include('footer.php');
                         </div>
                         <div class="row" id="username-field">
                             <?php if (isset($_SESSION['auth_user'])) : ?>
-                                <div class="input-group col-12">
-                                    <p><strong><?php echo $_SESSION['auth_user']['user_name']; ?></strong></p>
-                                </div>
+                            <div class="input-group col-12">
+                                <p><strong><?php echo $_SESSION['auth_user']['user_name']; ?></strong></p>
+                            </div>
                             <?php endif ?>
 
 
@@ -51,12 +51,13 @@ include('footer.php');
                             <!-- <p><strong><?php echo $_SESSION['user_email']; ?></strong></p> -->
 
                             <?php if (isset($_SESSION['auth_user'])) : ?>
-                                <div class="input-group col-md-12 col-sm-12 col-lg-12 col-12">
-                                    <p class="d-flex align-items-center col-6"><strong><?php echo $_SESSION['auth_user']['user_email']; ?></strong></p>
-                                    <div class="col-6 d-flex justify-content-end">
-                                        <button type="edit" name="edit_email" class=" btn pass_edit ">Edit</button>
-                                    </div>
+                            <div class="input-group col-md-12 col-sm-12 col-lg-12 col-12">
+                                <p class="d-flex align-items-center col-6">
+                                    <strong><?php echo $_SESSION['auth_user']['user_email']; ?></strong></p>
+                                <div class="col-6 d-flex justify-content-end">
+                                    <button type="edit" name="edit_email" class=" btn pass_edit ">Edit</button>
                                 </div>
+                            </div>
                             <?php endif ?>
 
                         </div>
@@ -67,16 +68,18 @@ include('footer.php');
                         <!-- password field -->
                         <div class="row" id="password-field">
                             <?php if (isset($_SESSION['auth_user'])) : ?>
-                                <div class="input-group col-md-12 col-sm-12 col-lg-12 col-12">
-                                    <p class="d-flex align-items-center col-6"><strong><?php echo $_SESSION['auth_user']['user_password']; ?></strong></p>
-                                    <div class="col-6 d-flex justify-content-end">
-                                        <button type="edit" name="edit_pass" class=" btn pass_edit">Edit</button>
-                                    </div>
+                            <div class="input-group col-md-12 col-sm-12 col-lg-12 col-12">
+                                <p class="d-flex align-items-center col-6">
+                                    <strong><?php echo $_SESSION['auth_user']['user_password']; ?></strong></p>
+                                <div class="col-6 d-flex justify-content-end">
+                                    <button type="edit" name="edit_pass" class=" btn pass_edit">Edit</button>
                                 </div>
+                            </div>
                             <?php endif ?>
                         </div>
                         <div class="row">
-                            <button type="submit" name="logout_btn" class="btn btn-default btn-block " id="logout-button">Logout</button>
+                            <button type="submit" name="logout_btn" class="btn btn-default btn-block "
+                                id="logout-button">Logout</button>
                         </div>
 
                         <!-- warning text (link with js) -->
@@ -100,8 +103,8 @@ include('footer.php');
     <!-- control.js -->
     <script src="./dist/js/tomandjourney/control.js"></script>
     <script>
-        home = document.getElementById("login-link");
-        home.classList.add("active");
+    home = document.getElementById("login-link");
+    home.classList.add("active");
     </script>
 
 
@@ -110,5 +113,6 @@ include('footer.php');
 </html>
 
 <style>
-    <?php include './dist/css/tomandjourney/profile.css'; ?>
+<?php include './dist/css/tomandjourney/profile.css';
+?>
 </style>
