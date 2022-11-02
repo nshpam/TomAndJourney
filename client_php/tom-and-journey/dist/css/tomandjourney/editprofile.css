@@ -29,20 +29,8 @@ body{
 }
 
 
-#close-text {
-    background-color: #A64343;
-    border-radius: 10px;
-    color: white;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-#change-text {
-    background-color: #A64343;
-    border-radius: 10px;
-    color: white;
-    font-weight: 700;
-    margin-bottom: 20px;
+.form_change_group{
+    
 }
 
 @media (max-width: 1330px) {

@@ -446,40 +446,6 @@ include('config.php');
             let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
             map.addLayer(layer);
 
-            let marker1 = new L.marker(mark_photo_1, {
-                icon: GenerateMarkers("fa-camera", "blue"),
-            })
-
-            // icon start
-
-            icon_start = L.AwesomeMarkers.icon({
-                icon: "fa-flag",
-                prefix: "fa",
-                markerColor: "blue",
-                iconColor: "white"
-            });
-
-            // icon pin2
-            icon_pin_2 = L.AwesomeMarkers.icon({
-                html: 1,
-                markerColor: "black",
-                iconColor: "white"
-            });
-            // icon pin3
-            icon_pin_3 = L.AwesomeMarkers.icon({
-                html: 2,
-                markerColor: "black",
-                iconColor: "white"
-            });
-
-            // icon end
-            icon_end = L.AwesomeMarkers.icon({
-                icon: "fa-flag",
-                prefix: "fa",
-                markerColor: "black",
-                iconColor: "white"
-            });
-
             //check lat and long on map
 
             // map.on('click', function(e) {
@@ -640,21 +606,18 @@ include('config.php');
 
             function MinimizeTab() {
 
+                element_config = [
+                    ['.route-main-block', 'hidden'],
+                    ['.login-block', 'visible'],
+                    ['.info-block', 'visible']
+                ];
 
-                route_main_block = document.querySelectorAll('.route-main-block');
-                route_main_block.forEach(e => {
-                    e.style.visibility = 'hidden';
-                });
-
-                login_block = document.querySelectorAll('.login-block');
-                login_block.forEach(e => {
-                    e.style.visibility = 'visible';
-                });
-
-                info_block = document.querySelectorAll('.info-block');
-                info_block.forEach(e => {
-                    e.style.visibility = 'visible';
-                });
+                for (i = 0; i < element_config.length; i++) {
+                    element_block = document.querySelectorAll(element_config[i][0]);
+                    element_block.forEach(e => {
+                        e.style.visibility = element_config[i][1];
+                    });
+                }
 
                 leaflet_zoom_block = document.querySelectorAll('.leaflet-control-container');
                 leaflet_zoom_block.forEach(e => {
@@ -679,27 +642,23 @@ include('config.php');
                     }
                 });
 
-
                 map.removeControl(routing);
-
 
             }
 
             function ExpandTab() {
-                route_main_block = document.querySelectorAll('.route-main-block');
-                route_main_block.forEach(e => {
-                    e.style.visibility = 'visible';
-                });
+                element_config = [
+                    ['.route-main-block', 'visible'],
+                    ['.login-block', 'hidden'],
+                    ['.info-block', 'hidden']
+                ];
 
-                login_block = document.querySelectorAll('.login-block');
-                login_block.forEach(e => {
-                    e.style.visibility = 'hidden';
-                });
-
-                info_block = document.querySelectorAll('.info-block');
-                info_block.forEach(e => {
-                    e.style.visibility = 'hidden';
-                });
+                for (i = 0; i < element_config.length; i++) {
+                    element_block = document.querySelectorAll(element_config[i][0]);
+                    element_block.forEach(e => {
+                        e.style.visibility = element_config[i][1];
+                    });
+                }
 
                 leaflet_zoom_block = document.querySelectorAll('.leaflet-control-container');
                 leaflet_zoom_block.forEach(e => {
@@ -707,7 +666,6 @@ include('config.php');
                 })
 
                 routing_markers_list = [];
-
 
                 // routing system
                 routing = L.Routing.control({
@@ -730,7 +688,7 @@ include('config.php');
                                     duration: 1000,
                                     height: 800,
                                 },
-                                icon: icon_start,
+                                icon: GenerateMarkers("fa-flag", "green"),
                             }, )
 
                             routing_markers_list.push(marker);
@@ -746,7 +704,7 @@ include('config.php');
                                     duration: 1000,
                                     height: 800,
                                 },
-                                icon: icon_end,
+                                icon: GenerateMarkers("fa-flag", "black"),
                             }, )
                             routing_markers_list.push(marker);
 
