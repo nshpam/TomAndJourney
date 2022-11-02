@@ -51,8 +51,7 @@ include('config.php');
                             <!-- username logo -->
 
                             <!-- username input -->
-                            <input type="text" name="username" class="form-control" placeholder="Username"
-                                id="username">
+                            <input type="text" name="username" class="form-control" placeholder="Username" id="username">
                             <!-- username input -->
 
                         </div>
@@ -77,8 +76,7 @@ include('config.php');
                             <!-- password logo -->
 
                             <!-- password input -->
-                            <input type="password" name="password" class="form-control" placeholder="Password"
-                                id="password">
+                            <input type="password" name="password" class="form-control" placeholder="Password" id="password">
                             <!-- password input -->
 
                         </div>
@@ -108,9 +106,7 @@ include('config.php');
                     <!-- login button -->
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-1 col-sm-2 col-1"></div>
-                        <button type="submit" name="login_user"
-                            class=" col-md-10 col-sm-8 col-10 btn btn-default btn-block " id="login-button">SIGN
-                            IN</button>
+                        <button type="submit" name="login_user" class=" col-md-10 col-sm-8 col-10 btn btn-default btn-block " id="login-button">SIGN IN</button>
                         <div class="col-md-1 col-sm-2 col-1"></div>
                     </div>
                     <!-- login button -->
@@ -141,72 +137,72 @@ include('config.php');
 ?>
 
 <script>
-// hightlight the selected page in navbar
-SelectedNavItem("login-link");
+    // hightlight the selected page in navbar
+    SelectedNavItem("login-link");
 </script>
 
 <style>
-/* fix horizontal overflow */
-.row {
-    margin-left: 0px;
-    margin-right: 0px;
-}
-
-/* center content-warpper */
-.content-wrapper {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    vertical-align: middle;
-}
-
-@media only screen and (min-width: 732px) {}
-
-/* responsive */
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-
-    /* nav bar */
-    #custom-nav-bar {
-        height: 10%;
+    /* fix horizontal overflow */
+    .row {
+        margin-left: 0px;
+        margin-right: 0px;
     }
 
-    #ul-custom-nav-bar {
-        flex-wrap: wrap;
-        flex-direction: row !important;
-        text-align: center;
-        align-items: center;
+    /* center content-warpper */
+    .content-wrapper {
+        display: flex;
         justify-content: center;
+        flex-direction: column;
+        vertical-align: middle;
     }
 
-    .navbar-expand-md>.container,
-    .navbar-expand-md>.container-fluid,
-    .navbar-expand-md>.container-lg,
-    .navbar-expand-md>.container-md,
-    .navbar-expand-md>.container-sm,
-    .navbar-expand-md>.container-xl {
-        text-align: center;
+    @media only screen and (min-width: 732px) {}
+
+    /* responsive */
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+
+        /* nav bar */
+        #custom-nav-bar {
+            height: 10%;
+        }
+
+        #ul-custom-nav-bar {
+            flex-wrap: wrap;
+            flex-direction: row !important;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar-expand-md>.container,
+        .navbar-expand-md>.container-fluid,
+        .navbar-expand-md>.container-lg,
+        .navbar-expand-md>.container-md,
+        .navbar-expand-md>.container-sm,
+        .navbar-expand-md>.container-xl {
+            text-align: center;
+        }
+
+        .navbar .container,
+        .navbar .container-fluid,
+        .navbar .container-lg,
+        .navbar .container-md,
+        .navbar .container-sm,
+        .navbar .container-xl {
+            display: contents;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
     }
 
-    .navbar .container,
-    .navbar .container-fluid,
-    .navbar .container-lg,
-    .navbar .container-md,
-    .navbar .container-sm,
-    .navbar .container-xl {
-        display: contents;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+
+        #ul-custom-nav-bar {
+            flex-direction: row !important;
+        }
+
     }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-
-    #ul-custom-nav-bar {
-        flex-direction: row !important;
-    }
-
-}
 </style>

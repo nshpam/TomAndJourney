@@ -62,37 +62,35 @@ include('../config.php');
                             if (mysqli_num_rows($query_run) > 0) {
                                 foreach ($query_run as $row) {
                             ?>
-                            <tr>
-                                <td> <?= $row['id']; ?> </td>
-                                <td> <?= $row['username']; ?> </td>
-                                <td> <?= $row['email']; ?> </td>
-                                <td>
-                                    <?php
+                                    <tr>
+                                        <td> <?= $row['id']; ?> </td>
+                                        <td> <?= $row['username']; ?> </td>
+                                        <td> <?= $row['email']; ?> </td>
+                                        <td>
+                                            <?php
                                             if ($row['role_as'] == '1') {
                                                 echo 'Admin';
                                             } elseif ($row['role_as'] == '0') {
                                                 echo 'User';
                                             }
                                             ?>
-                                </td>
-                                <td><a href="register-edit.php?id=<?= $row['id']; ?>" class="btn btn-success">Edit</a>
-                                </td>
-                                <td>
-                                    <form action="user-add-update.php" method="post">
-                                        <button type="sumbit" name="user_delete" value="<?= $row['id']; ?>"
-                                            class="btn btn-danger">Delete</button>
-                                    </form>
+                                        </td>
+                                        <td><a href="register-edit.php?id=<?= $row['id']; ?>" class="btn btn-success">Edit</a></td>
+                                        <td>
+                                            <form action="user-add-update.php" method="post">
+                                                <button type="sumbit" name="user_delete" value="<?= $row['id']; ?>" class="btn btn-danger">Delete</button>
+                                            </form>
 
-                                </td>
-                            </tr>
-                            <?php
+                                        </td>
+                                    </tr>
+                                <?php
 
                                 }
                             } else {
                                 ?>
-                            <tr>
-                                <td colspan="6">No Record Found</td>
-                            </tr>
+                                <tr>
+                                    <td colspan="6">No Record Found</td>
+                                </tr>
                             <?php
 
                             }

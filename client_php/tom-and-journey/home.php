@@ -61,10 +61,8 @@ include('admin/config/alert_box.php');
                 <!-- buttons -->
                 <div class="row md-5">
                     <div class="col-md-2"></div>
-                    <button type="button" class="btn btn-default col-md-1" id="get-started-button"
-                        onclick="GoTo('trip.php')">Get Started</button>
-                    <button type="button" class="btn btn-default col-md-1" id="see-more-button"
-                        onclick="GoTo('trip.php')">See more</button>
+                    <button type="button" class="btn btn-default col-md-1" id="get-started-button" onclick="GoTo('trip.php')">Get Started</button>
+                    <button type="button" class="btn btn-default col-md-1" id="see-more-button" onclick="GoTo('trip.php')">See more</button>
                 </div>
                 <!-- end buttons -->
 
@@ -108,6 +106,6 @@ include('admin/config/alert_box.php');
 <!-- end body -->
 
 <script>
-// hightlight the selected page in navbar
-SelectedNavItem("home-link");
+    // hightlight the selected page in navbar
+    SelectedNavItem("home-link");
 </script>

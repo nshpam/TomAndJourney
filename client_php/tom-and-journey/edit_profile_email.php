@@ -42,8 +42,7 @@ include('footer.php');
                         <div class="row" id="email-field">
 
                             <div class="input-group">
-                                <input type="email" name="email" class="form-control" placeholder="Enter your Email"
-                                    id="email-field-input">
+                                <input type="email" name="email" class="form-control" placeholder="Enter your Email" id="email-field-input">
                             </div>
                         </div>
                         <!-- email field -->
@@ -57,8 +56,7 @@ include('footer.php');
                         <div class="row" id="email-field">
 
                             <div class="input-group">
-                                <input type="email" name="email" class="form-control" placeholder="Enter your new Email"
-                                    id="email-field-input">
+                                <input type="email" name="email" class="form-control" placeholder="Enter your new Email" id="email-field-input">
                             </div>
 
                         </div>
@@ -71,8 +69,7 @@ include('footer.php');
                         <!-- password field -->
                         <div class="row" id="password-field">
                             <div class="input-group ">
-                                <input type="password" name="password_1" class="form-control"
-                                    placeholder="Enter your password" id="password-field-input">
+                                <input type="password" name="password_1" class="form-control" placeholder="Enter your password" id="password-field-input">
                             </div>
                         </div>
 
@@ -83,12 +80,11 @@ include('footer.php');
 
                         <!-- register button -->
                         <div class="row">
-                            <button type="submit" class="btn btn-default btn-block " id="change-text">Change</button>
+                            <button type="submit" class="btn btn-default btn-block " id="login-button">Change</button>
                         </div>
 
                         <div class="row">
-                            <button type="submit" href="Profile.php" class="btn btn-default btn-block "
-                                id="close-text">Close</button>
+                            <button type="submit" href="Profile.php" class="btn btn-default btn-block " id="login-button">Close</button>
                         </div>
                     </form>
 
@@ -113,6 +109,5 @@ include('footer.php');
 </html>
 
 <style>
-<?php include './dist/css/tomandjourney/editprofile.css';
-?>
+    <?php include './dist/css/tomandjourney/editprofile.css'; ?>
 </style>

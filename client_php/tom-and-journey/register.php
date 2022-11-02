@@ -48,8 +48,7 @@ include('admin/config/alert_box.php');
                         <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
                         <div class="input-group col-md-8 col-sm-8 col-lg-10 col-10">
 
-                            <input type="text" name="username" class="form-control" placeholder="Enter your Username"
-                                id="username-field-input">
+                            <input type="text" name="username" class="form-control" placeholder="Enter your Username" id="username-field-input">
                         </div>
                         <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
                     </div>
@@ -64,8 +63,7 @@ include('admin/config/alert_box.php');
                     <div class="row" id="email-field">
                         <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
                         <div class="input-group col-md-8 col-sm-8 col-lg-10 col-10">
-                            <input type="email" name="email" class="form-control" placeholder="Enter your Email"
-                                id="email-field-input">
+                            <input type="email" name="email" class="form-control" placeholder="Enter your Email" id="email-field-input">
                         </div>
                         <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
                     </div>
@@ -81,8 +79,7 @@ include('admin/config/alert_box.php');
 
                         <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
                         <div class="input-group col-md-8 col-sm-8 col-lg-10 col-10">
-                            <input type="password" name="password_1" class="form-control"
-                                placeholder="Enter your password" id="password-field-input">
+                            <input type="password" name="password_1" class="form-control" placeholder="Enter your password" id="password-field-input">
                         </div>
                         <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
                     </div>
@@ -104,8 +101,7 @@ include('admin/config/alert_box.php');
                         <div class="input-group col-md-8 col-sm-8 col-lg-10 col-10">
 
 
-                            <input type="password" name="password_2" class="form-control"
-                                placeholder="Confirm your password" id="comfirm-password-field-input">
+                            <input type="password" name="password_2" class="form-control" placeholder="Confirm your password" id="comfirm-password-field-input">
                         </div>
                         <div class="col-md-2 col-sm-2 col-lg-1 col-1"></div>
 
@@ -122,9 +118,7 @@ include('admin/config/alert_box.php');
                     <!-- register button -->
                     <div class="row d-flex justify-content-center">
                         <div class="col-md-1 col-sm-2 col-1"></div>
-                        <button type="submit" name="reg_user"
-                            class="col-md-10 col-sm-8 col-10 btn btn-default btn-block " id="register-button">SIGN
-                            UP</button>
+                        <button type="submit" name="reg_user" class="col-md-10 col-sm-8 col-10 btn btn-default btn-block " id="register-button">SIGN UP</button>
                         <div class="col-md-1 col-sm-2 col-1"></div>
                     </div>
                     <!-- end register button -->
@@ -161,12 +155,12 @@ include('admin/config/alert_box.php');
 <!-- end footer -->
 
 <style>
-#login-text {
-    color: #A64343 !important;
-}
+    #login-text {
+        color: #A64343 !important;
+    }
 </style>
 
 <script>
-// hightlight the selected page in navbar
-SelectedNavItem("login-link");
+    // hightlight the selected page in navbar
+    SelectedNavItem("login-link");
 </script>
