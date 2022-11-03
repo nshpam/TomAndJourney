@@ -4,6 +4,7 @@
 
     <!-- import sweetalert.js -->
     <script src="js/sweetalert.js"></script>
+    <script src="admin/js/sweetalert.js"></script>
 
     <!-- get data from another file -->
     <?php
