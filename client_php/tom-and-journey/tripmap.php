@@ -54,7 +54,7 @@ include('config.php');
                         <a href="/tom-and-journey/trip.php" class="nav-link trip-planner-class" id="trip-planner-link">Trip Planner</a>
                     </li>
                     <?php
-                    if (isset($_SESSION['auth_user'])) : ?>
+                    if (isset($_SESSION['auth'])) : ?>
                         <div>
                             <li class="nav-item">
                                 <a href="/tom-and-journey/Profile.php" class="nav-link" id="login-link">Profile</a>

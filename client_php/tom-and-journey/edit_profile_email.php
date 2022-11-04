@@ -80,11 +80,11 @@ include('footer.php');
 
                         <!-- register button -->
                         <div class="row">
-                            <button type="submit" class="btn btn-default btn-block " id="login-button">CHANGE</button>
+                            <button type="submit" class="btn btn-default btn-block " id="change-button">CHANGE</button>
                         </div>
 
                         <div class="row">
-                            <button type="submit" href="Profile.php" class="btn btn-default btn-block " id="login-button">CLOSE</button>
+                            <button type="submit" href="Profile.php" class="btn btn-default btn-block " id="close-button">CLOSE</button>
                         </div>
                     </form>
 
@@ -109,13 +109,5 @@ include('footer.php');
 </html>
 
 <style>
-    #login-button {
-        background-color: #A64343;
-        border-radius: 10px;
-        color: white;
-        font-weight: 700;
-        margin-bottom: 5px;
-    }
-
     <?php include './dist/css/tomandjourney/editprofile.css'; ?>
 </style>
