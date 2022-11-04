@@ -54,7 +54,7 @@
                 </div>
 
 
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="create-trip.php">
                     <div class="sb-nav-link-icon"><i class="fas fa-suitcase"></i></div>
                     Trip Planner
 
