@@ -3,7 +3,7 @@
 <body>
 
     <!-- import sweetalert.js -->
-    <script src="js/sweetalert.js"></script>
+    <script src="/tom-and-journey/dist/js/tomandjourney/sweetalert.js"></script>
 
     <!-- get data from another file -->
     <?php

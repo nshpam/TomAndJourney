@@ -1,9 +1,13 @@
 <?php
+
+
+
 if (!isset($_SESSION)) {
     session_start();
 }
 //import config.php
 include('/xampp/htdocs/tom-and-journey/config.php');
+
 
 // Create Connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -43,7 +47,11 @@ if (isset($_POST['login_user'])) {
 
         // encode password with md5
         // $password = ($password);
-        $query = "SELECT * FROM $database_table_1 WHERE $database_table_1_username_field = '$username' AND $database_table_1_password_field = '$password' ";
+        $query = "SELECT * 
+        FROM $database_table_1 
+        WHERE $database_table_1_username_field = '$username' 
+        AND $database_table_1_password_field = '$password' ";
+
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) == 1) {
@@ -187,3 +195,21 @@ if (isset($_POST['reg_user'])) {
         header("location: ../../register.php");
     }
 }
+
+
+//logout button
+
+if (isset($_POST['ajax']) && isset($_POST['logout'])) {
+    echo 'logout';
+}
+
+// if (isset($_POST['logout_btn'])) {
+//     echo 'press logout button';
+//     unset($_SESSION['auth']);
+
+//     $_SESSION['status'] = "Logout Successfully!";
+//     $_SESSION['status_detail'] = "Logout Successfully!";
+//     $_SESSION['status_code'] = "success";
+//     header("location: home.php");
+//     exit(0);
+// }

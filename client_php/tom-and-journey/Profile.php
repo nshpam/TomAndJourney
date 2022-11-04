@@ -76,7 +76,7 @@ include('footer.php');
                             <?php endif ?>
                         </div>
                         <div class="row">
-                            <button type="submit" name="logout_btn" class="btn btn-default btn-block " id="logout-button">Logout</button>
+                            <button type="submit" name="logout_btn" class="btn btn-default btn-block " id="logout-button">LOGOUT</button>
                         </div>
 
                         <!-- warning text (link with js) -->

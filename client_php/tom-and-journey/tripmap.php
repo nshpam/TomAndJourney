@@ -54,12 +54,7 @@ include('config.php');
                         <a href="/tom-and-journey/trip.php" class="nav-link trip-planner-class" id="trip-planner-link">Trip Planner</a>
                     </li>
                     <?php
-                    if (isset($_SESSION['auth_user'])) ?>
-
-
-
-                    <?php if (isset($_SESSION['auth'])) : ?>
-
+                    if (isset($_SESSION['auth_user'])) : ?>
                         <div>
                             <li class="nav-item">
                                 <a href="/tom-and-journey/Profile.php" class="nav-link" id="login-link">Profile</a>
@@ -71,7 +66,6 @@ include('config.php');
                         </li>
 
                     <?php endif ?>
-
                 </ul>
             </div>
         </nav>
@@ -325,6 +319,13 @@ include('config.php');
         <?php
         include('footer.php');
         ?>
+
+        <style>
+            .active-nav {
+                color: #A64343 !important;
+            }
+        </style>
+
         <script>
             //navigation bar
             a = document.getElementById('trip-planner-link');
@@ -602,7 +603,6 @@ include('config.php');
                     ['.route-main-block', 'hidden'],
                     ['.login-block', 'visible'],
                     ['.info-block', 'visible', '65%'],
-                    ['.info-block-body', 'block'],
                 ];
 
                 for (i = 0; i < element_config.length; i++) {
@@ -612,9 +612,10 @@ include('config.php');
                             e.style.display = element_config[i][1];
                         });
                         continue;
-                    } else if (element_config[i][0] == 'info-block') {
-                        element_block.forEach(e => {
-                            e.style.left = element_config[i][2];
+                    } else if (element_config[i][0] == '.info-block') {
+
+                        element_block.forEach(a => {
+                            a.style.left = element_config[i][2];
                         });
                     }
                     element_block.forEach(e => {
@@ -625,6 +626,11 @@ include('config.php');
                 leaflet_zoom_block = document.querySelectorAll('.leaflet-control-container');
                 leaflet_zoom_block.forEach(e => {
                     e.style.right = '5%';
+                });
+
+                info_block_header = document.querySelectorAll('.info-block-body');
+                info_block_header.forEach(e => {
+                    e.style.display = 'block';
                 });
 
                 routing_markers_id = [];
@@ -654,23 +660,16 @@ include('config.php');
                     ['.route-main-block', 'visible'],
                     ['.login-block', 'hidden'],
                     ['.info-block', 'visible', '40%'],
-                    ['.info-block-body', 'none'],
                 ];
 
                 for (i = 0; i < element_config.length; i++) {
                     element_block = document.querySelectorAll(element_config[i][0]);
-                    if (element_config[i][0] == 'info-block-body') {
-                        element_block.forEach(e => {
-                            e.style.display = element_config[i][1];
+
+                    if (element_config[i][0] == '.info-block') {
+
+                        element_block.forEach(a => {
+                            a.style.left = element_config[i][2];
                         });
-                        continue;
-                    } else if (element_config[i][0] == 'info-block') {
-                        console.log('here');
-                        element_block.forEach(e => {
-                            e.style.left = '40%';
-                            e.style.visibility = element_config[i][1];
-                        });
-                        continue;
                     }
                     element_block.forEach(e => {
                         e.style.visibility = element_config[i][1];
@@ -681,6 +680,13 @@ include('config.php');
                 leaflet_zoom_block.forEach(e => {
                     e.style.right = '35%';
                 })
+
+                info_block_header = document.querySelectorAll('.info-block-body');
+                info_block_header.forEach(e => {
+                    e.style.display = 'none';
+                });
+
+
 
                 routing_markers_list = [];
 
@@ -752,9 +758,3 @@ include('config.php');
 
             }
         </script>
-
-        <style>
-            .active-nav {
-                color: #A64343 !important;
-            }
-        </style>

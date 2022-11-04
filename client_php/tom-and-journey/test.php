@@ -1,58 +1,50 @@
-<!DOCTYPE html>
-<html>
+<?php
 
-<head>
-    <title>W3.CSS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <style>
-        .mySlides {
-            display: none;
-        }
-    </style>
-</head>
+include('config.php');
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-<body>
+$content = json_decode(trim(file_get_contents('php://input')), true);
 
-    <h2 class="w3-center">Automatic Slideshow</h2>
+if (isset($content["id"]) && isset($content["name"])) {
 
-    <div class="w3-content w3-section" style="max-width:500px">
-        <div class="mySlides" data-active>
-            <img src="./dist/img/banner-2.jpg" style="width:100%">
-        </div>
+    // echo 'receive the data';
+    // $username = $content['username'];
+    // $password = $content['password'];
+    // $email = $content['email'];
+    // $role_as = $content['role'];
+    // $status = $content['status'];
 
-        <div class="mySlides">
-            <img src="./dist/img/banner-3.jpg" style="width:100%">
-        </div>
+    // $sql = "INSERT INTO user (username,email,password,role_as,status) VALUES ('$username','$email','$password','$role_as','$status')";
+    // $query = mysqli_query($conn, $sql);
 
+    // if ($query) {
+    echo 'DELETE success';
+    // } else {
+    // echo 'POST request failed';
+    // }
+}
 
-        <div class="mySlides">
-            <img src="./dist/img/banner-4.jpg" style="width:100%">
-        </div>
+// $sql = "INSERT INTO user (username,email,password,role_as,status) VALUES ('$username','$email','$password','$role_as','$status')";
+// mysqli_query($conn, $sql);
 
-    </div>
+// $sql = "SELECT * FROM $database_table_2";
+// $query = mysqli_query($conn, $sql);
 
-    <script>
-        var myIndex = 0;
-        carousel();
+// $data_array = array();
 
-        function carousel() {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            console.log(x);
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            myIndex++;
-            if (myIndex > x.length) {
-                myIndex = 1
-            }
-            x[myIndex - 1].style.display = "block";
-            setTimeout(carousel, 2000); // Change image every 2 seconds
-        }
-    </script>
+// while ($row = mysqli_fetch_row($query)) {
+//     $data = array(
+//         // 'id' => $row[0],
+//         // 'name' => $row[1],
+//         // 'address' => $row[2],
+//         // 'lat' => $row[3],
+//         // 'lng' => $row[4],
+//         'type' => $row[5],
+//     );
+//     array_push(
+//         $data_array,
+//         $data
+//     );
+// }
 
-</body>
-
-</html>
+// echo json_encode($data_array);
