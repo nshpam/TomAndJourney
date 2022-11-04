@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tom and Journey</title>
+    <title>AdminLTE 3 | Top Navigation</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -31,8 +31,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Navbar -->
         <nav class=" main-header navbar navbar-expand-md  " id="custom-nav-bar">
-            <div class="container">
-                <span class="align-middle text-light">Tom & Journey</span>
+            <div class="container d-flex align-items-center justify-content-center">
+                <div class="brand-logo">
+                    <label class="text-light brand-logo">Tom & Journey</label>
+                </div>
+
 
                 <!-- Left navbar links -->
                 <ul class="navbar-nav ml-auto" id="ul-custom-nav-bar">
@@ -58,3 +61,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </ul>
             </div>
         </nav>
+
+        <style>
+            .brand-logo label {
+                margin-bottom: 0px !important;
+            }
+        </style>

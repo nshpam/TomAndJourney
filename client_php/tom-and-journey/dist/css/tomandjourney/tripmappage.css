@@ -129,6 +129,21 @@ a #fill-div {
     vertical-align: center;
 }
 
+.info-block-2 {
+    background-color: black;
+    border-radius: 5px;
+    position: absolute;
+    justify-content: flex-end;
+    top: 2%;
+    left: 40%;
+    flex-wrap: wrap;
+    display: flex;
+    z-index: 999;
+    color: white;
+    vertical-align: center;
+    visibility: hidden;
+}
+
 .info-block-body {
     padding: 0.5rem;
     margin: 0 auto;
@@ -176,10 +191,18 @@ a #fill-div {
 /* filter block */
 .filter-block {
     background-color: white;
+    /* border-radius: 5px; */
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 0.3rem 0.8rem;
 }
+
+.filter-block-2 {
+    background-color: white;
+    border-radius: 5px;
+    padding: 0.3rem 0.8rem;
+}
+
 
 #icon-block {
     display: block;
@@ -307,9 +330,7 @@ a #fill-div {
 /* bar */
 .icon-block-10 {
     background-color: #CB4FB3;
-
     border-radius: 5px;
-
 }
 
 #icon-box-1 .fa-camera {
@@ -350,7 +371,7 @@ a #fill-div {
 }
 
 #icon-box-10 .fa-wine-glass-alt {
-    color: #CB4FB3
+    color: #CB4FB3;
 }
 
 .route-main-block {
@@ -375,7 +396,6 @@ a #fill-div {
 }
 
 .location-img {
-    /* width: 25vw; */
 
     padding: 0px;
 }

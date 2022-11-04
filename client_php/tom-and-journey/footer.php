@@ -31,7 +31,7 @@
     ?>
 
     <!-- footer left text -->
-    ©KMUTNB Trademarks and brands are the property of their respective owners.
+    Leaflet | Map data © OpenStreetMap contributors
 </footer>
 <!-- end footer -->
 
@@ -94,9 +94,7 @@
         font-weight: 500;
     }
 
-    #brand-logo {
-        vertical-align: middle;
-    }
+
 
     /* content form */
 

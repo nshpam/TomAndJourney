@@ -53,7 +53,8 @@ include('config.php');
                     <li class="nav-item">
                         <a href="/tom-and-journey/trip.php" class="nav-link trip-planner-class" id="trip-planner-link">Trip Planner</a>
                     </li>
-                    <?php if (isset($_SESSION['auth_user'])) : ?>
+                    <?php
+                    if (isset($_SESSION['auth_user'])) : ?>
                         <div>
                             <li class="nav-item">
                                 <a href="/tom-and-journey/Profile.php" class="nav-link" id="login-link">Profile</a>
@@ -151,6 +152,7 @@ include('config.php');
                         </div>
                     </div>
                 </div>
+
 
                 <!-- filter, info, route design -->
 
@@ -377,10 +379,6 @@ include('config.php');
                 }
             }
 
-
-            // id_array = [];
-            // markers_id = [];
-
             $(document).ready(function() {
 
                 $.ajax({
@@ -389,19 +387,14 @@ include('config.php');
                     success: function(response) {
 
                         if (response != '') {
-                            // console.log(response);
                             res = JSON.parse(response);
                             for (i = 0; i < res.length; i++) {
 
                                 //insert geo data to array
                                 lat_lng_to_JSON(res[i].type, res[i].name, res[i].lat, res[i].lng);
                             }
-                            // console.log(photo_array);
                         }
 
-                        // if (response.indexOf('success') != -1) {
-                        //     // $('#modal-default').modal('toggle');
-                        // }
                     },
                     error: function(XMLHttpRequest, textStatus, errorThrown) {
                         console.log('error');
@@ -470,6 +463,7 @@ include('config.php');
 
                     if (icon_num == 'active_' + num) {
                         div = document.querySelector('#icon-box-' + num);
+
                         if (div.classList.contains('icon-block-' + num) == true) {
                             icon_block.classList.remove("icon-block-" + num);
                             RenderFilter(filter_array[i], data_array[i], 'remove');
@@ -477,6 +471,7 @@ include('config.php');
                             icon_block.classList.add("icon-block-" + num);
                             RenderFilter(filter_array[i], data_array[i], 'add');
                         }
+
                     }
                 }
             }
@@ -565,9 +560,9 @@ include('config.php');
 
                     map.eachLayer(function(layer) {
                         for (let i = 0; i < marker_array.length; i++) {
-                            id = id_array[i][1];
-                            lat = data_array_name[i][0];
-                            lng = data_array_name[i][1];
+                            id = id_array[i];
+                            lat = data_array_name[i][1][0];
+                            lng = data_array_name[i][1][1];
 
                             if (layer._leaflet_id == id) {
                                 geocodeService.reverse().latlng({
@@ -577,7 +572,7 @@ include('config.php');
                                     if (error) {
                                         layer.bindPopup('NO PLACE MATCH');
                                     } else {
-                                        layer.bindPopup(photo_array[i][0]);
+                                        layer.bindPopup(data_array_name[i][0]);
                                     }
                                 })
                             }
@@ -586,8 +581,6 @@ include('config.php');
 
                 } else {
                     map.eachLayer(function(layer) {
-
-                        console.log(markers_id);
 
                         for (let i = 0; i < markers_id.length; i++) {
                             if (markers_id[i][0] == filter_name) {
@@ -609,11 +602,22 @@ include('config.php');
                 element_config = [
                     ['.route-main-block', 'hidden'],
                     ['.login-block', 'visible'],
-                    ['.info-block', 'visible']
+                    ['.info-block', 'visible', '65%'],
+                    ['.info-block-body', 'block'],
                 ];
 
                 for (i = 0; i < element_config.length; i++) {
                     element_block = document.querySelectorAll(element_config[i][0]);
+                    if (element_config[i][0] == 'info-block-body') {
+                        element_block.forEach(e => {
+                            e.style.display = element_config[i][1];
+                        });
+                        continue;
+                    } else if (element_config[i][0] == 'info-block') {
+                        element_block.forEach(e => {
+                            e.style.left = element_config[i][2];
+                        });
+                    }
                     element_block.forEach(e => {
                         e.style.visibility = element_config[i][1];
                     });
@@ -650,11 +654,25 @@ include('config.php');
                 element_config = [
                     ['.route-main-block', 'visible'],
                     ['.login-block', 'hidden'],
-                    ['.info-block', 'hidden']
+                    ['.info-block', 'visible', '40%'],
+                    ['.info-block-body', 'none'],
                 ];
 
                 for (i = 0; i < element_config.length; i++) {
                     element_block = document.querySelectorAll(element_config[i][0]);
+                    if (element_config[i][0] == 'info-block-body') {
+                        element_block.forEach(e => {
+                            e.style.display = element_config[i][1];
+                        });
+                        continue;
+                    } else if (element_config[i][0] == 'info-block') {
+                        console.log('here');
+                        element_block.forEach(e => {
+                            e.style.left = '40%';
+                            e.style.visibility = element_config[i][1];
+                        });
+                        continue;
+                    }
                     element_block.forEach(e => {
                         e.style.visibility = element_config[i][1];
                     });

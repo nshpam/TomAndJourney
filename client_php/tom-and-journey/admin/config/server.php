@@ -113,13 +113,6 @@ if (isset($_POST['logout_btn'])) {
     exit(0);
 }
 
-//admin logout control
-if (isset($_POST['adminlogout_btn'])) {
-    unset($_SESSION['auth']);
-    header("location: ../index.php");
-    exit(0);
-}
-
 //edit email page
 if (isset($_POST['edit_email'])) {
     header("location: ../../edit_profile_email.php");

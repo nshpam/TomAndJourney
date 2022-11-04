@@ -85,12 +85,12 @@ include('footer.php');
                     
                     <div class="row">
                         
-                        <button type="submit" class="btn btn-default btn-block " id="change-text" >Change</button>
+                        <button type="submit" class="btn btn-default btn-block " id="login-button" >Change</button>
                         
                     </div>
-                    <div class="row">
+                     <div class="row">
                         
-                        <button type="submit" href="Profile.php" class="btn btn-default btn-block " id="close-text" >Close</button>
+                        <button type="submit" href="Profile.php" class="btn btn-default btn-block " id="login-button" >Close</button>
                         
                     </div> 
                     
