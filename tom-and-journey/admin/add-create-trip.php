@@ -1,10 +1,13 @@
 <?php
 include('config/authentication.php');
-
 include('includes/header.php');
-
 include('config/alert_box.php');
+include('../config.php');
 
+if (!isset($_SESSION)) {
+    session_start();
+}
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 ?>
 
 <div class="container-fluid px-4">
@@ -31,6 +34,7 @@ include('config/alert_box.php');
                                     <tr>
                                         <th>ID</th>
                                         <th>NAME</th>
+                                        <th>ADDRESS</th>
                                         <th>LAT</th>
                                         <th>LON</th>
                                         <th>TYPE</th>
@@ -38,9 +42,35 @@ include('config/alert_box.php');
                                         <th>Delete</th>
                                     </tr>
                                 <tbody>
-                                    <tr>
-                                        <td colspan="8">No Record Found</td>
-                                    </tr>
+                                    <?php
+                                    $sql = "SELECT * FROM $database_table_13";
+                                    $query = mysqli_query($conn, $sql);
+
+                                    if ($query) {
+
+                                        while ($row = mysqli_fetch_row($query)) {
+
+                                    ?>
+                                            <tr>
+                                                <td><?= $row[0]; ?></td>
+                                                <td><?= $row[1]; ?></td>
+                                                <td><?= $row[2]; ?></td>
+                                                <td><?= $row[3]; ?></td>
+                                                <td><?= $row[4]; ?></td>
+                                                <td><?= $row[5]; ?></td>
+                                                <td><a href="create-trip-add-update.php?id=<?= $row[0]; ?>&action=trip-edit" class="btn btn-success">Edit</a></td>
+                                                <td><a href="create-trip-add-update.php?id=<?= $row[0]; ?>&action=trip-delete" class="btn btn-danger">Delete</a></td>
+                                            </tr>
+                                        <?php
+                                        }
+                                    } else {
+                                        ?>
+                                        <tr>
+                                            <td colspan="8">Can't connect to database</td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
                                 </tbody>
                                 </thead>
                             </table>
@@ -98,3 +128,21 @@ include('config/alert_box.php');
 include('includes/footer.php');
 include('includes/scripts.php');
 ?>
+
+<script>
+    // function GetAddData() {
+    //     $.ajax({
+    //         url: 'create-trip-add-update.php',
+    //         type: 'get',
+    //         success: function(response) {
+    //             console.log(response);
+    //             // if (response.indexOf('success') != -1) {
+
+    //             // }
+    //         },
+    //         error: function(XMLHttpRequest, textStatus, errorThrown) {
+    //             console.log('error');
+    //         }
+    //     });
+    // }
+</script>

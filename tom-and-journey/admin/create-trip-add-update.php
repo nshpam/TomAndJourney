@@ -251,34 +251,91 @@ if (isset($_POST['update_map'])) {
 }
 
 $data_arr = array();
-
-//arr for display on table page
 $trip_arr = array();
 //adding
 if (isset($_POST['add_mark'])) {
-
     $name = $_POST['name'];
     $address = $_POST['address'];
     $lat = $_POST['lat'];
     $lng = $_POST['lng'];
+    $type = $_POST['type'];
 
-    if ($name != '' && $address != '' && $lat != '' && $lng != '') {
+    if (empty($name)) {
+        array_push($errors, "Name is required");
+        $_SESSION['error'] = "Name is required";
+    }
+    if (empty($lat)) {
+        array_push($errors, "Latitude is required");
+        $_SESSION['error'] = "Latitude is required";
+    }
+    if (empty($lng)) {
+        array_push($errors, "Longitude is required");
+        $_SESSION['error'] = "Longitude is required";
+    }
+
+    //push field
+    array_push($db_field_array, 'NONE');
+
+    //push data
+    array_push($data_array, 'NONE');
+
+    //action
+    $database_action = 'check';
+
+    //get id
+    $sql = sql_command($database_table_13, $db_field_array, $data_array, $database_action);
+    $query = mysqli_query($conn, $sql);
+    $id = 1;
+
+    if ($query) {
+        while ($row = mysqli_fetch_row($query)) {
+            if ($row[1] == $name) {
+                array_push($errors, "Name already exists");
+            }
+            $id++;
+        }
+
+        //reset the array
+        $data_array = array();
+        $db_field_array = array();
+
+        //push field
         array_push(
-            $data_arr,
+            $db_field_array,
+            $database_table_2_id_field,
+            $database_table_2_name_field,
+            $database_table_2_address_field,
+            $database_table_2_lat_field,
+            $database_table_2_lng_field,
+            $database_table_2_type_field
+        );
+
+        //push data
+        array_push(
+            $data_array,
+            $id,
             $name,
             $address,
             $lat,
             $lng,
+            $type
         );
-        array_push(
-            $trip_arr,
-            $data_arr,
-        );
-        echo (json_encode($trip_arr));
-        $data_arr = array();
-    } else {
-        $_SESSION['status'] = "Can't add location";
-        $_SESSION['status_detail'] = "Please fill the blank";
-        $_SESSION['status_code'] = "error";
+
+        $database_action = 'add';
+
+        $sql_2 = sql_command($database_table_13, $db_field_array, $data_array, $database_action);
+        $query_2 = mysqli_query($conn, $sql_2);
+
+        if ($query_2) {
+            $_SESSION['status'] = "Add request success.";
+            $_SESSION['status_detail'] = "Data added to database.";
+            $_SESSION['status_code'] = "success";
+            header('location: add-create-trip.php');
+        } else {
+            $_SESSION['status'] = "Add request failed.";
+            $_SESSION['status_detail'] = "Failed to add data to the database.";
+            $_SESSION['status_code'] = "error";
+            header('location: add-create-trip.php');
+        }
     }
 }

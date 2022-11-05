@@ -304,6 +304,10 @@ if (isset($_POST['add_map'])) {
         //database name
         $database_name = $database_table_2;
 
+        //reset array
+        $db_field_array = array();
+        $data_array = array();
+
         //push field
         array_push($db_field_array, 'NONE');
 
