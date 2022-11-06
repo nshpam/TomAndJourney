@@ -58,8 +58,12 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                                                 <td><?= $row[3]; ?></td>
                                                 <td><?= $row[4]; ?></td>
                                                 <td><?= $row[5]; ?></td>
-                                                <td><a href="create-trip-add-update.php?id=<?= $row[0]; ?>&action=trip-edit" class="btn btn-success">Edit</a></td>
-                                                <td><a href="create-trip-add-update.php?id=<?= $row[0]; ?>&action=trip-delete" class="btn btn-danger">Delete</a></td>
+                                                <td><a href="create-trip-edit.php?id=<?= $row[0]; ?>" class="btn btn-success">Edit</a></td>
+                                                <td>
+                                                    <form action="create-trip-add-update.php?id=<?= $row[0]; ?>" name="delete_trip" method="post">
+                                                        <button type="submit" name="delete_trip" value="<?= $row[0]; ?>" class="btn btn-danger">Delete</button>
+                                                    </form>
+                                                </td>
                                             </tr>
                                         <?php
                                         }
