@@ -201,15 +201,7 @@ if (isset($_POST['reg_user'])) {
 
 if (isset($_POST['ajax']) && isset($_POST['logout'])) {
     echo 'logout';
+    unset($_SESSION['auth']);
+
+    exit(0);
 }
-
-// if (isset($_POST['logout_btn'])) {
-//     echo 'press logout button';
-//     unset($_SESSION['auth']);
-
-//     $_SESSION['status'] = "Logout Successfully!";
-//     $_SESSION['status_detail'] = "Logout Successfully!";
-//     $_SESSION['status_code'] = "success";
-//     header("location: home.php");
-//     exit(0);
-// }

@@ -80,6 +80,10 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                             </table>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-center col-12" id="comfirm-button">
+                        <button type="button" name="submit" class="btn btn-primary col-3">Confirm</button>
+                    </div>
+
                     <form action="create-trip-add-update.php" method="post">
                         <div class="row">
                             <div class="col-md-6 mb-3">
@@ -117,6 +121,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                             <div class="col-md-12 mb-3">
                                 <button type="submit" name="add_mark" class="btn btn-primary">Add</button>
                                 <button type="submit" name="cancel" class="btn btn-danger">Cancel</button>
+
                             </div>
                         </div>
                     </form>
@@ -132,6 +137,12 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 include('includes/footer.php');
 include('includes/scripts.php');
 ?>
+
+<style>
+    #comfirm-button {
+        padding-bottom: 40px;
+    }
+</style>
 
 <script>
     // function GetAddData() {
