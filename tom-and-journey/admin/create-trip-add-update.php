@@ -24,14 +24,13 @@ function sql_command($database_name, $database_field, $database_data, $database_
         return "SELECT * FROM $database_name";
     }
 
-    if ($database_name != 'map_location') {
-        //delete action
-        if ($database_action == 'delete') {
-            return "DELETE FROM $database_name WHERE $database_field[0]=$database_data[0]";
+    //delete action
+    if ($database_action == 'delete') {
+        return "DELETE FROM $database_name WHERE $database_field[0]=$database_data[0]";
 
-            //update action
-        } else if ($database_action == 'update') {
-            return "UPDATE $database_name 
+        //update action
+    } else if ($database_action == 'update') {
+        return "UPDATE $database_name 
             SET $database_field[1]='$database_data[1]' , 
             $database_field[2]='$database_data[2]' , 
             $database_field[3]='$database_data[3]' , 
@@ -39,55 +38,26 @@ function sql_command($database_name, $database_field, $database_data, $database_
             $database_field[5]='$database_data[5]' 
             WHERE $database_field[0]=$database_data[0] ";
 
-            //add action
-        } else if ($database_action == 'add') {
+        //add action
+    } else if ($database_action == 'add') {
+        if (isset($database_field[6]) && isset($database_data[6])) {
             return "INSERT INTO $database_name 
             ($database_field[0],
             $database_field[1],
             $database_field[2],
             $database_field[3],
             $database_field[4],
-            $database_field[5]) 
+            $database_field[5],
+            $database_field[6]) 
             VALUES ('$database_data[0]',
             '$database_data[1]',
             '$database_data[2]',
             '$database_data[3]',
             '$database_data[4]',
-            '$database_data[5]')";
+            '$database_data[5]',
+            '$database_data[6]')";
         }
     }
-    //all database
-    else {
-        if ($database_action == 'delete') {
-            return "DELETE FROM $database_name WHERE $database_field[0]='$database_data[0]' ";
-        } else if ($database_action == 'update') {
-            return "UPDATE $database_name 
-            SET $database_field[1]='$database_data[1]' , 
-            $database_field[2]='$database_data[2]' , 
-            $database_field[3]='$database_data[3]' , 
-            $database_field[4]='$database_data[4]' , 
-            $database_field[5]='$database_data[5]' 
-            WHERE $database_field[0]='$database_data[0]' ";
-        } else if ($database_action == 'add') {
-            return "INSERT INTO $database_name 
-            ($database_field[1],
-            $database_field[2],
-            $database_field[3],
-            $database_field[4],
-            $database_field[5]) 
-            VALUES ('$database_data[1]',
-            '$database_data[2]',
-            '$database_data[3]',
-            '$database_data[4]',
-            '$database_data[5]')";
-        }
-    }
-}
-
-// cancel
-if (isset($_POST['cancel'])) {
-    header('location: create-trip.php');
-    exit(0);
 }
 
 // user delete
@@ -247,7 +217,8 @@ if (isset($_POST['add_mark'])) {
             $database_table_2_address_field,
             $database_table_2_lat_field,
             $database_table_2_lng_field,
-            $database_table_2_type_field
+            $database_table_2_type_field,
+            $database_table_13_status_field,
         );
 
         //push data
@@ -258,7 +229,8 @@ if (isset($_POST['add_mark'])) {
             $address,
             $lat,
             $lng,
-            $type
+            $type,
+            "0"
         );
 
         $database_action = 'add';

@@ -64,4 +64,5 @@ $database_table_11 = "cafe_location";
 //bar table
 $database_table_12 = "bar_location";
 
-$database_table_13 = "temp";
+$database_table_13 = "trip_locations";
+$database_table_13_status_field = "status";

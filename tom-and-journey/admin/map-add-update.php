@@ -82,16 +82,6 @@ function sql_command($database_name, $database_field, $database_data, $database_
     }
 }
 
-// cancel
-if (isset($_POST['cancel'])) {
-    if (isset($_GET['location'])) {
-        header('location: location-table.php?location=' . $_GET['location']);
-    } else {
-        header('location: map-log.php');
-    }
-    exit(0);
-}
-
 // user delete
 if (isset($_POST['map_delete'])) {
 

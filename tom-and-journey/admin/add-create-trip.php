@@ -11,16 +11,16 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 ?>
 
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Location Add</h1>
+    <h1 class="mt-4">Trip Planner</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">Add location</li>
+
     </ol>
     <div class="row">
 
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4> Add Location</h4>
+                    <h4> Trip Preview</h4>
 
                 </div>
                 <div class="card-body">
@@ -49,23 +49,24 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                                     if ($query) {
 
                                         while ($row = mysqli_fetch_row($query)) {
-
+                                            if ($row[6] == '0') {
                                     ?>
-                                            <tr>
-                                                <td><?= $row[0]; ?></td>
-                                                <td><?= $row[1]; ?></td>
-                                                <td><?= $row[2]; ?></td>
-                                                <td><?= $row[3]; ?></td>
-                                                <td><?= $row[4]; ?></td>
-                                                <td><?= $row[5]; ?></td>
-                                                <td><a href="create-trip-edit.php?id=<?= $row[0]; ?>" class="btn btn-success">Edit</a></td>
-                                                <td>
-                                                    <form action="create-trip-add-update.php?id=<?= $row[0]; ?>" name="delete_trip" method="post">
-                                                        <button type="submit" name="delete_trip" value="<?= $row[0]; ?>" class="btn btn-danger">Delete</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
+                                                <tr>
+                                                    <td><?= $row[0]; ?></td>
+                                                    <td><?= $row[1]; ?></td>
+                                                    <td><?= $row[2]; ?></td>
+                                                    <td><?= $row[3]; ?></td>
+                                                    <td><?= $row[4]; ?></td>
+                                                    <td><?= $row[5]; ?></td>
+                                                    <td><a href="create-trip-edit.php?id=<?= $row[0]; ?>" class="btn btn-success">Edit</a></td>
+                                                    <td>
+                                                        <form action="create-trip-add-update.php?id=<?= $row[0]; ?>" name="delete_trip" method="post">
+                                                            <button type="submit" name="delete_trip" value="<?= $row[0]; ?>" class="btn btn-danger">Delete</button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
                                         <?php
+                                            }
                                         }
                                     } else {
                                         ?>
@@ -81,9 +82,26 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                         </div>
                     </div>
                     <div class="d-flex justify-content-center col-12" id="comfirm-button">
-                        <button type="button" name="submit" class="btn btn-primary col-3">Confirm</button>
+                        <button type="button" name="submit" class="btn btn-primary col-3" onclick="ConfirmData()">Confirm</button>
                     </div>
 
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="blank-space"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4> Add Location</h4>
+
+                </div>
+                <div class="card-body">
                     <form action="create-trip-add-update.php" method="post">
                         <div class="row">
                             <div class="col-md-6 mb-3">
@@ -118,16 +136,15 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                                     <option value='bar'>Bar</option>
                                 </select>
                             </div>
-                            <div class="col-md-12 mb-3">
-                                <button type="submit" name="add_mark" class="btn btn-primary">Add</button>
-                                <button type="submit" name="cancel" class="btn btn-danger">Cancel</button>
+                            <div class="col-12 d-flex justify-content-center">
+
+                                <button type="submit" name="add_mark" class="btn btn-primary col-3">Add</button>
 
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -140,11 +157,34 @@ include('includes/scripts.php');
 
 <style>
     #comfirm-button {
-        padding-bottom: 40px;
+        padding-bottom: 20px;
+    }
+
+    .blank-space {
+        height: 30px;
     }
 </style>
 
 <script>
+    function ConfirmData() {
+        $.ajax({
+            url: 'create-trip-add-update.php',
+            type: 'post',
+            data: {
+                ajax: 1,
+                Graph: 'line',
+            },
+            success: function(response) {
+                console.log(response);
+                // if (response.indexOf('success') != -1) {
+
+                // }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log('error');
+            }
+        });
+    }
     // function GetAddData() {
     //     $.ajax({
     //         url: 'create-trip-add-update.php',
