@@ -30,13 +30,30 @@ function sql_command($database_name, $database_field, $database_data, $database_
 
         //update action
     } else if ($database_action == 'update') {
-        return "UPDATE $database_name 
-            SET $database_field[1]='$database_data[1]' , 
-            $database_field[2]='$database_data[2]' , 
-            $database_field[3]='$database_data[3]' , 
-            $database_field[4]='$database_data[4]' , 
-            $database_field[5]='$database_data[5]' 
-            WHERE $database_field[0]=$database_data[0] ";
+
+        $count = 0;
+        $update_cmd = "";
+
+        while ($count != count($database_field)) {
+            if ($count + 1 == count($database_field)) {
+                $update_cmd .= "$database_field[$count]='$database_data[$count]' ";
+                break;
+            }
+            $update_cmd .= " $database_field[$count]='$database_data[$count]',";
+            $count++;
+        }
+
+        $final_update_cmd = "UPDATE $database_name 
+        SET" . $update_cmd . "WHERE $database_field[0]=$database_data[0] ";
+
+        return $final_update_cmd;
+        // return "UPDATE $database_name 
+        //     SET $database_field[1]='$database_data[1]' , 
+        //     $database_field[2]='$database_data[2]' , 
+        //     $database_field[3]='$database_data[3]' , 
+        //     $database_field[4]='$database_data[4]' , 
+        //     $database_field[5]='$database_data[5]' 
+        //     WHERE $database_field[0]=$database_data[0] ";
 
         //add action
     } else if ($database_action == 'add') {
@@ -57,8 +74,37 @@ function sql_command($database_name, $database_field, $database_data, $database_
             '$database_data[5]',
             '$database_data[6]')";
         }
+    } else if ($database_action == 'add_locations') {
+        if (isset($database_field[1]) && isset($database_field[2])) {
+            return "INSERT INTO $database_name 
+            ($database_field[0],
+            $database_field[1],
+            $database_field[2]) 
+            VALUES ('$database_data[0]',
+            '$database_data[1]',
+            '$database_data[2]')";
+        }
+    } else if ($database_action == 'change_status') {
+        if (isset($database_field[1]) && isset($database_field[2])) {
+            return "UPDATE $database_name 
+            SET $database_field[1]='$database_data[1]' , 
+            $database_field[2]='$database_data[2]' , 
+            $database_field[3]='$database_data[3]' , 
+            $database_field[4]='$database_data[4]' , 
+            $database_field[5]='$database_data[5]' 
+            WHERE $database_field[0]=$database_data[0] ";
+        }
     }
 }
+
+// $sql = sql_command(
+//     $database_table_6,
+//     ['id', 'name', 'address', 'lat', 'lng', 'type'],
+//     ['1', 'ไทยฟู้ดแอทสำราษฎร์ 1', 'ถนนราชดำเนินกลาง', '13.752291670976035', '100.50466082808123', 'food'],
+//     'update'
+// );
+
+// echo $sql;
 
 // user delete
 if (isset($_POST['delete_trip'])) {
@@ -103,13 +149,12 @@ if (isset($_POST['delete_trip'])) {
 
 // update
 if (isset($_POST['update_trip'])) {
-    $location_id = $_POST['location_id'];
+    $location_id = trim($_POST['location_id']);
     $name = $_POST['name'];
     $address = $_POST['address'];
     $lat = $_POST['lat'];
     $lng = $_POST['lng'];
     $type = $_POST['type'];
-
 
     //database name
     $database_name = $database_table_13;
@@ -248,6 +293,95 @@ if (isset($_POST['add_mark'])) {
             $_SESSION['status_detail'] = "Failed to add data to the database.";
             $_SESSION['status_code'] = "error";
             header('location: add-create-trip.php');
+        }
+    }
+}
+
+//insert to database
+if (isset($_POST['ajax']) && isset($_POST['insert_location_set'])) {
+    $id_arr = json_encode($_POST['id_list']);
+    $trip_name = $_POST['trip_name'];
+
+    //push field
+    array_push($db_field_array, 'NONE');
+
+    //push data
+    array_push($data_array, 'NONE');
+
+    //action
+    $database_action = 'check';
+
+    $sql = sql_command($database_table_14, $db_field_array, $data_array, $database_action);
+    $query = mysqli_query($conn, $sql);
+
+    //generate the id
+    $id = 1;
+
+    while ($row = mysqli_fetch_row($query)) {
+        if ($row[1] == $trip_name) {
+            array_push($errors, "Name of the trip already exists");
+        }
+        $id++;
+    }
+
+    if ($query) {
+
+        //reset the array
+        $data_array = array();
+        $db_field_array = array();
+
+        //push field
+        array_push(
+            $db_field_array,
+            $database_table_2_id_field,
+            $database_table_14_tripname_field,
+            $database_table_14_tripnum_field,
+        );
+
+        //push data
+        array_push(
+            $data_array,
+            $id,
+            $trip_name,
+            $id_arr,
+        );
+
+        //action
+        $database_action = 'add_locations';
+
+        //insert id array to database
+        $sql = sql_command($database_table_14, $db_field_array, $data_array, $database_action);
+        $query_2 = mysqli_query($conn, $sql);
+
+        if ($query_2) {
+            //change status on trip_locations database
+
+            //push field
+            array_push(
+                $db_field_array,
+                $database_table_2_id_field,
+                $database_table_14_tripname_field,
+                $database_table_14_tripnum_field,
+            );
+
+            //push data
+            array_push(
+                $data_array,
+                $id,
+                $trip_name,
+                $id_arr,
+            );
+
+            //action
+            $database_action = 'update';
+
+            //insert id array to database
+            $sql = sql_command($database_table_14, $db_field_array, $data_array, $database_action);
+            $query_2 = mysqli_query($conn, $sql);
+
+            if ($query_2) {
+                echo 'success';
+            }
         }
     }
 }

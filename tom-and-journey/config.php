@@ -64,5 +64,11 @@ $database_table_11 = "cafe_location";
 //bar table
 $database_table_12 = "bar_location";
 
+//trip location table
 $database_table_13 = "trip_locations";
 $database_table_13_status_field = "status";
+
+//trip planner table
+$database_table_14 = "trip_planner";
+$database_table_14_tripname_field = "trip_name";
+$database_table_14_tripnum_field = "trip_num";
