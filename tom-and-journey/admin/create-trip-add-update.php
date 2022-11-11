@@ -324,6 +324,7 @@ if (isset($_POST['ajax']) && isset($_POST['insert_location_set'])) {
         $id++;
     }
 
+    //insert id array to database
     if ($query) {
 
         //reset the array
@@ -349,39 +350,56 @@ if (isset($_POST['ajax']) && isset($_POST['insert_location_set'])) {
         //action
         $database_action = 'add_locations';
 
-        //insert id array to database
         $sql = sql_command($database_table_14, $db_field_array, $data_array, $database_action);
         $query_2 = mysqli_query($conn, $sql);
 
         if ($query_2) {
             //change status on trip_locations database
 
+            //reset the array
+            $data_array = array();
+            $db_field_array = array();
+
             //push field
             array_push(
                 $db_field_array,
                 $database_table_2_id_field,
-                $database_table_14_tripname_field,
-                $database_table_14_tripnum_field,
+                $database_table_13_status_field,
             );
 
-            //push data
-            array_push(
-                $data_array,
-                $id,
-                $trip_name,
-                $id_arr,
-            );
+            // print_r(count(json_decode($id_arr)));
+            for ($i = 0; $i < count(json_decode($id_arr)); $i++) {
 
-            //action
-            $database_action = 'update';
+                $data_array = array();
+                //push data
+                array_push(
+                    $data_array,
+                    json_decode($id_arr)[$i],
+                    '1',
+                );
 
-            //insert id array to database
-            $sql = sql_command($database_table_14, $db_field_array, $data_array, $database_action);
-            $query_2 = mysqli_query($conn, $sql);
+                //action
+                $database_action = 'update';
 
-            if ($query_2) {
-                echo 'success';
+                //insert id array to database
+                $sql = sql_command($database_table_13, $db_field_array, $data_array, $database_action);
+                $query_3 = mysqli_query($conn, $sql);
             }
+
+            if ($query_3) {
+                $_SESSION['status'] = "Successfully!";
+                $_SESSION['status_detail'] = "Trip insertion success";
+                $_SESSION['status_code'] = "success";
+
+                header('location: add-create-trip.php');
+            }
+        } else {
+            $_SESSION['status'] = "Cannot update the data";
+            $_SESSION['status_detail'] = "Please try again later";
+            $_SESSION['status_code'] = "error";
+
+            header('location: add-create-trip.php');
+            exit(0);
         }
     }
 }

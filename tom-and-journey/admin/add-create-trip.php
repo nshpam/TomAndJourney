@@ -8,6 +8,8 @@ if (!isset($_SESSION)) {
     session_start();
 }
 $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+echo json_encode($_SESSION);
 ?>
 
 <div class="container-fluid px-4">
@@ -174,7 +176,7 @@ include('includes/scripts.php');
 
 <script>
     function ConfirmData(id_arr) {
-        console.log(id_arr);
+        // console.log(id_arr);
         $.ajax({
             url: 'create-trip-add-update.php',
             type: 'post',
@@ -185,7 +187,7 @@ include('includes/scripts.php');
                 trip_name: 'tom-and-journey',
             },
             success: function(response) {
-                console.log(response);
+                // console.log(response);
                 // if (response.indexOf('success') != -1) {
 
                 // }
