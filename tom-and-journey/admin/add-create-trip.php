@@ -4,12 +4,13 @@ include('includes/header.php');
 include('config/alert_box.php');
 include('../config.php');
 
-if (!isset($_SESSION)) {
-    session_start();
-}
+// if (!isset($_SESSION)) {
+//     session_start();
+// }
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-echo json_encode($_SESSION);
+// echo json_encode($_SESSION['status']);
+// echo json_encode($_SESSION['status_detail']);
 ?>
 
 <div class="container-fluid px-4">
@@ -176,26 +177,40 @@ include('includes/scripts.php');
 
 <script>
     function ConfirmData(id_arr) {
-        // console.log(id_arr);
-        $.ajax({
-            url: 'create-trip-add-update.php',
-            type: 'post',
-            data: {
-                ajax: 1,
-                insert_location_set: 'true',
-                id_list: id_arr,
-                trip_name: 'tom-and-journey',
-            },
-            success: function(response) {
-                // console.log(response);
-                // if (response.indexOf('success') != -1) {
+        if (id_arr.length === 0) {
+            $.ajax({
+                url: 'create-trip-add-update.php',
+                type: 'post',
+                data: {
+                    ajax: 1,
+                    confirm_add_trip: 'false',
+                },
+                success: function(response) {
+                    location.reload();
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log('error');
+                }
+            });
+        } else {
+            $.ajax({
+                url: 'create-trip-add-update.php',
+                type: 'post',
+                data: {
+                    ajax: 1,
+                    confirm_add_trip: 'true',
+                },
+                success: function(response) {
+                    if (response.indexOf('success') != -1) {
+                        window.location = "create-trip.php";
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log('error');
+                }
+            });
+        }
 
-                // }
-            },
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
-                console.log('error');
-            }
-        });
     }
     // function GetAddData() {
     //     $.ajax({

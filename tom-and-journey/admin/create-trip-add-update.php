@@ -57,6 +57,9 @@ function sql_command($database_name, $database_field, $database_data, $database_
 
         //add action
     } else if ($database_action == 'add') {
+
+        $count = 0;
+        $add_cmd = "";
         if (isset($database_field[6]) && isset($database_data[6])) {
             return "INSERT INTO $database_name 
             ($database_field[0],
@@ -403,3 +406,22 @@ if (isset($_POST['ajax']) && isset($_POST['insert_location_set'])) {
         }
     }
 }
+
+if (isset($_POST['ajax']) && isset($_POST['confirm_add_trip'])) {
+    if ($_POST['confirm_add_trip'] == 'true') {
+        $_SESSION['status'] = "Success!";
+        $_SESSION['status_detail'] = "Trip added";
+        $_SESSION['status_code'] = "success";
+        echo 'success';
+    } else {
+        $_SESSION['status'] = "Failed!";
+        $_SESSION['status_detail'] = "Invalid trip set";
+        $_SESSION['status_code'] = "error";
+        echo 'failed';
+    }
+    // echo 'success';
+
+    exit();
+}
+
+//join data
