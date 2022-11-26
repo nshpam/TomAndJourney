@@ -48,7 +48,8 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                                     <?php
                                     $sql = "SELECT * FROM $database_table_13";
                                     $query = mysqli_query($conn, $sql);
-                                    $id_arr = array();
+                                    $ids = "";
+                                    // $id_arr = array();
 
                                     if ($query) {
 
@@ -70,7 +71,9 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                                                     </td>
                                                 </tr>
                                         <?php
-                                                array_push($id_arr, $row[0]);
+                                                $ids .= $row[0] .= ',';
+
+                                                // array_push($id_arr, (int)$row[0]);
                                             }
                                         }
                                     } else {
@@ -89,8 +92,9 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                     <div class="d-flex justify-content-center col-12" id="comfirm-button">
 
                         <?php
-                        $id_arr_new = json_encode($id_arr);
-                        echo "<button type='button' name='submit' class='btn btn-primary col-3' onclick=" . "ConfirmData($id_arr_new)" . ">Confirm</button>";
+                        // $id_arr_new = json_encode($id_arr);
+                        // echo $ids;
+                        echo "<button type='button' name='submit' class='btn btn-primary col-3' onclick=" . "ConfirmData('$ids')" . ">Confirm</button>";
                         ?>
 
                     </div>
@@ -177,6 +181,7 @@ include('includes/scripts.php');
 
 <script>
     function ConfirmData(id_arr) {
+        console.log(id_arr);
         if (id_arr.length === 0) {
             $.ajax({
                 url: 'create-trip-add-update.php',
@@ -198,9 +203,12 @@ include('includes/scripts.php');
                 type: 'post',
                 data: {
                     ajax: 1,
-                    confirm_add_trip: 'true',
+                    insert_location_set: 'true',
+                    id_list: id_arr,
+                    trip_name: 'tom-and-journey',
                 },
                 success: function(response) {
+                    console.log(response);
                     if (response.indexOf('success') != -1) {
                         window.location = "create-trip.php";
                     }

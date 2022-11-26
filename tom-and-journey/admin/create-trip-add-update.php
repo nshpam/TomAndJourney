@@ -29,6 +29,10 @@ function sql_command($database_name, $database_field, $database_data, $database_
         return "DELETE FROM $database_name WHERE $database_field[0]=$database_data[0]";
 
         //update action
+    } else if ($database_action == 'update_status') {
+        return "UPDATE $database_name 
+            SET $database_field[1]='$database_data[1]'  
+            WHERE $database_field[0]='$database_data[0]' ";
     } else if ($database_action == 'update') {
 
         $count = 0;
@@ -58,8 +62,6 @@ function sql_command($database_name, $database_field, $database_data, $database_
         //add action
     } else if ($database_action == 'add') {
 
-        $count = 0;
-        $add_cmd = "";
         if (isset($database_field[6]) && isset($database_data[6])) {
             return "INSERT INTO $database_name 
             ($database_field[0],
@@ -79,10 +81,11 @@ function sql_command($database_name, $database_field, $database_data, $database_
         }
     } else if ($database_action == 'add_locations') {
         if (isset($database_field[1]) && isset($database_field[2])) {
+
             return "INSERT INTO $database_name 
             ($database_field[0],
             $database_field[1],
-            $database_field[2]) 
+            $database_field[2])
             VALUES ('$database_data[0]',
             '$database_data[1]',
             '$database_data[2]')";
@@ -98,6 +101,21 @@ function sql_command($database_name, $database_field, $database_data, $database_
             WHERE $database_field[0]=$database_data[0] ";
         }
     }
+}
+
+function joindatabase($main_db, $join_db, $field_to_compare, $field_to_join_1, $field_to_join_2, $field_to_join_3, $field_to_join_4, $field_to_join_5, $field_to_join_6)
+{
+    $sql = "SELECT $main_db.$field_to_compare, $join_db.$field_to_join_1, $join_db.$field_to_join_2, $join_db.$field_to_join_3, $join_db.$field_to_join_4, $join_db.$field_to_join_5, $join_db.$field_to_join_6
+    FROM $main_db
+    INNER JOIN $join_db
+    ON $main_db.$field_to_compare = $join_db.$field_to_compare";
+
+    // $sql = "SELECT map_location.type, hotel_location.name
+    // FROM map_location
+    // INNER JOIN hotel_location
+    // ON map_location.type = hotel_location.type";
+
+    return $sql;
 }
 
 // $sql = sql_command(
@@ -302,7 +320,19 @@ if (isset($_POST['add_mark'])) {
 
 //insert to database
 if (isset($_POST['ajax']) && isset($_POST['insert_location_set'])) {
-    $id_arr = json_encode($_POST['id_list']);
+    $id_arr = $_POST['id_list'];
+
+    // echo $id_arr;
+    // die();
+
+    // echo gettype($id_arr);
+    // print_r(gettype($id_arr[0]));
+    // die();
+
+    // $id_arr = json_encode($_POST['id_list'], JSON_UNESCAPED_UNICODE);
+    // echo $id_arr;
+
+    // die();
     $trip_name = $_POST['trip_name'];
 
     //push field
@@ -333,6 +363,7 @@ if (isset($_POST['ajax']) && isset($_POST['insert_location_set'])) {
         //reset the array
         $data_array = array();
         $db_field_array = array();
+        $id_data = array();
 
         //push field
         array_push(
@@ -342,12 +373,18 @@ if (isset($_POST['ajax']) && isset($_POST['insert_location_set'])) {
             $database_table_14_tripnum_field,
         );
 
+
+        // $id_data = array(
+        //     'id_array' => $id_arr,
+        // );
+
         //push data
         array_push(
             $data_array,
             $id,
             $trip_name,
             $id_arr,
+            // stripslashes(json_encode($id_data, JSON_UNESCAPED_UNICODE)),
         );
 
         //action
@@ -355,7 +392,6 @@ if (isset($_POST['ajax']) && isset($_POST['insert_location_set'])) {
 
         $sql = sql_command($database_table_14, $db_field_array, $data_array, $database_action);
         $query_2 = mysqli_query($conn, $sql);
-
         if ($query_2) {
             //change status on trip_locations database
 
@@ -371,18 +407,26 @@ if (isset($_POST['ajax']) && isset($_POST['insert_location_set'])) {
             );
 
             // print_r(count(json_decode($id_arr)));
-            for ($i = 0; $i < count(json_decode($id_arr)); $i++) {
+            for ($i = 0; $i < strlen($id_arr); $i++) {
 
                 $data_array = array();
-                //push data
-                array_push(
-                    $data_array,
-                    json_decode($id_arr)[$i],
-                    '1',
-                );
+
+                // echo $id_arr[$i];
+                // die();
+
+                if ($id_arr != ',') {
+                    //push data
+                    array_push(
+                        $data_array,
+                        $id_arr[$i],
+                        // json_decode($id_arr)[$i],
+                        '1',
+                    );
+                }
+
 
                 //action
-                $database_action = 'update';
+                $database_action = 'update_status';
 
                 //insert id array to database
                 $sql = sql_command($database_table_13, $db_field_array, $data_array, $database_action);
@@ -393,35 +437,94 @@ if (isset($_POST['ajax']) && isset($_POST['insert_location_set'])) {
                 $_SESSION['status'] = "Successfully!";
                 $_SESSION['status_detail'] = "Trip insertion success";
                 $_SESSION['status_code'] = "success";
-
-                header('location: add-create-trip.php');
+                echo 'success';
+                // header('location: add-create-trip.php');
             }
         } else {
             $_SESSION['status'] = "Cannot update the data";
             $_SESSION['status_detail'] = "Please try again later";
             $_SESSION['status_code'] = "error";
-
-            header('location: add-create-trip.php');
+            echo 'failed';
+            // header('location: add-create-trip.php');
             exit(0);
         }
     }
 }
 
-if (isset($_POST['ajax']) && isset($_POST['confirm_add_trip'])) {
-    if ($_POST['confirm_add_trip'] == 'true') {
-        $_SESSION['status'] = "Success!";
-        $_SESSION['status_detail'] = "Trip added";
-        $_SESSION['status_code'] = "success";
-        echo 'success';
-    } else {
-        $_SESSION['status'] = "Failed!";
-        $_SESSION['status_detail'] = "Invalid trip set";
-        $_SESSION['status_code'] = "error";
-        echo 'failed';
+// if (isset($_POST['ajax']) && isset($_POST['confirm_add_trip'])) {
+//     if ($_POST['confirm_add_trip'] == 'true') {
+//         $_SESSION['status'] = "Success!";
+//         $_SESSION['status_detail'] = "Trip added";
+//         $_SESSION['status_code'] = "success";
+//         echo 'success';
+//     } else {
+//         $_SESSION['status'] = "Failed!";
+//         $_SESSION['status_detail'] = "Invalid trip set";
+//         $_SESSION['status_code'] = "error";
+//         echo 'failed';
+//     }
+
+//     exit();
+// }
+
+//join data
+if (isset($_POST['ajax']) && isset($_POST['get_trip_info'])) {
+    //reset all array
+    $data_array = array();
+    // $send_array =
+
+    //get id array
+    $database_name = $database_table_14;
+    $database_field = 'NONE';
+    $database_data = 'NONE';
+    $database_action = 'check';
+
+    $sql = sql_command($database_name, $database_field, $database_data, $database_action);
+    $query = mysqli_query($conn, $sql);
+
+    if ($query) {
+        // echo '{"name":"Sammy","email":"sammy@example.com","plan":"Pro"}';
+        // echo '{"name":"Sammy"}';
+
+        // echo "{"1":{"id_array":"["1","2"]"}}";
+        // echo '{"1":["1","2"]}';
+        // echo '{"1":["1","2"],}';
+
+        // $count_id = 0;
+
+        // while ($lengths = mysqli_fetch_lengths($query)) {
+        //     echo "lengths:" . $lengths[0];
+        // }
+
+        $data_array_1 = array();
+        // echo '{';
+        while ($row = mysqli_fetch_row($query)) {
+
+            $data_1 = array(
+                'id' => $row[0],
+                'name' => $row[1],
+                'id_list' => substr($row[2], 0, -1),
+            );
+            array_push(
+                $data_array_1,
+                $data_1,
+            );
+
+            // echo '"' . $row[0] . '":' . $row[2];
+
+            // echo ',';
+        }
+        $test1 = json_encode($data_array_1, JSON_UNESCAPED_SLASHES);
+        echo $test1;
+
+        // echo '}';
+        // array_push(
+        //     $data_array,
+        // );
+        // for ($i = 0; $i < count($db_array); $i++) {
+        // $sql = joindatabase($database_table_14, $database_table_13, $database_table_14_tripnum_field, $database_table_2_id_field, $database_table_2_name_field, $database_table_2_address_field, $database_table_2_lat_field, $database_table_2_lng_field, $database_table_2_type_field);
+        // echo $sql;
     }
-    // echo 'success';
 
     exit();
 }
-
-//join data

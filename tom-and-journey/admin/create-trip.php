@@ -31,37 +31,32 @@ include('../config.php');
                             <tr>
                                 <th>ID</th>
                                 <th>NAME</th>
-                                <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
                         <tbody>
                             <?php
-                            $sql = "SELECT * FROM $database_table_13";
+                            $sql = "SELECT * FROM $database_table_14";
                             $query = mysqli_query($conn, $sql);
                             $id_arr = array();
 
                             if ($query) {
 
                                 while ($row = mysqli_fetch_row($query)) {
-                                    if ($row[6] == '1') {
+
                             ?>
-                                        <tr>
-                                            <td><?= $row[0]; ?></td>
-                                            <td><?= $row[1]; ?></td>
-                                            <td><?= $row[2]; ?></td>
-                                            <td><?= $row[3]; ?></td>
-                                            <td><?= $row[4]; ?></td>
-                                            <td><?= $row[5]; ?></td>
-                                            <td><a href="create-trip-edit.php?id=<?= $row[0]; ?>" class="btn btn-success">Edit</a></td>
-                                            <td>
-                                                <form action="create-trip-add-update.php?id=<?= $row[0]; ?>" name="delete_trip" method="post">
-                                                    <button type="submit" name="delete_trip" value="<?= $row[0]; ?>" class="btn btn-danger">Delete</button>
-                                                </form>
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td><?= $row[0]; ?></td>
+                                        <td><?= $row[1]; ?></td>
+
+                                        <td>
+                                            <form action="create-trip-add-update.php?id=<?= $row[0]; ?>" name="delete_trip" method="post">
+                                                <button type="submit" name="delete_trip" value="<?= $row[0]; ?>" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
                                 <?php
-                                        array_push($id_arr, $row[0]);
-                                    }
+
+
                                 }
                             } else {
                                 ?>
@@ -96,6 +91,13 @@ include('includes/scripts.php');
                 get_trip_info: 'true',
             },
             success: function(response) {
+                var res = JSON.parse(response);
+                console.log(res);
+                // for (i = 0; i < response.length; i++) {
+
+                //     //insert geo data to array
+                //     console.log(response);
+                // }
                 // window.location = "create-trip.php";
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
