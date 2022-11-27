@@ -102,7 +102,7 @@ include('../config.php');
 
                                         <td><?= $show_trip_list ?></td>
                                         <td>
-                                            <form action="create-trip-add-update.php?id=<?= $row[0]; ?>" name="delete_trip_set" method="post">
+                                            <form action="create-trip-add-update.php?id=<?= $row[0]; ?>&location_id=<?= $row[2]; ?>" name="delete_trip_set" method="post">
                                                 <button type="submit" name="delete_trip_set" value="<?= $row[0]; ?>" class="btn btn-danger">Delete</button>
                                             </form>
                                         </td>

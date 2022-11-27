@@ -169,8 +169,8 @@ if (isset($_POST['delete_trip'])) {
 }
 
 if (isset($_POST['delete_trip_set'])) {
-    //collect location id
-    $location_id = $_POST['delete_trip_set'];
+    //collect trip planner id
+    $trip_id = $_GET['id'];
 
     //database name
     $database_name = $database_table_14;
@@ -179,7 +179,7 @@ if (isset($_POST['delete_trip_set'])) {
     array_push($db_field_array, $database_table_2_id_field);
 
     //push data
-    array_push($data_array, $location_id);
+    array_push($data_array, $trip_id);
 
     //action
     $database_action = 'delete';
@@ -190,19 +190,59 @@ if (isset($_POST['delete_trip_set'])) {
 
 
     if ($query_run) {
-        $_SESSION['status'] = "Successfully!";
-        $_SESSION['status_detail'] = "Successfully delete data";
-        $_SESSION['status_code'] = "success";
+        //collect location id
+        $location_id = $_GET['location_id'];
+        $success = false;
+        //delete locations
 
-        header('location: add-create-trip.php');
+        for ($i = 0; $i < strlen($location_id); $i++) {
+            //reset data_array;
+            $data_array = array();
+            if ($location_id[$i] != ',') {
+                echo $location_id[$i];
+                // die();
+                //database name
+                $database_name = $database_table_13;
 
-        exit(0);
+                //push field
+                array_push($db_field_array, $database_table_2_id_field);
+
+                //push data
+                array_push($data_array, $location_id[$i]);
+
+                //action
+                $database_action = 'delete';
+
+                $query_1 = sql_command($database_name, $db_field_array, $data_array, $database_action);
+
+                $query_run_1 = mysqli_query($conn, $query_1);
+                if ($query_run_1) {
+                    $success = true;
+                }
+            }
+        }
+        if ($success == true) {
+            $_SESSION['status'] = "Successfully!";
+            $_SESSION['status_detail'] = "Successfully delete data";
+            $_SESSION['status_code'] = "success";
+
+            header('location: create-trip.php');
+
+            exit(0);
+        } else {
+            $_SESSION['status'] = "Error!";
+            $_SESSION['status_detail'] = "Can not delete data";
+            $_SESSION['status_code'] = "error";
+
+            header('location: create-trip.php');
+            exit(0);
+        }
     } else {
         $_SESSION['status'] = "Error!";
         $_SESSION['status_detail'] = "Can not delete data";
         $_SESSION['status_code'] = "error";
 
-        header('location: add-create-trip.php');
+        header('location: create-trip.php');
         exit(0);
     }
 }
