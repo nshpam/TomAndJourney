@@ -23,8 +23,8 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="row d-flex">
-                        <h4 class="col-2" id="trip-name"> Untitled </h4>
+                    <div class="row">
+                        <h4 id="trip-name" class="col-11"> Untitled </h4>
                         <button type='button' class='btn btn-primary col-1' onclick="ChangeName()">Change</button>
                     </div>
                 </div>
