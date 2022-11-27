@@ -133,35 +133,3 @@ include('../config.php');
 include('includes/footer.php');
 include('includes/scripts.php');
 ?>
-
-<script>
-    $(document).ready(function() {
-        $.ajax({
-            url: 'create-trip-add-update.php',
-            type: 'post',
-            data: {
-                ajax: 1,
-                get_trip_info: 'true',
-            },
-            success: function(response) {
-                var res = JSON.parse(response);
-
-                // console.log(res[0]);
-                // console.log(res.length);
-
-                for (i = 0; i < res.length; i++) {
-                    // for (j = 0; j < res[i].length; j++) {
-                    console.log(res[i].id_list);
-                    // console.log(i, res[i]);
-                    //insert geo data to array
-                    // console.log(response);
-                    // }
-                }
-                // window.location = "create-trip.php";
-            },
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
-                console.log('error');
-            }
-        });
-    });
-</script>

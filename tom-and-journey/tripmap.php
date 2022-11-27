@@ -91,7 +91,11 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 
                 <div class="card" id="recommend-block">
 
-                    <p class=" card-header d-flex justify-content-center text-center"><b>Recommend Trip</b></p>
+                    <label class="card-header d-flex justify-content-center text-center">
+                        <b>Recommend Trip</b>
+                    </label>
+
+
 
                     <div class="card-body" id="recommend-body">
                         <div class='card-body col-md-12'>
@@ -117,13 +121,17 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                                 while ($row = mysqli_fetch_row($query)) {
                                     $trip_id = $row[0];
                                     $trip_name = $row[1];
+                                    $trip_ids = $row[2];
                                     $trip_des = $trip_des_arr[$trip_id];
-                                    $trip_count = strlen($row[2]) - round(strlen($row[2]) / 2);
+                                    $trip_count = strlen($trip_ids) - round(strlen($trip_ids) / 2);
                                     $trip_distance = $trip_distance_arr[$trip_id];
                                     $trip_time = $trip_time_arr[$trip_id];
+
+
+                                    // echo "<script>console.log('$trip_ids')</script>";
                                     echo "
                             
-                            <div class='container' onclick=''>
+                            <div class='container' " . "onclick=" . "ChosenTrip('$trip_ids')" . ">" . "
                                 <div class='row'>
                                     <div class='container route-1 col-md-10'>
                                         <h5>$trip_name</h5>
@@ -154,53 +162,6 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 
                             ?>
                         </div>
-
-
-                        <!-- <div class="container">
-                                <div class="row">
-                                    <div class="container route-1 col-md-10">
-                                        <h5>ทริปสายรักธรรมชาติ</h5>
-                                        <p>สำหรับสายเที่ยวที่ต้องการพักผ่อนปล่อยกายปล่อยใจไปกับธรรมชาติ</p>
-                                    </div>
-                                    <i class="fas fa-map-marker-alt fa-lg col-md-1 d-flex justify-content-end align-items-center" style="color: black;"></i>
-                                    <p class="sequence">2</p>
-                                </div>
-                                <div class="row col-md-12 route-detail-1 ">
-                                    <hr class="col-md-4 line-place">
-                                    <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-car"></i>
-                                        <p>15km</p>
-                                    </div>
-                                    <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-clock "></i>
-                                        <p>1h 20m</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="blank-between-container"></div>
-
-                            <div class="container">
-                                <div class="row">
-                                    <div class="container route-1 col-md-10">
-                                        <h5>ทริปขี่จักรยานแข่งกับ BTS</h5>
-                                        <p>สำหรับสายเที่ยวที่ต้องการความท้าทายแบบ extreme</p>
-                                    </div>
-                                    <i class="fas fa-map-marker-alt fa-lg col-md-1 d-flex justify-content-end align-items-center" style="color: black;"></i>
-                                    <p class="sequence">3</p>
-                                </div>
-                                <div class="row col-md-12 route-detail-1 ">
-                                    <hr class="col-md-4 line-place">
-                                    <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-car"></i>
-                                        <p>10km</p>
-                                    </div>
-                                    <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
-                                        <i class="fas fa-clock "></i>
-                                        <p>2h</p>
-                                    </div>
-                                </div>
-                            </div> -->
                     </div>
                 </div>
             </div>
@@ -539,7 +500,11 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 
             $.ajax({
                 url: 'map_connection.php',
-                type: 'get',
+                type: 'post',
+                data: {
+                    ajax: 1,
+                    get_map_filter: 'true',
+                },
                 success: function(response) {
 
                     if (response != '') {
@@ -754,7 +719,6 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
         }
 
         function MinimizeTab() {
-
             element_config = [
                 ['.route-main-block', 'hidden'],
                 ['.login-block', 'visible'],
@@ -809,6 +773,136 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 
             map.removeControl(routing);
 
+        }
+
+        function ChosenTrip(trip_id_list) {
+            // console.log(trip_id_list);
+
+            //get data from tripplanner db
+            $.ajax({
+                url: 'map_connection.php',
+                type: 'post',
+                data: {
+                    ajax: 1,
+                    get_map_info: 'true',
+                    id_array: trip_id_list,
+                },
+                success: function(response) {
+
+                    if (response != '') {
+                        res = JSON.parse(response);
+
+                        // console.log(res);
+                        // for (i = 0; i < res.length; i++) {
+                        //insert geo data to array
+                        // lat_lng_to_JSON(res[i].type, res[i].name, res[i].lat, res[i].lng);
+                        // }
+                    }
+
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log('error');
+                }
+            });
+
+            //main block control
+            element_config = [
+                ['.route-main-block', 'visible'],
+                ['.login-block', 'hidden'],
+                ['#recommend-block', 'hidden'],
+                // ['.info-block', 'visible', '40%'],
+            ];
+
+            for (i = 0; i < element_config.length; i++) {
+                element_block = document.querySelectorAll(element_config[i][0]);
+
+                if (element_config[i][0] == '.info-block') {
+
+                    element_block.forEach(a => {
+                        a.style.left = element_config[i][2];
+                    });
+                }
+                element_block.forEach(e => {
+                    e.style.visibility = element_config[i][1];
+                });
+            }
+
+            leaflet_zoom_block = document.querySelectorAll('.leaflet-control-container');
+            leaflet_zoom_block.forEach(e => {
+                e.style.right = '35%';
+            })
+
+            info_block_header = document.querySelectorAll('.info-block-body');
+            info_block_header.forEach(e => {
+                e.style.display = 'none';
+            });
+
+            routing_markers_list = [];
+
+            // routing system
+            routing = L.Routing.control({
+                waypoints: [
+                    pin_1,
+                    pin_2,
+                    pin_3,
+                    pin_4,
+                ],
+                createMarker: function(i, start, n) {
+                    var marker_icon = null;
+                    var others_marker = [pin_2, pin_3];
+
+                    // start icon
+                    if (i == 0) {
+                        marker = L.marker(pin_1, {
+                            draggable: true,
+                            bounceOnAdd: false,
+                            bounceOnAddOptions: {
+                                duration: 1000,
+                                height: 800,
+                            },
+                            icon: GenerateMarkers("fa-flag", "green"),
+                        }, )
+
+                        routing_markers_list.push(marker);
+
+                    }
+                    // end icon
+                    else if (i == n - 1) {
+                        // marker_icon = icon_end;
+                        marker = L.marker(pin_4, {
+                            draggable: true,
+                            bounceOnAdd: false,
+                            bounceOnAddOptions: {
+                                duration: 1000,
+                                height: 800,
+                            },
+                            icon: GenerateMarkers("fa-flag", "black"),
+                        }, )
+                        routing_markers_list.push(marker);
+
+                    } else {
+
+                        marker_icon = L.ExtraMarkers.icon({
+                            icon: 'fa-number',
+                            number: i,
+                            markerColor: "black",
+                            iconColor: "white"
+                        });
+
+                        marker = L.marker(others_marker[i - 1], {
+                            draggable: true,
+                            bounceOnAdd: false,
+                            bounceOnAddOptions: {
+                                duration: 1000,
+                                height: 800,
+                            },
+                            icon: marker_icon,
+                        }, )
+                        routing_markers_list.push(marker);
+                    }
+                    return marker;
+                }
+            }).addTo(map);
         }
 
         function ExpandTab() {
