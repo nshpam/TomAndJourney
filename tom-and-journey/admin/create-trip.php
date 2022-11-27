@@ -93,6 +93,7 @@ include('includes/scripts.php');
             success: function(response) {
                 var res = JSON.parse(response);
                 console.log(res);
+
                 // for (i = 0; i < response.length; i++) {
 
                 //     //insert geo data to array

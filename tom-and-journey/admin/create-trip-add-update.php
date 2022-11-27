@@ -451,21 +451,21 @@ if (isset($_POST['ajax']) && isset($_POST['insert_location_set'])) {
     }
 }
 
-// if (isset($_POST['ajax']) && isset($_POST['confirm_add_trip'])) {
-//     if ($_POST['confirm_add_trip'] == 'true') {
-//         $_SESSION['status'] = "Success!";
-//         $_SESSION['status_detail'] = "Trip added";
-//         $_SESSION['status_code'] = "success";
-//         echo 'success';
-//     } else {
-//         $_SESSION['status'] = "Failed!";
-//         $_SESSION['status_detail'] = "Invalid trip set";
-//         $_SESSION['status_code'] = "error";
-//         echo 'failed';
-//     }
+if (isset($_POST['ajax']) && isset($_POST['confirm_add_trip'])) {
+    if ($_POST['confirm_add_trip'] == 'true') {
+        $_SESSION['status'] = "Success!";
+        $_SESSION['status_detail'] = "Trip added";
+        $_SESSION['status_code'] = "success";
+        echo 'success';
+    } else {
+        $_SESSION['status'] = "Failed!";
+        $_SESSION['status_detail'] = "Invalid trip set";
+        $_SESSION['status_code'] = "error";
+        echo 'failed';
+    }
 
-//     exit();
-// }
+    exit();
+}
 
 //join data
 if (isset($_POST['ajax']) && isset($_POST['get_trip_info'])) {

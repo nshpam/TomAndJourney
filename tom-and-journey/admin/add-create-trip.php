@@ -23,8 +23,10 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4> Trip Preview</h4>
-
+                    <div class="row d-flex">
+                        <h4 class="col-2" id="trip-name"> Untitled </h4>
+                        <button type='button' class='btn btn-primary col-1' onclick="ChangeName()">Change</button>
+                    </div>
                 </div>
                 <div class="card-body">
 
@@ -161,6 +163,26 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
             </div>
         </div>
     </div>
+    <div class="modal fade justify-content-center" id="modal-default">
+        <!-- <div class="modal fade justify-content-center" id="modal-default"> -->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id='model_title'>Enter the trip name</h4>
+
+                </div>
+                <div class="modal-body" id='modal_body'>
+                    <input class="form-control" type="text" placeholder="trip name" id="tripname_input">
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-primary col-2" onclick="SendTripName()">OK</button>
+                    <button type="button" class="btn btn-danger" onclick="CancelTripName()">CANCEL</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 
 </div>
 
@@ -177,9 +199,33 @@ include('includes/scripts.php');
     .blank-space {
         height: 30px;
     }
+
+    .modal {
+        text-align: center;
+    }
+
+    @media screen and (min-width: 768px) {
+        .modal:before {
+            display: inline-block;
+            vertical-align: middle;
+            content: " ";
+            height: 100%;
+        }
+    }
+
+    .modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+        width: 100%;
+    }
 </style>
 
 <script>
+    // $(document).ready(function() {
+    //     $('#modal-default').modal('toggle');
+    // });
+    //send data to database
     function ConfirmData(id_arr) {
         console.log(id_arr);
         if (id_arr.length === 0) {
@@ -205,7 +251,7 @@ include('includes/scripts.php');
                     ajax: 1,
                     insert_location_set: 'true',
                     id_list: id_arr,
-                    trip_name: 'tom-and-journey',
+                    trip_name: document.getElementById('trip-name').innerHTML,
                 },
                 success: function(response) {
                     console.log(response);
@@ -220,6 +266,25 @@ include('includes/scripts.php');
         }
 
     }
+
+    //get name from database
+    function ChangeName() {
+        $('#modal-default').modal('toggle');
+    }
+
+    function SendTripName() {
+        ReceivedTripName = document.getElementById('tripname_input').value;
+        if (ReceivedTripName != '') {
+            document.getElementById('trip-name').innerHTML = ReceivedTripName;
+            $('#modal-default').modal('hide');
+        }
+    }
+
+    function CancelTripName() {
+        $('#modal-default').modal('hide');
+    }
+
+
     // function GetAddData() {
     //     $.ajax({
     //         url: 'create-trip-add-update.php',
