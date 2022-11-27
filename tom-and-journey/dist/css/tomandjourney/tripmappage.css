@@ -114,6 +114,21 @@ a #fill-div {
     color: #A64343 !important;
 }
 
+#recommend-block {
+    background-color: black;
+    border-radius: 5px;
+    position: absolute;
+    justify-content: flex-end;
+    top: 2%;
+    left: 65%;
+    flex-wrap: wrap;
+    display: flex;
+    z-index: 999;
+    color: white;
+    vertical-align: center;
+}
+
+
 /* info block */
 .info-block {
     background-color: black;

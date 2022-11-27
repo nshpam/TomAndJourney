@@ -24,14 +24,6 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <?php
-                        // echo $_SESSION['trip_name'];
-                        // if (isset($_SESSION['trip_set_name'])) {
-                        //     $trip_name = $_SESSION['trip_set_name'];
-                        // } else {
-                        //     $trip_name = "Untitled";
-                        // }
-                        ?>
                         <h4 id="trip-name" class="col-11"> </h4>
                         <button type='button' class='btn btn-primary col-1' onclick="ChangeName()">Change</button>
                     </div>
@@ -263,6 +255,7 @@ include('includes/scripts.php');
                 success: function(response) {
                     console.log(response);
                     if (response.indexOf('success') != -1) {
+                        sessionStorage.removeItem('trip_set_name');
                         window.location = "create-trip.php";
                     }
                 },

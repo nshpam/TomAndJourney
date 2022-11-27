@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('config.php');
-
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 ?>
 
 <!DOCTYPE html>
@@ -87,12 +87,126 @@ include('config.php');
                             <button class="btn btn-default" onclick="GoToLogin()">LOGIN</button>
                         </div>
                     </div>
-
-
                 <?php endif ?>
 
-                <!-- filter and info design -->
-                <div class="card d-flex info-block">
+                <div class="card" id="recommend-block">
+
+                    <p class=" card-header d-flex justify-content-center text-center"><b>Recommend Trip</b></p>
+
+                    <div class="card-body" id="recommend-body">
+                        <div class='card-body col-md-12'>
+                            <?php
+                            $sql = "SELECT * FROM $database_table_14";
+                            $query = mysqli_query($conn, $sql);
+                            $trip_des_arr = array(
+                                "1" => "สำหรับสายเที่ยวที่อยากไปล้มละลายกับห้างดังใจกลางเมือง",
+                                "2" => "สำหรับสายเที่ยวที่ต้องการพักผ่อนปล่อยกายปล่อยใจไปกับธรรมชาติ",
+                                "3" => "สำหรับสายเที่ยวที่ต้องการความท้าทายแบบ extreme",
+                            );
+                            $trip_distance_arr = array(
+                                "1" => "23km",
+                                "2" => "15km",
+                                "3" => "10km",
+                            );
+                            $trip_time_arr =  array(
+                                "1" => "3h 30m",
+                                "2" => "1h 20m",
+                                "3" => "2h",
+                            );
+                            if ($query) {
+                                while ($row = mysqli_fetch_row($query)) {
+                                    $trip_id = $row[0];
+                                    $trip_name = $row[1];
+                                    $trip_des = $trip_des_arr[$trip_id];
+                                    $trip_count = strlen($row[2]) - round(strlen($row[2]) / 2);
+                                    $trip_distance = $trip_distance_arr[$trip_id];
+                                    $trip_time = $trip_time_arr[$trip_id];
+                                    echo "
+                            
+                            <div class='container' onclick=''>
+                                <div class='row'>
+                                    <div class='container route-1 col-md-10'>
+                                        <h5>$trip_name</h5>
+                                        <p>$trip_des</p>
+                                    </div>
+                                    <i class='fas fa-map-marker-alt fa-lg col-md-1 d-flex justify-content-end align-items-center' style='color: black;'></i>
+                                    <p class='sequence'>$trip_count</p>
+                                </div>
+                                <div class='row col-md-12 route-detail-1 '>
+                                    <hr class='col-md-4 line-place'>
+                                    <div class='col-md-3 travel-distance d-flex justify-content-center align-items-center'>
+                                        <i class='fas fa-car'></i>
+                                        <p>$trip_distance</p>
+                                    </div>
+                                    <div class='col-md-3 travel-time d-flex justify-content-center align-items-center'>
+                                        <i class='fas fa-clock '></i>
+                                        <p>$trip_time</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='blank-between-container'></div>
+                            ";
+                            ?>
+
+                            <?php
+                                }
+                            }
+
+                            ?>
+                        </div>
+
+
+                        <!-- <div class="container">
+                                <div class="row">
+                                    <div class="container route-1 col-md-10">
+                                        <h5>ทริปสายรักธรรมชาติ</h5>
+                                        <p>สำหรับสายเที่ยวที่ต้องการพักผ่อนปล่อยกายปล่อยใจไปกับธรรมชาติ</p>
+                                    </div>
+                                    <i class="fas fa-map-marker-alt fa-lg col-md-1 d-flex justify-content-end align-items-center" style="color: black;"></i>
+                                    <p class="sequence">2</p>
+                                </div>
+                                <div class="row col-md-12 route-detail-1 ">
+                                    <hr class="col-md-4 line-place">
+                                    <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
+                                        <i class="fas fa-car"></i>
+                                        <p>15km</p>
+                                    </div>
+                                    <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
+                                        <i class="fas fa-clock "></i>
+                                        <p>1h 20m</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="blank-between-container"></div>
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="container route-1 col-md-10">
+                                        <h5>ทริปขี่จักรยานแข่งกับ BTS</h5>
+                                        <p>สำหรับสายเที่ยวที่ต้องการความท้าทายแบบ extreme</p>
+                                    </div>
+                                    <i class="fas fa-map-marker-alt fa-lg col-md-1 d-flex justify-content-end align-items-center" style="color: black;"></i>
+                                    <p class="sequence">3</p>
+                                </div>
+                                <div class="row col-md-12 route-detail-1 ">
+                                    <hr class="col-md-4 line-place">
+                                    <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
+                                        <i class="fas fa-car"></i>
+                                        <p>10km</p>
+                                    </div>
+                                    <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
+                                        <i class="fas fa-clock "></i>
+                                        <p>2h</p>
+                                    </div>
+                                </div>
+                            </div> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- filter and info design -->
+            <!-- <div class="card d-flex info-block">
                     <div class="card-header info-block-body">
                         <div class="d-flex">
                             <div class="row">
@@ -151,610 +265,652 @@ include('config.php');
                             <div class="" id="icon-box-10"><i class="fas fa-wine-glass-alt d-flex active-10" id="map-icons" onclick="ActiveIcon('active_10')"></i></div>
                         </div>
                     </div>
+                </div> -->
+
+
+            <!-- filter, info, route design -->
+
+            <div class="card route-main-block ">
+                <div class="card-header location-img" data-spy="scroll">
+                    <div class="location-img-div">
+                        <img src="/tom-and-journey/dist/img/bangkok-thailand.jpg" alt="">
+
+                        <div class="row location-text d-flex justify-content-center align-items-center centered">
+                            <i class="fas fa-map-marker-alt d-flex justify-content-center align-items-center"></i>
+                            <p class="d-flex justify-content-center align-items-center">Bangkok, Thailand</p>
+                        </div>
+
+                    </div>
                 </div>
-
-
-                <!-- filter, info, route design -->
-
-                <div class="card route-main-block ">
-
-                    <div class="card-header location-img" data-spy="scroll">
-                        <div class="location-img-div">
-                            <img src="/tom-and-journey/dist/img/bangkok-thailand.jpg" alt="">
-
-                            <div class="row location-text d-flex justify-content-center align-items-center centered">
-                                <i class="fas fa-map-marker-alt d-flex justify-content-center align-items-center"></i>
-                                <p class="d-flex justify-content-center align-items-center">Bangkok, Thailand</p>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="card-body col-md-12 card-context-1">
-                        <div class="container">
-                            <div class="row">
-                                <div class="container route-1 col-md-7">
-                                    <h5>สวนลุมพินี</h5>
-                                    <p>ปทุมวัน, กรุงเทพ</p>
-                                </div>
-                                <i class="fas fa-map-marker-alt fa-lg col-md-4 d-flex justify-content-end align-items-center" style="color: black;"></i>
-                                <p class="sequence">1</p>
-                            </div>
-                            <div class="row col-md-12 route-detail-1 ">
-                                <hr class="col-md-4 line-place">
-                                <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-car"></i>
-                                    <p>5km</p>
-                                </div>
-                                <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-clock "></i>
-                                    <p>10m</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="blank-between-container"></div>
-
-                        <div class="container">
-                            <div class="row">
-                                <div class="container route-1 col-md-7">
-                                    <h5>วัดไตรมิตรวิทยารามวรวิหาร</h5>
-                                    <p>สัมพันธวงศ์, กรุงเทพ</p>
-                                </div>
-                                <i class="fas fa-map-marker-alt fa-lg col-md-4 d-flex justify-content-end align-items-center" style="color: black;"></i>
-                                <p class="sequence">2</p>
-                            </div>
-                            <div class="row col-md-12 route-detail-1 ">
-                                <hr class="col-md-4 line-place">
-                                <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-car"></i>
-                                    <p>1km</p>
-                                </div>
-                                <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-clock "></i>
-                                    <p>4m</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="blank-between-container"></div>
-
-                        <div class="container">
-                            <div class="row">
-                                <div class="container route-1 col-md-7">
-                                    <h5>วัดสระเกศราชวรมหาวิหาร (ภูเขาทอง)</h5>
-                                    <p>ป้อมปราบศัตรูพ่าย, กรุงเทพ</p>
-                                </div>
-                                <i class="fas fa-map-marker-alt fa-lg col-md-4 d-flex justify-content-end align-items-center" style="color: black;"></i>
-                                <p class="sequence">3</p>
-                            </div>
-                            <div class="row col-md-12 route-detail-1 ">
-                                <hr class="col-md-4 line-place">
-                                <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-car"></i>
-                                    <p>2km</p>
-                                </div>
-                                <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-clock "></i>
-                                    <p>5m</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="blank-between-container"></div>
-
-                        <div class="container">
-                            <div class="row">
-                                <div class="container route-1 col-md-7">
-                                    <h5>วัดเบญจมบพิตรดุสิตวนาราม</h5>
-                                    <p>ดุสิต, กรุงเทพ</p>
-                                </div>
-                                <i class="fas fa-map-marker-alt fa-lg col-md-4 d-flex justify-content-end align-items-center" style="color: black;"></i>
-                                <p class="sequence">4</p>
-                            </div>
-                            <div class="row col-md-12 route-detail-1 ">
-                                <hr class="col-md-4 line-place">
-                                <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-car"></i>
-                                    <p>2km</p>
-                                </div>
-                                <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-clock "></i>
-                                    <p>5m</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="card-footer info-block-body-2 d-flex justify-content-center align-items-center">
-
+                <div class="card-body col-md-12 card-context-1">
+                    <div class="container">
                         <div class="row">
-
-                            <div class="icon-text d-flex justify-content-center align-items-center">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <p>4</p>
+                            <div class="container route-1 col-md-7">
+                                <h5>สวนลุมพินี</h5>
+                                <p>ปทุมวัน, กรุงเทพ</p>
                             </div>
-                            <div class="icon-text d-flex justify-content-center align-items-center">
-                                <i class="fas fa-clock"></i>
-                                <p>27m</p>
-                            </div>
-                            <div class="icon-text d-flex justify-content-center align-items-center">
-                                <i class="fas fa-truck"></i>
-                                <p>10km</p>
-                            </div>
-                            <div class="icon-text d-flex justify-content-center align-items-center">
-                                <i class="fab fa-bitcoin"></i>
-                                <p>100B</p>
-                            </div>
-                            <div class="icon-text d-flex justify-content-center align-items-center">
-                                <i class="fas fa-chevron-up" onclick="MinimizeTab()"></i>
-                            </div>
-
-
+                            <i class="fas fa-map-marker-alt fa-lg col-md-4 d-flex justify-content-end align-items-center" style="color: black;"></i>
+                            <p class="sequence">1</p>
                         </div>
-                        </a>
+                        <div class="row col-md-12 route-detail-1 ">
+                            <hr class="col-md-4 line-place">
+                            <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
+                                <i class="fas fa-car"></i>
+                                <p>5km</p>
+                            </div>
+                            <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
+                                <i class="fas fa-clock "></i>
+                                <p>10m</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blank-between-container"></div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="container route-1 col-md-7">
+                                <h5>วัดไตรมิตรวิทยารามวรวิหาร</h5>
+                                <p>สัมพันธวงศ์, กรุงเทพ</p>
+                            </div>
+                            <i class="fas fa-map-marker-alt fa-lg col-md-4 d-flex justify-content-end align-items-center" style="color: black;"></i>
+                            <p class="sequence">2</p>
+                        </div>
+                        <div class="row col-md-12 route-detail-1 ">
+                            <hr class="col-md-4 line-place">
+                            <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
+                                <i class="fas fa-car"></i>
+                                <p>1km</p>
+                            </div>
+                            <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
+                                <i class="fas fa-clock "></i>
+                                <p>4m</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blank-between-container"></div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="container route-1 col-md-7">
+                                <h5>วัดสระเกศราชวรมหาวิหาร (ภูเขาทอง)</h5>
+                                <p>ป้อมปราบศัตรูพ่าย, กรุงเทพ</p>
+                            </div>
+                            <i class="fas fa-map-marker-alt fa-lg col-md-4 d-flex justify-content-end align-items-center" style="color: black;"></i>
+                            <p class="sequence">3</p>
+                        </div>
+                        <div class="row col-md-12 route-detail-1 ">
+                            <hr class="col-md-4 line-place">
+                            <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
+                                <i class="fas fa-car"></i>
+                                <p>2km</p>
+                            </div>
+                            <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
+                                <i class="fas fa-clock "></i>
+                                <p>5m</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="blank-between-container"></div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="container route-1 col-md-7">
+                                <h5>วัดเบญจมบพิตรดุสิตวนาราม</h5>
+                                <p>ดุสิต, กรุงเทพ</p>
+                            </div>
+                            <i class="fas fa-map-marker-alt fa-lg col-md-4 d-flex justify-content-end align-items-center" style="color: black;"></i>
+                            <p class="sequence">4</p>
+                        </div>
+                        <div class="row col-md-12 route-detail-1 ">
+                            <hr class="col-md-4 line-place">
+                            <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
+                                <i class="fas fa-car"></i>
+                                <p>2km</p>
+                            </div>
+                            <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
+                                <i class="fas fa-clock "></i>
+                                <p>5m</p>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
-            </div>
+                <div class="card-footer info-block-body-2 d-flex justify-content-center align-items-center">
 
+                    <div class="row">
+
+                        <div class="icon-text d-flex justify-content-center align-items-center">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>4</p>
+                        </div>
+                        <div class="icon-text d-flex justify-content-center align-items-center">
+                            <i class="fas fa-clock"></i>
+                            <p>27m</p>
+                        </div>
+                        <div class="icon-text d-flex justify-content-center align-items-center">
+                            <i class="fas fa-truck"></i>
+                            <p>10km</p>
+                        </div>
+                        <div class="icon-text d-flex justify-content-center align-items-center">
+                            <i class="fab fa-bitcoin"></i>
+                            <p>100B</p>
+                        </div>
+                        <div class="icon-text d-flex justify-content-center align-items-center">
+                            <i class="fas fa-chevron-up" onclick="MinimizeTab()"></i>
+                        </div>
+
+
+                    </div>
+                    </a>
+                </div>
+
+            </div>
         </div>
 
-        <!-- leaflet -->
-        <script src="/tom-and-journey/plugins/leaftlet-openstreetmap/leaflet.js"></script>
+    </div>
 
-        <!-- leaflet marker -->
-        <script src="/tom-and-journey/plugins/Leaflet.awesome-markers-2.0-develop/dist/leaflet.awesome-markers.js"></script>
-        <script src="/tom-and-journey/plugins/Leaflet.ExtraMarkers-master/dist/js/leaflet.extra-markers.min.js"></script>
+    <!-- leaflet -->
+    <script src="/tom-and-journey/plugins/leaftlet-openstreetmap/leaflet.js"></script>
 
-        <script src="https://unpkg.com/esri-leaflet@3.0.8/dist/esri-leaflet.js" integrity="sha512-E0DKVahIg0p1UHR2Kf9NX7x7TUewJb30mxkxEm2qOYTVJObgsAGpEol9F6iK6oefCbkJiA4/i6fnTHzM6H1kEA==" crossorigin=""></script>
+    <!-- leaflet marker -->
+    <script src="/tom-and-journey/plugins/Leaflet.awesome-markers-2.0-develop/dist/leaflet.awesome-markers.js"></script>
+    <script src="/tom-and-journey/plugins/Leaflet.ExtraMarkers-master/dist/js/leaflet.extra-markers.min.js"></script>
 
-        <script src="https://unpkg.com/esri-leaflet-geocoder@3.1.3/dist/esri-leaflet-geocoder.js" integrity="sha512-mwRt9Y/qhSlNH3VWCNNHrCwquLLU+dTbmMxVud/GcnbXfOKJ35sznUmt3yM39cMlHR2sHbV9ymIpIMDpKg4kKw==" crossorigin=""></script>
+    <script src="https://unpkg.com/esri-leaflet@3.0.8/dist/esri-leaflet.js" integrity="sha512-E0DKVahIg0p1UHR2Kf9NX7x7TUewJb30mxkxEm2qOYTVJObgsAGpEol9F6iK6oefCbkJiA4/i6fnTHzM6H1kEA==" crossorigin=""></script>
 
-        <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+    <script src="https://unpkg.com/esri-leaflet-geocoder@3.1.3/dist/esri-leaflet-geocoder.js" integrity="sha512-mwRt9Y/qhSlNH3VWCNNHrCwquLLU+dTbmMxVud/GcnbXfOKJ35sznUmt3yM39cMlHR2sHbV9ymIpIMDpKg4kKw==" crossorigin=""></script>
 
-        <!-- control.js -->
-        <script src="/tom-and-journey/dist/js/tomandjourney/control.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+    <!-- control.js -->
+    <script src="/tom-and-journey/dist/js/tomandjourney/control.js"></script>
 
 
-        <?php
-        include('footer.php');
-        ?>
+    <?php
+    include('footer.php');
+    ?>
 
-        <style>
-            .active-nav {
-                color: #A64343 !important;
+    <style>
+        .active-nav {
+            color: #A64343 !important;
+        }
+
+        #recommend-block {
+            background-color: black;
+            border-radius: 5px;
+            position: absolute;
+            justify-content: flex-end;
+            top: 5%;
+            left: 35%;
+            flex-wrap: wrap;
+            display: flex;
+            z-index: 999;
+            color: white;
+            vertical-align: center;
+        }
+
+        #recommend-block {
+            background-color: black;
+            border-radius: 5px;
+            position: absolute;
+            justify-content: flex-end;
+            top: 10%;
+            left: 35%;
+            flex-wrap: wrap;
+            display: flex;
+            z-index: 999;
+            color: white;
+            vertical-align: center;
+        }
+
+        #recommend-body {
+            background-color: white;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            padding: 0.3rem 0.8rem;
+        }
+
+        #recommend-body p {
+            color: black;
+        }
+    </style>
+
+
+    <script>
+        //recommend trip control
+
+
+        //navigation bar
+        a = document.getElementById('trip-planner-link');
+        a.classList.add('active-nav');
+
+        //filter array
+        filter_array = ['camera', 'bed', 'gaspump', 'dinner', 'train', 'museum', 'market', 'anchor', 'cafe', 'bar'];
+
+        //name array
+        photo_array = [];
+        hotel_array = [];
+        pump_array = [];
+        food_array = [];
+        train_array = [];
+        museum_array = [];
+        market_array = [];
+        anchor_array = [];
+        cafe_array = [];
+        bar_array = [];
+
+        //marker id for delete
+        markers_id = [];
+
+        //filter markers array
+        filter_markers_array = [];
+
+        //data array
+        data_array = [photo_array, hotel_array, pump_array, food_array, train_array, museum_array, market_array, anchor_array, cafe_array, bar_array]
+
+        function lat_lng_to_JSON(res_type, res_name, res_lat, res_lng) {
+            if (res_type == 'photo') {
+                photo_array.push([res_name, [res_lat, res_lng]]);
+            } else if (res_type == 'hotel') {
+                hotel_array.push([res_name, [res_lat, res_lng]]);
+            } else if (res_type == 'pump') {
+                pump_array.push([res_name, [res_lat, res_lng]]);
+            } else if (res_type == 'food') {
+                food_array.push([res_name, [res_lat, res_lng]]);
+            } else if (res_type == 'train') {
+                train_array.push([res_name, [res_lat, res_lng]]);
+            } else if (res_type == 'museum') {
+                museum_array.push([res_name, [res_lat, res_lng]]);
+            } else if (res_type == 'market') {
+                market_array.push([res_name, [res_lat, res_lng]]);
+            } else if (res_type == 'anchor') {
+                anchor_array.push([res_name, [res_lat, res_lng]]);
+            } else if (res_type == 'cafe') {
+                cafe_array.push([res_name, [res_lat, res_lng]]);
+            } else if (res_type == 'bar') {
+                bar_array.push([res_name, [res_lat, res_lng]]);
             }
-        </style>
+        }
 
-        <script>
-            //navigation bar
-            a = document.getElementById('trip-planner-link');
-            a.classList.add('active-nav');
+        $(document).ready(function() {
 
-            //filter array
-            filter_array = ['camera', 'bed', 'gaspump', 'dinner', 'train', 'museum', 'market', 'anchor', 'cafe', 'bar'];
+            $.ajax({
+                url: 'map_connection.php',
+                type: 'get',
+                success: function(response) {
 
-            //name array
-            photo_array = [];
-            hotel_array = [];
-            pump_array = [];
-            food_array = [];
-            train_array = [];
-            museum_array = [];
-            market_array = [];
-            anchor_array = [];
-            cafe_array = [];
-            bar_array = [];
+                    if (response != '') {
+                        res = JSON.parse(response);
+                        for (i = 0; i < res.length; i++) {
 
-            //marker id for delete
-            markers_id = [];
-
-            //filter markers array
-            filter_markers_array = [];
-
-            //data array
-            data_array = [photo_array, hotel_array, pump_array, food_array, train_array, museum_array, market_array, anchor_array, cafe_array, bar_array]
-
-            function lat_lng_to_JSON(res_type, res_name, res_lat, res_lng) {
-                if (res_type == 'photo') {
-                    photo_array.push([res_name, [res_lat, res_lng]]);
-                } else if (res_type == 'hotel') {
-                    hotel_array.push([res_name, [res_lat, res_lng]]);
-                } else if (res_type == 'pump') {
-                    pump_array.push([res_name, [res_lat, res_lng]]);
-                } else if (res_type == 'food') {
-                    food_array.push([res_name, [res_lat, res_lng]]);
-                } else if (res_type == 'train') {
-                    train_array.push([res_name, [res_lat, res_lng]]);
-                } else if (res_type == 'museum') {
-                    museum_array.push([res_name, [res_lat, res_lng]]);
-                } else if (res_type == 'market') {
-                    market_array.push([res_name, [res_lat, res_lng]]);
-                } else if (res_type == 'anchor') {
-                    anchor_array.push([res_name, [res_lat, res_lng]]);
-                } else if (res_type == 'cafe') {
-                    cafe_array.push([res_name, [res_lat, res_lng]]);
-                } else if (res_type == 'bar') {
-                    bar_array.push([res_name, [res_lat, res_lng]]);
-                }
-            }
-
-            $(document).ready(function() {
-
-                $.ajax({
-                    url: 'map_connection.php',
-                    type: 'get',
-                    success: function(response) {
-
-                        if (response != '') {
-                            res = JSON.parse(response);
-                            for (i = 0; i < res.length; i++) {
-
-                                //insert geo data to array
-                                lat_lng_to_JSON(res[i].type, res[i].name, res[i].lat, res[i].lng);
-                            }
+                            //insert geo data to array
+                            lat_lng_to_JSON(res[i].type, res[i].name, res[i].lat, res[i].lng);
                         }
-
-                    },
-                    error: function(XMLHttpRequest, textStatus, errorThrown) {
-                        console.log('error');
                     }
-                });
+
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log('error');
+                }
             });
+        });
 
-            center_map = [13.7528, 100.5173];
+        center_map = [13.7528, 100.5173];
 
-            // start point and end point for route page
-            pin_1 = [13.754850589446578, 100.49297332763673]; //start
-            pin_2 = [13.758921064889215, 100.50036002672189];
-            pin_3 = [13.753859775676801, 100.50663402825472];
-            pin_4 = [13.760644679289063, 100.51898002624513]; //end
+        // start point and end point for route page
+        pin_1 = [13.754850589446578, 100.49297332763673]; //start
+        pin_2 = [13.758921064889215, 100.50036002672189];
+        pin_3 = [13.753859775676801, 100.50663402825472];
+        pin_4 = [13.760644679289063, 100.51898002624513]; //end
 
-            routing_markers = [pin_1, pin_2, pin_3, pin_4];
+        routing_markers = [pin_1, pin_2, pin_3, pin_4];
 
-            //create awesomemarkers icon
-            function GenerateMarkers(icon_name, marker_color) {
-                return L.AwesomeMarkers.icon({
-                    icon: icon_name,
-                    prefix: "fa",
-                    markerColor: marker_color,
-                    iconColor: "white"
-                });
-            }
-
-            //render map
-            let mapOptions = {
-                center: center_map,
-                zoom: 15,
-            }
-
-            let map = new L.map('map', mapOptions);
-
-            api_key = 'AAPK6a129063e4204ecebc25aec56cafc278C86dfz7fQPwVX_gKp1DvVfnEe6gQInTNBMAc2m5Iivx9QUEIMRz2DwMmafFP6xX6';
-
-            var geocodeService = L.esri.Geocoding.geocodeService({
-                apikey: api_key // replace with your api key - https://developers.arcgis.com
+        //create awesomemarkers icon
+        function GenerateMarkers(icon_name, marker_color) {
+            return L.AwesomeMarkers.icon({
+                icon: icon_name,
+                prefix: "fa",
+                markerColor: marker_color,
+                iconColor: "white"
             });
+        }
 
-            let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-            map.addLayer(layer);
+        //render map
+        let mapOptions = {
+            center: center_map,
+            zoom: 15,
+        }
 
-            //check lat and long on map
+        let map = new L.map('map', mapOptions);
 
-            // map.on('click', function(e) {
-            //     geocodeService.reverse().latlng(e.latlng).run(function(error, result) {
-            //         if (error) {
-            //             L.marker(e.latlng).addTo(map).bindPopup('no place match').openPopup();
-            //         }
-            //         console.log(result);
-            //         L.marker(e.latlng).addTo(map).bindPopup(result.address.Match_addr).openPopup();
-            //     });
-            // });
+        api_key = 'AAPK6a129063e4204ecebc25aec56cafc278C86dfz7fQPwVX_gKp1DvVfnEe6gQInTNBMAc2m5Iivx9QUEIMRz2DwMmafFP6xX6';
 
-            function GoToLogin() {
-                window.location.href = "index.php";
-            }
+        var geocodeService = L.esri.Geocoding.geocodeService({
+            apikey: api_key // replace with your api key - https://developers.arcgis.com
+        });
 
-            //render mark with click the filter
-            function ActiveIcon(icon_num) {
-                for (i = 0; i < filter_array.length; i++) {
-                    num = (i + 1).toString();
-                    icon_block = document.getElementById('icon-box-' + num);
+        let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+        map.addLayer(layer);
 
-                    if (icon_num == 'active_' + num) {
-                        div = document.querySelector('#icon-box-' + num);
+        //check lat and long on map
 
-                        if (div.classList.contains('icon-block-' + num) == true) {
-                            icon_block.classList.remove("icon-block-" + num);
-                            RenderFilter(filter_array[i], data_array[i], 'remove');
-                        } else {
-                            icon_block.classList.add("icon-block-" + num);
-                            RenderFilter(filter_array[i], data_array[i], 'add');
-                        }
+        // map.on('click', function(e) {
+        //     geocodeService.reverse().latlng(e.latlng).run(function(error, result) {
+        //         if (error) {
+        //             L.marker(e.latlng).addTo(map).bindPopup('no place match').openPopup();
+        //         }
+        //         console.log(result);
+        //         L.marker(e.latlng).addTo(map).bindPopup(result.address.Match_addr).openPopup();
+        //     });
+        // });
 
+        function GoToLogin() {
+            window.location.href = "index.php";
+        }
+
+        //render mark with click the filter
+        function ActiveIcon(icon_num) {
+            for (i = 0; i < filter_array.length; i++) {
+                num = (i + 1).toString();
+                icon_block = document.getElementById('icon-box-' + num);
+
+                if (icon_num == 'active_' + num) {
+                    div = document.querySelector('#icon-box-' + num);
+
+                    if (div.classList.contains('icon-block-' + num) == true) {
+                        icon_block.classList.remove("icon-block-" + num);
+                        RenderFilter(filter_array[i], data_array[i], 'remove');
+                    } else {
+                        icon_block.classList.add("icon-block-" + num);
+                        RenderFilter(filter_array[i], data_array[i], 'add');
                     }
+
                 }
             }
+        }
 
-            //generate filter marker
-            function GenerateFilterMarker(name_array, markers_array, push_array, icon_function) {
-                for (j = 0; j < name_array.length; j++) {
-                    let marker = new L.marker(markers_array[j][1], {
-                        icon: icon_function,
-                    })
-                    push_array.push(marker);
-                }
+        //generate filter marker
+        function GenerateFilterMarker(name_array, markers_array, push_array, icon_function) {
+            for (j = 0; j < name_array.length; j++) {
+                let marker = new L.marker(markers_array[j][1], {
+                    icon: icon_function,
+                })
+                push_array.push(marker);
+            }
+        }
+
+        //render filter marker
+        function RenderFilter(filter_name, data_array_name, action) {
+
+            //filter markers arrray
+            camera_markers = [];
+            hotel_markers = [];
+            gas_station_markers = [];
+            dinner_markers = [];
+            train_markers = [];
+            museum_markers = [];
+            market_markers = [];
+            anchor_markers = [];
+            cafe_markers = [];
+            bar_markers = [];
+
+            filter_markers_array = [
+                [photo_array, camera_markers, GenerateMarkers("fa-camera", "blue")],
+                [hotel_array, hotel_markers, GenerateMarkers("fa-bed", "black")],
+                [pump_array, gas_station_markers, GenerateMarkers("fa-gas-pump", "green")],
+                [food_array, dinner_markers, GenerateMarkers("fa-utensils", "lightgray")],
+                [train_array, train_markers, GenerateMarkers("fa-train", "darkblue")],
+                [museum_array, museum_markers, GenerateMarkers("fa-landmark", "red")],
+                [market_array, market_markers, GenerateMarkers("fa-store", "lightred")],
+                [anchor_array, anchor_markers, GenerateMarkers("fa-anchor", "cadetblue")],
+                [cafe_array, cafe_markers, GenerateMarkers("fa-coffee", "orange")],
+                [bar_array, bar_markers, GenerateMarkers("fa-wine-glass-alt", "purple")],
+            ]
+
+
+            for (i = 0; i < filter_markers_array.length; i++) {
+                GenerateFilterMarker(data_array[i], filter_markers_array[i][0], filter_markers_array[i][1], filter_markers_array[i][2]);
             }
 
-            //render filter marker
-            function RenderFilter(filter_name, data_array_name, action) {
+            //markers array
 
-                //filter markers arrray
-                camera_markers = [];
-                hotel_markers = [];
-                gas_station_markers = [];
-                dinner_markers = [];
-                train_markers = [];
-                museum_markers = [];
-                market_markers = [];
-                anchor_markers = [];
-                cafe_markers = [];
-                bar_markers = [];
+            if (filter_name == 'camera') {
+                marker_array = camera_markers;
+            } else if (filter_name == 'bed') {
+                marker_array = hotel_markers;
+            } else if (filter_name == 'gaspump') {
+                marker_array = gas_station_markers;
+            } else if (filter_name == 'dinner') {
+                marker_array = dinner_markers;
+            } else if (filter_name == 'train') {
+                marker_array = train_markers;
+            } else if (filter_name == 'museum') {
+                marker_array = museum_markers;
+            } else if (filter_name == 'market') {
+                marker_array = market_markers;
+            } else if (filter_name == 'anchor') {
+                marker_array = anchor_markers;
+            } else if (filter_name == 'cafe') {
+                marker_array = cafe_markers;
+            } else if (filter_name == 'bar') {
+                marker_array = bar_markers;
+            }
 
-                filter_markers_array = [
-                    [photo_array, camera_markers, GenerateMarkers("fa-camera", "blue")],
-                    [hotel_array, hotel_markers, GenerateMarkers("fa-bed", "black")],
-                    [pump_array, gas_station_markers, GenerateMarkers("fa-gas-pump", "green")],
-                    [food_array, dinner_markers, GenerateMarkers("fa-utensils", "lightgray")],
-                    [train_array, train_markers, GenerateMarkers("fa-train", "darkblue")],
-                    [museum_array, museum_markers, GenerateMarkers("fa-landmark", "red")],
-                    [market_array, market_markers, GenerateMarkers("fa-store", "lightred")],
-                    [anchor_array, anchor_markers, GenerateMarkers("fa-anchor", "cadetblue")],
-                    [cafe_array, cafe_markers, GenerateMarkers("fa-coffee", "orange")],
-                    [bar_array, bar_markers, GenerateMarkers("fa-wine-glass-alt", "purple")],
-                ]
+            //markers id array
 
+            if (action == 'add') {
 
-                for (i = 0; i < filter_markers_array.length; i++) {
-                    GenerateFilterMarker(data_array[i], filter_markers_array[i][0], filter_markers_array[i][1], filter_markers_array[i][2]);
+                id_array = [];
+
+                var layerGroup = L.layerGroup(marker_array);
+                layerGroup.addTo(map);
+
+                for (let i = 0; i < marker_array.length; i++) {
+                    id_array.push(marker_array[i]._leaflet_id);
                 }
 
-                //markers array
+                markers_id.push([filter_name, id_array]);
 
-                if (filter_name == 'camera') {
-                    marker_array = camera_markers;
-                } else if (filter_name == 'bed') {
-                    marker_array = hotel_markers;
-                } else if (filter_name == 'gaspump') {
-                    marker_array = gas_station_markers;
-                } else if (filter_name == 'dinner') {
-                    marker_array = dinner_markers;
-                } else if (filter_name == 'train') {
-                    marker_array = train_markers;
-                } else if (filter_name == 'museum') {
-                    marker_array = museum_markers;
-                } else if (filter_name == 'market') {
-                    marker_array = market_markers;
-                } else if (filter_name == 'anchor') {
-                    marker_array = anchor_markers;
-                } else if (filter_name == 'cafe') {
-                    marker_array = cafe_markers;
-                } else if (filter_name == 'bar') {
-                    marker_array = bar_markers;
-                }
-
-                //markers id array
-
-                if (action == 'add') {
-
-                    id_array = [];
-
-                    var layerGroup = L.layerGroup(marker_array);
-                    layerGroup.addTo(map);
-
+                map.eachLayer(function(layer) {
                     for (let i = 0; i < marker_array.length; i++) {
-                        id_array.push(marker_array[i]._leaflet_id);
-                    }
+                        id = id_array[i];
+                        lat = data_array_name[i][1][0];
+                        lng = data_array_name[i][1][1];
 
-                    markers_id.push([filter_name, id_array]);
-
-                    map.eachLayer(function(layer) {
-                        for (let i = 0; i < marker_array.length; i++) {
-                            id = id_array[i];
-                            lat = data_array_name[i][1][0];
-                            lng = data_array_name[i][1][1];
-
-                            if (layer._leaflet_id == id) {
-                                geocodeService.reverse().latlng({
-                                    "lat": lat,
-                                    "lng": lng,
-                                }).run(function(error, result) {
-                                    if (error) {
-                                        layer.bindPopup('NO PLACE MATCH');
-                                    } else {
-                                        layer.bindPopup(data_array_name[i][0]);
-                                    }
-                                })
-                            }
+                        if (layer._leaflet_id == id) {
+                            geocodeService.reverse().latlng({
+                                "lat": lat,
+                                "lng": lng,
+                            }).run(function(error, result) {
+                                if (error) {
+                                    layer.bindPopup('NO PLACE MATCH');
+                                } else {
+                                    layer.bindPopup(data_array_name[i][0]);
+                                }
+                            })
                         }
-                    });
+                    }
+                });
 
-                } else {
-                    map.eachLayer(function(layer) {
+            } else {
+                map.eachLayer(function(layer) {
 
-                        for (let i = 0; i < markers_id.length; i++) {
-                            if (markers_id[i][0] == filter_name) {
-                                for (let j = 0; j < markers_id[i][1].length; j++) {
-                                    id = markers_id[i][1];
-                                    if (layer._leaflet_id == id[j]) {
-                                        map.removeLayer(layer);
-                                    }
+                    for (let i = 0; i < markers_id.length; i++) {
+                        if (markers_id[i][0] == filter_name) {
+                            for (let j = 0; j < markers_id[i][1].length; j++) {
+                                id = markers_id[i][1];
+                                if (layer._leaflet_id == id[j]) {
+                                    map.removeLayer(layer);
                                 }
                             }
                         }
-                    });
-
-                }
-            }
-
-            function MinimizeTab() {
-
-                element_config = [
-                    ['.route-main-block', 'hidden'],
-                    ['.login-block', 'visible'],
-                    ['.info-block', 'visible', '65%'],
-                ];
-
-                for (i = 0; i < element_config.length; i++) {
-                    element_block = document.querySelectorAll(element_config[i][0]);
-                    if (element_config[i][0] == 'info-block-body') {
-                        element_block.forEach(e => {
-                            e.style.display = element_config[i][1];
-                        });
-                        continue;
-                    } else if (element_config[i][0] == '.info-block') {
-
-                        element_block.forEach(a => {
-                            a.style.left = element_config[i][2];
-                        });
                     }
+                });
+
+            }
+        }
+
+        function MinimizeTab() {
+
+            element_config = [
+                ['.route-main-block', 'hidden'],
+                ['.login-block', 'visible'],
+                ['.info-block', 'visible', '65%'],
+            ];
+
+            for (i = 0; i < element_config.length; i++) {
+                element_block = document.querySelectorAll(element_config[i][0]);
+                if (element_config[i][0] == 'info-block-body') {
                     element_block.forEach(e => {
-                        e.style.visibility = element_config[i][1];
+                        e.style.display = element_config[i][1];
+                    });
+                    continue;
+                } else if (element_config[i][0] == '.info-block') {
+
+                    element_block.forEach(a => {
+                        a.style.left = element_config[i][2];
                     });
                 }
-
-                leaflet_zoom_block = document.querySelectorAll('.leaflet-control-container');
-                leaflet_zoom_block.forEach(e => {
-                    e.style.right = '5%';
+                element_block.forEach(e => {
+                    e.style.visibility = element_config[i][1];
                 });
-
-                info_block_header = document.querySelectorAll('.info-block-body');
-                info_block_header.forEach(e => {
-                    e.style.display = 'block';
-                });
-
-                routing_markers_id = [];
-
-                // clear layers system
-                map.eachLayer(function(layer) {
-                    for (let i = 0; i < routing_markers_list.length; i++) {
-                        routing_markers_id.push(routing_markers_list[i]._leaflet_id);
-
-                    }
-                })
-                map.eachLayer(function(layer) {
-                    for (let i = 0; i < routing_markers.length; i++) {
-                        id = routing_markers_id[i];
-                        if (layer._leaflet_id == id) {
-                            map.removeLayer(layer);
-                        }
-                    }
-                });
-
-                map.removeControl(routing);
-
             }
 
-            function ExpandTab() {
-                element_config = [
-                    ['.route-main-block', 'visible'],
-                    ['.login-block', 'hidden'],
-                    ['.info-block', 'visible', '40%'],
-                ];
+            leaflet_zoom_block = document.querySelectorAll('.leaflet-control-container');
+            leaflet_zoom_block.forEach(e => {
+                e.style.right = '5%';
+            });
 
-                for (i = 0; i < element_config.length; i++) {
-                    element_block = document.querySelectorAll(element_config[i][0]);
+            info_block_header = document.querySelectorAll('.info-block-body');
+            info_block_header.forEach(e => {
+                e.style.display = 'block';
+            });
 
-                    if (element_config[i][0] == '.info-block') {
+            routing_markers_id = [];
 
-                        element_block.forEach(a => {
-                            a.style.left = element_config[i][2];
+            // clear layers system
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < routing_markers_list.length; i++) {
+                    routing_markers_id.push(routing_markers_list[i]._leaflet_id);
+
+                }
+            })
+            map.eachLayer(function(layer) {
+                for (let i = 0; i < routing_markers.length; i++) {
+                    id = routing_markers_id[i];
+                    if (layer._leaflet_id == id) {
+                        map.removeLayer(layer);
+                    }
+                }
+            });
+
+            map.removeControl(routing);
+
+        }
+
+        function ExpandTab() {
+            element_config = [
+                ['.route-main-block', 'visible'],
+                ['.login-block', 'hidden'],
+                ['.info-block', 'visible', '40%'],
+            ];
+
+            for (i = 0; i < element_config.length; i++) {
+                element_block = document.querySelectorAll(element_config[i][0]);
+
+                if (element_config[i][0] == '.info-block') {
+
+                    element_block.forEach(a => {
+                        a.style.left = element_config[i][2];
+                    });
+                }
+                element_block.forEach(e => {
+                    e.style.visibility = element_config[i][1];
+                });
+            }
+
+            leaflet_zoom_block = document.querySelectorAll('.leaflet-control-container');
+            leaflet_zoom_block.forEach(e => {
+                e.style.right = '35%';
+            })
+
+            info_block_header = document.querySelectorAll('.info-block-body');
+            info_block_header.forEach(e => {
+                e.style.display = 'none';
+            });
+
+
+
+            routing_markers_list = [];
+
+            // routing system
+            routing = L.Routing.control({
+                waypoints: [
+                    pin_1,
+                    pin_2,
+                    pin_3,
+                    pin_4,
+                ],
+                createMarker: function(i, start, n) {
+                    var marker_icon = null;
+                    var others_marker = [pin_2, pin_3];
+
+                    // start icon
+                    if (i == 0) {
+                        marker = L.marker(pin_1, {
+                            draggable: true,
+                            bounceOnAdd: false,
+                            bounceOnAddOptions: {
+                                duration: 1000,
+                                height: 800,
+                            },
+                            icon: GenerateMarkers("fa-flag", "green"),
+                        }, )
+
+                        routing_markers_list.push(marker);
+
+                    }
+                    // end icon
+                    else if (i == n - 1) {
+                        // marker_icon = icon_end;
+                        marker = L.marker(pin_4, {
+                            draggable: true,
+                            bounceOnAdd: false,
+                            bounceOnAddOptions: {
+                                duration: 1000,
+                                height: 800,
+                            },
+                            icon: GenerateMarkers("fa-flag", "black"),
+                        }, )
+                        routing_markers_list.push(marker);
+
+                    } else {
+
+                        marker_icon = L.ExtraMarkers.icon({
+                            icon: 'fa-number',
+                            number: i,
+                            markerColor: "black",
+                            iconColor: "white"
                         });
+
+                        marker = L.marker(others_marker[i - 1], {
+                            draggable: true,
+                            bounceOnAdd: false,
+                            bounceOnAddOptions: {
+                                duration: 1000,
+                                height: 800,
+                            },
+                            icon: marker_icon,
+                        }, )
+                        routing_markers_list.push(marker);
                     }
-                    element_block.forEach(e => {
-                        e.style.visibility = element_config[i][1];
-                    });
+                    return marker;
                 }
-
-                leaflet_zoom_block = document.querySelectorAll('.leaflet-control-container');
-                leaflet_zoom_block.forEach(e => {
-                    e.style.right = '35%';
-                })
-
-                info_block_header = document.querySelectorAll('.info-block-body');
-                info_block_header.forEach(e => {
-                    e.style.display = 'none';
-                });
+            }).addTo(map);
 
 
-
-                routing_markers_list = [];
-
-                // routing system
-                routing = L.Routing.control({
-                    waypoints: [
-                        pin_1,
-                        pin_2,
-                        pin_3,
-                        pin_4,
-                    ],
-                    createMarker: function(i, start, n) {
-                        var marker_icon = null;
-                        var others_marker = [pin_2, pin_3];
-
-                        // start icon
-                        if (i == 0) {
-                            marker = L.marker(pin_1, {
-                                draggable: true,
-                                bounceOnAdd: false,
-                                bounceOnAddOptions: {
-                                    duration: 1000,
-                                    height: 800,
-                                },
-                                icon: GenerateMarkers("fa-flag", "green"),
-                            }, )
-
-                            routing_markers_list.push(marker);
-
-                        }
-                        // end icon
-                        else if (i == n - 1) {
-                            // marker_icon = icon_end;
-                            marker = L.marker(pin_4, {
-                                draggable: true,
-                                bounceOnAdd: false,
-                                bounceOnAddOptions: {
-                                    duration: 1000,
-                                    height: 800,
-                                },
-                                icon: GenerateMarkers("fa-flag", "black"),
-                            }, )
-                            routing_markers_list.push(marker);
-
-                        } else {
-
-                            marker_icon = L.ExtraMarkers.icon({
-                                icon: 'fa-number',
-                                number: i,
-                                markerColor: "black",
-                                iconColor: "white"
-                            });
-
-                            marker = L.marker(others_marker[i - 1], {
-                                draggable: true,
-                                bounceOnAdd: false,
-                                bounceOnAddOptions: {
-                                    duration: 1000,
-                                    height: 800,
-                                },
-                                icon: marker_icon,
-                            }, )
-                            routing_markers_list.push(marker);
-                        }
-                        return marker;
-                    }
-                }).addTo(map);
-
-
-            }
-        </script>
+        }
+    </script>
