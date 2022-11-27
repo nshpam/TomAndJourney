@@ -24,7 +24,15 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <h4 id="trip-name" class="col-11"> Untitled </h4>
+                        <?php
+                        // echo $_SESSION['trip_name'];
+                        // if (isset($_SESSION['trip_set_name'])) {
+                        //     $trip_name = $_SESSION['trip_set_name'];
+                        // } else {
+                        //     $trip_name = "Untitled";
+                        // }
+                        ?>
+                        <h4 id="trip-name" class="col-11"> </h4>
                         <button type='button' class='btn btn-primary col-1' onclick="ChangeName()">Change</button>
                     </div>
                 </div>
@@ -222,9 +230,8 @@ include('includes/scripts.php');
 </style>
 
 <script>
-    // $(document).ready(function() {
-    //     $('#modal-default').modal('toggle');
-    // });
+    // ReceivedTripName = "";
+
     //send data to database
     function ConfirmData(id_arr) {
         console.log(id_arr);
@@ -272,13 +279,24 @@ include('includes/scripts.php');
         $('#modal-default').modal('toggle');
     }
 
+    if (sessionStorage.getItem('trip_set_name') != '') {
+        trip_set_name = sessionStorage.getItem('trip_set_name');
+        document.getElementById('trip-name').innerHTML = trip_set_name;
+
+    } else {
+        document.getElementById('trip-name').innerHTML = "Untitled";
+    }
+
     function SendTripName() {
         ReceivedTripName = document.getElementById('tripname_input').value;
         if (ReceivedTripName != '') {
             document.getElementById('trip-name').innerHTML = ReceivedTripName;
+            sessionStorage.setItem("trip_set_name", ReceivedTripName);
             $('#modal-default').modal('hide');
         }
     }
+
+
 
     function CancelTripName() {
         $('#modal-default').modal('hide');
