@@ -168,6 +168,45 @@ if (isset($_POST['delete_trip'])) {
     }
 }
 
+if (isset($_POST['delete_trip_set'])) {
+    //collect location id
+    $location_id = $_POST['delete_trip_set'];
+
+    //database name
+    $database_name = $database_table_14;
+
+    //push field
+    array_push($db_field_array, $database_table_2_id_field);
+
+    //push data
+    array_push($data_array, $location_id);
+
+    //action
+    $database_action = 'delete';
+
+    $query = sql_command($database_name, $db_field_array, $data_array, $database_action);
+
+    $query_run = mysqli_query($conn, $query);
+
+
+    if ($query_run) {
+        $_SESSION['status'] = "Successfully!";
+        $_SESSION['status_detail'] = "Successfully delete data";
+        $_SESSION['status_code'] = "success";
+
+        header('location: add-create-trip.php');
+
+        exit(0);
+    } else {
+        $_SESSION['status'] = "Error!";
+        $_SESSION['status_detail'] = "Can not delete data";
+        $_SESSION['status_code'] = "error";
+
+        header('location: add-create-trip.php');
+        exit(0);
+    }
+}
+
 // update
 if (isset($_POST['update_trip'])) {
     $location_id = trim($_POST['location_id']);

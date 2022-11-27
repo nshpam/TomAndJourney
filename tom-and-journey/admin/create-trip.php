@@ -76,7 +76,7 @@ include('../config.php');
                                                         if ($row_2[1] == $row[2][$i]) {
 
                                                             $temp_data = array(
-                                                                // 'id' => $row_2[1],
+
                                                                 'name' =>  $row_2[2],
                                                                 'address' =>  $row_2[3],
                                                                 'lat' =>  $row_2[4],
@@ -102,7 +102,7 @@ include('../config.php');
 
                                         <td><?= $show_trip_list ?></td>
                                         <td>
-                                            <form action="create-trip-add-update.php?id=<?= $row[0]; ?>" name="delete_trip" method="post">
+                                            <form action="create-trip-add-update.php?id=<?= $row[0]; ?>" name="delete_trip_set" method="post">
                                                 <button type="submit" name="delete_trip_set" value="<?= $row[0]; ?>" class="btn btn-danger">Delete</button>
                                             </form>
                                         </td>
