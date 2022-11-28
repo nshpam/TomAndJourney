@@ -75,6 +75,7 @@ include('../config.php');
 
                                                         if ($row_2[1] == $row[2][$i]) {
 
+                                                            // echo $row[2][$i] . '<br>';
                                                             $temp_data = array(
 
                                                                 'name' =>  $row_2[2],
@@ -95,6 +96,9 @@ include('../config.php');
                                         }
 
                                         $show_trip_list = "";
+
+
+
                                         for ($i = 0; $i < count($trip_list); $i++) {
                                             $show_trip_list .=  "name : " . $trip_list[$i]['name'] . "<br> address : " . $trip_list[$i]['address'] . "<br> lat : " . $trip_list[$i]['lat'] . "<br> lng : " . $trip_list[$i]['lng'] . "<br> type : " . $trip_list[$i]['type'] . "<br> <br>";
                                         }

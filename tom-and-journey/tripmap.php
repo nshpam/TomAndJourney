@@ -105,17 +105,14 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                             $trip_des_arr = array(
                                 "1" => "สำหรับสายเที่ยวที่อยากไปล้มละลายกับห้างดังใจกลางเมือง",
                                 "2" => "สำหรับสายเที่ยวที่ต้องการพักผ่อนปล่อยกายปล่อยใจไปกับธรรมชาติ",
-                                "3" => "สำหรับสายเที่ยวที่ต้องการความท้าทายแบบ extreme",
                             );
                             $trip_distance_arr = array(
                                 "1" => "23km",
-                                "2" => "15km",
-                                "3" => "10km",
+                                "2" => "30km",
                             );
                             $trip_time_arr =  array(
                                 "1" => "3h 30m",
-                                "2" => "1h 20m",
-                                "3" => "2h",
+                                "2" => "43m",
                             );
                             if ($query) {
                                 while ($row = mysqli_fetch_row($query)) {
@@ -131,7 +128,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                                     // echo "<script>console.log('$trip_ids')</script>";
                                     echo "
                             
-                            <div class='container' " . "onclick=" . "ChosenTrip('$trip_ids')" . ">" . "
+                            <div class='container' id='recommend-trips'" . "onclick=" . '"' . "ChosenTrip('$trip_ids','$trip_name')" . '"' . ">" . "
                                 <div class='row'>
                                     <div class='container route-1 col-md-10'>
                                         <h5>$trip_name</h5>
@@ -167,66 +164,66 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
             </div>
 
             <!-- filter and info design -->
-            <!-- <div class="card d-flex info-block">
-                    <div class="card-header info-block-body">
-                        <div class="d-flex">
-                            <div class="row">
-                                <div class="icon-text d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <p>4</p>
-                                </div>
-                                <div class="icon-text d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-clock"></i>
-                                    <p>27m</p>
-                                </div>
-                                <div class="icon-text d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-truck"></i>
-                                    <p>10km</p>
-                                </div>
-                                <div class="icon-text d-flex justify-content-center align-items-center">
-                                    <i class="fab fa-bitcoin"></i>
-                                    <p>100B</p>
-                                </div>
-
-                                <div class="icon-text d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-chevron-down" onclick="ExpandTab()"></i>
-                                </div>
-
+            <div class="card d-flex info-block">
+                <div class="card-header info-block-body">
+                    <div class="d-flex">
+                        <div class="row">
+                            <div class="icon-text d-flex justify-content-center align-items-center">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p id="pin_amount_2">4</p>
                             </div>
+                            <div class="icon-text d-flex justify-content-center align-items-center">
+                                <i class="fas fa-clock"></i>
+                                <p id="time_amount_2">27m</p>
+                            </div>
+                            <div class="icon-text d-flex justify-content-center align-items-center">
+                                <i class="fas fa-truck"></i>
+                                <p id="distance_amount_2">10km</p>
+                            </div>
+                            <div class="icon-text d-flex justify-content-center align-items-center">
+                                <i class="fab fa-bitcoin"></i>
+                                <p id="money_amount_2">100B</p>
+                            </div>
+
+                            <div class="icon-text d-flex justify-content-center align-items-center">
+                                <i class="fas fa-chevron-down" onclick="ExpandTab('undefined')"></i>
+                            </div>
+
                         </div>
                     </div>
+                </div>
 
-                    <div class="card-body d-flex filter-block justify-content-center align-items-center">
-                        <div class="row filter-block-body d-flex justify-content-center align-items-center">
-                            <div class="" id="icon-box-1">
-                                <i class="fas fa-camera d-flex active-1" id="map-icons" onclick="ActiveIcon('active_1')"></i>
-                            </div>
-
-                            <div class="blank_div"></div>
-
-                            <div class="" id="icon-box-2">
-                                <i class="fas fa-bed d-flex active-2" id="map-icons" onclick="ActiveIcon('active_2')"></i>
-                            </div>
-                            <div class="blank_div"></div>
-
-                            <div class="" id="icon-box-3"><i class="fas fa-gas-pump d-flex active-3" id="map-icons" onclick="ActiveIcon('active_3')"></i></div>
-                            <div class="blank_div"></div>
-                            <div class="" id="icon-box-4"><i class="fas fa-utensils d-flex active-4" id="map-icons" onclick="ActiveIcon('active_4')"></i></div>
-                            <div class="blank_div"></div>
-                            <div class="" id="icon-box-5"><i class="fas fa-train d-flex active-5" id="map-icons" onclick="ActiveIcon('active_5')"></i></div>
-                            <div class="blank_div"></div>
-                            <div class="" id="icon-box-6"><i class="fas fa-landmark d-flex active-6" id="map-icons" onclick="ActiveIcon('active_6')"></i></div>
-                            <div class="blank_div"></div>
-                            <div class="" id="icon-box-7"><i class="fas fa-store d-flex active-7" id="map-icons" onclick="ActiveIcon('active_7')"></i></div>
-                            <div class="blank_div"></div>
-                            <div class="" id="icon-box-8"><i class="fas fa-anchor d-flex active-8" id="map-icons" onclick="ActiveIcon('active_8')"></i></div>
-                            <div class="blank_div"></div>
-                            <div class="" id="icon-box-9"><i class="fas fa-coffee d-flex active-9" id="map-icons" onclick="ActiveIcon('active_9')"></i></div>
-                            <div class="blank_div"></div>
-                            <div class="" id="icon-box-10"><i class="fas fa-wine-glass-alt d-flex active-10" id="map-icons" onclick="ActiveIcon('active_10')"></i></div>
+                <div class="card-body d-flex filter-block justify-content-center align-items-center">
+                    <div class="row filter-block-body d-flex justify-content-center align-items-center">
+                        <div class="" id="icon-box-1">
+                            <i class="fas fa-camera d-flex active-1" id="map-icons" onclick="ActiveIcon('active_1')"></i>
                         </div>
+
+                        <div class="blank_div"></div>
+
+                        <div class="" id="icon-box-2">
+                            <i class="fas fa-bed d-flex active-2" id="map-icons" onclick="ActiveIcon('active_2')"></i>
+                        </div>
+                        <div class="blank_div"></div>
+
+                        <div class="" id="icon-box-3"><i class="fas fa-gas-pump d-flex active-3" id="map-icons" onclick="ActiveIcon('active_3')"></i></div>
+                        <div class="blank_div"></div>
+                        <div class="" id="icon-box-4"><i class="fas fa-utensils d-flex active-4" id="map-icons" onclick="ActiveIcon('active_4')"></i></div>
+                        <div class="blank_div"></div>
+                        <div class="" id="icon-box-5"><i class="fas fa-train d-flex active-5" id="map-icons" onclick="ActiveIcon('active_5')"></i></div>
+                        <div class="blank_div"></div>
+                        <div class="" id="icon-box-6"><i class="fas fa-landmark d-flex active-6" id="map-icons" onclick="ActiveIcon('active_6')"></i></div>
+                        <div class="blank_div"></div>
+                        <div class="" id="icon-box-7"><i class="fas fa-store d-flex active-7" id="map-icons" onclick="ActiveIcon('active_7')"></i></div>
+                        <div class="blank_div"></div>
+                        <div class="" id="icon-box-8"><i class="fas fa-anchor d-flex active-8" id="map-icons" onclick="ActiveIcon('active_8')"></i></div>
+                        <div class="blank_div"></div>
+                        <div class="" id="icon-box-9"><i class="fas fa-coffee d-flex active-9" id="map-icons" onclick="ActiveIcon('active_9')"></i></div>
+                        <div class="blank_div"></div>
+                        <div class="" id="icon-box-10"><i class="fas fa-wine-glass-alt d-flex active-10" id="map-icons" onclick="ActiveIcon('active_10')"></i></div>
                     </div>
-                </div> -->
+                </div>
+            </div>
 
 
             <!-- filter, info, route design -->
@@ -244,96 +241,118 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                     </div>
                 </div>
                 <div class="card-body col-md-12 card-context-1">
-                    <div class="container">
+                    <div class="container " id="block_1">
                         <div class="row">
                             <div class="container route-1 col-md-7">
-                                <h5>สวนลุมพินี</h5>
-                                <p>ปทุมวัน, กรุงเทพ</p>
+                                <h5 id="name_1">สวนลุมพินี</h5>
+                                <p id="address_1">ปทุมวัน, กรุงเทพ</p>
                             </div>
                             <i class="fas fa-map-marker-alt fa-lg col-md-4 d-flex justify-content-end align-items-center" style="color: black;"></i>
-                            <p class="sequence">1</p>
+                            <p class="sequence" id="sequence_1">1</p>
                         </div>
                         <div class="row col-md-12 route-detail-1 ">
                             <hr class="col-md-4 line-place">
                             <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
                                 <i class="fas fa-car"></i>
-                                <p>5km</p>
+                                <p id="distance_1">5km</p>
                             </div>
                             <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
                                 <i class="fas fa-clock "></i>
-                                <p>10m</p>
+                                <p id="time_1">10m</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="blank-between-container"></div>
 
-                    <div class="container">
+                    <div class="container " id="block_2">
                         <div class="row">
                             <div class="container route-1 col-md-7">
-                                <h5>วัดไตรมิตรวิทยารามวรวิหาร</h5>
-                                <p>สัมพันธวงศ์, กรุงเทพ</p>
+                                <h5 id="name_2">วัดไตรมิตรวิทยารามวรวิหาร</h5>
+                                <p id="address_2">สัมพันธวงศ์, กรุงเทพ</p>
                             </div>
                             <i class="fas fa-map-marker-alt fa-lg col-md-4 d-flex justify-content-end align-items-center" style="color: black;"></i>
-                            <p class="sequence">2</p>
+                            <p class="sequence" id="sequence_2">2</p>
                         </div>
                         <div class="row col-md-12 route-detail-1 ">
                             <hr class="col-md-4 line-place">
                             <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
                                 <i class="fas fa-car"></i>
-                                <p>1km</p>
+                                <p id="distance_2">1km</p>
                             </div>
                             <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
                                 <i class="fas fa-clock "></i>
-                                <p>4m</p>
+                                <p id="time_2">4m</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="blank-between-container"></div>
 
-                    <div class="container">
+                    <div class="container " id="block_3">
                         <div class="row">
                             <div class="container route-1 col-md-7">
-                                <h5>วัดสระเกศราชวรมหาวิหาร (ภูเขาทอง)</h5>
-                                <p>ป้อมปราบศัตรูพ่าย, กรุงเทพ</p>
+                                <h5 id="name_3">วัดสระเกศราชวรมหาวิหาร (ภูเขาทอง)</h5>
+                                <p id="address_3">ป้อมปราบศัตรูพ่าย, กรุงเทพ</p>
                             </div>
                             <i class="fas fa-map-marker-alt fa-lg col-md-4 d-flex justify-content-end align-items-center" style="color: black;"></i>
-                            <p class="sequence">3</p>
+                            <p class="sequence" id="sequence_3">3</p>
                         </div>
                         <div class="row col-md-12 route-detail-1 ">
                             <hr class="col-md-4 line-place">
                             <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
                                 <i class="fas fa-car"></i>
-                                <p>2km</p>
+                                <p id="distance_3">2km</p>
                             </div>
                             <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
                                 <i class="fas fa-clock "></i>
-                                <p>5m</p>
+                                <p id="time_3">5m</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="blank-between-container"></div>
 
-                    <div class="container">
+                    <div class="container " id="block_4">
                         <div class="row">
                             <div class="container route-1 col-md-7">
-                                <h5>วัดเบญจมบพิตรดุสิตวนาราม</h5>
-                                <p>ดุสิต, กรุงเทพ</p>
+                                <h5 id="name_4"></h5>
+                                <p id="address_4"></p>
                             </div>
                             <i class="fas fa-map-marker-alt fa-lg col-md-4 d-flex justify-content-end align-items-center" style="color: black;"></i>
-                            <p class="sequence">4</p>
+                            <p class="sequence" id="sequence_4">4</p>
                         </div>
                         <div class="row col-md-12 route-detail-1 ">
                             <hr class="col-md-4 line-place">
                             <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
                                 <i class="fas fa-car"></i>
-                                <p>2km</p>
+                                <p id="distance_4"></p>
                             </div>
                             <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
                                 <i class="fas fa-clock "></i>
-                                <p>5m</p>
+                                <p id="time_4"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container " id="block_5">
+                        <div class="row">
+                            <div class="container route-1 col-md-7">
+                                <h5 id="name_5"></h5>
+                                <p id="address_5"></p>
+                            </div>
+                            <i class="fas fa-map-marker-alt fa-lg col-md-4 d-flex justify-content-end align-items-center" style="color: black;"></i>
+                            <p class="sequence" id="sequence_5"></p>
+                        </div>
+                        <div class="row col-md-12 route-detail-1 ">
+                            <hr class="col-md-4 line-place">
+                            <div class="col-md-3 travel-distance d-flex justify-content-center align-items-center">
+                                <i class="fas fa-car"></i>
+                                <p id="distance_5"></p>
+                            </div>
+                            <div class="col-md-3 travel-time d-flex justify-content-center align-items-center">
+                                <i class="fas fa-clock "></i>
+                                <p id="time_5"></p>
                             </div>
                         </div>
                     </div>
@@ -345,19 +364,19 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 
                         <div class="icon-text d-flex justify-content-center align-items-center">
                             <i class="fas fa-map-marker-alt"></i>
-                            <p>4</p>
+                            <p id="pin_amount">4</p>
                         </div>
                         <div class="icon-text d-flex justify-content-center align-items-center">
                             <i class="fas fa-clock"></i>
-                            <p>27m</p>
+                            <p id="time_amount">27m</p>
                         </div>
                         <div class="icon-text d-flex justify-content-center align-items-center">
                             <i class="fas fa-truck"></i>
-                            <p>10km</p>
+                            <p id="distance_amount">10km</p>
                         </div>
                         <div class="icon-text d-flex justify-content-center align-items-center">
                             <i class="fab fa-bitcoin"></i>
-                            <p>100B</p>
+                            <p id="money_amount">0B</p>
                         </div>
                         <div class="icon-text d-flex justify-content-center align-items-center">
                             <i class="fas fa-chevron-up" onclick="MinimizeTab()"></i>
@@ -399,12 +418,14 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
             color: #A64343 !important;
         }
 
+
+
         #recommend-block {
             background-color: black;
             border-radius: 5px;
             position: absolute;
             justify-content: flex-end;
-            top: 5%;
+            top: 20%;
             left: 35%;
             flex-wrap: wrap;
             display: flex;
@@ -413,18 +434,8 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
             vertical-align: center;
         }
 
-        #recommend-block {
-            background-color: black;
-            border-radius: 5px;
-            position: absolute;
-            justify-content: flex-end;
-            top: 10%;
-            left: 35%;
-            flex-wrap: wrap;
-            display: flex;
-            z-index: 999;
-            color: white;
-            vertical-align: center;
+        #recommend-trips {
+            cursor: pointer;
         }
 
         #recommend-body {
@@ -437,12 +448,39 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
         #recommend-body p {
             color: black;
         }
+
+        .info-block {
+            visibility: hidden;
+        }
     </style>
 
 
     <script>
         //recommend trip control
 
+        distance_arr = {
+            "จามจุรีสแควร์": "5",
+            "สามย่าน มิตรทาวน์": "5",
+            "Central world": "2",
+            "Siam Paragon": "5",
+            "MBK": "20",
+            "เมก้า พลาซ่า สะพานเหล็ก": "3",
+            "สวนลุมพินี": "10",
+            "สวนป่าเบญจกิติ": "9",
+            "อุทยานเฉลิมพระเกียรติฯ ร.๙": "11",
+        };
+
+        time_arr = {
+            "จามจุรีสแควร์": "5",
+            "สามย่าน มิตรทาวน์": "15",
+            "Central world": "10",
+            "Siam Paragon": "20",
+            "MBK": "45",
+            "เมก้า พลาซ่า สะพานเหล็ก": "10",
+            "สวนลุมพินี": "20",
+            "สวนป่าเบญจกิติ": "15",
+            "อุทยานเฉลิมพระเกียรติฯ ร.๙": "8",
+        }
 
         //navigation bar
         a = document.getElementById('trip-planner-link');
@@ -719,6 +757,19 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
         }
 
         function MinimizeTab() {
+
+            received_pin = sessionStorage.getItem('Pin');
+            received_time = sessionStorage.getItem('Time');
+            received_distance = sessionStorage.getItem('Distance');
+
+            document.getElementById('pin_amount_2').innerHTML = received_pin;
+            document.getElementById('time_amount_2').innerHTML = received_time;
+            document.getElementById('distance_amount_2').innerHTML = received_distance;
+            document.getElementById('money_amount_2').innerHTML = "0B";
+
+
+            // console.log(trip_name);
+
             element_config = [
                 ['.route-main-block', 'hidden'],
                 ['.login-block', 'visible'],
@@ -775,8 +826,10 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 
         }
 
-        function ChosenTrip(trip_id_list) {
-            // console.log(trip_id_list);
+        function ChosenTrip(trip_id_list, trip_name) {
+
+
+
 
             //get data from tripplanner db
             $.ajax({
@@ -788,130 +841,83 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                     id_array: trip_id_list,
                 },
                 success: function(response) {
+                    time_count = 0;
+                    distance_count = 0;
+                    received_lat_lng_arr = [];
 
                     if (response != '') {
                         res = JSON.parse(response);
+                        // temp_res = res;
 
-                        // console.log(res);
-                        // for (i = 0; i < res.length; i++) {
-                        //insert geo data to array
-                        // lat_lng_to_JSON(res[i].type, res[i].name, res[i].lat, res[i].lng);
-                        // }
+                        for (i = 0; i < res.length; i++) {
+
+                            // insert geo data to array
+                            name_text = document.getElementById('name_' + ((i + 1).toString()));
+                            address_text = document.getElementById('address_' + ((i + 1).toString()));
+                            sequence_text = document.getElementById('sequence_' + ((i + 1).toString()));
+                            distance_text = document.getElementById('distance_' + ((i + 1).toString()));
+                            time_text = document.getElementById('time_' + ((i + 1).toString()));
+
+                            name_text.innerHTML = res[i].name;
+
+                            address_text.innerHTML = res[i].address;
+                            sequence_text.innerHTML = (i + 1).toString();
+
+                            distance_text.innerHTML = distance_arr[res[i].name] + 'km';
+                            time_text.innerHTML = time_arr[res[i].name] + 'm';
+                            received_lat_lng_arr.push([parseFloat(res[i].lat), parseFloat(res[i].lng)]);
+                            time_count += parseInt(time_arr[res[i].name]);
+                            distance_count += parseInt(distance_arr[res[i].name]);
+                        }
+
+                        //change info block
+                        document.getElementById('pin_amount').innerHTML = res.length;
+                        document.getElementById('time_amount').innerHTML = time_count.toString() + "m";
+                        document.getElementById('distance_amount').innerHTML = distance_count.toString() + "km";
+
+                        sessionStorage.setItem('Pin', res.length);
+                        sessionStorage.setItem('Time', time_count.toString() + "m");
+                        sessionStorage.setItem('Distance', distance_count.toString() + "km");
+                        sessionStorage.setItem('TripLatLng', JSON.stringify(received_lat_lng_arr));
+                        ExpandTab(received_lat_lng_arr);
+
                     }
-
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
                     console.log('error');
                 }
             });
 
+
+
+
+        }
+
+        function ExpandTab(received_lat_lng_arr) {
+            // console.log(received_lat_lng_arr);
+
+            if (received_lat_lng_arr == "undefined") {
+                received_lat_lng_arr = JSON.parse(sessionStorage.getItem('TripLatLng'));
+
+            }
+
             //main block control
             element_config = [
                 ['.route-main-block', 'visible'],
                 ['.login-block', 'hidden'],
                 ['#recommend-block', 'hidden'],
-                // ['.info-block', 'visible', '40%'],
-            ];
-
-            for (i = 0; i < element_config.length; i++) {
-                element_block = document.querySelectorAll(element_config[i][0]);
-
-                if (element_config[i][0] == '.info-block') {
-
-                    element_block.forEach(a => {
-                        a.style.left = element_config[i][2];
-                    });
-                }
-                element_block.forEach(e => {
-                    e.style.visibility = element_config[i][1];
-                });
-            }
-
-            leaflet_zoom_block = document.querySelectorAll('.leaflet-control-container');
-            leaflet_zoom_block.forEach(e => {
-                e.style.right = '35%';
-            })
-
-            info_block_header = document.querySelectorAll('.info-block-body');
-            info_block_header.forEach(e => {
-                e.style.display = 'none';
-            });
-
-            routing_markers_list = [];
-
-            // routing system
-            routing = L.Routing.control({
-                waypoints: [
-                    pin_1,
-                    pin_2,
-                    pin_3,
-                    pin_4,
-                ],
-                createMarker: function(i, start, n) {
-                    var marker_icon = null;
-                    var others_marker = [pin_2, pin_3];
-
-                    // start icon
-                    if (i == 0) {
-                        marker = L.marker(pin_1, {
-                            draggable: true,
-                            bounceOnAdd: false,
-                            bounceOnAddOptions: {
-                                duration: 1000,
-                                height: 800,
-                            },
-                            icon: GenerateMarkers("fa-flag", "green"),
-                        }, )
-
-                        routing_markers_list.push(marker);
-
-                    }
-                    // end icon
-                    else if (i == n - 1) {
-                        // marker_icon = icon_end;
-                        marker = L.marker(pin_4, {
-                            draggable: true,
-                            bounceOnAdd: false,
-                            bounceOnAddOptions: {
-                                duration: 1000,
-                                height: 800,
-                            },
-                            icon: GenerateMarkers("fa-flag", "black"),
-                        }, )
-                        routing_markers_list.push(marker);
-
-                    } else {
-
-                        marker_icon = L.ExtraMarkers.icon({
-                            icon: 'fa-number',
-                            number: i,
-                            markerColor: "black",
-                            iconColor: "white"
-                        });
-
-                        marker = L.marker(others_marker[i - 1], {
-                            draggable: true,
-                            bounceOnAdd: false,
-                            bounceOnAddOptions: {
-                                duration: 1000,
-                                height: 800,
-                            },
-                            icon: marker_icon,
-                        }, )
-                        routing_markers_list.push(marker);
-                    }
-                    return marker;
-                }
-            }).addTo(map);
-        }
-
-        function ExpandTab() {
-            element_config = [
-                ['.route-main-block', 'visible'],
-                ['.login-block', 'hidden'],
                 ['.info-block', 'visible', '40%'],
             ];
 
+            for (i = 0; i < 5; i++) {
+                name_text = document.getElementById('name_' + ((i + 1).toString()));
+
+                // console.log(name_text);
+                if (name_text.innerHTML == '') {
+                    element_config.push(['#block_' + ((i + 1).toString()), 'hidden']);
+                }
+            }
+
             for (i = 0; i < element_config.length; i++) {
                 element_block = document.querySelectorAll(element_config[i][0]);
 
@@ -935,26 +941,18 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
             info_block_header.forEach(e => {
                 e.style.display = 'none';
             });
-
-
-
             routing_markers_list = [];
 
             // routing system
             routing = L.Routing.control({
-                waypoints: [
-                    pin_1,
-                    pin_2,
-                    pin_3,
-                    pin_4,
-                ],
+                waypoints: received_lat_lng_arr,
                 createMarker: function(i, start, n) {
+
                     var marker_icon = null;
-                    var others_marker = [pin_2, pin_3];
 
                     // start icon
                     if (i == 0) {
-                        marker = L.marker(pin_1, {
+                        marker = L.marker(received_lat_lng_arr[i], {
                             draggable: true,
                             bounceOnAdd: false,
                             bounceOnAddOptions: {
@@ -970,7 +968,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                     // end icon
                     else if (i == n - 1) {
                         // marker_icon = icon_end;
-                        marker = L.marker(pin_4, {
+                        marker = L.marker(received_lat_lng_arr[i], {
                             draggable: true,
                             bounceOnAdd: false,
                             bounceOnAddOptions: {
@@ -990,7 +988,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                             iconColor: "white"
                         });
 
-                        marker = L.marker(others_marker[i - 1], {
+                        marker = L.marker(received_lat_lng_arr[i], {
                             draggable: true,
                             bounceOnAdd: false,
                             bounceOnAddOptions: {

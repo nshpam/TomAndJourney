@@ -1,7 +1,7 @@
 <?php
 //import config file
 include('config.php');
-
+session_start();
 //connect to db
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 $db_array = array();
@@ -106,7 +106,6 @@ if ($conn) {
                 }
             }
         }
-
         echo json_encode($db_array, JSON_UNESCAPED_UNICODE);
     }
 }
