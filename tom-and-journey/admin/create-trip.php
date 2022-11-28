@@ -54,17 +54,22 @@ include('../config.php');
                                         <?php
                                         // echo $row[2];
                                         $trip_list = array();
+                                        $temp = '';
 
 
                                         // echo strlen($row[2]);
                                         for ($i = 0; $i < strlen($row[2]); $i++) {
 
                                             if ($row[2][$i] != ',') {
+                                                $temp .= $row[2][$i];
                                                 // echo $row[2][$i];
+
+                                            } else {
+                                                // echo $temp . '<br>'
                                                 $sql_2 = "SELECT $database_table_14.$database_table_14_tripnum_field, $database_table_13.$database_table_2_id_field, $database_table_13.$database_table_2_name_field, $database_table_13.$database_table_2_address_field, $database_table_13.$database_table_2_lat_field, $database_table_13.$database_table_2_lng_field, $database_table_13.$database_table_2_type_field
                                                         FROM $database_table_14
                                                         INNER JOIN $database_table_13
-                                                        ON " . $row[2][$i] . "= $database_table_13.$database_table_2_id_field";
+                                                        ON " . $temp . "= $database_table_13.$database_table_2_id_field";
 
                                                 $query_2 = mysqli_query($conn, $sql_2);
 
@@ -73,7 +78,7 @@ include('../config.php');
                                                     while ($row_2 = mysqli_fetch_row($query_2)) {
 
 
-                                                        if ($row_2[1] == $row[2][$i]) {
+                                                        if ($row_2[1] == $temp) {
 
                                                             // echo $row[2][$i] . '<br>';
                                                             $temp_data = array(
@@ -92,10 +97,13 @@ include('../config.php');
                                                         }
                                                     }
                                                 }
+                                                $temp = '';
                                             }
                                         }
 
                                         $show_trip_list = "";
+                                        // print_r($trip_list);
+                                        // echo '<br>';
 
 
 

@@ -103,21 +103,6 @@ function sql_command($database_name, $database_field, $database_data, $database_
     }
 }
 
-function joindatabase($main_db, $join_db, $field_to_compare, $field_to_join_1, $field_to_join_2, $field_to_join_3, $field_to_join_4, $field_to_join_5, $field_to_join_6)
-{
-    $sql = "SELECT $main_db.$field_to_compare, $join_db.$field_to_join_1, $join_db.$field_to_join_2, $join_db.$field_to_join_3, $join_db.$field_to_join_4, $join_db.$field_to_join_5, $join_db.$field_to_join_6
-    FROM $main_db
-    INNER JOIN $join_db
-    ON $main_db.$field_to_compare = $join_db.$field_to_compare";
-
-    // $sql = "SELECT map_location.type, hotel_location.name
-    // FROM map_location
-    // INNER JOIN hotel_location
-    // ON map_location.type = hotel_location.type";
-
-    return $sql;
-}
-
 // $sql = sql_command(
 //     $database_table_6,
 //     ['id', 'name', 'address', 'lat', 'lng', 'type'],
@@ -191,33 +176,48 @@ if (isset($_POST['delete_trip_set'])) {
 
     if ($query_run) {
         //collect location id
+
         $location_id = $_GET['location_id'];
+
+        // echo $location_id;
+        // die();
         $success = false;
         //delete locations
+        $temp = '';
 
         for ($i = 0; $i < strlen($location_id); $i++) {
             //reset data_array;
             $data_array = array();
+
             if ($location_id[$i] != ',') {
-                echo $location_id[$i];
+
+                $temp .= $location_id[$i];
+                echo $temp;
+                // echo $location_id[$i];
                 // die();
                 //database name
+
+            } else {
+                echo $temp;
                 $database_name = $database_table_13;
 
                 //push field
                 array_push($db_field_array, $database_table_2_id_field);
 
                 //push data
-                array_push($data_array, $location_id[$i]);
+                array_push($data_array, $temp);
+                // print_r($data_array);
 
                 //action
                 $database_action = 'delete';
 
                 $query_1 = sql_command($database_name, $db_field_array, $data_array, $database_action);
 
+                // echo $query_1;
                 $query_run_1 = mysqli_query($conn, $query_1);
                 if ($query_run_1) {
                     $success = true;
+                    $temp = '';
                 }
             }
         }
@@ -486,6 +486,7 @@ if (isset($_POST['ajax']) && isset($_POST['insert_location_set'])) {
             );
 
             // print_r(count(json_decode($id_arr)));
+            $temp = '';
             for ($i = 0; $i < strlen($id_arr); $i++) {
 
                 $data_array = array();
@@ -493,22 +494,28 @@ if (isset($_POST['ajax']) && isset($_POST['insert_location_set'])) {
                 // echo $id_arr[$i];
                 // die();
 
-                if ($id_arr != ',') {
+                if ($id_arr[$i] != ',') {
+                    $temp .= $id_arr[$i];
                     //push data
+
+                } else {
                     array_push(
                         $data_array,
-                        $id_arr[$i],
+                        $temp,
                         // json_decode($id_arr)[$i],
                         '1',
                     );
+                    $temp = '';
                 }
-
 
                 //action
                 $database_action = 'update_status';
 
                 //insert id array to database
                 $sql = sql_command($database_table_13, $db_field_array, $data_array, $database_action);
+
+                // echo $sql;
+                // die();
                 $query_3 = mysqli_query($conn, $sql);
             }
 
