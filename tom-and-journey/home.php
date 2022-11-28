@@ -61,7 +61,7 @@ include('admin/config/alert_box.php');
                 <!-- buttons -->
                 <div class="row md-5">
                     <div class="col-md-2"></div>
-                    <button type="button" class="btn btn-default col-md-1" id="get-started-button" onclick="GoTo('trip.php')">Get Started</button>
+                    <button type="button" class="btn btn-default col-md-1" id="get-started-button" onclick="GoTo('tripmap.php')">Get Started</button>
                     <button type="button" class="btn btn-default col-md-1" id="see-more-button" onclick="GoTo('aboutus.php')">See more</button>
                 </div>
                 <!-- end buttons -->
