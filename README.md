@@ -9,7 +9,7 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
 
-## Authors 👩‍💻👨‍💻
+## Contributor 👩‍💻👨‍💻
 
 - [@nshpam](https://github.com/nshpam)
 - [@Athibdee](https://github.com/Athibdee)
