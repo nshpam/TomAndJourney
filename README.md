@@ -38,7 +38,6 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 ### *⚠️🚨 Alerts 🚨⚠️*
 ![login_2](https://github.com/nshpam/TomAndJourney/assets/97942535/020991c8-da34-40e6-8541-ad43c691214f)
 ![login_3](https://github.com/nshpam/TomAndJourney/assets/97942535/437f75b5-a60f-41d9-ae77-7cfc3d8d1b95)
-![login_4](https://github.com/nshpam/TomAndJourney/assets/97942535/7d3b10ca-860b-4ca1-b34e-83d9ccd8d4ab)
 ![login_5](https://github.com/nshpam/TomAndJourney/assets/97942535/e966229b-95e6-4a8c-bea8-257a1eec2707)
 ![login_6](https://github.com/nshpam/TomAndJourney/assets/97942535/0a7b9578-d2e2-466c-92b7-1871227e3166)
 
