@@ -41,12 +41,7 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 ![login_4](https://github.com/nshpam/TomAndJourney/assets/97942535/7d3b10ca-860b-4ca1-b34e-83d9ccd8d4ab)
 ![login_5](https://github.com/nshpam/TomAndJourney/assets/97942535/e966229b-95e6-4a8c-bea8-257a1eec2707)
 ![login_6](https://github.com/nshpam/TomAndJourney/assets/97942535/0a7b9578-d2e2-466c-92b7-1871227e3166)
-![login_7](https://github.com/nshpam/TomAndJourney/assets/97942535/6352ee4e-4ae0-4ab5-8d3c-cf02b5cc626f)
-![login_8](https://github.com/nshpam/TomAndJourney/assets/97942535/ce89d60e-c750-4009-b5b6-476b044e16f6)
-![login_9](https://github.com/nshpam/TomAndJourney/assets/97942535/d6d058f8-0a67-44d5-b3af-f72ab73776bb)
-![login_10](https://github.com/nshpam/TomAndJourney/assets/97942535/4272ea68-73f3-43c1-b82e-d7e47bb574d6)
-![login_11](https://github.com/nshpam/TomAndJourney/assets/97942535/aa736f11-95a1-4cd8-9a2d-d072454ef0f7)
-![login_12](https://github.com/nshpam/TomAndJourney/assets/97942535/784795e9-c15f-4fd2-a5ab-180a4bf3a6df)
+
 ---
 
 ### *🚀🌐 Admin Panel Page 🌐🚀*
