@@ -50,16 +50,16 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 | _I've designed the trip planner page to include a map, map filters, pins, pin details, and automatic trip routing. You have the freedom to move the map as you wish, with the ability to zoom in and out. The filters consist of 10 categories, including points of interest for photography, hotels, gas stations, food establishments, metro/skytrain stations, museums, grocery stores, ports, cafes, and bars. Each filter can be toggled separately. The pins are added manually, and the routing system is provided by Leaflet._ |
 
 ###
-| *⚠️🚨 Alerts 🚨⚠️* |
+| *💭🗨️ Modals 💭🗨️* |
 |:--:|
 ![](https://github.com/nshpam/TomAndJourney/assets/97942535/020991c8-da34-40e6-8541-ad43c691214f)
-| _Description_ |
+| _This modal will appear when you have successfully logged into the system._ |
 ![](https://github.com/nshpam/TomAndJourney/assets/97942535/437f75b5-a60f-41d9-ae77-7cfc3d8d1b95)
-| _Description_ |
+| _This modal will show up when you fail to log in to your system due to an unregistered account._ |
 ![](https://github.com/nshpam/TomAndJourney/assets/97942535/e966229b-95e6-4a8c-bea8-257a1eec2707)
-| _Description_ |
+| _This modal will show up when you fail to log in to your system due to blank username and password input._ |
 ![](https://github.com/nshpam/TomAndJourney/assets/97942535/0a7b9578-d2e2-466c-92b7-1871227e3166)
-| _Description_ |
+| _This modal will show up when you fail to log in to your system due to entering the wrong username or password._ |
 
 ###
 | *🚀🌐 Admin Panel Page 🌐🚀* |
@@ -72,8 +72,8 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 ###
 | *🌟✨ About Us Page 📜✨* |
 |:--:|
-![about_1](https://github.com/nshpam/TomAndJourney/assets/97942535/acb10d73-50fb-4e46-8a8d-4b8a88105439) |
-| _Description_ |
+![](https://github.com/nshpam/TomAndJourney/assets/97942535/acb10d73-50fb-4e46-8a8d-4b8a88105439) |
+| _This page serves as the credit page for contributors._ |
 
 ## Future Plan 🎯
 
