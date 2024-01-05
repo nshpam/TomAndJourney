@@ -65,31 +65,31 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 | *🚀🌐 Admin Panel Page 🌐🚀* |
 |:--:|
 ![](https://github.com/nshpam/TomAndJourney/assets/97942535/c2e5ce37-f0be-40ac-94c5-09c4f28d5957)
-| _Description_ |
+| _The dashboard will display shortcuts for each category._ |
 ![admin_1](https://github.com/nshpam/TomAndJourney/assets/97942535/74aebf0e-66b7-4a8b-896b-116befb0f847)
-| _Description_ |
+| _On this page, you can add, edit, or delete train pins._ |
 ![admin_2](https://github.com/nshpam/TomAndJourney/assets/97942535/953eacc3-96fc-4250-acc4-70c608acfdfd)
-| _Description_ |
+| _On this page, you can add, edit, or delete bar pins._ |
 ![admin_3](https://github.com/nshpam/TomAndJourney/assets/97942535/ea99997a-fdf6-416f-892b-82ac7b65f74c)
-| _Description_ |
+| _On this page, you can add, edit, or delete cafe pins._ |
 ![admin_4](https://github.com/nshpam/TomAndJourney/assets/97942535/b0b86384-ebfa-4a15-9835-b564d73989b3)
-| _Description_ |
+| _On this page, you can add, edit, or delete anchor pins._ |
 ![admin_5](https://github.com/nshpam/TomAndJourney/assets/97942535/53f92035-b49f-41b0-9d5f-f5f54cdd17c6)
-| _Description_ |
+| _On this page, you can add, edit, or delete market pins._ |
 ![admin_6](https://github.com/nshpam/TomAndJourney/assets/97942535/480fbfcb-f15a-4fbf-9691-5a01a0c72853)
-| _Description_ |
+| _On this page, you can add, edit, or delete food pins._ |
 ![admin_7](https://github.com/nshpam/TomAndJourney/assets/97942535/4db09062-279a-4308-bac5-e306ce4766ce)
-| _Description_ |
+| _On this page, you can add, edit, or delete pump pins._ |
 ![admin_9](https://github.com/nshpam/TomAndJourney/assets/97942535/faeaeccd-ce78-4a82-9989-4804f8d47114)
-| _Description_ |
+| _On this page, you can add, edit, or delete hotel pins._ |
 ![admin_10](https://github.com/nshpam/TomAndJourney/assets/97942535/88246756-4a28-450f-bf22-24b0c90c188e)
-| _Description_ |
+| _On this page, you can add, edit, or delete photo pins._ |
 ![admin_11](https://github.com/nshpam/TomAndJourney/assets/97942535/4efafe4f-e8f8-4761-86ae-bf9a5e0258ff)
-| _Description_ |
-![](https://github.com/nshpam/TomAndJourney/assets/97942535/c4a1bb9d-ece9-48f1-9544-6d72ea39cc3c)
-| _Description_ |
+| _On this page, you can add, edit, or delete museum pins._ |
 ![](https://github.com/nshpam/TomAndJourney/assets/97942535/64bb9fcb-c603-487d-8716-3f689cee0524)
-| _Description_ |
+| _On this page, you can add, edit, or delete photo pins._ |
+![](https://github.com/nshpam/TomAndJourney/assets/97942535/c4a1bb9d-ece9-48f1-9544-6d72ea39cc3c)
+| _On this page, we've set the recommended trip for you. You can add, edit, or delete trip recommendations. Which will show on the first page of trip planner._ |
 
 ###
 | *🌟✨ About Us Page 📜✨* |
