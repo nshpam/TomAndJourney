@@ -42,31 +42,23 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 ###
 | *🗺️🚗 Trip Planner Page 🚗🗺️* |
 |:--:|
-![trip_1](https://github.com/nshpam/TomAndJourney/assets/97942535/04fcc208-2b5c-4099-b1a3-6029469cf762) |
-| _Description_ |
-![trip_2](https://github.com/nshpam/TomAndJourney/assets/97942535/72bafb76-9d6b-413b-ac30-f0962e178c4a) |
-| _Description_ |
-![trip_3](https://github.com/nshpam/TomAndJourney/assets/97942535/01834793-a51b-4ee3-ab34-c558415d1dd7) |
-| _Description_ |
-![trip_4](https://github.com/nshpam/TomAndJourney/assets/97942535/37d692f1-c3be-41b6-804e-5c7fe8255551) |
-| _Description_ |
-
-###
-| *🌟✨ About Us Page 📜✨* |
-|:--:|
-![about_1](https://github.com/nshpam/TomAndJourney/assets/97942535/acb10d73-50fb-4e46-8a8d-4b8a88105439) |
-| _Description_ |
+![](https://github.com/nshpam/TomAndJourney/assets/97942535/01834793-a51b-4ee3-ab34-c558415d1dd7) |
+| _Your trip planner will recommend a suitable trip for you, displaying the trip name, total distance, total travel time, and the number of places to visit. The time and distance are calculated using Leaflet and OpenStreetMap, open-source tools that provide an interactive map experience._ |
+![](https://github.com/nshpam/TomAndJourney/assets/97942535/37d692f1-c3be-41b6-804e-5c7fe8255551) |
+| _If you're not currently logged in, an inviting modal will gracefully appear, suggesting that you log in for an enhanced experience._ |
+![](https://github.com/nshpam/TomAndJourney/assets/97942535/04fcc208-2b5c-4099-b1a3-6029469cf762) |
+| _I've designed the trip planner page to include a map, map filters, pins, pin details, and automatic trip routing. You have the freedom to move the map as you wish, with the ability to zoom in and out. The filters consist of 10 categories, including points of interest for photography, hotels, gas stations, food establishments, metro/skytrain stations, museums, grocery stores, ports, cafes, and bars. Each filter can be toggled separately. The pins are added manually, and the routing system is provided by Leaflet._ |
 
 ###
 | *⚠️🚨 Alerts 🚨⚠️* |
 |:--:|
-![login_2](https://github.com/nshpam/TomAndJourney/assets/97942535/020991c8-da34-40e6-8541-ad43c691214f)
+![](https://github.com/nshpam/TomAndJourney/assets/97942535/020991c8-da34-40e6-8541-ad43c691214f)
 | _Description_ |
-![login_3](https://github.com/nshpam/TomAndJourney/assets/97942535/437f75b5-a60f-41d9-ae77-7cfc3d8d1b95)
+![](https://github.com/nshpam/TomAndJourney/assets/97942535/437f75b5-a60f-41d9-ae77-7cfc3d8d1b95)
 | _Description_ |
-![login_5](https://github.com/nshpam/TomAndJourney/assets/97942535/e966229b-95e6-4a8c-bea8-257a1eec2707)
+![](https://github.com/nshpam/TomAndJourney/assets/97942535/e966229b-95e6-4a8c-bea8-257a1eec2707)
 | _Description_ |
-![login_6](https://github.com/nshpam/TomAndJourney/assets/97942535/0a7b9578-d2e2-466c-92b7-1871227e3166)
+![](https://github.com/nshpam/TomAndJourney/assets/97942535/0a7b9578-d2e2-466c-92b7-1871227e3166)
 | _Description_ |
 
 ###
@@ -75,6 +67,12 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 ![admin_1](https://github.com/nshpam/TomAndJourney/assets/97942535/c4a1bb9d-ece9-48f1-9544-6d72ea39cc3c)
 | _Description_ |
 ![admin_2](https://github.com/nshpam/TomAndJourney/assets/97942535/64bb9fcb-c603-487d-8716-3f689cee0524)
+| _Description_ |
+
+###
+| *🌟✨ About Us Page 📜✨* |
+|:--:|
+![about_1](https://github.com/nshpam/TomAndJourney/assets/97942535/acb10d73-50fb-4e46-8a8d-4b8a88105439) |
 | _Description_ |
 
 ## Future Plan 🎯
