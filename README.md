@@ -64,9 +64,31 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 ###
 | *🚀🌐 Admin Panel Page 🌐🚀* |
 |:--:|
-![admin_1](https://github.com/nshpam/TomAndJourney/assets/97942535/c4a1bb9d-ece9-48f1-9544-6d72ea39cc3c)
+![](https://github.com/nshpam/TomAndJourney/assets/97942535/c2e5ce37-f0be-40ac-94c5-09c4f28d5957)
 | _Description_ |
-![admin_2](https://github.com/nshpam/TomAndJourney/assets/97942535/64bb9fcb-c603-487d-8716-3f689cee0524)
+![admin_1](https://github.com/nshpam/TomAndJourney/assets/97942535/74aebf0e-66b7-4a8b-896b-116befb0f847)
+| _Description_ |
+![admin_2](https://github.com/nshpam/TomAndJourney/assets/97942535/953eacc3-96fc-4250-acc4-70c608acfdfd)
+| _Description_ |
+![admin_3](https://github.com/nshpam/TomAndJourney/assets/97942535/ea99997a-fdf6-416f-892b-82ac7b65f74c)
+| _Description_ |
+![admin_4](https://github.com/nshpam/TomAndJourney/assets/97942535/b0b86384-ebfa-4a15-9835-b564d73989b3)
+| _Description_ |
+![admin_5](https://github.com/nshpam/TomAndJourney/assets/97942535/53f92035-b49f-41b0-9d5f-f5f54cdd17c6)
+| _Description_ |
+![admin_6](https://github.com/nshpam/TomAndJourney/assets/97942535/480fbfcb-f15a-4fbf-9691-5a01a0c72853)
+| _Description_ |
+![admin_7](https://github.com/nshpam/TomAndJourney/assets/97942535/4db09062-279a-4308-bac5-e306ce4766ce)
+| _Description_ |
+![admin_9](https://github.com/nshpam/TomAndJourney/assets/97942535/faeaeccd-ce78-4a82-9989-4804f8d47114)
+| _Description_ |
+![admin_10](https://github.com/nshpam/TomAndJourney/assets/97942535/88246756-4a28-450f-bf22-24b0c90c188e)
+| _Description_ |
+![admin_11](https://github.com/nshpam/TomAndJourney/assets/97942535/4efafe4f-e8f8-4761-86ae-bf9a5e0258ff)
+| _Description_ |
+![](https://github.com/nshpam/TomAndJourney/assets/97942535/c4a1bb9d-ece9-48f1-9544-6d72ea39cc3c)
+| _Description_ |
+![](https://github.com/nshpam/TomAndJourney/assets/97942535/64bb9fcb-c603-487d-8716-3f689cee0524)
 | _Description_ |
 
 ###
