@@ -12,6 +12,17 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 - 🔑 Managing access levels and permissions (user role and admin role)
 - 🌐 Maintaining user identity during their interactions with the platform
 
+#### 🗃️ phpmyadmin database 🗃️
+- 🛡️ Encrypting sensitive data utilizing md5.
+- 🎨 Interface for database manipulation.
+- 🚨 Implementing effective error handling mechanisms to promptly detect and address issues within the database.
+- 🧑‍💻 Defining and enforcing appropriate permissions for database users to restrict access based on roles and responsibilities.
+- 📋 Implementing proper data validation mechanisms to ensure the integrity and accuracy of information stored in the database.
+
+#### 🗺️ Interactive map 🗺️
+
+
+
 ## Screenshots 📷
 
 ### 
