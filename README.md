@@ -19,9 +19,18 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 - 🧑‍💻 Defining and enforcing appropriate permissions for database users to restrict access based on roles and responsibilities.
 - 📋 Implementing proper data validation mechanisms to ensure the integrity and accuracy of information stored in the database.
 
-#### 🗺️ Interactive map 🗺️
+#### 🗺️ Interactive Map 🗺️
+- 🕒 Providing dynamic and real-time information on the interactive map.
+- 🤗 Creating an intuitive and easy-to-use navigation system.
+- 🍃 Utilizing Leaflet and OpenStreetMap for enhanced map functionality.
 
-
+#### 📜 Website Programming 📜
+- 🖥️ Designing websites that adapt to different devices for an optimal user experience.
+- 🛠️ Structuring code in a modular way for easier maintenance and scalability.
+- 🙋‍♂️ Implementing features that prioritize user needs and enhance usability.
+- 🔄 Integrating code changes regularly to maintain a stable and up-to-date website.
+- 🕵️ Implementing mechanisms to detect and handle errors, while maintaining logs for analysis.
+- 🧰 Leveraging relevant programming tools like PHP, JS, CSS, and Bootstrap to streamline development processes.
 
 ## Screenshots 📷
 
