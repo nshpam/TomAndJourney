@@ -117,9 +117,6 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 ![](https://github.com/nshpam/TomAndJourney/assets/97942535/acb10d73-50fb-4e46-8a8d-4b8a88105439) |
 | _This page serves as the credit page for contributors._ |
 
-## Future Plan 🎯
-
 ## Contributor 👩‍💻👨‍💻
-
 - [@nshpam](https://github.com/nshpam)
 - [@Athibdee](https://github.com/Athibdee)
