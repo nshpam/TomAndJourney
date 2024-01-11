@@ -4,9 +4,9 @@ Tom & Journey is a collaborative effort between Atibdee and me, resulting in a u
 Our project also includes a thoughtfully designed admin panel, enabling seamless pin configuration with MongoDB integration for real-time database updates. Tom & Journey serves as a testament to our expertise in web development, database management, and user-centric design.
 
 # Table of Contents
-[Lessons Learned 🎓](#lessons-learned-)
-[Screenshots 📷](#screenshots-)
-[Contributor 👩‍💻👨‍💻](#contributor-)
+[Lessons Learned 🎓](#lessons-learned-) <br>
+[Screenshots 📷](#screenshots-) <br>
+[Contributor 👩‍💻👨‍💻](#contributor-) <br>
 
 ## Lessons Learned 🎓 
 
