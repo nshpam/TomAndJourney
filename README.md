@@ -36,7 +36,7 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 - 🧰 Leveraging relevant programming tools like PHP, JS, CSS, and Bootstrap to streamline development processes.
 
 ## Screenshots
-📷
+## Screenshots 📷
 
 ### 
 | **🏡✨ Home Page ✨🏡** |
