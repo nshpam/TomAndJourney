@@ -35,7 +35,6 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 - 🕵️ Implementing mechanisms to detect and handle errors, while maintaining logs for analysis.
 - 🧰 Leveraging relevant programming tools like PHP, JS, CSS, and Bootstrap to streamline development processes.
 
-## Screenshots
 ## Screenshots 📷
 
 ### 
