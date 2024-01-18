@@ -9,6 +9,7 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 - [Contributor 👩‍💻👨‍💻](#contributor-) <br>
 
 ## Lessons Learned 🎓 
+[Back to top](#table-of-contents) <br>
 
 #### 🔄 Authentication Session 🔄
 - 🔐 Ensuring a Secure User Experience by establishing trust and preventing unauthorized access.
@@ -38,6 +39,7 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 - 🧰 Leveraging relevant programming tools like PHP, JS, CSS, and Bootstrap to streamline development processes.
 
 ## Screenshots 📷
+[Back to top](#table-of-contents) <br>
 
 ### 
 | **🏡✨ Home Page ✨🏡** |
@@ -48,6 +50,7 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 ### 
 | *🌈🚪 Login Page 🚪🌈* |
 |:--:| 
+| [Back to top](#table-of-contents) |
 ![](https://github.com/nshpam/TomAndJourney/assets/97942535/eeae7137-bc5e-4784-9eeb-97dec47a4462)
 |_We have implemented a system to distinguish between users and administrators. Additionally, we have implemented a session system that prevents others from logging into your account simultaneously. This system is also used for the logout functionality._|
 | ![](https://github.com/nshpam/TomAndJourney/assets/97942535/af23d9e1-d5da-4ef8-8930-f37ca10160a7) |
@@ -55,18 +58,21 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 
 | *✍️📋 Register Page 📋✍️* |
 |:--:|
+| [Back to top](#table-of-contents) |
 ![](https://github.com/nshpam/TomAndJourney/assets/97942535/8272f48c-8e8c-4301-b451-f029e730e0aa)
 |_You must register before logging into Tom&Journey. If you register on the webpage, your role will be user. The only way to add an admin user is by accessing the database directly. The registered data will be stored in the database._|
 
 ###
 | *👑📄 Profile Page 📄👑* |
 |:--:|
+| [Back to top](#table-of-contents) |
 ![](https://github.com/nshpam/TomAndJourney/assets/97942535/0292ea8e-f196-4a66-984e-836930b19cf5) |
 | _After logging in, you can access your profile through the navigation bar, where it will display your account details. On this page, you have the option to edit your email and password._ |
 
 ###
 | *🗺️🚗 Trip Planner Page 🚗🗺️* |
 |:--:|
+| [Back to top](#table-of-contents) |
 ![](https://github.com/nshpam/TomAndJourney/assets/97942535/01834793-a51b-4ee3-ab34-c558415d1dd7) |
 | _Your trip planner will recommend a suitable trip for you, displaying the trip name, total distance, total travel time, and the number of places to visit. The time and distance are calculated using Leaflet and OpenStreetMap, open-source tools that provide an interactive map experience._ |
 ![](https://github.com/nshpam/TomAndJourney/assets/97942535/37d692f1-c3be-41b6-804e-5c7fe8255551) |
@@ -77,6 +83,7 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 ###
 | *💭🗨️ Modals 💭🗨️* |
 |:--:|
+| [Back to top](#table-of-contents) |
 ![](https://github.com/nshpam/TomAndJourney/assets/97942535/020991c8-da34-40e6-8541-ad43c691214f)
 | _This modal will appear when you have successfully logged into the system._ |
 ![](https://github.com/nshpam/TomAndJourney/assets/97942535/437f75b5-a60f-41d9-ae77-7cfc3d8d1b95)
@@ -89,6 +96,7 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 ###
 | *🚀🌐 Admin Panel Page 🌐🚀* |
 |:--:|
+| [Back to top](#table-of-contents) |
 ![](https://github.com/nshpam/TomAndJourney/assets/97942535/c2e5ce37-f0be-40ac-94c5-09c4f28d5957)
 | _The dashboard will display shortcuts for each category._ |
 ![admin_1](https://github.com/nshpam/TomAndJourney/assets/97942535/74aebf0e-66b7-4a8b-896b-116befb0f847)
@@ -119,9 +127,11 @@ Our project also includes a thoughtfully designed admin panel, enabling seamless
 ###
 | *🌟✨ About Us Page 📜✨* |
 |:--:|
+| [Back to top](#table-of-contents) |
 ![](https://github.com/nshpam/TomAndJourney/assets/97942535/acb10d73-50fb-4e46-8a8d-4b8a88105439) |
 | _This page serves as the credit page for contributors._ |
 
 ## Contributor 👩‍💻👨‍💻
+[Back to top](#table-of-contents) <br>
 - [@nshpam](https://github.com/nshpam)
 - [@Athibdee](https://github.com/Athibdee)
